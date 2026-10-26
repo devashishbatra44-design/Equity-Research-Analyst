@@ -1,0 +1,24 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Local Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local and licensed data; keep vendor exports out of the public repository
+data/raw/
+data/exports/
+*.csv
+*.parquet
+*.xlsx
+
+# OS and editor state
+.DS_Store
+.vscode/
