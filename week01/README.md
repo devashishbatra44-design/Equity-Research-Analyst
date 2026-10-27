@@ -16,6 +16,14 @@ It reports only whether `GENAI_API_KEY` is present. It never prints the value. T
 python3 -m unittest discover -s week01 -p 'test_*.py' -v
 ```
 
+For the Lab 01 partner demonstration, run:
+
+```sh
+python3 check_env.py
+```
+
+No package installation is needed. The script reads `API_KEY` if present, or the existing `GENAI_API_KEY`, and prints the first four characters followed by `...`, then `SEC_USER_AGENT`, as the lab specifies. Run it only in the local terminal with your partner. Do not paste or screenshot the output. `.env` remains ignored by Git.
+
 Enter your real key only in `.env`. Do not paste it into chat or screenshots. `api_smoke_test.py` sends one minimal prompt to the configured model and never prints the key.
 
 `list_genai_models.py` makes an authenticated GET request and prints only the model IDs available to your account. The current local selection is `qwen3.8:27b`, which Purdue lists for coding and agentic workflows. `api_smoke_test.py` verifies one minimal chat-completions request.
