@@ -1,0 +1,83 @@
+# Week 2 — The Desk, Then Make It Yours
+
+Last checked: October 27, 2026.
+
+## Arrival check
+
+- Lab 01 is complete under the temporary private-repository instruction.
+- Francis and Zhang (2026), Section 3.1 and Figure 2: user-confirmed read.
+- Figure 1 is a workflow made from agent-like model calls. Code fixes the main path, JSON hand-offs, checklist, and one retry.
+- The model-provider key is available locally. Lab 02 does not need it. Lab 03 does.
+
+## Required one-line answers
+
+**Which paper tool does EDGAR provide for free?**  
+EDGAR provides the filings reader: filing metadata, 10-K and 10-Q documents, the earnings 8-K and Exhibit 99.1, and XBRL company facts.
+
+**Where is the autonomy slider in this project?**  
+The autonomy slider is the agent permission mode: it ranges from approval for tool actions to broader automatic access, while the human still validates the result.
+
+**What may shrink the reported prediction edge on unseen companies and years?**  
+The edge may shrink under distribution shift, accounting-definition changes, model changes, or data and replication errors that were not present in the study sample.
+
+## Kim, Muhn, and Nikolaev reading note
+
+The assigned November 2024 v2 draft reports the following in Table 2:
+
+| Method | Accuracy | F1 |
+|---|---:|---:|
+| Naive | 49.11% | 53.02% |
+| Analyst, one month | 52.71% | 54.48% |
+| Analyst, three months | 55.95% | 55.33% |
+| Analyst, six months | 56.68% | 56.85% |
+| GPT without chain-of-thought instructions | 52.33% | 54.52% |
+| GPT with chain-of-thought instructions | 60.35% | 60.90% |
+
+The assigned comparison is 60.35% for GPT with the structured prompt versus 52.71% for analysts after one month, a difference of about 7.6 percentage points.
+
+Current source status matters. The [arXiv record](https://arxiv.org/abs/2407.17866) now says that a co-author found inconsistencies in the data and analyses while attempting replication. The authors temporarily withdrew the working paper. Treat the numbers above as results reported in the assigned v2 draft, not as settled replicated evidence.
+
+Sources: [assigned v2 PDF](https://arxiv.org/pdf/2407.17866v2), especially Table 2 on PDF page 53; [current arXiv record](https://arxiv.org/abs/2407.17866).
+
+## Report-audit rules
+
+- Every number needs its filing, period, units, and line or XBRL tag.
+- Every ratio must show its inputs, definition, and arithmetic.
+- The 11 core claims use the definitions in the course report audit.
+- Audit marks are correct, wrong, unsupported, missing, or not in filings.
+- Report both error and missing counts. Errors equal wrong plus unsupported.
+
+Definition trap: Costco's total revenue includes net sales and membership fees. Net sales alone is not total revenue. Gross margin on net sales and gross margin on total revenue are different calculations. The report must name the chosen definition.
+
+## Costco prework — matched to the 10-K and XBRL
+
+Costco's latest 10-K reports the 52 weeks ended August 30, 2026. The consolidated statements of income state amounts in millions, except per-share data.
+
+| Claim | 10-K value | XBRL evidence |
+|---|---:|---|
+| Net income attributable to Costco | $9,226 million | `us-gaap:NetIncomeLoss`; 9,226,000,000 USD; September 1, 2025–August 30, 2026 |
+| GAAP diluted EPS | $20.76 per share | `us-gaap:EarningsPerShareDiluted`; 20.76 USD/share; September 1, 2025–August 30, 2026 |
+
+Both facts are FY2026 facts from Form 10-K accession `0000909832-26-000093`, filed October 7, 2026. The fiscal period ends August 30, 2026.
+
+Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html), [FY2026 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm), and [Costco company facts](https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json).
+
+## Before Session 2 status
+
+- [x] Finish every Lab 01 row.
+- [x] Watch the Karpathy talk and record the autonomy-slider answer.
+- [x] Read Francis and Zhang Section 3.1 and Figure 2.
+- [ ] Devashish reviews the report-audit definitions above and confirms that he can explain the definition trap without the screen.
+- [ ] Devashish reviews the Kim, Muhn, and Nikolaev abstract and Table 2 notes above and confirms that he can explain the 60.35% comparison and the withdrawal caveat.
+- [x] Match Costco net income and diluted EPS between the 10-K and XBRL facts.
+
+## Before Session 3
+
+- [ ] Complete all seven Lab 02 steps.
+- [ ] Run the steps on Costco and validate every step against the filings.
+- [ ] Run the unchanged steps on WMT with selected peers.
+- [ ] Match WMT total revenue and operating income to its latest 10-K.
+- [ ] Confirm the WMT revenue tag represents total revenue, not net sales.
+- [ ] Recompute the WMT operating margin by hand.
+- [ ] Push the permitted code and saved facts. Never push `.env` or licensed raw data.
+- [ ] Confirm the local key check before the first model call in Lab 03.

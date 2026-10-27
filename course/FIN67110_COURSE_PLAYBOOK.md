@@ -210,10 +210,11 @@ Week 1 is complete under the temporary repository-visibility exception reported 
 
 Today, October 27:
 
-1. Build the seven Lab 02 steps from the exact lab request.
-2. Run the desk data path on Costco.
-3. Validate every step against the instructor run and the filings.
-4. Save facts and filing text without committing secrets or licensed raw data.
+1. Week 2 source notes are recorded in `week02/README.md`; two student explanation checks remain.
+2. Build the seven Lab 02 steps from the exact lab request.
+3. Run the desk data path on Costco.
+4. Validate every step against the instructor run and the filings.
+5. Save facts and filing text without committing secrets or licensed raw data.
 
 Before Session 3:
 
