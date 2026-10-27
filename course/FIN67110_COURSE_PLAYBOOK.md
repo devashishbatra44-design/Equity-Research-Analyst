@@ -191,6 +191,7 @@ Status meanings:
 | Antigravity CLI | Verified | `agy 1.4.7`. Antigravity is running. |
 | Orca installed and running | Verified | Orca 1.4.240 is running. Its Codex process names `/Users/devashish/Desktop/The Boss DB` as the workspace. |
 | Codex and Antigravity use this folder | Verified/user-confirmed | Orca exposes this exact folder. The Antigravity screenshot shows `The Boss DB`; its local hub includes this folder. |
+| Persistent agent writing rule | Verified | Root `AGENTS.md` contains the required ASD-STE100 instruction. Antigravity CLI identified that file as its loaded project instruction and reproduced the required sentence. |
 | Model-provider API key | Verified | The local `.env` contains a Purdue GenAI key. The safe check reports presence without printing it. A prior minimal call returned `READY`. |
 | `.env` excluded from Git | Verified | `.gitignore` excludes `.env`. Git history contains no `.env` commit. Three environment tests pass. |
 | GitHub CLI connected | Verified | `gh` can read `devashishbatra44-design/Equity-Research-Analyst`. |
@@ -199,9 +200,11 @@ Status meanings:
 | Week 1 paper and assigned media | User-confirmed | Devashish reports completing the reading and video. The repository records the required conclusions and definitions. |
 | Costco filing exercise | Verified | The repository records the SEC filing links, periods, units, and revenue values. |
 | Lab 01 partner demonstration | User-confirmed | Partner: Shivani Rathi. Devashish reports that the witnessed checks passed. |
-| Session 1 Brightspace checkout | Pending verification | Required submission: repository link and partner name. A Brightspace receipt or submission-history screen has not been independently checked. |
+| Session 1 Brightspace checkout | User-confirmed complete | Devashish confirms that Brightspace received the repository link and partner name, Shivani Rathi. |
 | Lab 02 seven-step desk | Pending | This is the active Session 2 build. |
 | Lab 03 app and Checkpoint 1 | Pending | Due October 29 at 11:59 PM Eastern. |
+
+Week 1 is complete under the temporary repository-visibility exception reported by the user. The published public-repository requirement remains open until the instructor's temporary private-repository instruction ends.
 
 ## Immediate critical path
 
