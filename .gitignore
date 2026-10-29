@@ -19,6 +19,14 @@ data/exports/
 *.parquet
 *.xlsx
 
+# Lab 02 saves small, public SEC-derived audit tables with each run.
+!week02/runs/
+!week02/runs/**/
+!week02/runs/**/*.csv
+
+# Keep downloaded filing text local. Commit the derived facts and provenance.
+week02/runs/**/*.txt
+
 # OS and editor state
 .DS_Store
 .vscode/

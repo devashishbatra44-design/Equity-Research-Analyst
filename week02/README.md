@@ -73,11 +73,20 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 
 ## Before Session 3
 
-- [ ] Complete all seven Lab 02 steps.
-- [ ] Run the steps on Costco and validate every step against the filings.
-- [ ] Run the unchanged steps on WMT with selected peers.
-- [ ] Match WMT total revenue and operating income to its latest 10-K.
-- [ ] Confirm the WMT revenue tag represents total revenue, not net sales.
-- [ ] Recompute the WMT operating margin by hand.
+- [x] Complete all seven Lab 02 steps.
+- [x] Run the steps on Costco and validate every step against the filings.
+- [x] Run the unchanged steps on WMT with selected peers.
+- [x] Match WMT total revenue and operating income to its latest 10-K.
+- [x] Confirm the WMT revenue tag represents total revenue, not net sales.
+- [x] Recompute the WMT operating margin by hand.
 - [ ] Push the permitted code and saved facts. Never push `.env` or licensed raw data.
-- [ ] Confirm the local key check before the first model call in Lab 03.
+- [x] Confirm the local key is present before the first model call in Lab 03. No key value was printed or saved.
+
+## Lab 02 completed runs
+
+- Costco full run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261029_015334`
+- Walmart full run: `runs/Walmart_Inc_WMT_20261029_015401`
+- Costco price input: `$896.48`, the September 24, 2026 close used for the functional P/E calculation. Confirm this equals the instructor's demonstrated `P` before using the P/E as a known-answer mark.
+- Detailed hand-check record: `LAB02_AUDIT.md`
+
+The local filing texts remain excluded from GitHub. The SEC-derived facts, calculations, filing metadata, peer tables, and manifests may be committed.
