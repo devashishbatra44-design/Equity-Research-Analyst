@@ -79,7 +79,7 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 - [x] Match WMT total revenue and operating income to its latest 10-K.
 - [x] Confirm the WMT revenue tag represents total revenue, not net sales.
 - [x] Recompute the WMT operating margin by hand.
-- [ ] Push the permitted code and saved facts. Never push `.env` or licensed raw data.
+- [x] Push the permitted code and saved facts. `.env`, downloaded filing text, and licensed raw data remain excluded.
 - [x] Confirm the local key is present before the first model call in Lab 03. No key value was printed or saved.
 
 ## Lab 02 completed runs
