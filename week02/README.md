@@ -1,6 +1,6 @@
 # Week 2 — The Desk, Then Make It Yours
 
-Last checked: October 27, 2026.
+Last checked: October 31, 2026.
 
 ## Arrival check
 
@@ -84,9 +84,19 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 
 ## Lab 02 completed runs
 
-- Costco full run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261029_015334`
-- Walmart full run: `runs/Walmart_Inc_WMT_20261029_015401`
-- Costco price input: `$896.48`, the September 24, 2026 close used for the functional P/E calculation. Confirm this equals the instructor's demonstrated `P` before using the P/E as a known-answer mark.
+- Costco full run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554`
+- Walmart transfer run: `runs/Walmart_Inc_WMT_20261031_191931`; Step 6 was rerun after narrowing extraction to the consolidated income-statement row.
+- Costco price input for Lab 03: `$992.13`, COST's unadjusted close on Tuesday, October 27, 2026. Source: [Nasdaq historical data](https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100).
 - Detailed hand-check record: `LAB02_AUDIT.md`
 
 The local filing texts remain excluded from GitHub. The SEC-derived facts, calculations, filing metadata, peer tables, and manifests may be committed.
+
+## Lab 03 — current status
+
+- [x] Four model roles ran on COST: Research Analyst, Financial Analyst, Investment Advisor, and Strategy Manager.
+- [x] The report has the five required headings; all eleven audit claims, FY-EPS P/E, and peer operating margins are present with source trails.
+- [x] The Strategy Manager returned `pass`; this is a structural review, not a substitute for the student's filing audit.
+- [x] The manual audit worksheet is saved beside the report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md`.
+- [ ] Devashish completes the 11 core-claim and extra-number marks by hand against the named filings. Do not use AI to choose the marks.
+- [ ] Shivani's pick: run the same app on the U.S. company she selects, then Shivani checks two claims by hand. The ticker and partner marks are not recorded yet.
+- [ ] Confirm the separate Checkpoint 1 upload in Brightspace. The generated report is not proof of an upload.

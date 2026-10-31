@@ -1,10 +1,14 @@
 import unittest
 
+from week02.desk_app import extract_release_period
 from week02.desk_steps import (
     CONCEPTS,
+    Company,
     calculate_measures,
+    format_observation,
     normalize_ticker,
     parse_peers,
+    source_candidates,
 )
 
 
@@ -41,6 +45,37 @@ class DeskStepsTests(unittest.TestCase):
         self.assertAlmostEqual(calculations["debt_to_equity"]["result"], 0.5)
         self.assertEqual(calculations["free_cash_flow"]["result"], 12)
         self.assertEqual(calculations["price_to_earnings"]["result"], 10)
+
+    def test_comparative_fact_fiscal_year_uses_its_period_end(self):
+        item = {
+            "val": 100,
+            "end": "2025-08-31",
+            "fy": 2026,
+            "fp": "FY",
+            "form": "10-K",
+            "filed": "2026-10-07",
+            "accn": "",
+            "source_unit_key": "USD",
+        }
+        fact = format_observation(Company("COST", "Example Corp", 1), "Revenues", CONCEPTS["total_revenue"], item)
+        self.assertEqual(fact["fiscal_year"], 2025)
+
+    def test_release_revenue_prefers_income_statement_over_constant_currency(self):
+        lines = [
+            "Walmart Inc. Condensed Consolidated Statements of Income (Unaudited)",
+            "Total revenues | 187,937 | 177,402 | 5.9 | % | 365,688 | 343,011 | 6.6 | %",
+            "The table below reflects constant currency for total revenues.",
+            "Total revenues (cc) | $ | 34,081 | 7.9 | %",
+        ]
+        candidates = source_candidates(lines, "total_revenue")
+        self.assertEqual(candidates[0]["line_start"], 2)
+        self.assertEqual(candidates[0]["text"], lines[1])
+
+    def test_release_period_supports_month_and_week_statements(self):
+        costco_lines = ["16 Weeks Ended | 16 Weeks Ended | 52 Weeks Ended", "August 30, 2026 | August 31, 2025"]
+        walmart_lines = ["Three Months Ended | Six Months Ended", "July 31, | July 31,", "(Amounts in millions) | 2026 | 2025"]
+        self.assertEqual(extract_release_period(costco_lines)[0], "August 30, 2026")
+        self.assertEqual(extract_release_period(walmart_lines)[0], "July 31, 2026")
 
 
 if __name__ == "__main__":

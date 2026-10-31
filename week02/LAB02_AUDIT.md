@@ -1,18 +1,18 @@
 # Lab 02 — Filing and Calculation Audit
 
-Audit date: October 29, 2026.
+Audit date: October 31, 2026.
 
 This audit checks the saved runs against the SEC filings. Amounts from the financial statements are in millions of U.S. dollars, except per-share data.
 
 ## Run evidence
 
-- Costco command: `.venv/bin/python week02/desk_steps.py COST --peers WMT,TGT,BJ --price 896.48`
-- Costco run folder: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261029_015334`
-- Walmart command: `.venv/bin/python week02/desk_steps.py WMT --peers COST,TGT,BJ`
-- Walmart run folder: `runs/Walmart_Inc_WMT_20261029_015401`
+- Costco command: `.venv/bin/python week02/desk_steps.py COST --peers WMT,TGT,BJ --price 992.13 --price-date 2026-10-27 --price-source 'https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100'`
+- Costco run folder: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554`
+- Walmart transfer command: `.venv/bin/python week02/desk_steps.py WMT --peers COST,TGT,BJ`
+- Walmart run folder: `runs/Walmart_Inc_WMT_20261031_191931` (Step 6 rerun after the extraction fix)
 - Program tests: `.venv/bin/python -m unittest week02.test_desk_steps`
 
-The `$896.48` Costco price input is the September 24, 2026 close used for the functional P/E calculation. Confirm that it equals the price `P` from the instructor's demonstration before marking the P/E against that demonstration.
+The `$992.13` Costco price input is the unadjusted close on Tuesday, October 27, 2026, as Lab 03 requires. The value was checked against Nasdaq's historical-data endpoint: [Nasdaq historical data](https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100). The earlier `$896.48` input was not the Tuesday close used for Lab 03, so the P/E has been corrected.
 
 ## Seven-step Costco check
 
@@ -53,7 +53,7 @@ The SEC cash-flow statement presents additions to property and equipment as `(6,
 | Return on average equity | `9,226 / ((35,803 + 29,164) / 2)` | `28.4021%` |
 | Debt to equity | `(3,914 + 2,248) / 35,803` | `17.2108%` |
 | Free cash flow | `15,817 - 6,435` | `$9,382 million` |
-| Price divided by FY2026 diluted EPS | `896.48 / 20.76` | `43.1830x` |
+| Price divided by FY2026 diluted EPS | `992.13 / 20.76` | `47.7905x` |
 
 The P/E is not labeled TTM P/E. It uses the supplied share price and FY2026 diluted EPS.
 

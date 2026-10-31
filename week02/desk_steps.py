@@ -572,7 +572,9 @@ def format_observation(
         "value": observation.get("val"),
         "unit": spec["unit"],
         "source_unit_key": observation.get("source_unit_key"),
-        "fiscal_year": observation.get("fy"),
+        # SEC's `fy` can be the reporting filing's year for comparative facts.
+        # Label each fact by the year in its own period end instead.
+        "fiscal_year": int(str(observation.get("end", ""))[:4]) if str(observation.get("end", ""))[:4].isdigit() else observation.get("fy"),
         "fiscal_period": observation.get("fp"),
         "period_start": observation.get("start"),
         "period_end": observation.get("end"),
@@ -1000,13 +1002,19 @@ def print_calculations(data: dict[str, Any]) -> None:
 
 def source_candidates(lines: list[str], kind: str) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
+    income_statement_lines = [
+        index for index, text in enumerate(lines)
+        if re.search(r"statements? of (income|operations|earnings)", text, flags=re.IGNORECASE)
+    ]
     for index, line in enumerate(lines):
         lower = line.lower()
         has_number = bool(re.search(r"\d", line))
         if kind == "total_revenue":
-            matches = "total revenue" in lower and has_number
-            score = 4 if matches else 0
-            if matches and "quarter" in lower:
+            is_income_statement_row = bool(re.match(r"^\s*total revenues?\s*\|", line, flags=re.IGNORECASE))
+            is_constant_currency = "(cc)" in lower or "constant currency" in lower
+            matches = "total revenue" in lower and has_number and not is_constant_currency
+            score = 10 if matches and is_income_statement_row and any(h < index for h in income_statement_lines) else (4 if matches else 0)
+            if matches and is_income_statement_row:
                 score += 2
         else:
             excluded = any(word in lower for word in ("share used", "shares used", "weighted average", "diluted shares"))
@@ -1148,6 +1156,8 @@ def new_manifest(company: Company, args: argparse.Namespace, now: datetime) -> d
             "ticker": args.ticker,
             "peers": args.peers,
             "price": args.price,
+            "price_date": args.price_date,
+            "price_source": args.price_source,
             "step": args.step,
         },
         "main_ticker": company.ticker,
@@ -1290,6 +1300,9 @@ def execute_step(
             calculations = calculate_measures(facts, args.price)
             write_json(run_folder / "calculations.json", calculations)
             print_calculations(calculations)
+            manifest["arguments"]["price"] = args.price
+            manifest["arguments"]["price_date"] = args.price_date
+            manifest["arguments"]["price_source"] = args.price_source
             manifest["output_filenames"] = sorted(set(manifest["output_filenames"] + ["calculations.json"]))
             unavailable = [
                 key for key, item in calculations["calculations"].items() if item["validation_status"] != "available"
@@ -1362,6 +1375,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("ticker", type=normalize_ticker, help="U.S. public-company ticker")
     parser.add_argument("--peers", help="Comma-separated peer tickers")
     parser.add_argument("--price", type=float, help="Positive share price for fiscal-year P/E")
+    parser.add_argument("--price-date", help="Date of the supplied closing share price (YYYY-MM-DD)")
+    parser.add_argument("--price-source", help="Source URL or label for the supplied closing share price")
     parser.add_argument("--step", type=int, choices=range(1, 8), help="Run one step only")
     return parser
 
@@ -1371,6 +1386,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.price is not None and args.price <= 0:
         parser.error("--price must be greater than zero")
+    if args.price_date and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.price_date):
+        parser.error("--price-date must use YYYY-MM-DD")
     try:
         peers = parse_peers(args.peers)
         if args.ticker in peers:
@@ -1385,6 +1402,10 @@ def main(argv: list[str] | None = None) -> int:
             if args.price is None:
                 saved_price = manifest.get("arguments", {}).get("price")
                 args.price = float(saved_price) if saved_price is not None else None
+            if args.price_date is None:
+                args.price_date = manifest.get("arguments", {}).get("price_date")
+            if args.price_source is None:
+                args.price_source = manifest.get("arguments", {}).get("price_source")
             execute_step(args.step, client, company, args, run_folder, manifest)
             print(f"\nSingle step completed. Run folder: {run_folder}")
             return 0

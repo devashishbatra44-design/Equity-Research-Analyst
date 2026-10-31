@@ -1,0 +1,164 @@
+{
+  "program_version": "1.0.0",
+  "run_status": "success",
+  "steps": {
+    "1": {
+      "name": "Resolve the ticker",
+      "status": "success"
+    },
+    "2": {
+      "name": "Select the filings",
+      "status": "success"
+    },
+    "3": {
+      "name": "Download and convert the documents",
+      "status": "success"
+    },
+    "4": {
+      "name": "Retrieve annual XBRL company facts",
+      "status": "success"
+    },
+    "5": {
+      "name": "Calculate financial measures",
+      "status": "success",
+      "unavailable_calculations": [
+        "price_to_earnings"
+      ]
+    },
+    "6": {
+      "name": "Extract quarterly revenue and diluted EPS",
+      "status": "success",
+      "extraction_statuses": {
+        "total_revenue": "found",
+        "diluted_eps": "found"
+      }
+    },
+    "7": {
+      "name": "Process the peers",
+      "status": "success",
+      "peer_failures": 0
+    }
+  },
+  "local_run_time": "2026-10-31T19:19:31.551714-04:00",
+  "utc_run_time": "2026-10-31T23:19:31.551714+00:00",
+  "time_zone": "EDT",
+  "arguments": {
+    "ticker": "WMT",
+    "peers": "COST,TGT,BJ",
+    "price": null,
+    "price_date": null,
+    "price_source": null,
+    "step": null
+  },
+  "main_ticker": "WMT",
+  "peer_tickers": [
+    "COST",
+    "TGT",
+    "BJ"
+  ],
+  "company": {
+    "ticker": "WMT",
+    "legal_name": "Walmart Inc.",
+    "cik": 104169,
+    "cik_10_digit": "0000104169"
+  },
+  "source_urls": {
+    "company_tickers": "https://www.sec.gov/files/company_tickers.json",
+    "submissions": "https://data.sec.gov/submissions/CIK0000104169.json",
+    "company_facts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000104169.json"
+  },
+  "filings": {
+    "10-k": {
+      "form": "10-K",
+      "filing_date": "2026-03-13",
+      "reporting_period": "2026-01-31",
+      "accession_number": "0000104169-26-000055",
+      "accepted_timestamp": "2026-03-13 16:06:24",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/0000104169-26-000055-index.html"
+    },
+    "10-q": {
+      "form": "10-Q",
+      "filing_date": "2026-08-28",
+      "reporting_period": "2026-07-31",
+      "accession_number": "0000104169-26-000154",
+      "accepted_timestamp": "2026-08-28 16:11:28",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.html"
+    },
+    "8-k": {
+      "form": "8-K",
+      "filing_date": "2026-08-20",
+      "reporting_period": "2026-08-20",
+      "accession_number": "0000104169-26-000145",
+      "accepted_timestamp": "2026-08-20 06:59:01",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/0000104169-26-000145-index.html"
+    }
+  },
+  "selected_xbrl_tags": {
+    "total_revenue": "us-gaap:Revenues",
+    "operating_income": "us-gaap:OperatingIncomeLoss",
+    "net_income": "us-gaap:NetIncomeLoss",
+    "diluted_eps": "us-gaap:EarningsPerShareDiluted",
+    "stockholders_equity": "us-gaap:StockholdersEquity",
+    "long_term_debt": "us-gaap:LongTermDebtNoncurrent",
+    "current_long_term_debt": "us-gaap:LongTermDebtCurrent",
+    "cash_from_operations": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "property_equipment_additions": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  "output_filenames": [
+    "10-k.txt",
+    "10-q.txt",
+    "8-k.txt",
+    "calculations.json",
+    "exhibit-99-1.txt",
+    "facts.csv",
+    "facts.json",
+    "filings.json",
+    "manifest.json",
+    "peers.csv",
+    "peers.json"
+  ],
+  "retrieval_errors": [],
+  "validation_errors": [],
+  "unavailable_values": [
+    "price_to_earnings"
+  ],
+  "documents": {
+    "10-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "local_filename": "10-k.txt",
+      "accession_number": "0000104169-26-000055",
+      "retrieval_status": "success"
+    },
+    "10-q": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm",
+      "local_filename": "10-q.txt",
+      "accession_number": "0000104169-26-000154",
+      "retrieval_status": "success"
+    },
+    "8-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/wmt-20260820.htm",
+      "local_filename": "8-k.txt",
+      "accession_number": "0000104169-26-000145",
+      "retrieval_status": "success"
+    },
+    "exhibit-99-1": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000145/earningsreleasefy27q2.htm",
+      "local_filename": "exhibit-99-1.txt",
+      "accession_number": "0000104169-26-000145",
+      "document_type": "EX-99.1",
+      "description": "EX-99.1",
+      "retrieval_status": "success"
+    }
+  },
+  "tag_selection_reasons": {
+    "total_revenue": "Selected the highest-priority candidate among tags with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is 2026-01-31.",
+    "operating_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "net_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "diluted_eps": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "stockholders_equity": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "current_long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "cash_from_operations": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "property_equipment_additions": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage."
+  }
+}
