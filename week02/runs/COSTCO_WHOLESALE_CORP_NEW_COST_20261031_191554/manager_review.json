@@ -1,5 +1,6 @@
 {
   "status": "pass",
   "sections_to_retry": [],
-  "issues": []
+  "issues": [],
+  "review_note": "Fresh Strategy Manager review of the updated report against the saved role outputs returned pass on 2026-10-31. This is a structural/completeness check, not source verification."
 }

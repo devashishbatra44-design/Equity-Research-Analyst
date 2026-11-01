@@ -23,6 +23,8 @@ Net sales increased 10% to $297,247 million in 2026. This increase was driven by
 
 Gross margin percentage decreased three basis points in 2026. It increased 10 basis points excluding the impact of gasoline price inflation. SG&A expenses as a percentage of net sales decreased 10 basis points. It increased one basis point excluding the impact of gasoline price inflation. The effective tax rate in 2026 was 24.7%. Net income increased 14% to $9,226 million. This equates to $20.76 per diluted share.
 
+Costco's September 2026 retail month provides an early FY2027 demand signal. Net sales were $30.02 billion, up 13.0% year over year; comparable sales were up 11.4%, or 7.6% excluding the effects of changes in gasoline prices and foreign exchange, and digitally enabled sales grew 19.0%. The five-week period included a later Labor Day, which Costco said increased September comparable sales by a little over 50 basis points. This is encouraging, but one retail month and a calendar shift do not establish a full-year growth rate. Comparable sales are not the same measure as GAAP net-sales growth. Source: [Costco September 2026 sales release](https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-September-Sales-Results/default.aspx).
+
 The company opened 28 new warehouses in 2026. This included three relocations. The total was 25 net new warehouses. The company opened 18 warehouses in the U.S., five in Canada, and two in Other International. The company expects square footage growth to be higher in international markets. This is due to the smaller base in those markets.
 
 ## Valuation Insights
@@ -99,13 +101,53 @@ The company opened 28 new warehouses in 2026. This included three relocations. T
 *   **Target Corp (TGT):** 4.88%.
     *   Fiscal Year Ended: 2026-01-31.
     *   Operating Income: $5,117 million.
-    *   Total Revenue: $104,780 million.
+    *   Net Sales (Target's statement label; used as its revenue denominator): $104,780 million.
     *   Source: 10-K, filed 2026-03-11, accession 0000027419-26-000016.
 *   **BJ's Wholesale Club Holdings, Inc. (BJ):** 3.81%.
     *   Fiscal Year Ended: 2026-01-31.
     *   Operating Income: $817 million.
     *   Total Revenue: $21,457 million.
     *   Source: 10-K, filed 2026-03-12, accession 0001531152-26-000007.
+
+**Supplemental FY-EPS P/E comparison — student source checks completed**
+
+The original role output did not include peer P/E multiples. This supplemental comparison uses the October 27, 2026 closing price divided by each company's latest annual GAAP diluted EPS. It is not a TTM P/E comparison.
+
+| Company | Close on 2026-10-27 | Latest annual diluted EPS | Fiscal period end | FY-EPS P/E |
+|---|---:|---:|---|---:|
+| Costco (COST) | $992.13 | $20.76 | 2026-08-30 | 47.7905x |
+| Walmart (WMT) | $119.32 | $2.73 | 2026-01-31 | 43.7070x |
+| Target (TGT) | $148.01 | $8.13 | 2026-01-31 | 18.2054x |
+| BJ's Wholesale (BJ) | $105.12 | $4.38 | 2026-01-31 | 24.0000x |
+
+The peers' simple arithmetic mean is 28.6375x and the median is 24.0000x. Costco's FY-EPS P/E is 66.88% above the peer mean on this basis. This is a descriptive relative-valuation signal, not a fair-value estimate. Costco's EPS period ends about seven months after the peers' periods, and the companies differ in growth, mix, and risk. A P/E multiple alone cannot establish intrinsic value.
+
+**TTM GAAP diluted-EPS cross-check — peer source checks completed by student**
+
+To reduce the fiscal-year timing gap, this supplemental view sums each company's latest four reported quarterly GAAP diluted-EPS amounts. Where the filing did not present fourth-quarter EPS separately, Q4 is calculated as annual EPS less the first three quarters; rounded reported EPS may create a small rounding difference. Costco's latest 52-week FY2026 EPS is $20.76, through 2026-08-30. Peer TTM periods end 2026-07-31 for WMT and 2026-08-01 for TGT and BJ.
+
+| Company | Close on 2026-10-27 | TTM diluted EPS basis | TTM EPS | P/E |
+|---|---:|---|---:|---:|
+| COST | $992.13 | FY2026, 52 weeks ended 2026-08-30 | $20.76 | 47.7905x |
+| WMT | $119.32 | 0.77 + (2.73 - 0.56 - 0.88 - 0.77) + 0.67 + 0.80 | $2.76 | 43.2319x |
+| TGT | $148.01 | 1.51 + (8.13 - 2.27 - 2.05 - 1.51) + 1.71 + 4.11 | $9.63 | 15.3697x |
+| BJ | $105.12 | 1.15 + (4.00 - 1.13 - 1.14 - 1.15) + 1.10 + 1.36 | $4.19 | 25.0883x |
+
+The peer mean is 27.8966x and the median is 25.0883x; Costco is 71.31% above the mean. This remains descriptive, not a fair-value estimate. Target's latest reported GAAP quarter includes a $994 million tariff refund recognized as a reduction of cost of sales; no adjustment is made here, so Target's EPS and multiple reflect that reported item. Fiscal quarter ends differ by up to one month, and the cross-company business and risk differences remain.
+
+**Illustrative five-year valuation sensitivity — scenarios, not forecasts**
+
+This sensitivity shows how the result changes under different EPS growth rates and exit P/E assumptions. It starts from FY2026 diluted EPS of $20.76 and the October 27, 2026 price of $992.13. It assumes five years of constant EPS growth, then applies the stated exit P/E. The annualized price return excludes dividends, makes no probability assignment, and is not an intrinsic-value estimate. The peer median and mean are benchmarks only; 40x is an illustrative premium-multiple case.
+
+| Assumed annual EPS growth | EPS after 5 years | Exit P/E 25.09x (peer median): price / annualized price return | Exit P/E 27.90x (peer mean): price / annualized price return | Exit P/E 40.00x (illustrative): price / annualized price return |
+|---:|---:|---:|---:|---:|
+| 8% | $30.50 | $765 / -5.06% | $851 / -3.02% | $1,220 / 4.22% |
+| 12% | $36.59 | $918 / -1.54% | $1,021 / 0.57% | $1,463 / 8.08% |
+| 16% | $43.60 | $1,094 / 1.97% | $1,216 / 4.16% | $1,744 / 11.94% |
+
+At a 27.90x exit P/E, EPS would need to grow about 11.37% annually for five years ($20.76 to approximately $35.56) just to match the current $992.13 share price before dividends. This is a break-even sensitivity, not a growth forecast. The investor's expected return hurdle, dividend income, the likelihood of each growth path, and Costco's justified future multiple remain judgment calls.
+
+Source trail: October 27 closes from Nasdaq historical data for [COST](https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-28&limit=10), [WMT](https://api.nasdaq.com/api/quote/WMT/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-28&limit=10), [TGT](https://api.nasdaq.com/api/quote/TGT/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-28&limit=10), and [BJ](https://api.nasdaq.com/api/quote/BJ/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-28&limit=10). Diluted EPS comes from the latest annual reports: COST accession 0000909832-26-000093; [WMT accession 0000104169-26-000055](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm); [TGT accession 0000027419-26-000016](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm); and [BJ accession 0001531152-26-000007](https://www.sec.gov/Archives/edgar/data/1531152/000153115226000007/bj-20260131.htm).
 
 **Annual XBRL source details**
 
@@ -123,7 +165,7 @@ The company opened 28 new warehouses in 2026. This included three relocations. T
 
 - FY-EPS P/E: 47.7905x = 992.13 / 20.76. Price date: 2026-10-27; price source: https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100. EPS period end: 2026-08-30; EPS tag: `us-gaap:EarningsPerShareDiluted`; 10-K accession 0000909832-26-000093. Not TTM P/E.
 - Walmart Inc. (WMT) operating margin: 4.1821% = 29,825 / 713,163 million; period end 2026-01-31; total-revenue tag `us-gaap:Revenues`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000104169-26-000055.
-- TARGET CORP (TGT) operating margin: 4.8836% = 5,117 / 104,780 million; period end 2026-01-31; total-revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000027419-26-000016.
+- TARGET CORP (TGT) operating margin: 4.8836% = 5,117 / 104,780 million; period end 2026-01-31; the 10-K labels the denominator “Net sales” (used here as Target's revenue measure); XBRL tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000027419-26-000016.
 - BJ's Wholesale Club Holdings, Inc. (BJ) operating margin: 3.8057% = 817 / 21,457 million; period end 2026-01-31; total-revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001531152-26-000007.
 
 # Future Developments and Strategic Recommendations
@@ -143,18 +185,18 @@ The filing does not establish specific future revenue targets or detailed strate
 **Recommendation: Hold**
 
 **Thesis**
-Costco delivered strong operational results for the fiscal year ended August 30, 2026. Net sales increased 10% to $297,247 million. Net income increased 14% to $9,226 million. The company maintains a high member renewal rate of 89.8% worldwide. However, the current valuation lacks a clear benchmark for intrinsic value. The supplied analysis provides a single P/E multiple but does not provide a suitable peer comparison for P/E ratios. It only provides peer operating margins. A single multiple without a suitable comparison cannot establish intrinsic value. Therefore, we cannot confirm if the stock is undervalued or overvalued based on the provided data.
+Costco delivered strong operational results for the fiscal year ended August 30, 2026. Net sales increased 10% to $297,247 million. Net income increased 14% to $9,226 million. The company reported a worldwide member renewal rate of 89.8%. Its September 2026 retail-month release also showed 7.6% comparable-sales growth excluding the effects of changes in gasoline prices and foreign exchange, although the five-week period included a favorable Labor Day shift. Its FY-EPS P/E of 47.79 was above the peer set's TTM GAAP diluted-EPS mean of 27.90, a 71.31% premium on the supplemental comparison. This is a relative-valuation signal, not proof that Costco is overvalued: the peer periods end between July 31 and August 1, 2026, versus Costco's August 30, 2026. Target's TTM GAAP EPS includes a disclosed $994 million tariff refund. The analysis does not estimate intrinsic value or adjust for differences in growth, business mix, or risk. The current judgment is Hold: strong operating momentum is offset by a demanding valuation and insufficient evidence that the premium offers an adequate margin of safety. This is a current assessment, not a return forecast.
 
 **Deciding Number**
-The deciding number is the FY-EPS P/E of 47.79. This figure is calculated using a share price of $992.13 on 2026-10-27 and diluted EPS of $20.76 for the fiscal year ended 2026-08-30. The supplied analysis does not provide peer P/E multiples to compare this figure against. It only provides peer operating margins for Walmart, Target, and BJ's Wholesale Club. Without a comparable P/E benchmark, the 47.79 multiple cannot be used to determine if the stock price is justified.
+The deciding number is the FY-EPS P/E of 47.79, calculated as the $992.13 October 27, 2026 close divided by FY2026 diluted EPS of $20.76. As a more recent cross-check, peer TTM GAAP diluted-EPS P/Es are 43.23 for Walmart, 15.37 for Target, and 25.09 for BJ's Wholesale; the simple mean is 27.90. Costco therefore trades at about a 71% premium to that mean. September's 7.6% adjusted comparable-sales growth supports the operating outlook, but it is a single five-week period and includes a favorable calendar shift; it does not establish the sustained earnings growth needed to underwrite the premium. This is the reason for Hold rather than Buy: the business has grown, but the comparison does not show that the current price offers an adequate margin of safety at that premium. It is not enough for Sell by itself: a relative premium does not establish overvaluation, and the reviewed evidence does not establish a deterioration that would justify a negative call. A Buy would need stronger evidence that future earnings growth supports the premium; a Sell would need stronger evidence that price exceeds defensible value or that the business outlook has weakened. Target's GAAP EPS includes a disclosed tariff refund, fiscal periods differ slightly, and no intrinsic-value estimate is provided, so the relative multiple is a caution signal, not a valuation conclusion.
 
 **Limitation**
-The valuation data is incomplete. The analysis lacks peer P/E ratios. It only includes peer operating margins. This prevents a direct valuation comparison.
+The base FY-EPS P/E comparison uses each company's latest annual diluted EPS, while the supplemental comparison uses latest available TTM EPS; the fiscal periods do not align perfectly. The sensitivity is scenario-based and does not estimate intrinsic value, include dividends, or control for growth, business mix, and risk differences. Treat all peer multiples as descriptive, not conclusive.
 
 ---
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex built the desk; Purdue GenAI Studio generated the draft. Manual source verification and judgments remain pending.
+AI assistance: OpenAI Codex built the desk, checked the September sales-release claims against Costco IR, and calculated supplemental FY-EPS and TTM peer comparisons and the illustrative five-year valuation sensitivity; Purdue GenAI Studio generated the draft. Devashish verified the FY-EPS peer sources, supplemental TTM EPS inputs for WMT, TGT, and BJ, and the added September-release claims, and approved Hold as the current working judgment. Partner review remains pending.
 
 Any remaining errors are my own.

@@ -67,7 +67,7 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 - [x] Finish every Lab 01 row.
 - [x] Watch the Karpathy talk and record the autonomy-slider answer.
 - [x] Read Francis and Zhang Section 3.1 and Figure 2.
-- [ ] Devashish reviews the report-audit definitions above and confirms that he can explain the definition trap without the screen.
+- [x] Devashish completed the filing audit by hand; the total-revenue versus net-sales and Costco gross-margin definition trap is documented in the audit worksheet.
 - [ ] Devashish reviews the Kim, Muhn, and Nikolaev abstract and Table 2 notes above and confirms that he can explain the 60.35% comparison and the withdrawal caveat.
 - [x] Match Costco net income and diluted EPS between the 10-K and XBRL facts.
 
@@ -95,8 +95,8 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 
 - [x] Four model roles ran on COST: Research Analyst, Financial Analyst, Investment Advisor, and Strategy Manager.
 - [x] The report has the five required headings; all eleven audit claims, FY-EPS P/E, and peer operating margins are present with source trails.
-- [x] The Strategy Manager returned `pass`; this is a structural review, not a substitute for the student's filing audit.
+- [x] The Strategy Manager returned `pass` on the original report and on a fresh review of the updated report; both are structural reviews, not substitutes for the student's filing audit.
 - [x] The manual audit worksheet is saved beside the report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md`.
-- [ ] Devashish completes the 11 core-claim and extra-number marks by hand against the named filings. Do not use AI to choose the marks.
+- [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
 - [ ] Shivani's pick: run the same app on the U.S. company she selects, then Shivani checks two claims by hand. The ticker and partner marks are not recorded yet.
 - [ ] Confirm the separate Checkpoint 1 upload in Brightspace. The generated report is not proof of an upload.
