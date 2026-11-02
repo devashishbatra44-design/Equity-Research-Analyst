@@ -1012,10 +1012,14 @@ def source_candidates(lines: list[str], kind: str) -> list[dict[str, Any]]:
         if kind == "total_revenue":
             is_income_statement_row = bool(re.match(r"^\s*total revenues?\s*\|", line, flags=re.IGNORECASE))
             is_constant_currency = "(cc)" in lower or "constant currency" in lower
-            matches = "total revenue" in lower and has_number and not is_constant_currency
+            # Some releases state quarterly revenue in prose rather than a
+            # "Total revenue" table row. Preserve that exact source line too.
+            matches = bool(re.search(r"\b(?:total\s+)?(?:quarterly\s+)?revenues?\b", lower)) and has_number and not is_constant_currency
             score = 10 if matches and is_income_statement_row and any(h < index for h in income_statement_lines) else (4 if matches else 0)
             if matches and is_income_statement_row:
                 score += 2
+            if matches and re.search(r"\bcompany posted quarterly revenue of\b", lower):
+                score += 4
         else:
             excluded = any(word in lower for word in ("share used", "shares used", "weighted average", "diluted shares"))
             matches = "diluted" in lower and has_number and not excluded

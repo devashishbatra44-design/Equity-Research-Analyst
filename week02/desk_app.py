@@ -245,6 +245,30 @@ def read_run_context(run_folder: Path) -> dict[str, Any]:
             "result_percent": round((current_q / prior_q - 1) * 100, 4),
             "source_line": f"exhibit-99-1.txt:{revenue_line_number}: {revenue_line.strip()}",
         }
+    if not quarterly_growth:
+        # Some earnings releases state quarterly revenue and its YoY change
+        # in prose, not as a two-column income-statement row. Preserve the
+        # issuer-reported rate without presenting it as a desk calculation.
+        revenue_claim = quoted_release.get("total_revenue", {})
+        quoted_text = revenue_claim.get("quoted_source_text") or ""
+        reported_growth = re.search(
+            r"\b(up|down)\s+([\d.]+)\s*(percent|%)\s+year[- ]over[- ]year\b",
+            quoted_text,
+            flags=re.IGNORECASE,
+        )
+        if reported_growth:
+            direction, amount, _, = reported_growth.groups()
+            sign = 1 if direction.lower() == "up" else -1
+            quarterly_growth = {
+                "reported_percent": float(amount) * sign,
+                "result_percent": float(amount) * sign,
+                "formula": f"issuer-reported {direction.lower()} {amount}% year over year; not independently recomputed",
+                "source_line": (
+                    f"exhibit-99-1.txt:{revenue_claim.get('source_line_start', 'unknown')}: "
+                    f"{quoted_text}"
+                ),
+                "basis": "issuer-reported; not computed from two revenue columns",
+            }
     quoted_release["quarter_revenue_growth"] = quarterly_growth or {"status": "unavailable", "reason": "Could not identify the two quarter columns from the release income statement."}
     return {
         "company": manifest["company"],
@@ -525,10 +549,24 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
     release_rev = context["quarterly_release_claims"].get("total_revenue", {})
     revenue_match = re.search(r"Total revenues?\s*\|\s*([\d,]+)\s*\|\s*([\d,]+)", release_rev.get("quoted_source_text") or "", flags=re.IGNORECASE)
     quarter_revenue_value = f"${int(revenue_match.group(1).replace(',', '')):,} million" if revenue_match else "review the release income statement"
+    if not revenue_match:
+        prose_revenue = re.search(
+            r"(?:quarterly|total)\s+revenue\s+of\s+\$\s*([\d.]+)\s*(billion|million)",
+            release_rev.get("quoted_source_text") or "",
+            flags=re.IGNORECASE,
+        )
+        if prose_revenue:
+            quarter_revenue_value = f"${prose_revenue.group(1)} {prose_revenue.group(2).lower()}"
     quarter_eps_quote = context["quarterly_release_claims"].get("diluted_eps", {}).get("quoted_source_text") or ""
     eps_match = re.search(r"\$\s*([\d.]+)\s+per diluted share", quarter_eps_quote, flags=re.IGNORECASE)
     if not eps_match:
         eps_match = re.search(r"^\s*Diluted[^|]*\|\s*\$?\s*([\d.]+)", quarter_eps_quote, flags=re.IGNORECASE)
+    if not eps_match:
+        eps_match = re.search(
+            r"diluted earnings per share\s+(?:was|were)\s+\$\s*([\d.]+)",
+            quarter_eps_quote,
+            flags=re.IGNORECASE,
+        )
     quarter_eps_value = f"${float(eps_match.group(1)):.2f}" if eps_match else "review the release per-share lines"
     core = [
         (1, "Total revenue, latest fiscal year", metric_value("total_revenue"), f"10-K accession {facts['total_revenue']['current']['accession_number']}; tag {facts['total_revenue']['selected_tag']}"),

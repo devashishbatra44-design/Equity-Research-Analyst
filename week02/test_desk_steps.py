@@ -71,6 +71,15 @@ class DeskStepsTests(unittest.TestCase):
         self.assertEqual(candidates[0]["line_start"], 2)
         self.assertEqual(candidates[0]["text"], lines[1])
 
+    def test_release_revenue_extracts_prose_statement(self):
+        lines = [
+            "The Company posted quarterly revenue of $114.5 billion, up 12 percent year over year.",
+            "The CEO said the September quarter revenue record reached $114.5 billion, up 12 percent from a year ago.",
+        ]
+        candidates = source_candidates(lines, "total_revenue")
+        self.assertEqual(candidates[0]["line_start"], 1)
+        self.assertEqual(candidates[0]["text"], lines[0])
+
     def test_release_period_supports_month_and_week_statements(self):
         costco_lines = ["16 Weeks Ended | 16 Weeks Ended | 52 Weeks Ended", "August 30, 2026 | August 31, 2025"]
         walmart_lines = ["Three Months Ended | Six Months Ended", "July 31, | July 31,", "(Amounts in millions) | 2026 | 2025"]

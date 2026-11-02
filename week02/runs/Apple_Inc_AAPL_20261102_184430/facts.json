@@ -1,0 +1,419 @@
+{
+  "company": {
+    "ticker": "AAPL",
+    "legal_name": "Apple Inc.",
+    "cik": 320193,
+    "cik_10_digit": "0000320193"
+  },
+  "company_facts_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+  "reference_fiscal_year": {
+    "fiscal_year": 2025,
+    "period_start": "2024-09-29",
+    "period_end": "2025-09-27",
+    "selected_revenue_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+  },
+  "prior_fiscal_year": {
+    "fiscal_year": 2024,
+    "period_start": "2023-10-01",
+    "period_end": "2024-09-28"
+  },
+  "concepts": {
+    "total_revenue": {
+      "concept": "total_revenue",
+      "label": "Total revenue",
+      "status": "available",
+      "selected_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "selection_reason": "Selected the highest-priority candidate among tags with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is 2025-09-27.",
+      "current": {
+        "value": 416161000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 391035000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "RevenueFromContractWithCustomerIncludingAssessedTax": "tag absent from us-gaap company facts",
+        "SalesRevenueGoodsNet": "tag absent from us-gaap company facts",
+        "Revenues": "not selected; latest valid annual end 2018-09-29; current-and-prior coverage=True",
+        "SalesRevenueNet": "not selected; latest valid annual end 2017-09-30; current-and-prior coverage=True"
+      }
+    },
+    "operating_income": {
+      "concept": "operating_income",
+      "label": "Operating income",
+      "status": "available",
+      "selected_tag": "us-gaap:OperatingIncomeLoss",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 133050000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 123216000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "net_income": {
+      "concept": "net_income",
+      "label": "Net income",
+      "status": "available",
+      "selected_tag": "us-gaap:NetIncomeLoss",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 112010000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:NetIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 93736000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:NetIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "ProfitLoss": "tag absent from us-gaap company facts"
+      }
+    },
+    "diluted_eps": {
+      "concept": "diluted_eps",
+      "label": "Diluted earnings per share",
+      "status": "available",
+      "selected_tag": "us-gaap:EarningsPerShareDiluted",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 7.46,
+        "unit": "USD/share",
+        "source_unit_key": "USD/shares",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 6.08,
+        "unit": "USD/share",
+        "source_unit_key": "USD/shares",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "stockholders_equity": {
+      "concept": "stockholders_equity",
+      "label": "Stockholders' equity",
+      "status": "available",
+      "selected_tag": "us-gaap:StockholdersEquity",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 73733000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": null,
+        "xbrl_tag": "us-gaap:StockholdersEquity",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 56950000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": null,
+        "xbrl_tag": "us-gaap:StockholdersEquity",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest": "tag absent from us-gaap company facts"
+      }
+    },
+    "long_term_debt": {
+      "concept": "long_term_debt",
+      "label": "Long-term debt",
+      "status": "available",
+      "selected_tag": "us-gaap:LongTermDebtNoncurrent",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 78328000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": null,
+        "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 85750000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024Q3I",
+        "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "LongTermDebtAndFinanceLeaseObligationsNoncurrent": "tag absent from us-gaap company facts",
+        "LongTermDebt": "not selected; a higher-priority aligned candidate had equivalent or better period coverage"
+      }
+    },
+    "current_long_term_debt": {
+      "concept": "current_long_term_debt",
+      "label": "Current portion of long-term debt",
+      "status": "available",
+      "selected_tag": "us-gaap:LongTermDebtCurrent",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 12350000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": null,
+        "xbrl_tag": "us-gaap:LongTermDebtCurrent",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 10912000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024Q3I",
+        "xbrl_tag": "us-gaap:LongTermDebtCurrent",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "LongTermDebtAndFinanceLeaseObligationsCurrent": "tag absent from us-gaap company facts",
+        "CurrentPortionOfLongTermDebt": "tag absent from us-gaap company facts"
+      }
+    },
+    "cash_from_operations": {
+      "concept": "cash_from_operations",
+      "label": "Net cash provided by operating activities",
+      "status": "available",
+      "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 111482000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 118254000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "property_equipment_additions": {
+      "concept": "property_equipment_additions",
+      "label": "Additions to property and equipment",
+      "status": "available",
+      "selected_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 12715000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2024-09-29",
+        "period_end": "2025-09-27",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "prior": {
+        "value": 9447000000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2023-10-01",
+        "period_end": "2024-09-28",
+        "filing_form": "10-K",
+        "filing_date": "2025-10-31",
+        "accession_number": "0000320193-25-000079",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.html"
+      },
+      "rejected_candidate_tags": {
+        "PaymentsForAdditionsToPropertyPlantAndEquipment": "tag absent from us-gaap company facts",
+        "PaymentsToAcquireProductiveAssets": "no observation aligned to reference period ending 2025-09-27"
+      }
+    }
+  },
+  "earnings_release_extraction": {
+    "source_filename": "exhibit-99-1.txt",
+    "claims": {
+      "total_revenue": {
+        "label": "Quarterly total revenue",
+        "status": "found",
+        "quoted_source_text": "today announced financial results for its fiscal 2026 fourth quarter ended September 26, 2026. The Company posted quarterly revenue of $114.5 billion, up 12 percent year over year. Company gross margin was 47.9 percent, including a favorable impact of approximately 1 percentage point from tariff refunds. Diluted earnings per share was $2.10, up 14 percent year over year, and included a favorable impact of $0.05 from tariff refunds.",
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "candidates": [
+          {
+            "line_start": 12,
+            "line_end": 12,
+            "text": "today announced financial results for its fiscal 2026 fourth quarter ended September 26, 2026. The Company posted quarterly revenue of $114.5 billion, up 12 percent year over year. Company gross margin was 47.9 percent, including a favorable impact of approximately 1 percentage point from tariff refunds. Diluted earnings per share was $2.10, up 14 percent year over year, and included a favorable impact of $0.05 from tariff refunds.",
+            "score": 8
+          }
+        ],
+        "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+      },
+      "diluted_eps": {
+        "label": "Quarterly diluted EPS",
+        "status": "found",
+        "quoted_source_text": "today announced financial results for its fiscal 2026 fourth quarter ended September 26, 2026. The Company posted quarterly revenue of $114.5 billion, up 12 percent year over year. Company gross margin was 47.9 percent, including a favorable impact of approximately 1 percentage point from tariff refunds. Diluted earnings per share was $2.10, up 14 percent year over year, and included a favorable impact of $0.05 from tariff refunds.",
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "candidates": [
+          {
+            "line_start": 12,
+            "line_end": 12,
+            "text": "today announced financial results for its fiscal 2026 fourth quarter ended September 26, 2026. The Company posted quarterly revenue of $114.5 billion, up 12 percent year over year. Company gross margin was 47.9 percent, including a favorable impact of approximately 1 percentage point from tariff refunds. Diluted earnings per share was $2.10, up 14 percent year over year, and included a favorable impact of $0.05 from tariff refunds.",
+            "score": 5
+          }
+        ],
+        "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+      }
+    }
+  }
+}

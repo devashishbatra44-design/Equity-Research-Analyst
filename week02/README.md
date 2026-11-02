@@ -101,3 +101,14 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 - [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
 - [ ] Shivani's pick: run the same app on the U.S. company she selects, then Shivani checks two claims by hand. The ticker and partner marks are not recorded yet.
 - [ ] Confirm the separate Checkpoint 1 upload in Brightspace. The generated report is not proof of an upload.
+
+## Apple transfer run — November 2, 2026
+
+- [x] Ran all seven data steps on AAPL. The latest available 10-K is FY2025; its annual facts are not the FY2026 quarter in the November 2 earnings release.
+- [x] Used the October 27 close ($347.10) to match the COST price date. FY-EPS P/E is 46.5282x using FY2025 diluted EPS ($7.46); this is not TTM P/E.
+- [x] Added Microsoft, Alphabet, and Amazon as broad technology benchmarks, not exact product substitutes. Their latest fiscal years differ, and the report names those periods.
+- [x] Captured Apple’s prose-form release statement: quarterly revenue $114.5 billion, reported up 12% year over year, and diluted EPS $2.10. The growth figure is issuer-reported, not independently recomputed from two columns.
+- [x] Ran the four model roles and received a passing structural Manager review. The report and manual worksheet are in `runs/Apple_Inc_AAPL_20261102_184430`.
+- [ ] Devashish must still compare the report with Apple’s cited SEC filings and Nasdaq close, then fill the audit marks and error/missing counts by hand. The generated worksheet deliberately leaves those marks blank.
+
+The Apple run exposed that the Lab 02 release extractor did not recognize prose-form "quarterly revenue" disclosures. The extractor now captures that wording, and Lab 03 carries an issuer-reported year-over-year rate without presenting it as a code-computed ratio. A test covers the prose-form release line.
