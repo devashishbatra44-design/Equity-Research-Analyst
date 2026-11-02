@@ -107,12 +107,12 @@ At a 27.90x exit multiple, EPS must grow approximately 11.37% annually for five 
 - Partner claim 2 and mark: ______________________________
 - Partner name and initials: ______________________________
 
-Manager review note: `manager_review.json` records the fresh Strategy Manager pass on the updated report against the saved role outputs. This checks structure and consistency only. It does not replace the student's source audit or establish that every added external claim is correct.
+Manager review note: `manager_review_pe_reconciliation.json` records a targeted Strategy Manager pass on the refreshed Investment Recommendation and peer P/E comparison. `advisor_refresh.md` is the current Advisor output; the original Advisor text remains in `role_outputs.json` as historical provenance and is superseded for the final report. The targeted review does not replace the student's source audit or establish that every added external claim is correct.
 
 Source folder: `COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554`.
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex built the desk, checked the September sales-release claims against Costco IR, and calculated supplemental FY-EPS and TTM peer comparisons and an illustrative five-year valuation sensitivity; Purdue GenAI Studio generated the draft. Devashish verified the core audit, FY-EPS peer sources, supplemental TTM EPS inputs for WMT, TGT, and BJ, and the added September-release claims, and approved Hold as the current working judgment. Partner review remains pending.
+AI assistance: OpenAI Codex built the desk, checked the September sales-release claims against Costco IR, and calculated supplemental FY-EPS and TTM peer comparisons and an illustrative five-year valuation sensitivity; Purdue GenAI Studio generated the initial report and refreshed the Investment Recommendation after Devashish verified peer P/E inputs. Devashish verified the core audit, peer sources, TTM EPS inputs for WMT, TGT, and BJ, and added September-release claims, and approved Hold as the current working judgment. Partner review remains pending.
 
 Any remaining errors are my own.

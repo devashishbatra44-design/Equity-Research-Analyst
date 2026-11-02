@@ -68,7 +68,7 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 - [x] Watch the Karpathy talk and record the autonomy-slider answer.
 - [x] Read Francis and Zhang Section 3.1 and Figure 2.
 - [x] Devashish completed the filing audit by hand; the total-revenue versus net-sales and Costco gross-margin definition trap is documented in the audit worksheet.
-- [ ] Devashish reviews the Kim, Muhn, and Nikolaev abstract and Table 2 notes above and confirms that he can explain the 60.35% comparison and the withdrawal caveat.
+- [x] Devashish confirms reading the Kim, Muhn, and Nikolaev abstract; the 60.35% comparison, unseen-data limitation, and current withdrawal caveat are recorded above. His ability to explain them aloud is not independently verified here.
 - [x] Match Costco net income and diluted EPS between the 10-K and XBRL facts.
 
 ## Before Session 3
@@ -96,6 +96,7 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 - [x] Four model roles ran on COST: Research Analyst, Financial Analyst, Investment Advisor, and Strategy Manager.
 - [x] The report has the five required headings; all eleven audit claims, FY-EPS P/E, and peer operating margins are present with source trails.
 - [x] The Strategy Manager returned `pass` on the original report and on a fresh review of the updated report; both are structural reviews, not substitutes for the student's filing audit.
+- [x] Reconciled the peer P/E update: `advisor_refresh.md` is the current Advisor output and matches the final Investment Recommendation; the original role output is retained as historical provenance. The targeted Strategy Manager check is in `manager_review_pe_reconciliation.json`.
 - [x] The manual audit worksheet is saved beside the report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md`.
 - [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
 - [ ] Shivani's pick: run the same app on the U.S. company she selects, then Shivani checks two claims by hand. The ticker and partner marks are not recorded yet.
