@@ -97,11 +97,12 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 - [x] The report has the five required headings; all eleven audit claims, FY-EPS P/E, and peer operating margins are present with source trails.
 - [x] The Strategy Manager returned `pass` on the original report and on a fresh review of the updated report; both are structural reviews, not substitutes for the student's filing audit.
 - [x] Reconciled the peer P/E update: `advisor_refresh.md` is the current Advisor output and matches the final Investment Recommendation; the original role output is retained as historical provenance. The targeted Strategy Manager check is in `manager_review_pe_reconciliation.json`.
-- [x] The manual audit worksheet is saved beside the report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md`.
+- [x] The manual audit worksheet for the submitted COST report is saved beside the latest report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/manual_audit.md`; it records all 11 core claims and supplemental checks.
 - [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
 - [x] Shivani Rathi selected Netflix (NFLX) as her company. Netflix material retained here supports the reciprocal partner review; it is not Devashish's own-company run.
-- [x] Devashish reports that the reciprocal partner check is complete. Shivani's two checks of Devashish's Belden report are recorded in the Belden audit worksheet.
-- [ ] Confirm the separate Checkpoint 1 upload in Brightspace. The generated report is not proof of an upload.
+- [x] Reciprocal checks are recorded: Devashish's two Netflix filing checks are in the NFLX partner-review file; Shivani's two Belden checks are in the Belden audit worksheet.
+- [x] Devashish confirms that the Checkpoint 1 upload was submitted in Brightspace; the receipt is not visible from this workspace.
+- [x] The Costco manual audit links to Shivani's two Belden partner-check marks rather than leaving a blank partner-check section.
 
 ## Apple transfer run — November 2, 2026
 

@@ -57,7 +57,7 @@ The Research Analyst now receives a bounded, line-labeled earnings-release excer
 - COST: the student recorded all 11 core marks. Errors: 0. Missing: 0.
 - AAPL: the student recorded all 11 core marks. Errors: 0. Missing: 0. Supplemental vendor forecasts and target prices are excluded from the Week 2 report.
 - BDC: the student recorded all 11 core marks. Errors: 0. Missing: 0.
-- NFLX: Netflix is Shivani Rathi's selected company. The blank local 11-claim worksheet is retained as reciprocal partner-review support and is not represented as Devashish's own-company audit.
+- NFLX: Netflix is Shivani Rathi's selected company. Devashish's two reciprocal checks are marked PASS in the NFLX partner-review worksheet. The complete 11-claim audit of Shivani's own report remains Shivani's responsibility; this is not represented as Devashish's own-company audit.
 
 Devashish reports that the reciprocal partner check is complete. Shivani's two checks of Devashish's Belden report are transcribed in the Belden audit worksheet.
 
@@ -68,16 +68,15 @@ Devashish reports that the reciprocal partner check is complete. Shivani's two c
 - The private `main` branch contains the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and the reciprocal Netflix partner-review material.
 - Local and remote `main` were verified to match after the private push.
 - `.env`, downloaded filing text, licensed vendor files, and the licensed course-paper PDF are absent from the published commit contents.
-- Brightspace submission status is not visible from this repository.
+- Devashish confirms the Brightspace Checkpoint 1 upload was submitted. The receipt and exact submitted URL are not visible from this repository, so the submission status is user-reported rather than independently verified.
 - The licensed Francis and Zhang paper PDF has been removed from Git tracking. The local file remains on the laptop.
 
-## Items required before Checkpoint 1 is submission-ready
+## Checkpoint 1 access and submission notes
 
-The local work, private commit, and private push are complete. Only these externally visible actions remain:
+The local work, commit, and private push are complete. Devashish reports that the Brightspace upload is complete. One access constraint remains:
 
-1. Change the repository to public only when Devashish authorizes that change.
-2. Open the final commit permalink while logged out. Confirm that the required reports open and `.env` does not.
-3. Submit that commit-specific permalink in Brightspace.
+1. The repository is still private by instruction. The course says it should be public for instructor access; do not change visibility without Devashish's authorization.
+2. Because the repository is private, a logged-out access check cannot verify instructor access. The Brightspace submission is user-reported and its receipt was not inspected here.
 
 The public schedule still lists Checkpoint 1 on Session 3. Devashish reports that Brightspace changed the deadline to November 2, 2026. The Brightspace deadline should control if it records the instructor's private course update.
 

@@ -34,11 +34,9 @@ Check each peer, extra ratio, and P/E in the report. These are expected calculat
 - Template: all five required parts are present in the generated draft: **Present (student-checked)**.
 - Recommendation: **Hold**, using the 47.79x FY-EPS P/E and checked operating evidence; Devashish previously approved this working judgment and verified the figures it cites.
 
-## Partner check on the separate partner-pick report
+## Partner-check cross-reference
 
-- Partner claim 1 and mark: ______________________________
-- Partner claim 2 and mark: ______________________________
-- Partner name and initials: ______________________________
+Shivani Rathi's two hand checks of Devashish's separate Belden report are recorded in `../BELDEN_INC_BDC_20261102_191754/manual_audit.md`: FY2025 total revenue — PASS; Q3 2026 revenue and EPS figures — PASS. Her name and initials (SR) are recorded there. This cross-reference avoids duplicating or changing her marks.
 
 Source folder: `COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`.
 
