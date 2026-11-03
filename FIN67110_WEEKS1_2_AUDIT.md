@@ -68,9 +68,9 @@ The course site governs when the downloaded prompt differs from it.
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
 | D1 | Preserve existing human marks | PASS | This rerun did not change any existing financial mark or count. |
-| D2 | COST and partner-pick audit files | PASS / VERIFY | Costco's 11-claim hand audit is complete, and Apple and Belden audit marks are present. The Netflix folder has Devashish's two reciprocal checks of Shivani's company. |
+| D2 | COST and partner-pick audit files | PASS | Costco's 11-claim hand audit is complete, and Apple and Belden audit marks are present. The corrected COST run carries forward the same previously checked values and sources; its quarter-growth result is now explicit. |
 | D3 | Counts, 11 claims, other numbers, template and recommendation | PASS | Costco, Apple and Belden audit worksheets contain the student's hand marks, error/missing counts, extra Financial Analyst checks, template and recommendation checks. |
-| D4 | Partner's two marks at the top of the partner-pick file | VERIFY | Shivani's two PASS checks are recorded at the top of Belden's audit file. Lab 03 says the partner checks the partner-picked report; confirm that Shivani checked the Netflix run, not only the Belden report. |
+| D4 | Partner's two marks at the top of the partner-pick file | NEEDS ME | Shivani's two PASS checks are recorded at the top of Belden's audit file. Lab 03 asks for the partner's checks on the partner-picked report. The Netflix folder currently records Devashish's reciprocal checks for Shivani, not Shivani's marks on Devashish's Netflix report. Confirm or obtain Shivani's two marks for the correct report. |
 
 ## E — Checkpoint 1
 
@@ -82,7 +82,7 @@ The course site governs when the downloaded prompt differs from it.
 
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
-| F1 | Student audits 11 claims first | PASS / NEEDS ME | The COST audit is complete. The required Netflix partner-pick worksheet is prepared; Devashish must personally compare each row and enter the marks and counts. |
+| F1 | Student audits 11 claims first | PASS | Devashish's Costco 11-claim audit is complete. The new COST worksheet carries forward the same previously checked financial values and the matching 11.1043% quarter-growth calculation. |
 | F2 | Fix only the role that erred, or the Financial Analyst if no error | FIXED | `week02/roles/financial_analyst.md` now contains the required source and no-estimation rules. Other role logic was not substantively changed. |
 | F3 | Rerun COST into a new folder and save every source | PASS | Devashish approved the single rerun. It completed in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`; four role calls, no retries, Manager pass. `role_records.json`, the report, audit worksheet, filings metadata, facts and calculations were saved. The quarterly-growth parser now matches the fiscal comparison columns. |
 | F4 | Inspect Manager code and write the one-line answer | NEEDS ME | The relevant code is `week02/desk_app.py` at `main()`, `manager_review()`, and the retry block. Devashish must write his own one-line answer. |
@@ -123,7 +123,7 @@ python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYY
 - Keep or change GitHub visibility. The course requires public instructor access.
 - Confirm the Lab 01 partner initials and Session 1 Brightspace checkout.
 - Confirm the Lab 02 hand marks and the partner's two checks.
-- Confirm Shivani checked two claims in the Netflix partner-pick report if that is the report used for Lab 03; the recorded Shivani marks currently sit with Belden.
+- Confirm or obtain Shivani's two marks on the Netflix partner-pick report and place them at the top of that report's audit file. The recorded Shivani marks currently sit with Belden.
 - Put the partner's two marks at the top of that report if the professor requires the exact Lab 03 placement.
 - Confirm or submit the final Checkpoint 1 permalink in Brightspace.
 - Write the reading answers, gap list, reflections, Kasparov process line, Manager-control line, and framework choice.
