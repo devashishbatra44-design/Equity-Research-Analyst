@@ -15,8 +15,7 @@ Run these commands from this repository. Activating this repository's environmen
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r week02/requirements.txt
-python -m unittest discover -s week01 -p 'test*.py' -v
-python -m unittest discover -s week02 -p 'test*.py' -v
+PYTHONPATH=.:week01 python -m pytest -q
 python -m pip check
 ```
 
@@ -29,6 +28,22 @@ python check_env.py
 The command prints only a four-character key prefix and the SEC User-Agent. Never paste that output into a public file.
 
 The ASD-STE100 rewrites of the Lab 02 and Lab 03 build requests are in [Prompt Library](Prompt%20Library/).
+
+## Run the desk
+
+Run the seven SEC data steps without model calls:
+
+```bash
+python week02/desk_steps.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYYY-MM-DD --price-source SOURCE
+```
+
+Run the seven steps and the four model roles:
+
+```bash
+python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYYY-MM-DD --price-source SOURCE
+```
+
+Use a closing price, date, and source that you verified before either command. The program creates a timestamped folder under `week02/runs/`. It saves filing provenance, XBRL facts, calculations, peer facts, role records, the Manager review, the report, and an audit worksheet there. Downloaded filing text remains local and is excluded from Git.
 
 ## Company runs
 
@@ -46,3 +61,9 @@ The Week 2 company sequence is recorded as follows: Costco is the professor-assi
 Checkpoint 1 uses a commit permalink submitted in Brightspace. Confirm the required reports and desk are in the linked commit before submitting. The course instructions require a public repository; repository visibility has not been changed as part of this update.
 
 Secrets and local environment files must stay out of version control. Do not upload `.env`, API keys, or licensed raw data.
+
+This is a learning exercise, not financial advice.
+
+AI assistance: OpenAI Codex and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
+
+Any remaining errors are my own.

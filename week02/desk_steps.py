@@ -20,6 +20,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup, NavigableString
@@ -74,7 +75,7 @@ CONCEPTS: OrderedDict[str, dict[str, Any]] = OrderedDict(
             "kind": "duration",
             "unit_keys": ("USD",),
             "unit": "USD",
-            "tags": ("NetIncomeLoss", "ProfitLoss"),
+            "tags": ("NetIncomeLoss",),
         },
         "diluted_eps": {
             "label": "Diluted earnings per share",
@@ -88,10 +89,7 @@ CONCEPTS: OrderedDict[str, dict[str, Any]] = OrderedDict(
             "kind": "instant",
             "unit_keys": ("USD",),
             "unit": "USD",
-            "tags": (
-                "StockholdersEquity",
-                "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
-            ),
+            "tags": ("StockholdersEquity",),
         },
         "long_term_debt": {
             "label": "Long-term debt",
@@ -269,11 +267,16 @@ def normalize_ticker(value: str) -> str:
     return ticker
 
 
+def comparable_ticker(value: str) -> str:
+    """Treat the common dot and dash class-share separators as equivalent."""
+    return value.strip().upper().replace(".", "-")
+
+
 def resolve_ticker(client: SECClient, ticker: str) -> Company:
     data = client.json(COMPANY_TICKERS_URL)
     matches = []
     for item in data.values():
-        if str(item.get("ticker", "")).upper() == ticker.upper():
+        if comparable_ticker(str(item.get("ticker", ""))) == comparable_ticker(ticker):
             matches.append(item)
     if not matches:
         raise DeskError(f"Ticker {ticker} was not found in SEC company_tickers.json.")
@@ -281,7 +284,7 @@ def resolve_ticker(client: SECClient, ticker: str) -> Company:
     if len(unique_ciks) != 1:
         raise DeskError(f"Ticker {ticker} is ambiguous in SEC company_tickers.json.")
     item = matches[0]
-    return Company(ticker=ticker.upper(), name=str(item["title"]), cik=int(item["cik_str"]))
+    return Company(ticker=str(item["ticker"]).upper(), name=str(item["title"]), cik=int(item["cik_str"]))
 
 
 def rows_from_parallel_arrays(source: dict[str, Any], source_name: str) -> list[dict[str, Any]]:
@@ -308,6 +311,13 @@ def get_all_submission_rows(client: SECClient, company: Company) -> list[dict[st
         historical_data = client.json(f"{SEC_DATA}/submissions/{name}")
         rows.extend(rows_from_parallel_arrays(historical_data, str(name)))
     return rows
+
+
+def latest_exact_form_row(client: SECClient, company: Company, form: str) -> dict[str, Any]:
+    candidates = [row for row in get_all_submission_rows(client, company) if row.get("form") == form]
+    if not candidates:
+        raise DeskError(f"No exact {form} filing was found for {company.ticker}.")
+    return dict(max(candidates, key=row_sort_key))
 
 
 def filing_index_url(company: Company, accession: str) -> str:
@@ -340,6 +350,17 @@ def row_sort_key(row: dict[str, Any]) -> tuple[str, str]:
     return accepted, filed
 
 
+def acceptance_timestamp_matches(json_timestamp: str, index_timestamp: str) -> bool:
+    if not json_timestamp or not index_timestamp:
+        return False
+    try:
+        accepted_utc = datetime.fromisoformat(json_timestamp.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    accepted_eastern = accepted_utc.astimezone(ZoneInfo("America/New_York"))
+    return accepted_eastern.strftime("%Y-%m-%d %H:%M:%S") == index_timestamp
+
+
 def select_filings(client: SECClient, company: Company) -> dict[str, dict[str, Any]]:
     rows = get_all_submission_rows(client, company)
     requirements = {
@@ -360,14 +381,48 @@ def select_filings(client: SECClient, company: Company) -> dict[str, dict[str, A
             raise DeskError(f"Selected {key.upper()} filing has no accession number.")
         index_url = filing_index_url(company, accession)
         accepted_on_index = parse_accepted_timestamp(client.text(index_url), index_url)
+        acceptance_matches = acceptance_timestamp_matches(
+            str(row.get("acceptanceDateTime") or ""), accepted_on_index
+        )
         row.update(
             {
                 "accepted_on_index": accepted_on_index,
+                "acceptance_timestamp_matches_index": acceptance_matches,
                 "index_url": index_url,
                 "archive_base_url": filing_archive_base(company, accession),
             }
         )
         selected[key] = row
+        if not acceptance_matches:
+            print(
+                f"WARNING: submissions acceptanceDateTime did not match the EDGAR index time for {accession}."
+            )
+
+    for key, exact_form in (("10-k", "10-K"), ("10-q", "10-Q")):
+        selected_key = row_sort_key(selected[key])
+        newer_amendments = [
+            row for row in rows
+            if row.get("form") == f"{exact_form}/A" and row_sort_key(row) > selected_key
+        ]
+        for amendment in sorted(newer_amendments, key=row_sort_key):
+            print(
+                f"Note: newer amendment not selected for {exact_form}: "
+                f"{amendment.get('accessionNumber')} filed {amendment.get('filingDate')}."
+            )
+
+    selected_earnings_key = row_sort_key(selected["8-k"])
+    newer_non_earnings = [
+        row for row in rows
+        if row.get("form") == "8-K"
+        and row_sort_key(row) > selected_earnings_key
+        and "2.02" not in {item.strip() for item in str(row.get("items", "")).split(",")}
+    ]
+    for skipped in sorted(newer_non_earnings, key=row_sort_key):
+        print(
+            "Skipped newer non-earnings 8-K: "
+            f"{skipped.get('accessionNumber')} | filed={skipped.get('filingDate')} | "
+            f"items={skipped.get('items') or 'not stated'}."
+        )
     return selected
 
 
@@ -376,6 +431,10 @@ def print_filing(label: str, filing: dict[str, Any]) -> None:
         f"{label}: form={filing.get('form')} | filed={filing.get('filingDate')} | "
         f"period={filing.get('reportDate')} | accession={filing.get('accessionNumber')} | "
         f"primary={filing.get('primaryDocument')} | accepted={filing.get('accepted_on_index')}"
+    )
+    print(
+        "  submissions/index Accepted-time match: "
+        f"{filing.get('acceptance_timestamp_matches_index')}"
     )
     print(f"  {filing.get('index_url')}")
 
@@ -414,14 +473,16 @@ def parse_filing_documents(index_html: str, base_url: str) -> list[dict[str, str
 
 
 def select_exhibit_99_1(documents: list[dict[str, str]]) -> dict[str, str]:
-    candidates = [doc for doc in documents if doc.get("type") == "EX-99.1"]
+    accepted_types = {"EX-99.1", "EX-99.01", "EX-99"}
+    candidates = [doc for doc in documents if doc.get("type") in accepted_types]
     if not candidates:
-        raise DeskError("The selected earnings 8-K has no document with type EX-99.1.")
+        raise DeskError("The selected earnings 8-K has no Exhibit 99 document.")
     keywords = ("earnings", "results", "release", "press")
 
     def score(doc: dict[str, str]) -> int:
         text = f"{doc.get('description', '')} {doc.get('document', '')}".lower()
-        return sum(1 for keyword in keywords if keyword in text)
+        exact_type_bonus = 10 if doc.get("type") == "EX-99.1" else 0
+        return exact_type_bonus + sum(1 for keyword in keywords if keyword in text)
 
     highest = max(score(doc) for doc in candidates)
     best = [doc for doc in candidates if score(doc) == highest]
@@ -533,7 +594,7 @@ def valid_observations(
             if not start:
                 continue
             days = (end - start).days + 1
-            if days < 300 or days > 400:
+            if days < 350 or days > 380:
                 continue
             item["duration_days"] = days
         accepted.append(item)
@@ -606,6 +667,7 @@ def select_revenue_reference(
                 "priority": priority,
                 "observations": observations,
                 "latest_end": str(observations[-1]["end"]),
+                "latest_value": float(observations[-1]["val"]),
                 "has_current_and_prior": len(observations) >= 2,
             }
         )
@@ -615,7 +677,11 @@ def select_revenue_reference(
         eligible = [candidate for candidate in candidates if candidate["has_current_and_prior"]]
     else:
         eligible = candidates
-    chosen = sorted(eligible, key=lambda item: (item["latest_end"], -item["priority"]), reverse=True)[0]
+    chosen = sorted(
+        eligible,
+        key=lambda item: (item["latest_end"], item["latest_value"], -item["priority"]),
+        reverse=True,
+    )[0]
     observations = chosen["observations"]
     current = observations[-1]
     prior = observations[-2] if len(observations) >= 2 else None
@@ -631,8 +697,9 @@ def select_revenue_reference(
         "status": "available",
         "selected_tag": f"us-gaap:{chosen['tag']}",
         "selection_reason": (
-            "Selected the highest-priority candidate among tags with current-and-prior annual coverage "
-            f"whose latest valid 10-K fiscal-year end is {current['end']}."
+            "Selected the candidate with current-and-prior annual coverage whose latest valid 10-K "
+            f"fiscal-year end is newest ({current['end']}); when candidate years tied, selected the "
+            "larger total-revenue value, with tag priority as the final tie-breaker."
         ),
         "current": format_observation(company, chosen["tag"], spec, current),
         "prior": format_observation(company, chosen["tag"], spec, prior) if prior else None,
@@ -1151,7 +1218,15 @@ def process_peers(client: SECClient, peer_tickers: list[str]) -> dict[str, Any]:
         print(f"Peer {ticker}:")
         try:
             company = resolve_ticker(client, ticker)
+            latest_10k = latest_exact_form_row(client, company, "10-K")
             facts = retrieve_company_facts(client, company)
+            expected_end = str(latest_10k.get("reportDate") or "")
+            selected_end = str(facts["reference_fiscal_year"].get("period_end") or "")
+            if not expected_end or selected_end != expected_end:
+                raise DeskError(
+                    "Peer XBRL fiscal-year end does not match its latest 10-K reportDate: "
+                    f"facts={selected_end or 'missing'}, 10-K={expected_end or 'missing'}."
+                )
             calculations = calculate_measures(facts, price=None)
             margin = calculations["calculations"]["operating_margin"]
             revenue = facts["concepts"]["total_revenue"]["current"]
@@ -1168,6 +1243,12 @@ def process_peers(client: SECClient, peer_tickers: list[str]) -> dict[str, Any]:
                     "ticker": ticker,
                     "status": "success",
                     "company": company.as_dict(),
+                    "latest_10k": {
+                        "accession_number": latest_10k.get("accessionNumber"),
+                        "filing_date": latest_10k.get("filingDate"),
+                        "report_date": expected_end,
+                        "index_url": filing_index_url(company, str(latest_10k.get("accessionNumber"))),
+                    },
                     "facts": facts,
                     "operating_margin": margin,
                 }
@@ -1312,7 +1393,16 @@ def execute_step(
             mark_step(manifest, 3, "success")
 
         elif number == 4:
+            filings_path = require_file(run_folder, "filings.json", 4)
+            filings = json.loads(filings_path.read_text(encoding="utf-8"))
             facts = retrieve_company_facts(client, company)
+            latest_10k_end = str(filings["10-k"].get("reportDate") or "")
+            selected_fact_end = str(facts["reference_fiscal_year"].get("period_end") or "")
+            if not latest_10k_end or selected_fact_end != latest_10k_end:
+                raise DeskError(
+                    "The selected XBRL fiscal-year end does not match the latest 10-K reportDate: "
+                    f"facts={selected_fact_end or 'missing'}, 10-K={latest_10k_end or 'missing'}."
+                )
             write_json(run_folder / "facts.json", facts)
             write_csv(run_folder / "facts.csv", facts_csv_rows(facts), FACT_CSV_FIELDS)
             print_facts(facts)

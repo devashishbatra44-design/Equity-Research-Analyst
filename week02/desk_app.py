@@ -30,39 +30,27 @@ HEADINGS = [
     "Investment Recommendation",
 ]
 
-ROLE_INSTRUCTIONS = {
-    "Research Analyst": (
-        "Use only the 10-K business section, the 10-K MD&A section, and the earnings release in your JSON context. "
-        "Describe the business model, competitive position, catalysts, and recent developments. "
-        "Write the Overview, Market Positioning and Growth Outlook, and Future Developments and Strategic Recommendations sections. "
-        "Every factual claim must include a short exact quotation and its source file line number. "
-        "Keep every number, condition, and hedge exactly supported by the context. Do not add facts from memory. "
-        "If the source does not support a claim, state that the filing does not establish it. "
-        "Return only those three Markdown sections with the exact required headings."
-    ),
-    "Financial Analyst": (
-        "Use only the facts, calculations, quarterly release excerpts, peer facts, and source-line excerpts in your JSON context. "
-        "Write the Valuation Insights section. Discuss all nine annual concepts, the ratios supplied by code, quarterly revenue and diluted EPS, "
-        "quarterly revenue growth supplied by code, and peer operating margins when available. Use the quarter-end date explicitly supplied from the earnings release, "
-        "not the latest 10-Q date. Do not calculate in the model. "
-        "State all eleven audit claims explicitly: annual total revenue, annual revenue growth, operating income and margin, attributable net income, "
-        "GAAP diluted EPS, return on average equity, debt to equity including current debt, free cash flow, quarter revenue, same-quarter revenue growth, "
-        "and quarter GAAP diluted EPS. Also state P/E using the code-supplied share price, date, source and latest fiscal-year diluted EPS; "
-        "label it FY-EPS P/E, not TTM P/E. Do not omit a claim; state unavailable only when its supplied source is unavailable. "
-        "Do not invent or round inputs beyond what the source supports. "
-        "For each number, state its filing, period, unit, XBRL tag or exact filing line, and accession when supplied. "
-        "Name total revenue as the denominator for operating margin. State unavailable values plainly. "
-        "Return only the Valuation Insights Markdown section with that exact heading."
-    ),
-    "Investment Advisor": (
-        "Use only the Research Analyst and Financial Analyst outputs in your JSON context. "
-        "Write the Investment Recommendation section with a Buy, Hold, or Sell recommendation, a thesis, and the single deciding number. "
-        "Cite the supplied claim and period. If the supplied analysis lacks a valuation benchmark or cannot establish value, prefer Hold and say why; "
-        "when P/E is supplied, name it as the deciding number and explain that a single multiple without a suitable comparison cannot establish intrinsic value. "
-        "do not infer that high growth or customer retention alone makes a stock attractive. Do not introduce any company fact, number, or reasoning from outside those two role outputs. "
-        "Do not present the recommendation as financial advice. Return only that Markdown section with the exact heading."
-    ),
+ROLES_ROOT = Path(__file__).resolve().parent / "roles"
+ROLE_FILES = {
+    "Research Analyst": "research_analyst.md",
+    "Financial Analyst": "financial_analyst.md",
+    "Investment Advisor": "investment_advisor.md",
+    "Strategy Manager": "strategy_manager.md",
 }
+
+
+def load_role_instructions() -> dict[str, str]:
+    instructions: dict[str, str] = {}
+    for role, filename in ROLE_FILES.items():
+        path = ROLES_ROOT / filename
+        text = path.read_text(encoding="utf-8").strip()
+        if not text:
+            raise RuntimeError(f"Role instruction file is empty: {path}")
+        instructions[role] = text
+    return instructions
+
+
+ROLE_INSTRUCTIONS = load_role_instructions()
 
 
 def load_model_config() -> tuple[str, str, str]:
@@ -382,7 +370,39 @@ def json_handoff(task: str, context: Any, expected_output: str) -> str:
     )
 
 
-def call_model(client: OpenAI, model: str, role: str, instruction: str, handoff: str, temperature: float = 0.1) -> str:
+def record_role_call(
+    records: dict[str, list[dict[str, Any]]],
+    role: str,
+    purpose: str,
+    handoff: str,
+    output: str,
+    execution_mode: str = "model_call",
+) -> None:
+    try:
+        parsed_handoff: Any = json.loads(handoff)
+    except ValueError:
+        parsed_handoff = handoff
+    records.setdefault(role, []).append(
+        {
+            "purpose": purpose,
+            "execution_mode": execution_mode,
+            "instruction_file": f"week02/roles/{ROLE_FILES[role]}",
+            "input": parsed_handoff,
+            "output": output,
+        }
+    )
+
+
+def call_model(
+    client: OpenAI,
+    model: str,
+    role: str,
+    instruction: str,
+    handoff: str,
+    temperature: float = 0.1,
+    records: dict[str, list[dict[str, Any]]] | None = None,
+    purpose: str = "initial",
+) -> str:
     print(f"Running role: {role}", flush=True)
     response = client.chat.completions.create(
         model=model,
@@ -415,7 +435,10 @@ def call_model(client: OpenAI, model: str, role: str, instruction: str, handoff:
         )
     if finish_reason == "length":
         raise RuntimeError(f"The {role} response was truncated at the output limit; no report will be marked complete.")
-    return content.strip()
+    output = content.strip()
+    if records is not None:
+        record_role_call(records, role, purpose, handoff, output)
+    return output
 
 
 def extract_markdown_section(output: str, heading: str) -> str | None:
@@ -458,7 +481,15 @@ def normalize_role_outputs(outputs: dict[str, str]) -> dict[str, str]:
     }
 
 
-def manager_review(client: OpenAI, model: str, role_outputs: dict[str, str], report: str | None, missing: list[str]) -> dict[str, Any]:
+def manager_review(
+    client: OpenAI,
+    model: str,
+    role_outputs: dict[str, str],
+    report: str | None,
+    missing: list[str],
+    records: dict[str, list[dict[str, Any]]] | None = None,
+    purpose: str = "initial_review",
+) -> dict[str, Any]:
     expected = {
         "status": "pass or retry",
         "sections_to_retry": ["one or more exact required headings"],
@@ -470,16 +501,21 @@ def manager_review(client: OpenAI, model: str, role_outputs: dict[str, str], rep
         "missing_sections_detected_by_code": missing,
         "required_sections": HEADINGS,
     }
-    instruction = (
-        "You are the Strategy Manager. Review whether all five report parts are present and consistent with the role outputs. "
-        "Check that the five headings appear exactly, numerical claims are supported by the supplied role outputs, and the recommendation "
-        "names a number that appears in the report. Return only valid JSON matching the expected_output schema. "
-        "Use status pass when the report is complete and consistent. Use retry only for sections that need one role retry. "
-        "Map Overview, Market Positioning and Growth Outlook, and Future Developments and Strategic Recommendations to Research Analyst; "
-        "map Valuation Insights to Financial Analyst; map Investment Recommendation to Investment Advisor. "
-        "Never add report content or new facts."
+    instruction = ROLE_INSTRUCTIONS["Strategy Manager"]
+    output = call_model(
+        client,
+        model,
+        "Strategy Manager",
+        instruction,
+        json_handoff(
+            "Check the report once and identify only required retries.",
+            context,
+            json.dumps(expected),
+        ),
+        0,
+        records,
+        purpose,
     )
-    output = call_model(client, model, "Strategy Manager", instruction, json_handoff("Check the report once and identify only required retries.", context, json.dumps(expected)), 0)
     try:
         parsed = json.loads(output)
     except ValueError as exc:
@@ -571,7 +607,16 @@ def strip_quantitative_source_notes(financial_output: str) -> str:
     return financial_output[:marker.start()].rstrip() if marker else financial_output.rstrip()
 
 
-def retry_role_section(client: OpenAI, model: str, section: str, original: str, issue: str, role: str, context: Any) -> str:
+def retry_role_section(
+    client: OpenAI,
+    model: str,
+    section: str,
+    original: str,
+    issue: str,
+    role: str,
+    context: Any,
+    records: dict[str, list[dict[str, Any]]] | None = None,
+) -> str:
     instruction = ROLE_INSTRUCTIONS[role]
     retry_task = {
         "task": f"Revise only the {section} section once, addressing the manager's issue.",
@@ -580,7 +625,16 @@ def retry_role_section(client: OpenAI, model: str, section: str, original: str, 
         "source_context": context,
         "expected_output": f"Only the complete ## {section} Markdown section. Do not add other headings.",
     }
-    return call_model(client, model, role, instruction, json.dumps(retry_task, ensure_ascii=False), 0.1)
+    return call_model(
+        client,
+        model,
+        role,
+        instruction,
+        json.dumps(retry_task, ensure_ascii=False),
+        0.1,
+        records,
+        f"retry_{section}",
+    )
 
 
 def source_line_for_accession(filing: dict[str, Any]) -> str:
@@ -807,6 +861,7 @@ def main(argv: list[str] | None = None) -> int:
 
     api_key, base_url, model = load_model_config()
     client = OpenAI(api_key=api_key, base_url=base_url.rstrip("/") + "/", timeout=90, max_retries=0)
+    role_records: dict[str, list[dict[str, Any]]] = {}
 
     research_context = context["business_and_mda_source_text"] | {
         "company": context["company"],
@@ -847,9 +902,39 @@ def main(argv: list[str] | None = None) -> int:
         research_output = outputs["Research Analyst"]
         finance_output = outputs["Financial Analyst"]
         advisor_output = outputs["Investment Advisor"]
+        record_role_call(
+            role_records,
+            "Research Analyst",
+            "reused_initial",
+            research_task,
+            research_output,
+            "reused_saved_output",
+        )
+        record_role_call(
+            role_records,
+            "Financial Analyst",
+            "reused_initial",
+            finance_task,
+            finance_output,
+            "reused_saved_output",
+        )
     else:
-        research_output = call_model(client, model, "Research Analyst", ROLE_INSTRUCTIONS["Research Analyst"], research_task)
-        finance_output = call_model(client, model, "Financial Analyst", ROLE_INSTRUCTIONS["Financial Analyst"], finance_task)
+        research_output = call_model(
+            client,
+            model,
+            "Research Analyst",
+            ROLE_INSTRUCTIONS["Research Analyst"],
+            research_task,
+            records=role_records,
+        )
+        finance_output = call_model(
+            client,
+            model,
+            "Financial Analyst",
+            ROLE_INSTRUCTIONS["Financial Analyst"],
+            finance_task,
+            records=role_records,
+        )
         advisor_output = ""
         outputs = {"Research Analyst": research_output, "Financial Analyst": finance_output, "Investment Advisor": advisor_output}
     finance_output = strip_quantitative_source_notes(finance_output) + "\n\n" + quantitative_source_notes(context)
@@ -860,7 +945,14 @@ def main(argv: list[str] | None = None) -> int:
         advisor_context,
         "One Markdown section with the exact heading Investment Recommendation.",
     )
-    advisor_output = call_model(client, model, "Investment Advisor", ROLE_INSTRUCTIONS["Investment Advisor"], advisor_task)
+    advisor_output = call_model(
+        client,
+        model,
+        "Investment Advisor",
+        ROLE_INSTRUCTIONS["Investment Advisor"],
+        advisor_task,
+        records=role_records,
+    )
     outputs["Investment Advisor"] = advisor_output
     outputs = normalize_role_outputs(outputs)
     research_output = outputs["Research Analyst"]
@@ -870,7 +962,7 @@ def main(argv: list[str] | None = None) -> int:
     outputs_path.write_text(json.dumps(outputs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     report, missing = assemble_report(research_output, finance_output, advisor_output)
-    review = manager_review(client, model, outputs, report, missing)
+    review = manager_review(client, model, outputs, report, missing, role_records)
     (run_folder / "manager_review.json").write_text(json.dumps(review, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if review["status"] == "retry":
         for section in dict.fromkeys(review["sections_to_retry"]):
@@ -878,7 +970,16 @@ def main(argv: list[str] | None = None) -> int:
             issue = "; ".join(review.get("issues", [])) or f"The section {section} was missing or failed the completeness check."
             original = outputs[role]
             role_context = research_context if role == "Research Analyst" else (finance_context if role == "Financial Analyst" else advisor_context)
-            retry_output = retry_role_section(client, model, section, original, issue, role, role_context)
+            retry_output = retry_role_section(
+                client,
+                model,
+                section,
+                original,
+                issue,
+                role,
+                role_context,
+                role_records,
+            )
             if role == "Research Analyst":
                 existing = [extract_markdown_section(retry_output, heading) or extract_markdown_section(original, heading) for heading in ("Overview", "Market Positioning and Growth Outlook", "Future Developments and Strategic Recommendations")]
                 research_output = "\n\n".join(part for part in existing if part)
@@ -891,7 +992,15 @@ def main(argv: list[str] | None = None) -> int:
                 outputs[role] = advisor_output
             outputs_path.write_text(json.dumps(outputs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         report, missing = assemble_report(research_output, finance_output, advisor_output)
-        review = manager_review(client, model, outputs, report, missing)
+        review = manager_review(
+            client,
+            model,
+            outputs,
+            report,
+            missing,
+            role_records,
+            "post_retry_review",
+        )
         (run_folder / "manager_review.json").write_text(json.dumps(review, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if report is None:
         raise RuntimeError("The Strategy Manager could not complete the required five-part report after one retry: " + ", ".join(missing))
@@ -899,20 +1008,41 @@ def main(argv: list[str] | None = None) -> int:
         raise RuntimeError("The Strategy Manager found unresolved report issues: " + json.dumps(review.get("issues", []), ensure_ascii=False))
 
     header = report_header(run_folder, context)
-    report_text = header + report.strip() + "\n\n---\n\nThis is a learning exercise, not financial advice.\n\nAI assistance: OpenAI Codex built the desk; Purdue GenAI Studio generated the draft. Manual source verification and judgments remain pending.\n\nAny remaining errors are my own.\n"
+    report_text = (
+        header
+        + report.strip()
+        + "\n\n---\n\nThis is a learning exercise, not financial advice.\n\n"
+        + "AI assistance: OpenAI Codex and Purdue GenAI Studio. "
+        + "I verified the sources myself; the judgments are mine.\n\n"
+        + "Any remaining errors are my own.\n"
+    )
     report_path = run_folder / "report.md"
     report_path.write_text(report_text, encoding="utf-8")
     review_path = run_folder / "manager_review.json"
     review_path.write_text(json.dumps(review, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     role_output_path = run_folder / "role_outputs.json"
     role_output_path.write_text(json.dumps(outputs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    role_records_path = run_folder / "role_records.json"
+    role_records_path.write_text(
+        json.dumps(role_records, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     audit_path = run_folder / "manual_audit.md"
     audit_path.write_text(render_audit_worksheet(report, context, run_folder), encoding="utf-8")
 
     manifest_path = run_folder / "manifest.json"
     manifest = load_json(manifest_path)
     manifest["output_filenames"] = sorted(
-        set(manifest.get("output_filenames", []) + ["report.md", "manager_review.json", "role_outputs.json", "manual_audit.md"])
+        set(
+            manifest.get("output_filenames", [])
+            + [
+                "report.md",
+                "manager_review.json",
+                "role_outputs.json",
+                "role_records.json",
+                "manual_audit.md",
+            ]
+        )
     )
     manifest["model_provider"] = "Purdue GenAI Studio (OpenAI-compatible endpoint)"
     manifest["model_name"] = model

@@ -11,7 +11,9 @@ from week02.desk_app import (
 from week02.desk_steps import (
     CONCEPTS,
     Company,
+    acceptance_timestamp_matches,
     calculate_measures,
+    comparable_ticker,
     format_observation,
     normalize_ticker,
     parse_peers,
@@ -36,6 +38,15 @@ class DeskStepsTests(unittest.TestCase):
     def test_normalizes_ticker_and_peers(self):
         self.assertEqual(normalize_ticker(" abc "), "ABC")
         self.assertEqual(parse_peers("abc,XYZ,abc"), ["ABC", "XYZ"])
+        self.assertEqual(comparable_ticker("brk.b"), comparable_ticker("BRK-B"))
+
+    def test_acceptance_timestamp_matches_edgar_index_eastern_time(self):
+        self.assertTrue(
+            acceptance_timestamp_matches("2026-10-07T01:13:15.000Z", "2026-10-06 21:13:15")
+        )
+        self.assertFalse(
+            acceptance_timestamp_matches("2026-10-07T01:13:15.000Z", "2026-10-07 01:13:15")
+        )
 
     def test_revenue_candidates_put_total_revenue_first(self):
         tags = CONCEPTS["total_revenue"]["tags"]
