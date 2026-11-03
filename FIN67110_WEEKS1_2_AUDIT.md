@@ -69,7 +69,7 @@ The course site governs when the downloaded prompt differs from it.
 |---|---|---|---|
 | D1 | Audit the desk output, not hand-edited text | FIXED | All final reports match `role_outputs.json`. Former additions are preserved separately as student notes. |
 | D2 | COST, Apple and Belden audit files | PASS | Each current worksheet has `Report said`, `Filing says`, source, and student-mark columns. The reports’ actual generated claims are audited. |
-| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS WITH DISCLOSED LIMITATION | All 11 core claims are marked correct. The corrected Costco run has no errors or missing claims. The Belden audit discloses one unsupported price source and the resulting recommendation limitation. |
+| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS WITH DISCLOSED SOURCE-PROVENANCE NOTE | All 11 core claims are marked correct. The current Costco and Belden audits have no wrong, unsupported, or missing marks; Apple has no errors or missing claims. Devashish confirmed Belden's October 28 close in LSEG Workspace. Belden's generated report still retains its original StockAnalysis citation, disclosed in the audit. |
 | D4 | Reciprocal partner checks | PASS | Devashish checked Netflix FY2025 revenue and Q3 2026 revenue. Shivani checked Belden FY2025 revenue and Q3 2026 revenue. Each check is one core claim and uses `Correct`, not `PASS`. Shivani’s marks are identified as transcribed from her message. |
 
 ## E — Checkpoint 1

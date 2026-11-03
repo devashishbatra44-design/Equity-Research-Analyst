@@ -58,7 +58,7 @@ The Research Analyst now receives a bounded, line-labeled earnings-release excer
 
 - COST: the student recorded all 11 core marks and the supplemental checks. Errors: 0. Missing: 0. The current rerun reads Target’s exact `Net sales` label from the filed inline-XBRL row.
 - AAPL: the student recorded all 11 core marks. Errors: 0. Missing: 0. Supplemental vendor forecasts and target prices are excluded from the Week 2 report.
-- BDC: the student recorded all 11 core marks. Core errors: 0. Missing: 0. The audit marks the StockAnalysis price source and related recommendation unsupported until an exchange or LSEG close is supplied.
+- BDC: the student recorded all 11 core marks. Core errors: 0. Missing: 0. Devashish confirmed the October 28, 2026 close ($106.66) in LSEG Workspace; the P/E arithmetic and related recommendation are marked Correct. The generated report still cites StockAnalysis, which remains disclosed in the manual audit.
 - NFLX: Netflix is Shivani Rathi's selected company. Devashish's two separate reciprocal checks are marked `Correct` in the NFLX partner-review worksheet. The complete 11-claim audit of Shivani's own report remains Shivani's responsibility; this is not represented as Devashish's own-company audit.
 
 Devashish reports that the reciprocal partner check is complete. Shivani's two checks of Devashish's Belden report are transcribed in the Belden audit worksheet.

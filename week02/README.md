@@ -124,7 +124,7 @@ The Apple run exposed that the Lab 02 release extractor did not recognize prose-
 - [x] Added source parsing that prefers explicit GAAP diluted EPS over adjusted EPS and recognizes a `Revenues` row in the consolidated statement; tests pass.
 - [x] Added `DebtCurrent`, guarded the inclusive `LongTermDebt` fallback against double counting, and required explicit filing evidence before treating a missing current-debt XBRL tag as zero.
 - [x] Reran the seven steps and four roles into `runs/BELDEN_INC_BDC_20261102_233949`. The report now includes debt to equity using the 10-K statement that none of the $1.3 billion of principal payments is due in 2026.
-- [x] The manual audit shows the generated claims beside the filing values. Its 11 core claims are correct. The P/E remains marked unsupported until the October 28 close is confirmed in LSEG or an official exchange source.
+- [x] The manual audit shows the generated claims beside the filing values. Its 11 core claims are correct. Devashish confirmed the October 28 close ($106.66) in LSEG Workspace; P/E arithmetic and the Hold recommendation are marked Correct. The generated report still cites StockAnalysis, and the audit discloses that original citation rather than rewriting the report.
 
 ## Netflix — Shivani Rathi's selected company — November 2, 2026
 

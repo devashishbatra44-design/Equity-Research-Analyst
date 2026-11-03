@@ -2,7 +2,7 @@
 
 This audit applies to the unedited desk output in `report.md`. Devashish checked the filing values and arithmetic by hand. The report and filing values are shown side by side.
 
-Errors (wrong + unsupported): **1**. Missing: **0**. The one error is the non-course price source used for P/E outside the 11 core claims. Core-claim errors: **0**.
+Errors (wrong + unsupported): **0**. Missing: **0**. Core-claim errors: **0**.
 
 | # | Required claim | Report said | Filing says | Filing/source reference | Mark by student |
 |---:|---|---|---|---|---|
@@ -22,7 +22,7 @@ Errors (wrong + unsupported): **1**. Missing: **0**. The one error is the non-co
 
 | Report claim | Report said | Filing/source says | Mark by student | Note |
 |---|---|---|---|---|
-| FY-EPS P/E | 18.05x = 106.66 / 5.91 | The arithmetic is 18.0474x, but the $106.66 close is cited to StockAnalysis | **Unsupported** | The course requires an exchange or LSEG close. The supplied Capital IQ workbooks do not contain the October 28 close. Replace this only after Devashish verifies the same close in LSEG or an official exchange source. |
+| FY-EPS P/E | 18.05x = 106.66 / 5.91 | 18.0474x; $106.66 BDC close on 2026-10-28, manually verified by Devashish in LSEG Workspace | **Correct** | The valuation input and arithmetic are supported by the LSEG check. Provenance note: the generated `report.md` still cites StockAnalysis for this same close; that original citation is preserved and was not rewritten. |
 | APH operating margin | 25.41% | 25.4110% = 5,868.6 / 23,094.7; 10-K accession `0001104659-26-013549` | **Correct** | Fiscal year ended 2025-12-31. |
 | TEL operating margin | 18.60% | 18.6016% = 3,211 / 17,262; 10-K accession `0001104659-25-109150` | **Correct** | Fiscal year ended 2025-09-26. |
 | GLW operating margin | 14.58% | 14.5819% = 2,279 / 15,629; 10-K accession `0000024741-26-000124` | **Correct** | Fiscal year ended 2025-12-31. |
@@ -30,7 +30,7 @@ Errors (wrong + unsupported): **1**. Missing: **0**. The one error is the non-co
 ## Report checks
 
 - Template: all five required parts are present. **Correct**.
-- Recommendation: **Hold**. It names the 18.05x FY-EPS P/E as the deciding number, but that multiple remains unsupported until its price source is replaced. **Unsupported**.
+- Recommendation: **Hold**. It names the 18.05x FY-EPS P/E as the deciding number. The multiple is supported by the LSEG-verified October 28 close and FY2025 diluted EPS. **Correct**. The report's original StockAnalysis citation remains disclosed in the P/E note above.
 
 ## Partner check on Devashish’s Belden report
 
