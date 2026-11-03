@@ -5,6 +5,8 @@ from pathlib import Path
 
 import pytest
 
+from week02.desk_app import read_run_context
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RUNS_ROOT = PROJECT_ROOT / "week02" / "runs"
@@ -76,3 +78,12 @@ def test_saved_cost_release_extraction_and_peers_succeeded():
     assert claims["diluted_eps"]["status"] == "found"
     assert peers["peers"]
     assert all(peer["status"] == "success" for peer in peers["peers"])
+
+
+def test_saved_cost_quarter_revenue_growth_uses_comparable_fiscal_dates():
+    run_folder = latest_successful_run("COST")
+    growth = read_run_context(run_folder)["quarterly_release_claims"]["quarter_revenue_growth"]
+    assert growth["current_quarter_revenue_thousands"] == 95_723
+    assert growth["prior_year_same_quarter_revenue_thousands"] == 86_156
+    assert growth["formula"] == "(95,723 - 86,156) / 86,156"
+    assert math.isclose(growth["result_percent"], 11.1043, abs_tol=0.0001)

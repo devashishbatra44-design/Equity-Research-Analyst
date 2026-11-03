@@ -2,6 +2,8 @@
 
 Audit date: November 2, 2026.
 
+Latest rerun: COST completed at 2026-11-02 22:33 local time in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`. Four model calls ran, the Manager returned `pass`, and no retries were needed. The report now includes the previously missing same-quarter revenue growth: `(95,723 - 86,156) / 86,156 = 11.1043%`, matched to the 16-week columns in Exhibit 99.1. The worksheet keeps human marks blank.
+
 Audit specification: `FIN67110_Weeks1-2_Agent_Prompt.md`, checked against the current course pages for Week 1, Lab 01, Week 2, Lab 02, Lab 03, the report audit, the data page, grading, and Week 3 prework.
 
 The course site governs when the downloaded prompt differs from it.
@@ -82,7 +84,7 @@ The course site governs when the downloaded prompt differs from it.
 |---|---|---|---|
 | F1 | Student audits 11 claims first | PASS / NEEDS ME | COST is complete. The official partner-picked Netflix report still needs Devashish's 11-claim hand audit if it is his checkpoint report. |
 | F2 | Fix only the role that erred, or the Financial Analyst if no error | FIXED | `week02/roles/financial_analyst.md` now contains the required source and no-estimation rules. Other role logic was not substantively changed. |
-| F3 | Rerun COST into a new folder and save every source | NEEDS ME | This requires paid model calls. The agent must show the exact command and receive Devashish's approval first. The new code will also save `role_records.json`. |
+| F3 | Rerun COST into a new folder and save every source | PASS | Devashish approved the single rerun. It completed in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`; four role calls, no retries, Manager pass. `role_records.json`, the report, audit worksheet, filings metadata, facts and calculations were saved. The quarterly-growth parser now matches the fiscal comparison columns. |
 | F4 | Inspect Manager code and write the one-line answer | NEEDS ME | The relevant code is `week02/desk_app.py` at `main()`, `manager_review()`, and the retry block. Devashish must write his own one-line answer. |
 
 ## G — Polish
@@ -91,7 +93,7 @@ The course site governs when the downloaded prompt differs from it.
 |---|---|---|---|
 | G1 | README with setup, run commands, outputs and disclaimer | FIXED | Root `README.md`. |
 | G2 | Optional `--price-date` | PASS | Both CLIs support `--price-date`; the app requires it and saves it beside P/E. |
-| G3 | Save every role's JSON input and output | FIXED / NEEDS ME | Future runs write `role_records.json` with each instruction file, JSON input and output. F3 must run once to create the first record. Existing audited reports remain unchanged. |
+| G3 | Save every role's JSON input and output | PASS | The approved COST run produced `role_records.json` with each role's instruction file, JSON input and output. |
 
 ## Exact commands
 

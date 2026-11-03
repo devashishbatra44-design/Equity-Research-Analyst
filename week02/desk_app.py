@@ -237,7 +237,6 @@ def quarterly_revenue_growth_from_rows(
 
     try:
         current_period = datetime.strptime(quarter_period_end, "%B %d, %Y").date()
-        prior_period = current_period.replace(year=current_period.year - 1)
     except ValueError:
         return None
 
@@ -259,15 +258,31 @@ def quarterly_revenue_growth_from_rows(
             except ValueError:
                 parsed = []
                 break
-        if parsed and current_period in parsed and prior_period in parsed:
+        if not parsed or current_period not in parsed:
+            continue
+
+        # Retail fiscal years commonly end on the same weekday rather than the
+        # same calendar date.  The comparable quarter can therefore end one or
+        # two days away from current_period.replace(year=year - 1).  Select the
+        # adjacent prior-year column whose end is 350-380 days earlier.
+        current_index = parsed.index(current_period)
+        prior_candidates = [
+            index
+            for index, period in enumerate(parsed)
+            if index != current_index and 350 <= (current_period - period).days <= 380
+        ]
+        if prior_candidates:
             matched_periods = parsed
             matched_header_index = header_index
+            prior_index = min(
+                prior_candidates,
+                key=lambda index: (abs((current_period - parsed[index]).days - 364), abs(index - current_index)),
+            )
             break
     if not matched_periods or matched_header_index is None:
         return None
 
     current_index = matched_periods.index(current_period)
-    prior_index = matched_periods.index(prior_period)
     current_revenue = values[current_index]
     prior_revenue = values[prior_index]
     if prior_revenue == 0:
