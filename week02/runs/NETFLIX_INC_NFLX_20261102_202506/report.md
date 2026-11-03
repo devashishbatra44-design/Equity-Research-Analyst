@@ -89,6 +89,6 @@ The analysis does not provide peer P/E multiples. It does not provide a target p
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex built the desk; Purdue GenAI Studio generated the draft. Manual source verification and judgments remain pending.
+AI assistance: OpenAI Codex built the desk; Purdue GenAI Studio generated the draft. Devashish completed only the two reciprocal partner checks recorded in the adjacent partner-review file; Shivani owns the complete audit and judgments for her selected company.
 
 Any remaining errors are my own.

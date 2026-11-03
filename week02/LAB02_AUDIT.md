@@ -77,7 +77,7 @@ Costco total revenue includes net sales and membership fees. Net sales alone is 
 
 ## Partner verification
 
-Devashish reports that the required two-mark partner check was completed with Shivani Rathi. The exact two claims, marks, and partner initials were not provided for transcription into this file. Do not infer those details from the repository.
+Devashish reports that the required Session 2 partner verification was completed with Shivani Rathi. This Lab 02 record does not duplicate the later reciprocal company checks, which are documented with the Belden and Netflix materials.
 
 This is a learning exercise, not financial advice.
 

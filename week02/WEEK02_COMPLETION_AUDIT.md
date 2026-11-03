@@ -65,18 +65,19 @@ Devashish reports that the reciprocal partner check is complete. Shivani's two c
 
 - The GitHub repository is private at the time of this audit.
 - The course instructions require a public repository for instructor access.
-- The final BDC and NFLX folders and the latest audit changes are not in the current commit.
-- The current commit therefore is not a valid final Checkpoint 1 permalink.
+- The private `main` branch contains the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and the reciprocal Netflix partner-review material.
+- Local and remote `main` were verified to match after the private push.
+- `.env`, downloaded filing text, licensed vendor files, and the licensed course-paper PDF are absent from the published commit contents.
 - Brightspace submission status is not visible from this repository.
 - The licensed Francis and Zhang paper PDF has been removed from Git tracking. The local file remains on the laptop.
 
 ## Items required before Checkpoint 1 is submission-ready
 
-1. Review the final Git diff.
-2. Commit the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and required partner-review evidence. Do not commit `.env`, downloaded filing text, licensed vendor files, or the paper PDF.
-3. Change the repository to public only when Devashish authorizes that change.
-4. Open the commit permalink while logged out. Confirm that the required reports open and `.env` does not.
-5. Submit that commit-specific permalink in Brightspace.
+The local work, private commit, and private push are complete. Only these externally visible actions remain:
+
+1. Change the repository to public only when Devashish authorizes that change.
+2. Open the final commit permalink while logged out. Confirm that the required reports open and `.env` does not.
+3. Submit that commit-specific permalink in Brightspace.
 
 The public schedule still lists Checkpoint 1 on Session 3. Devashish reports that Brightspace changed the deadline to November 2, 2026. The Brightspace deadline should control if it records the instructor's private course update.
 
