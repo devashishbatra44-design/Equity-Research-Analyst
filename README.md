@@ -55,14 +55,14 @@ python week02/report_provenance.py week02/runs/RUN_FOLDER
 
 ## Company runs
 
-The Week 2 company sequence is recorded as follows: Costco is the professor-assigned baseline, Apple is the professor-assigned in-class transfer run, and Belden is Devashish's selected company. Netflix is Shivani Rathi's selected company. Netflix material in this repository is supporting reciprocal partner-review evidence; it is not Devashish's own-company run.
+The Week 2 company sequence is recorded as follows: Costco is the professor-assigned baseline, Apple is the professor-assigned in-class transfer run, and Belden is Devashish's selected company. Netflix was chosen by my partner Shivani Rathi, and the saved Netflix desk run is my partner’s-pick report.
 
 | Company | Purpose | Report | Manual audit |
 |---|---|---|---|
 | Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/manual_audit.md) |
 | Apple (AAPL) | Professor-assigned in-class transfer run | [report](week02/runs/Apple_Inc_AAPL_20261102_184430/report.md) | [audit](week02/runs/Apple_Inc_AAPL_20261102_184430/manual_audit.md) |
 | Belden (BDC) | Devashish's selected company | [report](week02/runs/BELDEN_INC_BDC_20261102_233949/report.md) | [audit](week02/runs/BELDEN_INC_BDC_20261102_233949/manual_audit.md) |
-| Netflix (NFLX) | Shivani Rathi's selected company; partner-review material | [report](week02/runs/NETFLIX_INC_NFLX_20261102_202506/report.md) | [worksheet](week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md) |
+| Netflix (NFLX) | Chosen by my partner Shivani Rathi; my partner’s-pick report | [report](week02/runs/NETFLIX_INC_NFLX_20261102_202506/report.md) | [worksheet](week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md) |
 
 ## Submission and privacy
 

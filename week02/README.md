@@ -100,7 +100,7 @@ The current reviewed folders commit their public SEC filing texts, SEC-derived f
 - [x] Restored `report.md` from the saved role outputs. Former hand-added analysis is in `student_notes.md`, not in the desk output.
 - [x] The manual audit worksheet for the submitted COST report is saved beside the latest report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/manual_audit.md`; it records all 11 core claims and supplemental checks.
 - [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. The current audit shows `Report said`, `Filing says`, and the student mark. The fixed rerun reads each peer’s exact revenue line label from inline XBRL, including Target’s `Net sales` label.
-- [x] Shivani Rathi selected Netflix (NFLX) as her company. Netflix material retained here supports the reciprocal partner review; it is not Devashish's own-company run.
+- [x] Netflix (NFLX) was chosen by my partner Shivani Rathi; the saved NFLX desk run is my partner’s-pick report.
 - [x] Reciprocal checks are recorded: Devashish's two Netflix filing checks are in the NFLX partner-review file; Shivani's two Belden checks are in the Belden audit worksheet.
 - [x] Devashish confirms that the Checkpoint 1 upload was submitted in Brightspace; the receipt is not visible from this workspace.
 - [x] The reciprocal partner marks are recorded once in the final Belden and Netflix files and use the course mark name `Correct`.
@@ -126,14 +126,14 @@ The Apple run exposed that the Lab 02 release extractor did not recognize prose-
 - [x] Reran the seven steps and four roles into `runs/BELDEN_INC_BDC_20261102_233949`. The report now includes debt to equity using the 10-K statement that none of the $1.3 billion of principal payments is due in 2026.
 - [x] The manual audit shows the generated claims beside the filing values. Its 11 core claims are correct. Devashish confirmed the October 28 close ($106.66) in LSEG Workspace; P/E arithmetic and the Hold recommendation are marked Correct. The generated report still cites StockAnalysis, and the audit discloses that original citation rather than rewriting the report.
 
-## Netflix — Shivani Rathi's selected company — November 2, 2026
+## Netflix — my partner’s-pick report, chosen by Shivani Rathi — November 2, 2026
 
-- [x] Retained the NFLX desk output as supporting material for the reciprocal review of Shivani's selected company.
-- [x] Devashish reports that his reciprocal check of Shivani's Netflix work is complete.
-- [x] The Netflix worksheet records two separate core claims marked `Correct`: FY2025 revenue and Q3 2026 revenue. It is partner-review support, not Devashish's own-company 11-claim audit.
+- [x] Ran the desk on Netflix (NFLX), the company chosen by my partner Shivani Rathi; this is my partner’s-pick report.
+- [x] The saved report, run data, and worksheet are in `runs/NETFLIX_INC_NFLX_20261102_202506`.
+- [x] The worksheet records two separately checked core claims: FY2025 revenue and Q3 2026 revenue. It does not claim to be an 11-claim audit.
 
 ## Checkpoint 1
 
-- [x] The public repository contains the desk, Costco and Apple course runs, Devashish's Belden report and audit, and the reciprocal Netflix partner-review evidence.
+- [x] The public repository contains the desk, Costco and Apple course runs, Devashish's Belden report and audit, and the Netflix partner’s-pick report.
 - [x] Public visibility and logged-out access were verified. `.env` is not tracked and its public raw URL returns 404.
 - [ ] Devashish reports that Checkpoint 1 was submitted in Brightspace. Confirm that Brightspace contains the latest commit permalink and retain the submission receipt; this workspace cannot inspect that external receipt.
