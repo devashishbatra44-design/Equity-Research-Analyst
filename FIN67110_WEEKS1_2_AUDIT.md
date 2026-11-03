@@ -70,7 +70,7 @@ The course site governs when the downloaded prompt differs from it.
 | D1 | Preserve existing human marks | PASS | This rerun did not change any existing financial mark or count. |
 | D2 | COST and partner-pick audit files | PASS | Costco's 11-claim hand audit is complete, and Apple and Belden audit marks are present. The corrected COST run carries forward the same previously checked values and sources; its quarter-growth result is now explicit. |
 | D3 | Counts, 11 claims, other numbers, template and recommendation | PASS | Costco, Apple and Belden audit worksheets contain the student's hand marks, error/missing counts, extra Financial Analyst checks, template and recommendation checks. |
-| D4 | Reciprocal partner checks | PARTIAL | Both reciprocal checks are now recorded as PASS: Devashish checked two claims in Shivani's Netflix report (`week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md`); Shivani checked two claims in Devashish's Belden report (`week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md`). Lab 03 specifically says the partner checks two claims in the report on the partner's pick. If Devashish's partner-pick report is Netflix, the file does not yet evidence Shivani checking Devashish's Netflix report. |
+| D4 | Reciprocal partner checks | PASS | Devashish checked two claims in Shivani Rathi's Netflix report (`week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md`), and Shivani checked two claims in Devashish's Belden report (`week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md`). Netflix is Shivani's company, not Devashish's selected company. Both marks are recorded as PASS. |
 
 ## E — Checkpoint 1
 
@@ -123,8 +123,7 @@ python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYY
 - Keep or change GitHub visibility. The course requires public instructor access.
 - Confirm the Lab 01 partner initials and Session 1 Brightspace checkout.
 - Confirm the Lab 02 hand marks and the partner's two checks.
-- Both reciprocal checks are recorded as PASS: Devashish → Shivani's Netflix report; Shivani → Devashish's Belden report.
-- Confirm whether Shivani must also check Devashish's Netflix partner-pick report to satisfy Lab 03's exact partner-pick instruction; if so, record those two marks at the top of its audit file.
+- Both reciprocal partner checks are recorded as PASS: Devashish checked Shivani's Netflix report; Shivani checked Devashish's Belden report. Netflix is Shivani's company, not Devashish's selected company.
 - Confirm or submit the final Checkpoint 1 permalink in Brightspace.
 - Write the reading answers, gap list, reflections, Kasparov process line, Manager-control line, and framework choice.
 - Read Kasparov and the first page of the selected framework.
