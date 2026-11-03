@@ -1,6 +1,6 @@
 # Week 2 — The Desk, Then Make It Yours
 
-Last checked: October 31, 2026.
+Last checked: November 2, 2026.
 
 ## Arrival check
 
@@ -99,7 +99,8 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 - [x] Reconciled the peer P/E update: `advisor_refresh.md` is the current Advisor output and matches the final Investment Recommendation; the original role output is retained as historical provenance. The targeted Strategy Manager check is in `manager_review_pe_reconciliation.json`.
 - [x] The manual audit worksheet is saved beside the report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md`.
 - [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
-- [ ] Shivani's pick: run the same app on the U.S. company she selects, then Shivani checks two claims by hand. The ticker and partner marks are not recorded yet.
+- [x] Shivani Rathi selected Netflix (NFLX) as her company. Netflix material retained here supports the reciprocal partner review; it is not Devashish's own-company run.
+- [x] Devashish reports that the reciprocal partner check is complete. Shivani's two checks of Devashish's Belden report are recorded in the Belden audit worksheet.
 - [ ] Confirm the separate Checkpoint 1 upload in Brightspace. The generated report is not proof of an upload.
 
 ## Apple transfer run — November 2, 2026
@@ -109,6 +110,26 @@ The local filing texts remain excluded from GitHub. The SEC-derived facts, calcu
 - [x] Added Microsoft, Alphabet, and Amazon as broad technology benchmarks, not exact product substitutes. Their latest fiscal years differ, and the report names those periods.
 - [x] Captured Apple’s prose-form release statement: quarterly revenue $114.5 billion, reported up 12% year over year, and diluted EPS $2.10. The growth figure is issuer-reported, not independently recomputed from two columns.
 - [x] Ran the four model roles and received a passing structural Manager review. The report and manual worksheet are in `runs/Apple_Inc_AAPL_20261102_184430`.
-- [ ] Devashish must still compare the report with Apple’s cited SEC filings and Nasdaq close, then fill the audit marks and error/missing counts by hand. The generated worksheet deliberately leaves those marks blank.
+- [x] Devashish compared the 11 core claims and listed supplemental Financial Analyst figures with the cited filings and source workbooks, and confirmed the template and recommendation checks.
+- [x] The manual worksheet records the student's marks. Supplemental vendor forecasts and target prices were removed from the Week 2 report because the course rule permits filing facts and the supplied closing price, not unsupported forecast values.
 
 The Apple run exposed that the Lab 02 release extractor did not recognize prose-form "quarterly revenue" disclosures. The extractor now captures that wording, and Lab 03 carries an issuer-reported year-over-year rate without presenting it as a code-computed ratio. A test covers the prose-form release line.
+
+## Belden — Devashish's selected-company run — November 2, 2026
+
+- [x] Ran all seven data steps on BDC using APH, TEL, and GLW as broad connectivity and communications peers.
+- [x] Used the October 28 close ($106.66), the last close before Belden's October 29 earnings 8-K was accepted.
+- [x] Added source parsing that prefers explicit GAAP diluted EPS over adjusted EPS and recognizes a `Revenues` row in the consolidated statement; tests pass.
+- [x] Ran the four roles; the Strategy Manager returned `pass`. The report and completed manual audit are in `runs/BELDEN_INC_BDC_20261102_191754`.
+- [x] Devashish completed the manual audit marks and counts. The XBRL reader did not return a current-debt tag for FY2025. The student checked the filed balance sheet and Note 15, found no current portion or 2026 principal maturity, and used $0 as the disclosed current portion in the debt/equity calculation.
+
+## Netflix — Shivani Rathi's selected company — November 2, 2026
+
+- [x] Retained the NFLX desk output as supporting material for the reciprocal review of Shivani's selected company.
+- [x] Devashish reports that his reciprocal check of Shivani's Netflix work is complete.
+- [x] The local Netflix worksheet is labeled as partner-review support. Its blank 11-claim table is not represented as Devashish's own-company hand audit.
+
+## Checkpoint 1
+
+- [ ] Confirm the Brightspace submission contains a commit permalink to the repository commit holding the desk, the Costco and Apple course runs, Devashish's Belden selected-company report, and any required reciprocal partner evidence. The Brightspace submission status has not been verified here.
+- Repository visibility remains private per Devashish's instruction, although the course prerequisite specifies a public repository. Resolve that mismatch before relying on instructor access to the permalink.

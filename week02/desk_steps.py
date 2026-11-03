@@ -1006,16 +1006,22 @@ def source_candidates(lines: list[str], kind: str) -> list[dict[str, Any]]:
         index for index, text in enumerate(lines)
         if re.search(r"statements? of (income|operations|earnings)", text, flags=re.IGNORECASE)
     ]
+    operations_statement_lines = [
+        index for index, text in enumerate(lines)
+        if re.search(r"statements? of operations", text, flags=re.IGNORECASE)
+    ]
     for index, line in enumerate(lines):
         lower = line.lower()
         has_number = bool(re.search(r"\d", line))
         if kind == "total_revenue":
-            is_income_statement_row = bool(re.match(r"^\s*total revenues?\s*\|", line, flags=re.IGNORECASE))
+            is_income_statement_row = bool(re.match(r"^\s*(?:total\s+)?revenues?\s*\|", line, flags=re.IGNORECASE))
+            nearest_statement_heading = max((heading for heading in income_statement_lines if heading < index), default=None)
+            is_near_statement_heading = nearest_statement_heading is not None and index - nearest_statement_heading <= 40
             is_constant_currency = "(cc)" in lower or "constant currency" in lower
             # Some releases state quarterly revenue in prose rather than a
             # "Total revenue" table row. Preserve that exact source line too.
             matches = bool(re.search(r"\b(?:total\s+)?(?:quarterly\s+)?revenues?\b", lower)) and has_number and not is_constant_currency
-            score = 10 if matches and is_income_statement_row and any(h < index for h in income_statement_lines) else (4 if matches else 0)
+            score = 10 if matches and is_income_statement_row and is_near_statement_heading else (4 if matches else 0)
             if matches and is_income_statement_row:
                 score += 2
             if matches and re.search(r"\bcompany posted quarterly revenue of\b", lower):
@@ -1028,6 +1034,31 @@ def source_candidates(lines: list[str], kind: str) -> list[dict[str, Any]]:
                 score += 2
             if matches and ("$" in line or re.search(r"\d+\.\d{2}", line)):
                 score += 1
+            # Prefer an explicitly GAAP diluted-EPS line over an adjusted-EPS
+            # reconciliation row. This prevents non-GAAP EPS from winning
+            # merely because it appears earlier or uses a more obvious label.
+            if matches and re.search(r"\bgaap\b", lower):
+                score += 4
+            if matches and re.search(r"gaap\s+income\s*\(loss\)\s+per\s+diluted\s+share", lower):
+                score += 2
+            if matches and "adjusted" in lower:
+                score -= 4
+            nearest_operations_statement = max(
+                (heading for heading in operations_statement_lines if heading < index),
+                default=None,
+            )
+            preceding_context = " ".join(lines[max(0, index - 3):index]).lower()
+            is_diluted_statement_row = bool(re.match(r"^\s*diluted\s*\|", line, flags=re.IGNORECASE))
+            if (
+                matches
+                and is_diluted_statement_row
+                and nearest_operations_statement is not None
+                and index - nearest_operations_statement <= 40
+                and re.search(r"earnings per share", preceding_context)
+            ):
+                # Prefer the labeled GAAP diluted row in the consolidated
+                # statement over repeated summary or prose mentions.
+                score += 5
         if matches:
             candidates.append({"line_start": index + 1, "line_end": index + 1, "text": line, "score": score})
     candidates.sort(key=lambda item: (-item["score"], item["line_start"]))

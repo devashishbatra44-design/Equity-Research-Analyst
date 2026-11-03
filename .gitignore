@@ -19,10 +19,26 @@ data/exports/
 *.parquet
 *.xlsx
 
+# Supplied research exports/transcripts may contain licensed third-party content.
+# Keep the local Company reports folder out of the public repository.
+/Company reports\ /
+
+# Keep the licensed course-paper PDF local. Link to the DOI in public notes.
+/FRL-CanAIReplaceAnalyst (1).pdf
+
 # Lab 02 saves small, public SEC-derived audit tables with each run.
 !week02/runs/
 !week02/runs/**/
 !week02/runs/**/*.csv
+
+# Superseded local runs. Keep only the final reviewed folders eligible for Git.
+/week02/runs/Apple_Inc_AAPL_20261102_184323/
+/week02/runs/BELDEN_INC_BDC_20261102_191550/
+/week02/runs/BELDEN_INC_BDC_20261102_191645/
+/week02/runs/BELDEN_INC_BDC_20261102_191740/
+/week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_185355/
+/week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191218/
+/week02/runs/NETFLIX_INC_NFLX_20261102_202424/
 
 # Keep downloaded filing text local. Commit the derived facts and provenance.
 week02/runs/**/*.txt

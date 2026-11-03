@@ -85,6 +85,22 @@ def line_labeled_text(path: Path, start: int, end: int) -> str:
     return "\n".join(f"{path.name}:{number}: {lines[number - 1]}" for number in range(start, min(end, len(lines)) + 1))
 
 
+def bounded_line_labeled_text(path: Path, max_characters: int = 16000) -> str:
+    """Return a line-labeled source excerpt without cutting a source line."""
+    if max_characters <= 0:
+        return ""
+    output: list[str] = []
+    length = 0
+    for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        labeled = f"{path.name}:{number}: {line}"
+        addition = len(labeled) + (1 if output else 0)
+        if output and length + addition > max_characters:
+            break
+        output.append(labeled)
+        length += addition
+    return "\n".join(output)
+
+
 def find_heading_line(lines: list[str], patterns: list[str], start_at: int = 0) -> int | None:
     for index in range(start_at, len(lines)):
         if any(re.match(pattern, lines[index].strip(), flags=re.IGNORECASE) for pattern in patterns):
@@ -95,12 +111,16 @@ def find_heading_line(lines: list[str], patterns: list[str], start_at: int = 0) 
 def find_item_heading(lines: list[str], item: str, title_pattern: str, start_at: int = 0) -> int | None:
     item_rx = re.compile(rf"^item\s+{re.escape(item)}\b", flags=re.IGNORECASE)
     title_rx = re.compile(title_pattern, flags=re.IGNORECASE)
-    candidates = [
-        index for index in range(start_at, len(lines))
-        if item_rx.search(lines[index].strip())
-        and title_rx.search(lines[index].strip())
-        and not re.search(r"\|\s*\d+\s*$", lines[index].strip())
-    ]
+    candidates = []
+    for index in range(start_at, len(lines)):
+        heading = lines[index].strip()
+        if not item_rx.search(heading) or re.search(r"\|\s*\d+\s*$", heading):
+            continue
+        # SEC text conversion may put the Item number and its title on
+        # separate lines. Check the heading line and the next two lines.
+        wrapped_heading = " ".join(line.strip() for line in lines[index:index + 3])
+        if title_rx.search(wrapped_heading):
+            candidates.append(index)
     # EDGAR text may contain a table of contents and prose references. A
     # standalone all-caps Item heading is the strongest heading signal.
     uppercase = [index for index in candidates if re.match(rf"^ITEM\s+{re.escape(item)}\b", lines[index].strip())]
@@ -209,6 +229,75 @@ def extract_release_period(lines: list[str]) -> tuple[str | None, str]:
     return None, period_heading
 
 
+def quarterly_revenue_growth_from_rows(
+    lines: list[str], revenue_line_number: int | None, quarter_period_end: str | None
+) -> dict[str, Any] | None:
+    """Calculate same-quarter revenue growth by matching the period headers."""
+    if not revenue_line_number or not quarter_period_end:
+        return None
+    row_index = revenue_line_number - 1
+    row_match = re.match(
+        r"^\s*(?:total\s+)?revenues?\s*\|\s*(.*)$",
+        lines[row_index],
+        flags=re.IGNORECASE,
+    )
+    if not row_match:
+        return None
+    values = [int(value.replace(",", "")) for value in re.findall(r"\(?-?\s*([\d,]+)(?:\.\d+)?\s*\)?", row_match.group(1))]
+    if len(values) < 2:
+        return None
+
+    try:
+        current_period = datetime.strptime(quarter_period_end, "%B %d, %Y").date()
+        prior_period = current_period.replace(year=current_period.year - 1)
+    except ValueError:
+        return None
+
+    date_pattern = re.compile(
+        r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)"
+        r"\s+\d{1,2},?\s+20\d{2}\b",
+        flags=re.IGNORECASE,
+    )
+    matched_periods: list[datetime.date] | None = None
+    matched_header_index: int | None = None
+    for header_index in range(max(0, row_index - 6), row_index):
+        labels = date_pattern.findall(lines[header_index])
+        if len(labels) != len(values):
+            continue
+        parsed = []
+        for label in labels:
+            try:
+                parsed.append(datetime.strptime(label.replace(",", ""), "%B %d %Y").date())
+            except ValueError:
+                parsed = []
+                break
+        if parsed and current_period in parsed and prior_period in parsed:
+            matched_periods = parsed
+            matched_header_index = header_index
+            break
+    if not matched_periods or matched_header_index is None:
+        return None
+
+    current_index = matched_periods.index(current_period)
+    prior_index = matched_periods.index(prior_period)
+    current_revenue = values[current_index]
+    prior_revenue = values[prior_index]
+    if prior_revenue == 0:
+        return None
+    formula = f"({current_revenue:,} - {prior_revenue:,}) / {prior_revenue:,}"
+    return {
+        "current_quarter_revenue_thousands": current_revenue,
+        "prior_year_same_quarter_revenue_thousands": prior_revenue,
+        "formula": formula,
+        "result_percent": round((current_revenue / prior_revenue - 1) * 100, 4),
+        "source_line": (
+            f"exhibit-99-1.txt:{matched_header_index + 1}: {lines[matched_header_index].strip()} ; "
+            f"exhibit-99-1.txt:{revenue_line_number}: {lines[row_index].strip()}"
+        ),
+        "basis": "computed from the current quarter and the matching quarter in the prior year",
+    }
+
+
 def read_run_context(run_folder: Path) -> dict[str, Any]:
     manifest = load_json(run_folder / "manifest.json")
     filings = load_json(run_folder / "filings.json")
@@ -229,22 +318,15 @@ def read_run_context(run_folder: Path) -> dict[str, Any]:
             "source_line_end": claim.get("source_line_end"),
             "candidates": claim.get("candidates", []),
         }
-    revenue_line_number = next(
-        (i + 1 for i, line in enumerate(release_lines) if re.search(r"^\s*Total revenues?\s*\|", line, flags=re.IGNORECASE)),
-        None,
+    revenue_line_number = quoted_release.get("total_revenue", {}).get("source_line_start")
+    if not isinstance(revenue_line_number, int):
+        revenue_line_number = next(
+            (i + 1 for i, line in enumerate(release_lines) if re.search(r"^\s*(?:total\s+)?revenues?\s*\|", line, flags=re.IGNORECASE)),
+            None,
+        )
+    quarterly_growth = quarterly_revenue_growth_from_rows(
+        release_lines, revenue_line_number, quarter_period_end
     )
-    revenue_line = release_lines[revenue_line_number - 1] if revenue_line_number else ""
-    revenue_columns = re.search(r"^\s*Total revenues?\s*\|\s*([\d,]+)\s*\|\s*([\d,]+)", revenue_line, flags=re.IGNORECASE)
-    quarterly_growth = None
-    if revenue_columns:
-        current_q, prior_q = (int(value.replace(",", "")) for value in revenue_columns.groups())
-        quarterly_growth = {
-            "current_quarter_revenue_millions": current_q,
-            "prior_year_same_quarter_revenue_millions": prior_q,
-            "formula": f"({current_q:,} - {prior_q:,}) / {prior_q:,}",
-            "result_percent": round((current_q / prior_q - 1) * 100, 4),
-            "source_line": f"exhibit-99-1.txt:{revenue_line_number}: {revenue_line.strip()}",
-        }
     if not quarterly_growth:
         # Some earnings releases state quarterly revenue and its YoY change
         # in prose, not as a two-column income-statement row. Preserve the
@@ -282,10 +364,10 @@ def read_run_context(run_folder: Path) -> dict[str, Any]:
         "quarterly_release_claims": quoted_release,
         "quarter_period_end": quarter_period_end,
         "earnings_release_period_heading": release_headline,
+        "earnings_release_source_text": bounded_line_labeled_text(release_path),
         "release_income_statement_lines": "\n".join(
             f"exhibit-99-1.txt:{i + 1}: {line}"
-            for i, line in enumerate(release_lines)
-            if any(token in line.lower() for token in ("total revenue", "diluted | $ | 6.75", "net income for the fourth quarter"))
+            for i, line in enumerate(release_lines[:45])
         ),
         "annual_statement_source_lines": statement_line_excerpt(run_folder),
         "peers": {"definition": peers.get("definition"), "peers": [compact_peer(p) for p in peers.get("peers", [])]},
@@ -523,6 +605,7 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
     facts = context["annual_facts"]
     calculations = context["calculations"]
     quarterly_growth = context["quarterly_release_claims"].get("quarter_revenue_growth", {})
+    release_lines = (run_folder / "exhibit-99-1.txt").read_text(encoding="utf-8").splitlines()
 
     def money_millions(value: Any) -> str:
         return f"${float(value) / 1_000_000:,.0f} million" if value is not None else "unavailable"
@@ -547,12 +630,24 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
         return str(result)
 
     release_rev = context["quarterly_release_claims"].get("total_revenue", {})
-    revenue_match = re.search(r"Total revenues?\s*\|\s*([\d,]+)\s*\|\s*([\d,]+)", release_rev.get("quoted_source_text") or "", flags=re.IGNORECASE)
-    quarter_revenue_value = f"${int(revenue_match.group(1).replace(',', '')):,} million" if revenue_match else "review the release income statement"
-    if not revenue_match:
+    release_line_number = release_rev.get("source_line_start")
+    revenue_quote = release_rev.get("quoted_source_text") or ""
+    revenue_row = re.match(r"^\s*(?:total\s+)?revenues?\s*\|\s*(.*)$", revenue_quote, flags=re.IGNORECASE)
+    revenue_values = re.findall(r"\(?-?\s*([\d,]+)(?:\.\d+)?\s*\)?", revenue_row.group(1)) if revenue_row else []
+    quarter_revenue_value = "review the release income statement"
+    if revenue_values:
+        source_unit_context = " ".join(release_lines[max(0, (release_line_number or 1) - 5):(release_line_number or 1)])
+        if re.search(r"in\s+thousands?", source_unit_context, flags=re.IGNORECASE):
+            revenue_unit = "thousand"
+        elif re.search(r"in\s+millions?", source_unit_context, flags=re.IGNORECASE):
+            revenue_unit = "million"
+        else:
+            revenue_unit = "as stated in the release"
+        quarter_revenue_value = f"${int(revenue_values[0].replace(',', '')):,} {revenue_unit}"
+    if not revenue_values:
         prose_revenue = re.search(
             r"(?:quarterly|total)\s+revenue\s+of\s+\$\s*([\d.]+)\s*(billion|million)",
-            release_rev.get("quoted_source_text") or "",
+            revenue_quote,
             flags=re.IGNORECASE,
         )
         if prose_revenue:
@@ -567,7 +662,15 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
             quarter_eps_quote,
             flags=re.IGNORECASE,
         )
-    quarter_eps_value = f"${float(eps_match.group(1)):.2f}" if eps_match else "review the release per-share lines"
+    eps_value = float(eps_match.group(1)) if eps_match else None
+    if eps_value is None:
+        table_eps = re.search(r"\|\s*\$\s*(?:\|\s*)?(\()?\s*(-?[\d.]+)\s*\)?", quarter_eps_quote)
+        if table_eps:
+            eps_value = abs(float(table_eps.group(2))) * (-1 if table_eps.group(1) else 1)
+    quarter_eps_value = (
+        f"$({abs(eps_value):.2f})" if eps_value is not None and eps_value < 0
+        else (f"${eps_value:.2f}" if eps_value is not None else "review the release per-share lines")
+    )
     core = [
         (1, "Total revenue, latest fiscal year", metric_value("total_revenue"), f"10-K accession {facts['total_revenue']['current']['accession_number']}; tag {facts['total_revenue']['selected_tag']}"),
         (2, "Revenue growth versus prior year", metric_value("revenue_growth"), f"Formula: {calculations['revenue_growth'].get('formula')}"),
@@ -707,7 +810,7 @@ def main(argv: list[str] | None = None) -> int:
 
     research_context = context["business_and_mda_source_text"] | {
         "company": context["company"],
-        "earnings_release_source_lines": context["release_income_statement_lines"],
+        "earnings_release_source_lines": context["earnings_release_source_text"],
         "filings": context["filings"],
     }
     research_task = json_handoff(

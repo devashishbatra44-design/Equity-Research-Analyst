@@ -77,13 +77,7 @@ Costco total revenue includes net sales and membership fees. Net sales alone is 
 
 ## Partner verification
 
-The code and filing evidence support the marks above. Lab 02 also requires a partner to check two marks.
-
-- Partner mark 1 checked: ____________________
-- Partner mark 2 checked: ____________________
-- Partner initials: ____________________
-
-Do not mark this partner requirement complete until the partner performs the check.
+Devashish reports that the required two-mark partner check was completed with Shivani Rathi. The exact two claims, marks, and partner initials were not provided for transcription into this file. Do not infer those details from the repository.
 
 This is a learning exercise, not financial advice.
 

@@ -70,7 +70,7 @@ Sources: Nasdaq historical data for [COST](https://api.nasdaq.com/api/quote/COST
 
 Peer arithmetic mean: 28.6375x. Peer median: 24.0000x. Costco is 66.88% above the peer mean on this selected basis. This is a descriptive comparison, not a fair-value estimate; the fiscal-period mismatch and differences among the businesses limit the inference.
 
-Draft statement for the valuation section (sources checked; final student judgment pending): “Using October 27, 2026 share prices and each company's latest annual GAAP diluted EPS, Costco's FY-EPS P/E was 47.79x, compared with 43.71x for Walmart, 18.21x for Target, and 24.00x for BJ's; the peer mean was 28.64x. Costco therefore traded at a 66.9% premium to this simple peer mean. This premium is a relative valuation signal, not proof of overvaluation: Costco's latest fiscal year ended August 30, 2026, while the peer fiscal years ended January 31, 2026, and P/E alone does not estimate intrinsic value.”
+Checked statement for the valuation section (sources and student judgment confirmed): “Using October 27, 2026 share prices and each company's latest annual GAAP diluted EPS, Costco's FY-EPS P/E was 47.79x, compared with 43.71x for Walmart, 18.21x for Target, and 24.00x for BJ's; the peer mean was 28.64x. Costco therefore traded at a 66.9% premium to this simple peer mean. This premium is a relative valuation signal, not proof of overvaluation: Costco's latest fiscal year ended August 30, 2026, while the peer fiscal years ended January 31, 2026, and P/E alone does not estimate intrinsic value.”
 
 ### Optional TTM cross-check
 
@@ -87,7 +87,7 @@ Peer mean: 27.8966x; peer median: 25.0883x; COST premium to peer mean: 71.31%. T
 
 SEC company-facts source files: [WMT](https://data.sec.gov/api/xbrl/companyfacts/CIK0000104169.json), [TGT](https://data.sec.gov/api/xbrl/companyfacts/CIK0000027419.json), and [BJ](https://data.sec.gov/api/xbrl/companyfacts/CIK0001531152.json). Verify each quarter's `EarningsPerShareDiluted` observation against its form and period; do not treat year-to-date EPS as a single quarter.
 
-Draft TTM wording (peer source checks completed; final student judgment pending): “Using October 27, 2026 prices and the latest four reported quarters of GAAP diluted EPS, Costco's multiple was 47.79x versus a simple peer mean of 27.90x. This suggests a premium, but not a stand-alone fair-value conclusion. The peer periods end about one month earlier, and Target's GAAP earnings include a $994 million tariff refund in the latest quarter.”
+Checked TTM wording (peer sources and student judgment confirmed): “Using October 27, 2026 prices and the latest four reported quarters of GAAP diluted EPS, Costco's multiple was 47.79x versus a simple peer mean of 27.90x. This suggests a premium, but not a stand-alone fair-value conclusion. The peer periods end about one month earlier, and Target's GAAP earnings include a $994 million tariff refund in the latest quarter.”
 
 ### Judgment support: five-year sensitivity (illustrative assumptions, not facts)
 
@@ -101,11 +101,9 @@ Formula: EPS in year 5 = $20.76 × (1 + assumed annual EPS growth)^5; year-5 pri
 
 At a 27.90x exit multiple, EPS must grow approximately 11.37% annually for five years to keep the modeled price near $992.13 before dividends. This is a break-even calculation, not a forecast. The student must choose a plausible growth path, multiple, and return hurdle before making the recommendation. The arithmetic is calculated from the checked base EPS and price; the scenario assumptions are analyst choices and are not independently verified facts.
 
-## Partner check on the separate partner-pick report
+## Partner-review note
 
-- Partner claim 1 and mark: ______________________________
-- Partner claim 2 and mark: ______________________________
-- Partner name and initials: ______________________________
+Reciprocal partner evidence belongs with Devashish's selected Belden report and Shivani Rathi's selected Netflix work, not this professor-assigned Costco baseline.
 
 Manager review note: `manager_review_pe_reconciliation.json` records a targeted Strategy Manager pass on the refreshed Investment Recommendation and peer P/E comparison. `advisor_refresh.md` is the current Advisor output; the original Advisor text remains in `role_outputs.json` as historical provenance and is superseded for the final report. The targeted review does not replace the student's source audit or establish that every added external claim is correct.
 
@@ -113,6 +111,6 @@ Source folder: `COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554`.
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex built the desk, checked the September sales-release claims against Costco IR, and calculated supplemental FY-EPS and TTM peer comparisons and an illustrative five-year valuation sensitivity; Purdue GenAI Studio generated the initial report and refreshed the Investment Recommendation after Devashish verified peer P/E inputs. Devashish verified the core audit, peer sources, TTM EPS inputs for WMT, TGT, and BJ, and added September-release claims, and approved Hold as the current working judgment. Partner review remains pending.
+AI assistance: OpenAI Codex and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
 
 Any remaining errors are my own.

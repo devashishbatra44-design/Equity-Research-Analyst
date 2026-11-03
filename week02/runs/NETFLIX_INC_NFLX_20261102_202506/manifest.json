@@ -1,0 +1,176 @@
+{
+  "program_version": "1.0.0",
+  "run_status": "success",
+  "steps": {
+    "1": {
+      "name": "Resolve the ticker",
+      "status": "success"
+    },
+    "2": {
+      "name": "Select the filings",
+      "status": "success"
+    },
+    "3": {
+      "name": "Download and convert the documents",
+      "status": "success"
+    },
+    "4": {
+      "name": "Retrieve annual XBRL company facts",
+      "status": "success"
+    },
+    "5": {
+      "name": "Calculate financial measures",
+      "status": "success",
+      "unavailable_calculations": [
+        "debt_to_equity"
+      ]
+    },
+    "6": {
+      "name": "Extract quarterly revenue and diluted EPS",
+      "status": "success",
+      "extraction_statuses": {
+        "total_revenue": "found",
+        "diluted_eps": "found"
+      }
+    },
+    "7": {
+      "name": "Process the peers",
+      "status": "success",
+      "peer_failures": 0
+    }
+  },
+  "local_run_time": "2026-11-02T20:25:06.094866-05:00",
+  "utc_run_time": "2026-11-03T01:25:06.094866+00:00",
+  "time_zone": "EST",
+  "arguments": {
+    "ticker": "NFLX",
+    "peers": "DIS,CMCSA,ROKU",
+    "price": 69.85,
+    "price_date": "2026-10-19",
+    "price_source": "Yahoo Finance historical data (split-adjusted close): https://finance.yahoo.com/quote/NFLX/history/",
+    "step": null
+  },
+  "main_ticker": "NFLX",
+  "peer_tickers": [
+    "DIS",
+    "CMCSA",
+    "ROKU"
+  ],
+  "company": {
+    "ticker": "NFLX",
+    "legal_name": "NETFLIX INC",
+    "cik": 1065280,
+    "cik_10_digit": "0001065280"
+  },
+  "source_urls": {
+    "company_tickers": "https://www.sec.gov/files/company_tickers.json",
+    "submissions": "https://data.sec.gov/submissions/CIK0001065280.json",
+    "company_facts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001065280.json"
+  },
+  "filings": {
+    "10-k": {
+      "form": "10-K",
+      "filing_date": "2026-01-23",
+      "reporting_period": "2025-12-31",
+      "accession_number": "0001065280-26-000034",
+      "accepted_timestamp": "2026-01-23 16:06:33",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+    },
+    "10-q": {
+      "form": "10-Q",
+      "filing_date": "2026-10-21",
+      "reporting_period": "2026-09-30",
+      "accession_number": "0001065280-26-000291",
+      "accepted_timestamp": "2026-10-21 16:01:46",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/0001065280-26-000291-index.html"
+    },
+    "8-k": {
+      "form": "8-K",
+      "filing_date": "2026-10-20",
+      "reporting_period": "2026-10-20",
+      "accession_number": "0001065280-26-000290",
+      "accepted_timestamp": "2026-10-20 16:01:55",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/0001065280-26-000290-index.html"
+    }
+  },
+  "selected_xbrl_tags": {
+    "total_revenue": "us-gaap:Revenues",
+    "operating_income": "us-gaap:OperatingIncomeLoss",
+    "net_income": "us-gaap:NetIncomeLoss",
+    "diluted_eps": "us-gaap:EarningsPerShareDiluted",
+    "stockholders_equity": "us-gaap:StockholdersEquity",
+    "long_term_debt": "us-gaap:LongTermDebtNoncurrent",
+    "current_long_term_debt": null,
+    "cash_from_operations": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "property_equipment_additions": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  "output_filenames": [
+    "10-k.txt",
+    "10-q.txt",
+    "8-k.txt",
+    "calculations.json",
+    "exhibit-99-1.txt",
+    "facts.csv",
+    "facts.json",
+    "filings.json",
+    "manager_review.json",
+    "manifest.json",
+    "manual_audit.md",
+    "peers.csv",
+    "peers.json",
+    "report.md",
+    "role_outputs.json"
+  ],
+  "retrieval_errors": [],
+  "validation_errors": [],
+  "unavailable_values": [
+    "current_long_term_debt",
+    "debt_to_equity"
+  ],
+  "documents": {
+    "10-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm",
+      "local_filename": "10-k.txt",
+      "accession_number": "0001065280-26-000034",
+      "retrieval_status": "success"
+    },
+    "10-q": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
+      "local_filename": "10-q.txt",
+      "accession_number": "0001065280-26-000291",
+      "retrieval_status": "success"
+    },
+    "8-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/nflx-20261020.htm",
+      "local_filename": "8-k.txt",
+      "accession_number": "0001065280-26-000290",
+      "retrieval_status": "success"
+    },
+    "exhibit-99-1": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm",
+      "local_filename": "exhibit-99-1.txt",
+      "accession_number": "0001065280-26-000290",
+      "document_type": "EX-99.1",
+      "description": "EX-99.1",
+      "retrieval_status": "success"
+    }
+  },
+  "tag_selection_reasons": {
+    "total_revenue": "Selected the highest-priority candidate among tags with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is 2025-12-31.",
+    "operating_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "net_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "diluted_eps": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "stockholders_equity": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "current_long_term_debt": null,
+    "cash_from_operations": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "property_equipment_additions": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage."
+  },
+  "model_provider": "Purdue GenAI Studio (OpenAI-compatible endpoint)",
+  "model_name": "qwen3.8:27b",
+  "model_key_source": "local .env; secret value not stored",
+  "manager_review": {
+    "status": "pass",
+    "issues": []
+  }
+}

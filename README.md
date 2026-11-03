@@ -1,0 +1,48 @@
+# Mastering AI for Finance — Equity Research Desk
+
+This repository contains the FIN 67110 equity-research desk, its SEC data workflow, company reports, and manual audit records.
+
+## Course work
+
+- Week 1 setup and learning notes: [week01/README.md](week01/README.md)
+- Week 2 desk, readings, run status, and audit notes: [week02/README.md](week02/README.md)
+
+## Local setup and verification
+
+Run these commands from this repository. Activating this repository's environment prevents another project's Python environment from being used by mistake.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r week02/requirements.txt
+python -m unittest discover -s week01 -p 'test*.py' -v
+python -m unittest discover -s week02 -p 'test*.py' -v
+python -m pip check
+```
+
+Run the Week 1 environment check with:
+
+```bash
+python check_env.py
+```
+
+The command prints only a four-character key prefix and the SEC User-Agent. Never paste that output into a public file.
+
+The ASD-STE100 rewrites of the Lab 02 and Lab 03 build requests are in [Prompt Library](Prompt%20Library/).
+
+## Company runs
+
+The Week 2 company sequence is recorded as follows: Costco is the professor-assigned baseline, Apple is the professor-assigned in-class transfer run, and Belden is Devashish's selected company. Netflix is Shivani Rathi's selected company. Netflix material in this repository is supporting reciprocal partner-review evidence; it is not Devashish's own-company run.
+
+| Company | Purpose | Report | Manual audit |
+|---|---|---|---|
+| Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md) |
+| Apple (AAPL) | Professor-assigned in-class transfer run | [report](week02/runs/Apple_Inc_AAPL_20261102_184430/report.md) | [audit](week02/runs/Apple_Inc_AAPL_20261102_184430/manual_audit.md) |
+| Belden (BDC) | Devashish's selected company | [report](week02/runs/BELDEN_INC_BDC_20261102_191754/report.md) | [audit](week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md) |
+| Netflix (NFLX) | Shivani Rathi's selected company; partner-review material | [report](week02/runs/NETFLIX_INC_NFLX_20261102_202506/report.md) | [worksheet](week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md) |
+
+## Submission and privacy
+
+Checkpoint 1 uses a commit permalink submitted in Brightspace. Confirm the required reports and desk are in the linked commit before submitting. The course instructions require a public repository; repository visibility has not been changed as part of this update.
+
+Secrets and local environment files must stay out of version control. Do not upload `.env`, API keys, or licensed raw data.
