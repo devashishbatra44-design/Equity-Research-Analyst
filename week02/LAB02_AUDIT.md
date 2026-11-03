@@ -24,7 +24,7 @@ The `$992.13` Costco price input is the unadjusted close on Tuesday, October 27,
 | 4. Read annual facts | Right | All nine current facts end August 30, 2026. Each fact has a tag, unit, filing, accession, and prior-year comparison. The figures match the FY2026 10-K lines listed below. |
 | 5. Calculate measures | Right | The calculations reproduce the arithmetic below from Step 4 inputs. The operating-margin denominator is total revenue. |
 | 6. Read release lines | Right | The release line states total revenue of `$95,723 million` for the quarter and `$303,154 million` for the year. The release paragraph states fourth-quarter diluted EPS of `$6.75`. |
-| 7. Process peers | Right | WMT, TGT, and BJ use their own latest fiscal years and their own XBRL facts. Each peer margin is operating income divided by total revenue. |
+| 7. Process peers | Right after the source-line label correction | WMT, TGT, and BJ use their own latest 10-K periods. The margin denominator is each issuer's company-wide revenue line: WMT total revenues, TGT net sales, BJ total revenues. TGT and BJ label the period fiscal 2025 ended January 31, 2026; WMT labels it fiscal 2026. |
 
 ## Costco annual facts matched to the 10-K
 
@@ -69,7 +69,7 @@ The unchanged program selected Walmart's Form 10-K for the fiscal year ended Jan
 | Revenue definition | The selected line is `Total revenues`, not net sales. | Right |
 | Period alignment | Both inputs end January 31, 2026. | Right |
 
-Walmart reports an operating-income percentage based on net sales elsewhere in its filing. This desk intentionally uses total revenue for every peer so the comparison keeps one denominator definition.
+Walmart reports an operating-income percentage based on net sales elsewhere in its filing. The desk's comparable margin uses each issuer's company-wide revenue line: total revenues for Walmart and BJ's, and net sales for Target. Do not rename a filing line. The comparison is consistent in using the company-wide revenue measure, but the line labels differ by issuer.
 
 ## Definition trap
 

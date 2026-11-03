@@ -26,8 +26,8 @@ Check each peer, extra ratio, and P/E in the report. These are expected calculat
 |---|---|---|---|
 | FY-EPS P/E | 47.7905x = 992.13 / 20.76; close 2026-10-27; EPS period 2026-08-30, tag us-gaap:EarningsPerShareDiluted, accession 0000909832-26-000093 | **Correct (student-checked)** | Devashish previously checked the Nasdaq close and arithmetic in the October 31 hand audit. https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100 |
 | WMT operating margin | 4.1821% = 29,825 / 713,163 million | **Correct (student-checked)** | Same Walmart 10-K values and arithmetic as previously checked; period end 2026-01-31; accession 0000104169-26-000055. |
-| TGT operating margin | 4.8836% = 5,117 / 104,780 million | **Numerically correct; label clarification noted** | The Target 10-K labels $104,780 million as net sales, not total revenue; $5,117 / $104,780 = 4.8836%; accession 0000027419-26-000016. |
-| BJ operating margin | 3.8057% = 817 / 21,457 million | **Correct (student-checked)** | Same BJ 10-K values and arithmetic as previously checked; period end 2026-01-31; accession 0001531152-26-000007. |
+| TGT operating margin | 4.8836% = 5,117 / 104,780 million | **Correct (student-checked; source label corrected)** | Target's 10-K calls $104,780 million **Net sales**, not total revenue. $5,117 / $104,780 = 4.8836%; fiscal 2025 ended 2026-01-31; accession 0000027419-26-000016. The saved report now uses the filing's exact line label. |
+| BJ operating margin | 3.8057% = 816.604 / 21,457.274 million | **Correct (student-checked)** | BJ's 10-K reports total revenues of $21,457,274 thousand and operating income of $816,604 thousand (equivalent to $21,457.274 million and $816.604 million); margin = 816.604 / 21,457.274 = 3.805721%, or 3.8057%; fiscal 2025 ended 2026-01-31; accession 0001531152-26-000007. |
 
 ## Report checks
 

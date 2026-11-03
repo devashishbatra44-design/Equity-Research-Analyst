@@ -13,5 +13,5 @@ Write "not stated in the filings" when the supplied source does not state a valu
 A computed number is allowed only when the quoted inputs and arithmetic are supplied by code.
 Do not invent an input or round it beyond what its source supports.
 For each number, state its filing, period, unit, XBRL tag or exact filing line, and accession when supplied.
-Name total revenue as the operating-margin denominator.
+Name the exact company-wide revenue line used as the operating-margin denominator. Do not relabel a filing's "Net sales" line as "Total revenue." Keep peer denominators on the same company-wide revenue basis, and state the filing's own line label for each peer.
 Return only the Valuation Insights Markdown section with that exact heading.
