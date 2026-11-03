@@ -4,6 +4,12 @@ Use the course audit checklist. The student entered marks only for claims person
 
 Counts at top: Errors (wrong + unsupported): 0. Missing: 0. These totals reflect the confirmed Belden report claims in this audit.
 
+## Partner check on Devashish's selected-company report
+
+- Partner claim 1 and mark: FY2025 total revenue of $2,715,194,000 in the 10-K — PASS.
+- Partner claim 2 and mark: Q3 2026 revenue of $966 million, adjusted EPS of $2.26, and GAAP EPS of $(0.29) in Exhibit 99.1 — PASS.
+- Partner name and initials: Shivani Rathi (SR).
+
 | # | Required claim | Expected value to compare with report | Filing/source reference | Mark by student | Filing value or note |
 |---:|---|---|---|---|---|
 | 1 | Total revenue, latest fiscal year | $2,715 million | 10-K accession 0000913142-26-000009; tag us-gaap:Revenues | Correct | $2,715,194 thousand |
@@ -33,12 +39,6 @@ Check each peer, extra ratio, and P/E in the report. These are expected calculat
 
 - Template: all five required parts are present in the generated draft: yes; user checked all five sections. Mark: Complete.
 - Recommendation: Yes — the report names 18.0474x FY-EPS P/E as its deciding figure and explains that the filing-based evidence does not establish intrinsic value.
-
-## Partner check on Devashish's selected-company report
-
-- Partner claim 1 and mark: FY2025 total revenue of $2,715,194,000 in the 10-K — PASS.
-- Partner claim 2 and mark: Q3 2026 revenue of $966 million, adjusted EPS of $2.26, and GAAP EPS of $(0.29) in Exhibit 99.1 — PASS.
-- Partner name and initials: Shivani Rathi (SR).
 
 Source folder: `BELDEN_INC_BDC_20261102_191754`.
 

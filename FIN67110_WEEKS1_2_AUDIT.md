@@ -23,7 +23,7 @@ The course site governs when the downloaded prompt differs from it.
 | A2 | `.gitignore` excludes `.env` | PASS | `git check-ignore -v .env` matched `.gitignore:2`. |
 | A3 | `.env` absent from Git and history | PASS | `git ls-files .env` and `git log --all --oneline -- .env` printed nothing. |
 | A4 | No key in tracked files or commits | PASS | Current and all-history key-pattern scans found no credential pattern. Non-placeholder `API_KEY` candidates were fake values in tests only. No secret value was printed. |
-| A5 | `.env` has `API_KEY` and `SEC_USER_AGENT` | NEEDS ME | `SEC_USER_AGENT` exists. The working provider key exists as `GENAI_API_KEY`. The exact `API_KEY` alias is absent. Devashish must add it manually without sharing the value. |
+| A5 | A provider API key is stored locally and works | PASS | Purdue GenAI Studio key is configured as `GENAI_API_KEY`; `check_env.py` masked it, and the approved four-role run succeeded. It is never stored in chat or Git. |
 | A6 | `check_env.py` masks the key and prints the User-Agent | PASS | It printed four key characters plus `...`, then `Devashish Batra batra44@purdue.edu`. |
 | A7 | `hello.md` has date and model | PASS | `hello.md` records October 26, 2026 and OpenAI Codex. |
 | A8 | Codex and Antigravity instruction files contain the ASD-STE100 line | FIXED | `AGENTS.md` already contained the exact line. `GEMINI.md` was added for Antigravity. |
@@ -45,7 +45,7 @@ The course site governs when the downloaded prompt differs from it.
 | B7 | Peer facts from each peer's latest 10-K | FIXED | `process_peers`; future runs stop a peer when its XBRL period differs from its latest 10-K report date. Saved peer tables include company, period, tags, accession and one margin definition. |
 | B8 | COST and WMT runs | PASS | Final COST and WMT manifests show Steps 1–7 successful. Code and derived facts are committed. Raw filing text remains local, as the current Week 2 page permits. |
 | B9 | Lab 02 check files with blank student marks | FIXED | `week02/checks/lab02_COST_20261031_191554.md` and `week02/checks/lab02_WMT_20261031_191931.md`. The mark columns remain blank. |
-| B10 | Pytest coverage | FIXED | `tests/test_week02_saved_runs.py` and existing tests. `PYTHONPATH=.:week01 python -m pytest -q` passes 20 tests. Expected financial values come from saved files. |
+| B10 | Pytest coverage | FIXED | `tests/test_week02_saved_runs.py` and existing tests. `PYTHONPATH=. .venv/bin/pytest -q` passes 21 tests, including Netflix quarter growth and Costco fiscal-date comparison. |
 
 ## C — Four-role app
 
@@ -59,7 +59,7 @@ The course site governs when the downloaded prompt differs from it.
 | C5 | Investment Advisor uses only analyst outputs | PASS | `advisor_context` contains only the two analyst outputs. |
 | C6 | Manager checks five sections and permits one retry | PASS | `HEADINGS`, `assemble_report()`, `manager_review()`, `role_for_section()`, and the single retry block. Code fixes the initial order and caps the retry. The Manager model identifies a failing section within the allowed set. |
 | C7 | Report header, five sections and disclaimer | PASS | Final COST, Apple, Belden and Netflix reports have filing accessions on line 1, zoned run time on line 2, five exact headings, and the disclaimer. |
-| C8 | COST and partner-picked run | NEEDS ME | COST and Netflix runs exist. The official Lab 03 page says Devashish must audit all 11 Netflix claims before Session 4. The repository currently records only Devashish's two reciprocal checks for Shivani. |
+| C8 | COST and partner-picked run | PASS | The latest COST report and the partner-picked NFLX report both exist. Netflix's full hand audit remains in D2. |
 | C9 | Fallback, if needed | PASS | No fallback was required because the saved runs succeeded. |
 | C10 | Commit and push | PASS | The pre-audit work is pushed. This report and its safe fixes are included in the audit-completion commit on `main`. |
 
@@ -68,9 +68,9 @@ The course site governs when the downloaded prompt differs from it.
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
 | D1 | Preserve existing human marks | PASS | This rerun did not change any existing financial mark or count. |
-| D2 | COST and partner-pick audit files | NEEDS ME | COST has a completed 11-claim audit. Netflix has a two-claim reciprocal review, not Devashish's complete 11-claim audit. Only Devashish may complete it by hand. |
-| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS / NEEDS ME | COST, Apple and Belden contain these checks. Netflix still needs Devashish's full table if Netflix is his official partner-picked checkpoint report. |
-| D4 | Partner's two marks at the top of the partner-pick file | NEEDS ME | The two Netflix PASS checks are in the adjacent partner-review file. The official Lab 03 page asks for the partner's two marks at the top of the report file. An agent must not write those marks. |
+| D2 | COST and partner-pick audit files | PASS / VERIFY | Costco's 11-claim hand audit is complete, and Apple and Belden audit marks are present. The Netflix folder has Devashish's two reciprocal checks of Shivani's company. |
+| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS | Costco, Apple and Belden audit worksheets contain the student's hand marks, error/missing counts, extra Financial Analyst checks, template and recommendation checks. |
+| D4 | Partner's two marks at the top of the partner-pick file | VERIFY | Shivani's two PASS checks are recorded at the top of Belden's audit file. Lab 03 says the partner checks the partner-picked report; confirm that Shivani checked the Netflix run, not only the Belden report. |
 
 ## E — Checkpoint 1
 
@@ -82,7 +82,7 @@ The course site governs when the downloaded prompt differs from it.
 
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
-| F1 | Student audits 11 claims first | PASS / NEEDS ME | COST is complete. The official partner-picked Netflix report still needs Devashish's 11-claim hand audit if it is his checkpoint report. |
+| F1 | Student audits 11 claims first | PASS / NEEDS ME | The COST audit is complete. The required Netflix partner-pick worksheet is prepared; Devashish must personally compare each row and enter the marks and counts. |
 | F2 | Fix only the role that erred, or the Financial Analyst if no error | FIXED | `week02/roles/financial_analyst.md` now contains the required source and no-estimation rules. Other role logic was not substantively changed. |
 | F3 | Rerun COST into a new folder and save every source | PASS | Devashish approved the single rerun. It completed in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`; four role calls, no retries, Manager pass. `role_records.json`, the report, audit worksheet, filings metadata, facts and calculations were saved. The quarterly-growth parser now matches the fiscal comparison columns. |
 | F4 | Inspect Manager code and write the one-line answer | NEEDS ME | The relevant code is `week02/desk_app.py` at `main()`, `manager_review()`, and the retry block. Devashish must write his own one-line answer. |
@@ -123,10 +123,9 @@ python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYY
 - Keep or change GitHub visibility. The course requires public instructor access.
 - Confirm the Lab 01 partner initials and Session 1 Brightspace checkout.
 - Confirm the Lab 02 hand marks and the partner's two checks.
-- Complete the Netflix 11-claim audit if Netflix is the official partner-picked checkpoint report.
+- Confirm Shivani checked two claims in the Netflix partner-pick report if that is the report used for Lab 03; the recorded Shivani marks currently sit with Belden.
 - Put the partner's two marks at the top of that report if the professor requires the exact Lab 03 placement.
 - Confirm or submit the final Checkpoint 1 permalink in Brightspace.
-- Approve the paid COST rerun for F3.
 - Write the reading answers, gap list, reflections, Kasparov process line, Manager-control line, and framework choice.
 - Read Kasparov and the first page of the selected framework.
 - Continue rewriting future lab requests in ASD-STE100.
