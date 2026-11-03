@@ -85,7 +85,7 @@ The course site governs when the downloaded prompt differs from it.
 | F1 | Student audits 11 claims first | PASS | Devashish's Costco 11-claim audit is complete. The new COST worksheet carries forward the same previously checked financial values and the matching 11.1043% quarter-growth calculation. |
 | F2 | Fix only the role that erred, or the Financial Analyst if no error | FIXED | `week02/roles/financial_analyst.md` now contains the required source and no-estimation rules. Other role logic was not substantively changed. |
 | F3 | Rerun COST into a new folder and save every source | PASS | Devashish approved the single rerun. It completed in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`; four role calls, no retries, Manager pass. `role_records.json`, the report, audit worksheet, filings metadata, facts and calculations were saved. The quarterly-growth parser now matches the fiscal comparison columns. |
-| F4 | Inspect Manager code and write the one-line answer | NEEDS ME | The relevant code is `week02/desk_app.py` at `main()`, `manager_review()`, and the retry block. Devashish must write his own one-line answer. |
+| F4 | Inspect Manager code and write the one-line answer | PASS | Student's answer: “The code decides which role runs next; the Manager model can request a retry, but the code validates and executes at most one.” This matches `week02/desk_app.py`: `manager_review()` validates the returned sections, and `main()` maps and executes at most one retry per failing section before a post-retry review. |
 
 ## G — Polish
 
@@ -125,7 +125,7 @@ python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYY
 - Confirm the Lab 02 hand marks and the partner's two checks.
 - Both reciprocal partner checks are recorded as PASS: Devashish checked Shivani's Netflix report; Shivani checked Devashish's Belden report. Netflix is Shivani's company, not Devashish's selected company.
 - Confirm or submit the final Checkpoint 1 permalink in Brightspace.
-- Write the reading answers, gap list, reflections, Kasparov process line, Manager-control line, and framework choice.
+- Write the reading answers, gap list, reflections, Kasparov process line, and framework choice. The Manager-control line is recorded at F4.
 - Read Kasparov and the first page of the selected framework.
 - Continue rewriting future lab requests in ASD-STE100.
 
