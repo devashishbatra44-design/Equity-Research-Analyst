@@ -182,6 +182,8 @@ def compact_peer(peer: dict[str, Any]) -> dict[str, Any]:
         "reference_fiscal_year": facts.get("reference_fiscal_year"),
         "facts": selected,
         "operating_margin": peer.get("operating_margin"),
+        "revenue_line_label": peer.get("revenue_line_label"),
+        "revenue_statement_url": peer.get("revenue_statement_url"),
         "source_url": facts.get("company_facts_source_url"),
     }
 
@@ -474,6 +476,32 @@ def assemble_report(research: str, financial: str, advisor: str) -> tuple[str | 
     return "\n\n".join(sections[heading] for heading in HEADINGS), []
 
 
+def report_body_from_role_outputs(outputs: dict[str, str]) -> str:
+    """Return the exact five-section report body supported by saved role outputs."""
+    normalized = normalize_role_outputs(outputs)
+    report, missing = assemble_report(
+        normalized["Research Analyst"],
+        normalized["Financial Analyst"],
+        normalized["Investment Advisor"],
+    )
+    if report is None:
+        raise RuntimeError("Saved role outputs are missing required sections: " + ", ".join(missing))
+    return report
+
+
+def render_report_text(header: str, report: str) -> str:
+    """Render a report without adding analysis outside the saved role outputs."""
+    return (
+        header.rstrip()
+        + "\n\n"
+        + report.strip()
+        + "\n\n---\n\nThis is a learning exercise, not financial advice.\n\n"
+        + "AI assistance: OpenAI Codex and Purdue GenAI Studio. "
+        + "I verified the sources myself; the judgments are mine.\n\n"
+        + "Any remaining errors are my own.\n"
+    )
+
+
 def normalize_role_outputs(outputs: dict[str, str]) -> dict[str, str]:
     """Keep the first instance of each role's required section."""
     research = outputs.get("Research Analyst", "")
@@ -607,7 +635,9 @@ def quantitative_source_notes(context: dict[str, Any]) -> str:
         lines.append(
             f"- {peer['company']['legal_name']} ({peer['ticker']}) operating margin: {float(margin['result']) * 100:.4f}% "
             f"= {float(operating['value']) / 1_000_000:,.0f} / {float(revenue['value']) / 1_000_000:,.0f} million; "
-            f"period end {revenue['period_end']}; total-revenue tag `{revenue['xbrl_tag']}`; "
+            f"period end {revenue['period_end']}; denominator line label "
+            f"`{peer.get('revenue_line_label') or 'not recovered from the filing'}`; "
+            f"revenue tag `{revenue['xbrl_tag']}`; "
             f"operating-income tag `{operating['xbrl_tag']}`; 10-K accession {revenue['accession_number']}."
         )
     return "\n".join(lines)
@@ -757,7 +787,7 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
     for number, claim, expected, source in core:
         safe_expected = str(expected).replace("|", "\\|").replace("\n", " ")
         safe_source = str(source).replace("|", "\\|").replace("\n", " ")
-        rows.append(f"| {number} | {claim} | {safe_expected} | {safe_source} | **TO MARK BY HAND** | __________________ |")
+        rows.append(f"| {number} | {claim} | __________________ | {safe_expected} | {safe_source} | **TO MARK BY HAND** |")
 
     other_rows = []
     pe = context["price_provenance"]
@@ -775,7 +805,8 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
         margin = peer.get("operating_margin", {})
         if rev and op and margin.get("validation_status") == "available":
             source = (
-                f"{rev['period_end']}; revenue tag {rev['xbrl_tag']}; operating-income tag {op['xbrl_tag']}; "
+                f"{rev['period_end']}; denominator label {peer.get('revenue_line_label') or 'not recovered'}; "
+                f"revenue tag {rev['xbrl_tag']}; operating-income tag {op['xbrl_tag']}; "
                 f"10-K accession {rev['accession_number']}"
             )
             expected = f"{float(margin['result']) * 100:.4f}% = {float(op['value']) / 1e6:,.0f} / {float(rev['value']) / 1e6:,.0f} million"
@@ -787,7 +818,7 @@ def render_audit_worksheet(report: str, context: dict[str, Any], run_folder: Pat
         "Use the course audit checklist. Compare the report with the named filing yourself. "
         "These marks are intentionally blank because the lab requires human sign-off.\n\n"
         "Counts at top: Errors (wrong + unsupported): ______. Missing: ______.\n\n"
-        "| # | Required claim | Expected value to compare with report | Filing/source reference | Mark by student | Filing value or note |\n"
+        "| # | Required claim | Report said | Filing says | Filing/source reference | Mark by student |\n"
         "|---:|---|---|---|---|---|\n"
         + "\n".join(rows)
         + "\n\n## Other Financial Analyst numbers\n\n"
@@ -1023,14 +1054,7 @@ def main(argv: list[str] | None = None) -> int:
         raise RuntimeError("The Strategy Manager found unresolved report issues: " + json.dumps(review.get("issues", []), ensure_ascii=False))
 
     header = report_header(run_folder, context)
-    report_text = (
-        header
-        + report.strip()
-        + "\n\n---\n\nThis is a learning exercise, not financial advice.\n\n"
-        + "AI assistance: OpenAI Codex and Purdue GenAI Studio. "
-        + "I verified the sources myself; the judgments are mine.\n\n"
-        + "Any remaining errors are my own.\n"
-    )
+    report_text = render_report_text(header, report)
     report_path = run_folder / "report.md"
     report_path.write_text(report_text, encoding="utf-8")
     review_path = run_folder / "manager_review.json"

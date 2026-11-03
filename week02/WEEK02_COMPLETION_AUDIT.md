@@ -18,7 +18,7 @@ This file records a repository and execution audit. It does not replace the stud
 - The SEC client stops with a clear message after HTTP 403.
 - The Lab 02 and Lab 03 requests have separate ASD-STE100 rewrites in `Prompt Library`.
 - Three Week 1 tests pass.
-- Thirteen Week 2 tests pass.
+- The complete repository test suite passes: 26 tests, including saved-run, debt-tag, exact peer-line-label, and report-provenance checks.
 - `pip check` reports no broken requirements.
 - The main Python files compile.
 
@@ -34,7 +34,7 @@ The final WMT run reports:
 - Period end for both inputs: January 31, 2026.
 - Operating margin: 4.1821%, calculated as 29,825 / 713,163.
 
-The final COST, AAPL, BDC, and NFLX run folders contain filing metadata, XBRL facts, calculations, peer facts, and successful manifests. Downloaded filing text remains local and excluded from Git.
+The final COST, AAPL, BDC, and NFLX run folders contain filing metadata, public SEC filing text, XBRL facts, calculations, peer facts, and successful manifests. Licensed source files remain local and excluded from Git.
 
 ## Lab 03 evidence
 
@@ -46,6 +46,8 @@ Each final report gives the run time on line 2.
 
 Each final Strategy Manager review reports `pass` with no requested retry.
 
+Each final `report.md` matches the saved role outputs. Former hand-added analysis is kept in `student_notes.md` and is not represented as desk output.
+
 The application uses separate calls for the Research Analyst, Financial Analyst, Investment Advisor, and Strategy Manager.
 
 The application permits one section retry and stops if the second Strategy Manager review does not pass.
@@ -54,10 +56,10 @@ The Research Analyst now receives a bounded, line-labeled earnings-release excer
 
 ## Human-audit status
 
-- COST: the student recorded all 11 core marks. Errors: 0. Missing: 0.
+- COST: the student recorded all 11 core marks and the supplemental checks. Errors: 0. Missing: 0. The current rerun reads Target’s exact `Net sales` label from the filed inline-XBRL row.
 - AAPL: the student recorded all 11 core marks. Errors: 0. Missing: 0. Supplemental vendor forecasts and target prices are excluded from the Week 2 report.
-- BDC: the student recorded all 11 core marks. Errors: 0. Missing: 0.
-- NFLX: Netflix is Shivani Rathi's selected company. Devashish's two reciprocal checks are marked PASS in the NFLX partner-review worksheet. The complete 11-claim audit of Shivani's own report remains Shivani's responsibility; this is not represented as Devashish's own-company audit.
+- BDC: the student recorded all 11 core marks. Core errors: 0. Missing: 0. The audit marks the StockAnalysis price source and related recommendation unsupported until an exchange or LSEG close is supplied.
+- NFLX: Netflix is Shivani Rathi's selected company. Devashish's two separate reciprocal checks are marked `Correct` in the NFLX partner-review worksheet. The complete 11-claim audit of Shivani's own report remains Shivani's responsibility; this is not represented as Devashish's own-company audit.
 
 Devashish reports that the reciprocal partner check is complete. Shivani's two checks of Devashish's Belden report are transcribed in the Belden audit worksheet.
 
@@ -67,7 +69,7 @@ Devashish reports that the reciprocal partner check is complete. Shivani's two c
 - The public `main` branch contains the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and the reciprocal Netflix partner-review material.
 - Logged-out access to the repository and commit permalink returned HTTP 200.
 - Local and remote `main` were verified to match after the push.
-- `.env`, downloaded filing text, licensed vendor files, and the licensed course-paper PDF are absent from the published commit contents.
+- `.env`, licensed vendor files, and the licensed course-paper PDF are absent from the published commit contents. Public SEC filing text is committed only for the final reviewed folders so line citations can be checked.
 - Devashish confirms the Brightspace Checkpoint 1 upload was submitted. The receipt and exact submitted URL are not visible from this repository, so the submission status is user-reported rather than independently verified.
 - The licensed Francis and Zhang paper PDF has been removed from Git tracking. The local file remains on the laptop.
 

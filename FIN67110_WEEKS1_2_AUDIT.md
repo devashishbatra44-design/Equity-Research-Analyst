@@ -2,7 +2,7 @@
 
 Audit date: November 2, 2026.
 
-Latest rerun: COST completed at 2026-11-02 22:33 local time in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`. Four model calls ran, the Manager returned `pass`, and no retries were needed. The report now includes the previously missing same-quarter revenue growth: `(95,723 - 86,156) / 86,156 = 11.1043%`, matched to the 16-week columns in Exhibit 99.1. The worksheet keeps human marks blank.
+Latest desk rerun: COST completed on November 2, 2026 in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708`. Four model calls ran and the Manager returned `pass`. The generic peer reader now recovers each issuer’s exact revenue line label from inline XBRL, including Target’s `Net sales`. Its report is unchanged desk output and its manual audit shows the report and filing values side by side.
 
 Audit specification: `FIN67110_Weeks1-2_Agent_Prompt.md`, checked against the current course pages for Week 1, Lab 01, Week 2, Lab 02, Lab 03, the report audit, the data page, grading, and Week 3 prework.
 
@@ -11,7 +11,7 @@ The course site governs when the downloaded prompt differs from it.
 ## Specification differences
 
 - The Lab 02 URL in the downloaded prompt is outdated. The current page is `week-02/lab-02-desk-on-one-page.html`.
-- The downloaded prompt asks Git to hold filing text. The current Week 2 page asks for the code and saved folders' facts. This repository commits derived facts and provenance. It excludes downloaded filing text and licensed data.
+- The downloaded prompt asks Git to hold filing text. The final reviewed folders now commit the public SEC text needed to resolve line citations. Licensed data remains excluded.
 - The downloaded prompt adds pytest, separate role files, machine-check Markdown files, and complete role-call records. These are useful polish requirements. The published Lab 02 and Lab 03 requests do not require their exact file layout.
 - The grading page states that Checkpoint 1 is due on the day of Session 3. Devashish reports that Brightspace changed the date to November 2, 2026. Brightspace controls a private course update.
 
@@ -29,7 +29,7 @@ The course site governs when the downloaded prompt differs from it.
 | A8 | Codex and Antigravity instruction files contain the ASD-STE100 line | FIXED | `AGENTS.md` already contained the exact line. `GEMINI.md` was added for Antigravity. |
 | A9 | Placeholder-only `.env.example` | FIXED | `.env.example` now includes `API_KEY=paste-here` and `SEC_USER_AGENT="Your Name your@purdue.edu"`, plus placeholder Purdue GenAI settings. |
 | A10 | Requirements and install command | FIXED | `week02/requirements.txt` lists Beautiful Soup, OpenAI, pytest, python-dotenv, and Requests. Install with `python -m pip install -r week02/requirements.txt`. |
-| A11 | GitHub remote and logged-out public access | NEEDS ME | The remote is `https://github.com/devashishbatra44-design/Equity-Research-Analyst.git`. The temporary public test passed and `.env` returned 404. The repository is private now by Devashish's instruction. |
+| A11 | GitHub remote and logged-out public access | PASS | The remote is `https://github.com/devashishbatra44-design/Equity-Research-Analyst.git`. The repository is public. Final logged-out access and the `.env` 404 are rechecked after the remediation commit is pushed. |
 
 ## B — Seven data steps
 
@@ -43,9 +43,9 @@ The course site governs when the downloaded prompt differs from it.
 | B5 | Ratios computed in code with arithmetic | PASS | `calculate_measures`; saved calculations include inputs, periods, arithmetic and results. The published Lab 02 Step 5 does not require quarter growth; Lab 03 code computes it from release columns. |
 | B6 | Exact quarter revenue and GAAP diluted-EPS lines | PASS | `extract_release_claims`; saved COST and WMT manifests record both claims as found. Adjusted EPS receives a lower selection score. |
 | B7 | Peer facts from each peer's latest 10-K | FIXED | `process_peers`; future runs stop a peer when its XBRL period differs from its latest 10-K report date. Saved peer tables include company, period, tags, accession and one margin definition. |
-| B8 | COST and WMT runs | PASS | Final COST and WMT manifests show Steps 1–7 successful. Code and derived facts are committed. Raw filing text remains local, as the current Week 2 page permits. |
+| B8 | COST and WMT runs | PASS | Final COST and WMT manifests show Steps 1–7 successful. Code and derived facts are committed. The current COST folder includes the public SEC text used by its citations. |
 | B9 | Lab 02 check files with blank student marks | FIXED | `week02/checks/lab02_COST_20261031_191554.md` and `week02/checks/lab02_WMT_20261031_191931.md`. The mark columns remain blank. |
-| B10 | Pytest coverage | FIXED | `tests/test_week02_saved_runs.py` and existing tests. `PYTHONPATH=. .venv/bin/pytest -q` passes 21 tests, including Netflix quarter growth and Costco fiscal-date comparison. |
+| B10 | Pytest coverage | FIXED | All 26 tests pass. The suite covers saved runs, debt-tag handling, exact inline-XBRL line labels, report provenance, Netflix quarter growth, and Costco fiscal-date comparison. A fresh clone skips the one text-dependent test only when its public SEC text is absent. |
 
 ## C — Four-role app
 
@@ -58,8 +58,8 @@ The course site governs when the downloaded prompt differs from it.
 | C4 | Financial Analyst states and sources all core claims | FIXED | `financial_analyst.md` requires every source, exact tag or line, arithmetic, definitions, and `not stated in the filings` instead of an estimate. Code appends filing-based quantitative source notes. |
 | C5 | Investment Advisor uses only analyst outputs | PASS | `advisor_context` contains only the two analyst outputs. |
 | C6 | Manager checks five sections and permits one retry | PASS | `HEADINGS`, `assemble_report()`, `manager_review()`, `role_for_section()`, and the single retry block. Code fixes the initial order and caps the retry. The Manager model identifies a failing section within the allowed set. |
-| C7 | Report header, five sections and disclaimer | PASS | Final COST, Apple, Belden and Netflix reports have filing accessions on line 1, zoned run time on line 2, five exact headings, and the disclaimer. |
-| C8 | COST and partner-picked run | PASS | The latest COST report and the partner-picked NFLX report both exist. Netflix's full hand audit remains in D2. |
+| C7 | Report header, five sections and disclaimer | PASS | Final COST, Apple, Belden and Netflix reports have filing accessions on line 1, zoned run time on line 2, five exact headings, and the disclaimer. Each `report.md` is reconstructed exactly from its saved role outputs. Former additions are in `student_notes.md`. |
+| C8 | Required company sequence | PASS | Costco is the professor baseline. Apple is the professor’s in-class transfer run. Belden is Devashish’s selected company. Netflix is Shivani Rathi’s selected company and appears only as reciprocal partner-review evidence for Devashish. |
 | C9 | Fallback, if needed | PASS | No fallback was required because the saved runs succeeded. |
 | C10 | Commit and push | PASS | The pre-audit work is pushed. This report and its safe fixes are included in the audit-completion commit on `main`. |
 
@@ -67,10 +67,10 @@ The course site governs when the downloaded prompt differs from it.
 
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
-| D1 | Preserve existing human marks | PASS | This rerun did not change any existing financial mark or count. |
-| D2 | COST and partner-pick audit files | PASS | Costco's 11-claim hand audit is complete, and Apple and Belden audit marks are present. The corrected COST run carries forward the same previously checked values and sources; its quarter-growth result is now explicit. |
-| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS | Costco, Apple and Belden audit worksheets contain the student's hand marks, error/missing counts, extra Financial Analyst checks, template and recommendation checks. |
-| D4 | Reciprocal partner checks | PASS | Devashish checked two claims in Shivani Rathi's Netflix report (`week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md`), and Shivani checked two claims in Devashish's Belden report (`week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md`). Netflix is Shivani's company, not Devashish's selected company. Both marks are recorded as PASS. |
+| D1 | Audit the desk output, not hand-edited text | FIXED | All final reports match `role_outputs.json`. Former additions are preserved separately as student notes. |
+| D2 | COST, Apple and Belden audit files | PASS | Each current worksheet has `Report said`, `Filing says`, source, and student-mark columns. The reports’ actual generated claims are audited. |
+| D3 | Counts, 11 claims, other numbers, template and recommendation | PASS WITH DISCLOSED LIMITATION | All 11 core claims are marked correct. The corrected Costco run has no errors or missing claims. The Belden audit discloses one unsupported price source and the resulting recommendation limitation. |
+| D4 | Reciprocal partner checks | PASS | Devashish checked Netflix FY2025 revenue and Q3 2026 revenue. Shivani checked Belden FY2025 revenue and Q3 2026 revenue. Each check is one core claim and uses `Correct`, not `PASS`. Shivani’s marks are identified as transcribed from her message. |
 
 ## E — Checkpoint 1
 
@@ -82,9 +82,9 @@ The course site governs when the downloaded prompt differs from it.
 
 | ID | Requirement | Status | Evidence |
 |---|---|---|---|
-| F1 | Student audits 11 claims first | PASS | Devashish's Costco 11-claim audit is complete. The new COST worksheet carries forward the same previously checked financial values and the matching 11.1043% quarter-growth calculation. |
+| F1 | Student audits 11 claims first | PASS | Devashish’s Costco 11-claim audit is complete and now shows each generated report value beside the filing value. |
 | F2 | Fix only the role that erred, or the Financial Analyst if no error | FIXED | `week02/roles/financial_analyst.md` now contains the required source and no-estimation rules. Other role logic was not substantively changed. |
-| F3 | Rerun COST into a new folder and save every source | PASS | Devashish approved the single rerun. It completed in `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224`; four role calls, no retries, Manager pass. `role_records.json`, the report, audit worksheet, filings metadata, facts and calculations were saved. The quarterly-growth parser now matches the fiscal comparison columns. |
+| F3 | Rerun COST into a new folder and save every source | PASS | The current corrected run is `week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708`; four role calls, no retries, Manager pass. `role_records.json`, the unedited report, audit worksheet, filing text and metadata, facts, calculations, and exact peer denominator labels were saved. |
 | F4 | Inspect Manager code and write the one-line answer | PASS | Student's answer: “The code decides which role runs next; the Manager model can request a retry, but the code validates and executes at most one.” This matches `week02/desk_app.py`: `manager_review()` validates the returned sections, and `main()` maps and executes at most one retry per failing section before a post-retry review. |
 
 ## G — Polish
@@ -93,7 +93,7 @@ The course site governs when the downloaded prompt differs from it.
 |---|---|---|---|
 | G1 | README with setup, run commands, outputs and disclaimer | FIXED | Root `README.md`. |
 | G2 | Optional `--price-date` | PASS | Both CLIs support `--price-date`; the app requires it and saves it beside P/E. |
-| G3 | Save every role's JSON input and output | PASS | The approved COST run produced `role_records.json` with each role's instruction file, JSON input and output. |
+| G3 | Save every role's JSON input and output | PASS | The current COST run produced `role_records.json` with each role's instruction file, JSON input and output. |
 
 ## Exact commands
 
@@ -123,7 +123,7 @@ python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYY
 - Keep or change GitHub visibility. The course requires public instructor access.
 - Confirm the Lab 01 partner initials and Session 1 Brightspace checkout.
 - Confirm the Lab 02 hand marks and the partner's two checks.
-- Both reciprocal partner checks are recorded as PASS: Devashish checked Shivani's Netflix report; Shivani checked Devashish's Belden report. Netflix is Shivani's company, not Devashish's selected company.
+- Both reciprocal partner checks are recorded as `Correct`: Devashish checked Shivani's Netflix report; Shivani checked Devashish's Belden report. Netflix is Shivani's company, not Devashish's selected company.
 - Confirm or submit the final Checkpoint 1 permalink in Brightspace.
 - Write the reading answers, gap list, reflections, Kasparov process line, and framework choice. The Manager-control line is recorded at F4.
 - Read Kasparov and the first page of the selected framework.

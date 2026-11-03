@@ -11,9 +11,11 @@ from week02.desk_app import (
 from week02.desk_steps import (
     CONCEPTS,
     Company,
+    apply_zero_current_debt_evidence,
     acceptance_timestamp_matches,
     calculate_measures,
     comparable_ticker,
+    extract_inline_xbrl_line_label,
     format_observation,
     normalize_ticker,
     parse_peers,
@@ -72,6 +74,66 @@ class DeskStepsTests(unittest.TestCase):
         self.assertAlmostEqual(calculations["debt_to_equity"]["result"], 0.5)
         self.assertEqual(calculations["free_cash_flow"]["result"], 12)
         self.assertEqual(calculations["price_to_earnings"]["result"], 10)
+
+    def test_debt_current_is_a_candidate_tag(self):
+        self.assertIn("DebtCurrent", CONCEPTS["current_long_term_debt"]["tags"])
+
+    def test_inline_xbrl_revenue_line_label_preserves_filing_wording(self):
+        html = """
+        <table><tr><td>Net sales</td><td>$</td><td>
+        <ix:nonfraction name="us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+          contextref="c-1" scale="6">104,780</ix:nonfraction>
+        </td></tr></table>
+        """
+        label = extract_inline_xbrl_line_label(
+            html,
+            "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+            104_780_000_000,
+        )
+        self.assertEqual(label, "Net sales")
+
+    def test_inclusive_long_term_debt_tag_is_not_double_counted(self):
+        concepts = {
+            "total_revenue": {"current": observation(120), "prior": observation(100, "2025-08-31", "2024-09-02")},
+            "operating_income": {"current": observation(12)},
+            "net_income": {"current": observation(8)},
+            "diluted_eps": {"current": observation(4)},
+            "stockholders_equity": {"current": observation(50), "prior": observation(40, "2025-08-31")},
+            "long_term_debt": {"selected_tag": "us-gaap:LongTermDebt", "current": observation(25)},
+            "current_long_term_debt": {"current": observation(5)},
+            "cash_from_operations": {"current": observation(15)},
+            "property_equipment_additions": {"current": observation(3)},
+        }
+        item = calculate_measures({"concepts": concepts}, 40)["calculations"]["debt_to_equity"]
+        self.assertEqual(item["result"], 0.5)
+        self.assertEqual(item["arithmetic"], "25 / 50")
+
+    def test_explicit_no_principal_due_supports_zero_current_portion(self):
+        facts = {
+            "reference_fiscal_year": {"fiscal_year": 2025, "period_end": "2025-12-31"},
+            "concepts": {
+                "long_term_debt": {
+                    "status": "available",
+                    "selected_tag": "us-gaap:LongTermDebtNoncurrent",
+                    "current": {
+                        "filing_date": "2026-02-17",
+                        "accession_number": "0000000000-26-000001",
+                        "source_url": "https://www.sec.gov/example",
+                    },
+                },
+                "current_long_term_debt": {"status": "unavailable", "current": None},
+            },
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            filing = Path(directory) / "10-k.txt"
+            filing.write_text(
+                "Principal payments on long-term debt totaled $1.3 billion, none of which is due in 2026.\n",
+                encoding="utf-8",
+            )
+            apply_zero_current_debt_evidence(facts, filing)
+        current = facts["concepts"]["current_long_term_debt"]["current"]
+        self.assertEqual(current["value"], 0)
+        self.assertEqual(current["evidence_type"], "explicit_filing_zero")
 
     def test_comparative_fact_fiscal_year_uses_its_period_end(self):
         item = {

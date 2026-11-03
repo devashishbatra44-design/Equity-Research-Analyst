@@ -43,7 +43,15 @@ Run the seven steps and the four model roles:
 python week02/desk_app.py TICKER --peers T1,T2,T3 --price PRICE --price-date YYYY-MM-DD --price-source SOURCE
 ```
 
-Use a closing price, date, and source that you verified before either command. The program creates a timestamped folder under `week02/runs/`. It saves filing provenance, XBRL facts, calculations, peer facts, role records, the Manager review, the report, and an audit worksheet there. Downloaded filing text remains local and is excluded from Git.
+Use a closing price, date, and source that you verified before either command. The program creates a timestamped folder under `week02/runs/`. It saves filing provenance, XBRL facts, calculations, peer facts, role records, the Manager review, the report, and an audit worksheet there. The final reviewed folders also contain the public SEC filing text needed to check line citations. Licensed data remains local.
+
+`report.md` is immutable desk output reconstructed from `role_outputs.json`. Human additions belong in `student_notes.md`. This separation lets a reader compare the desk’s output with the manual audit.
+
+Check report provenance with:
+
+```bash
+python week02/report_provenance.py week02/runs/RUN_FOLDER
+```
 
 ## Company runs
 
@@ -51,9 +59,9 @@ The Week 2 company sequence is recorded as follows: Costco is the professor-assi
 
 | Company | Purpose | Report | Manual audit |
 |---|---|---|---|
-| Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/manual_audit.md) |
+| Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/manual_audit.md) |
 | Apple (AAPL) | Professor-assigned in-class transfer run | [report](week02/runs/Apple_Inc_AAPL_20261102_184430/report.md) | [audit](week02/runs/Apple_Inc_AAPL_20261102_184430/manual_audit.md) |
-| Belden (BDC) | Devashish's selected company | [report](week02/runs/BELDEN_INC_BDC_20261102_191754/report.md) | [audit](week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md) |
+| Belden (BDC) | Devashish's selected company | [report](week02/runs/BELDEN_INC_BDC_20261102_233949/report.md) | [audit](week02/runs/BELDEN_INC_BDC_20261102_233949/manual_audit.md) |
 | Netflix (NFLX) | Shivani Rathi's selected company; partner-review material | [report](week02/runs/NETFLIX_INC_NFLX_20261102_202506/report.md) | [worksheet](week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md) |
 
 ## Submission and privacy

@@ -79,30 +79,31 @@ Sources: [FY2026 10-K filing detail](https://www.sec.gov/Archives/edgar/data/909
 - [x] Match WMT total revenue and operating income to its latest 10-K.
 - [x] Confirm the WMT revenue tag represents total revenue, not net sales.
 - [x] Recompute the WMT operating margin by hand.
-- [x] Push the permitted code and saved facts. `.env`, downloaded filing text, and licensed raw data remain excluded.
+- [x] Push the permitted code and saved facts. `.env` and licensed raw data remain excluded. The final reviewed folders include public SEC filing text so line citations are checkable.
 - [x] Confirm the local key is present before the first model call in Lab 03. No key value was printed or saved.
 
 ## Lab 02 completed runs
 
-- Costco full run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554`
+- Costco historical run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554` (superseded).
+- Costco current run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708`.
 - Walmart transfer run: `runs/Walmart_Inc_WMT_20261031_191931`; Step 6 was rerun after narrowing extraction to the consolidated income-statement row.
 - Costco price input for Lab 03: `$992.13`, COST's unadjusted close on Tuesday, October 27, 2026. Source: [Nasdaq historical data](https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100).
 - Detailed hand-check record: `LAB02_AUDIT.md`
 
-The local filing texts remain excluded from GitHub. The SEC-derived facts, calculations, filing metadata, peer tables, and manifests may be committed.
+The current reviewed folders commit their public SEC filing texts, SEC-derived facts, calculations, filing metadata, peer tables, and manifests. Other downloaded filing texts remain local.
 
 ## Lab 03 — current status
 
 - [x] Four model roles ran on COST: Research Analyst, Financial Analyst, Investment Advisor, and Strategy Manager.
 - [x] The report has the five required headings; all eleven audit claims, FY-EPS P/E, and peer operating margins are present with source trails.
-- [x] The Strategy Manager returned `pass` on the original report and on a fresh review of the updated report; both are structural reviews, not substitutes for the student's filing audit.
-- [x] Reconciled the peer P/E update: `advisor_refresh.md` is the current Advisor output and matches the final Investment Recommendation; the original role output is retained as historical provenance. The targeted Strategy Manager check is in `manager_review_pe_reconciliation.json`.
-- [x] The manual audit worksheet for the submitted COST report is saved beside the latest report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/manual_audit.md`; it records all 11 core claims and supplemental checks.
-- [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. AI did not choose the audit marks.
+- [x] The Strategy Manager returned `pass`; this is a structural review, not a substitute for the student's filing audit.
+- [x] Restored `report.md` from the saved role outputs. Former hand-added analysis is in `student_notes.md`, not in the desk output.
+- [x] The manual audit worksheet for the submitted COST report is saved beside the latest report at `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/manual_audit.md`; it records all 11 core claims and supplemental checks.
+- [x] Devashish completed the 11 core-claim marks and checked the listed extra numbers by hand against the named filings. The current audit shows `Report said`, `Filing says`, and the student mark. The fixed rerun reads each peer’s exact revenue line label from inline XBRL, including Target’s `Net sales` label.
 - [x] Shivani Rathi selected Netflix (NFLX) as her company. Netflix material retained here supports the reciprocal partner review; it is not Devashish's own-company run.
 - [x] Reciprocal checks are recorded: Devashish's two Netflix filing checks are in the NFLX partner-review file; Shivani's two Belden checks are in the Belden audit worksheet.
 - [x] Devashish confirms that the Checkpoint 1 upload was submitted in Brightspace; the receipt is not visible from this workspace.
-- [x] The Costco manual audit links to Shivani's two Belden partner-check marks rather than leaving a blank partner-check section.
+- [x] The reciprocal partner marks are recorded once in the final Belden and Netflix files and use the course mark name `Correct`.
 
 ## Apple transfer run — November 2, 2026
 
@@ -121,14 +122,15 @@ The Apple run exposed that the Lab 02 release extractor did not recognize prose-
 - [x] Ran all seven data steps on BDC using APH, TEL, and GLW as broad connectivity and communications peers.
 - [x] Used the October 28 close ($106.66), the last close before Belden's October 29 earnings 8-K was accepted.
 - [x] Added source parsing that prefers explicit GAAP diluted EPS over adjusted EPS and recognizes a `Revenues` row in the consolidated statement; tests pass.
-- [x] Ran the four roles; the Strategy Manager returned `pass`. The report and completed manual audit are in `runs/BELDEN_INC_BDC_20261102_191754`.
-- [x] Devashish completed the manual audit marks and counts. The XBRL reader did not return a current-debt tag for FY2025. The student checked the filed balance sheet and Note 15, found no current portion or 2026 principal maturity, and used $0 as the disclosed current portion in the debt/equity calculation.
+- [x] Added `DebtCurrent`, guarded the inclusive `LongTermDebt` fallback against double counting, and required explicit filing evidence before treating a missing current-debt XBRL tag as zero.
+- [x] Reran the seven steps and four roles into `runs/BELDEN_INC_BDC_20261102_233949`. The report now includes debt to equity using the 10-K statement that none of the $1.3 billion of principal payments is due in 2026.
+- [x] The manual audit shows the generated claims beside the filing values. Its 11 core claims are correct. The P/E remains marked unsupported until the October 28 close is confirmed in LSEG or an official exchange source.
 
 ## Netflix — Shivani Rathi's selected company — November 2, 2026
 
 - [x] Retained the NFLX desk output as supporting material for the reciprocal review of Shivani's selected company.
 - [x] Devashish reports that his reciprocal check of Shivani's Netflix work is complete.
-- [x] The Netflix worksheet records Devashish's two reciprocal PASS checks for Shivani's selected company. It is partner-review support, not Devashish's own-company 11-claim audit.
+- [x] The Netflix worksheet records two separate core claims marked `Correct`: FY2025 revenue and Q3 2026 revenue. It is partner-review support, not Devashish's own-company 11-claim audit.
 
 ## Checkpoint 1
 

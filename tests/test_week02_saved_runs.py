@@ -82,6 +82,8 @@ def test_saved_cost_release_extraction_and_peers_succeeded():
 
 def test_saved_cost_quarter_revenue_growth_uses_comparable_fiscal_dates():
     run_folder = latest_successful_run("COST")
+    if not (run_folder / "10-k.txt").exists():
+        pytest.skip("Downloaded SEC filing text is intentionally excluded from Git.")
     growth = read_run_context(run_folder)["quarterly_release_claims"]["quarter_revenue_growth"]
     assert growth["current_quarter_revenue_thousands"] == 95_723
     assert growth["prior_year_same_quarter_revenue_thousands"] == 86_156

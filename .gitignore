@@ -42,6 +42,10 @@ data/exports/
 
 # Keep downloaded filing text local. Commit the derived facts and provenance.
 week02/runs/**/*.txt
+!week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708/*.txt
+!week02/runs/Apple_Inc_AAPL_20261102_184430/*.txt
+!week02/runs/BELDEN_INC_BDC_20261102_233949/*.txt
+!week02/runs/NETFLIX_INC_NFLX_20261102_202506/*.txt
 
 # OS and editor state
 .DS_Store

@@ -1,5 +1,5 @@
 {
-  "definition": "Operating income divided by the issuer's company-wide revenue line for each peer's latest filing period. Preserve the exact statement-line label in the report.",
+  "definition": "Operating income divided by total revenue for each peer's own latest fiscal year.",
   "peers": [
     {
       "ticker": "WMT",
@@ -794,7 +794,7 @@
         "result": 0.048835655659477,
         "validation_status": "available",
         "unavailable_reason": null,
-        "note": "The normalized revenue field maps to Target's reported Net sales line; preserve that source label in the report."
+        "note": "Denominator is total revenue, not net sales."
       }
     },
     {

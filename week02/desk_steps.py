@@ -108,6 +108,7 @@ CONCEPTS: OrderedDict[str, dict[str, Any]] = OrderedDict(
             "unit_keys": ("USD",),
             "unit": "USD",
             "tags": (
+                "DebtCurrent",
                 "LongTermDebtCurrent",
                 "LongTermDebtAndFinanceLeaseObligationsCurrent",
                 "CurrentPortionOfLongTermDebt",
@@ -509,6 +510,59 @@ def html_to_plain_text(raw: str) -> str:
     return "\n".join(lines) + "\n"
 
 
+def extract_inline_xbrl_line_label(raw_html: str, xbrl_tag: str, value: float) -> str | None:
+    """Return the filing's row label for an exact inline-XBRL fact value."""
+    soup = BeautifulSoup(raw_html, "html.parser")
+    expected_name = xbrl_tag.lower()
+    for element in soup.find_all(True):
+        if str(element.get("name", "")).lower() != expected_name:
+            continue
+        rendered = element.get_text(" ", strip=True)
+        cleaned = re.sub(r"[^0-9.()-]", "", rendered)
+        if not cleaned or cleaned in {"-", "()"}:
+            continue
+        negative = cleaned.startswith("(") and cleaned.endswith(")")
+        try:
+            raw_value = float(cleaned.strip("()"))
+            scale = int(str(element.get("scale", "0") or "0"))
+        except ValueError:
+            continue
+        numeric_value = raw_value * (10 ** scale)
+        if negative or str(element.get("sign", "")) == "-":
+            numeric_value *= -1
+        if abs(numeric_value - float(value)) > max(0.5, abs(float(value)) * 1e-12):
+            continue
+        row = element.find_parent("tr")
+        if row is None:
+            continue
+        value_cell = element.find_parent(["td", "th"])
+        for cell in row.find_all(["td", "th"], recursive=False):
+            if value_cell is not None and cell is value_cell:
+                break
+            label = re.sub(r"\s+", " ", cell.get_text(" ", strip=True)).strip()
+            if label and label not in {"$", "£", "€"} and not re.fullmatch(r"[0-9,().%-]+", label):
+                return label
+    return None
+
+
+def peer_revenue_line_label(
+    client: SECClient,
+    company: Company,
+    filing: dict[str, Any],
+    revenue_observation: dict[str, Any],
+) -> tuple[str | None, str | None]:
+    """Read the company-wide revenue line label from the peer's filed 10-K."""
+    primary_document = str(filing.get("primaryDocument") or "")
+    accession = str(filing.get("accessionNumber") or "")
+    xbrl_tag = str(revenue_observation.get("xbrl_tag") or "")
+    value = revenue_observation.get("value")
+    if not primary_document or not accession or not xbrl_tag or value is None:
+        return None, None
+    url = f"{filing_archive_base(company, accession)}/{primary_document}"
+    label = extract_inline_xbrl_line_label(client.text(url), xbrl_tag, float(value))
+    return label, url
+
+
 def response_to_plain_text(response: requests.Response) -> str:
     content_type = response.headers.get("Content-Type", "").lower()
     raw = response.text
@@ -842,6 +896,75 @@ def retrieve_company_facts(client: SECClient, company: Company) -> dict[str, Any
     }
 
 
+def apply_zero_current_debt_evidence(facts: dict[str, Any], filing_text_path: Path) -> None:
+    """Use an explicit filing statement to record a zero current debt portion.
+
+    This fallback runs only when XBRL has no aligned current-debt fact and the
+    selected long-term-debt tag is explicitly noncurrent. It never treats a
+    missing value as zero.
+    """
+    concept = facts["concepts"]["current_long_term_debt"]
+    long_term = facts["concepts"]["long_term_debt"]
+    if concept["status"] == "available" or long_term["status"] != "available":
+        return
+    if long_term.get("selected_tag") not in {
+        "us-gaap:LongTermDebtNoncurrent",
+        "us-gaap:LongTermDebtAndFinanceLeaseObligationsNoncurrent",
+    }:
+        return
+    lines = filing_text_path.read_text(encoding="utf-8", errors="replace").splitlines()
+    period_end = str(facts["reference_fiscal_year"].get("period_end") or "")
+    next_calendar_year = str(int(period_end[:4]) + 1) if period_end[:4].isdigit() else ""
+    evidence: tuple[int, str] | None = None
+    for index, line in enumerate(lines, start=1):
+        normalized = re.sub(r"\s+", " ", line).strip()
+        if re.search(
+            rf"\bprincipal payments?\b.*\blong-term debt\b.*\bnone of which is due in {re.escape(next_calendar_year)}\b",
+            normalized,
+            flags=re.IGNORECASE,
+        ):
+            evidence = (index, normalized)
+            break
+        if re.search(
+            r"\bcurrent portion of long-term debt\b\s*\|(?:\s*\$?\s*\|)?\s*(?:0|—|–|-|none)\s*(?:\||$)",
+            normalized,
+            flags=re.IGNORECASE,
+        ):
+            evidence = (index, normalized)
+            break
+    if evidence is None:
+        return
+    line_number, quote = evidence
+    current_long_term = long_term["current"]
+    concept.update(
+        {
+            "status": "available",
+            "reason": None,
+            "selected_tag": None,
+            "selection_reason": "The filed 10-K explicitly states that no long-term-debt principal is due in the current period; missing XBRL was not treated as zero.",
+            "current": {
+                "value": 0,
+                "unit": "USD",
+                "source_unit_key": None,
+                "fiscal_year": facts["reference_fiscal_year"].get("fiscal_year"),
+                "fiscal_period": "FY",
+                "period_start": None,
+                "period_end": period_end,
+                "filing_form": "10-K",
+                "filing_date": current_long_term.get("filing_date"),
+                "accession_number": current_long_term.get("accession_number"),
+                "frame": None,
+                "xbrl_tag": None,
+                "source_url": current_long_term.get("source_url"),
+                "source_line": f"10-k.txt:{line_number}",
+                "quoted_source_text": quote,
+                "evidence_type": "explicit_filing_zero",
+            },
+            "prior": None,
+        }
+    )
+
+
 def facts_csv_rows(facts: dict[str, Any]) -> list[dict[str, Any]]:
     rows = []
     for key, concept in facts["concepts"].items():
@@ -1001,14 +1124,25 @@ def calculate_measures(facts: dict[str, Any], price: float | None) -> dict[str, 
 
     debt = value_at(facts, "long_term_debt")
     current_debt = value_at(facts, "current_long_term_debt")
+    debt_tag = facts["concepts"]["long_term_debt"].get("selected_tag")
     if debt is not None and current_debt is not None and equity not in (None, 0):
-        result = (debt + current_debt) / equity
-        results["debt_to_equity"] = calculation(
-            "Debt to equity", "(Long-term debt + Current portion of long-term debt) / Stockholders' equity",
-            {"long_term_debt": debt, "current_portion": current_debt, "stockholders_equity": equity},
-            {"period_end": period_at(facts, "stockholders_equity")}, "ratio",
-            f"({debt} + {current_debt}) / {equity}", result,
-        )
+        if debt_tag == "us-gaap:LongTermDebt":
+            result = debt / equity
+            results["debt_to_equity"] = calculation(
+                "Debt to equity", "Long-term debt including current portion / Stockholders' equity",
+                {"long_term_debt_including_current_portion": debt, "current_portion_disclosed_separately": current_debt, "stockholders_equity": equity},
+                {"period_end": period_at(facts, "stockholders_equity")}, "ratio",
+                f"{debt} / {equity}", result,
+                note="The selected us-gaap:LongTermDebt fact includes the current portion. The current fact is not added again.",
+            )
+        else:
+            result = (debt + current_debt) / equity
+            results["debt_to_equity"] = calculation(
+                "Debt to equity", "(Long-term debt + Current portion of long-term debt) / Stockholders' equity",
+                {"long_term_debt": debt, "current_portion": current_debt, "stockholders_equity": equity},
+                {"period_end": period_at(facts, "stockholders_equity")}, "ratio",
+                f"({debt} + {current_debt}) / {equity}", result,
+            )
     else:
         results["debt_to_equity"] = calculation(
             "Debt to equity", "(Long-term debt + Current portion of long-term debt) / Stockholders' equity", {}, {}, "ratio", "", None,
@@ -1231,6 +1365,9 @@ def process_peers(client: SECClient, peer_tickers: list[str]) -> dict[str, Any]:
             margin = calculations["calculations"]["operating_margin"]
             revenue = facts["concepts"]["total_revenue"]["current"]
             operating_income = facts["concepts"]["operating_income"].get("current")
+            revenue_line_label, revenue_statement_url = peer_revenue_line_label(
+                client, company, latest_10k, revenue
+            )
             print(
                 f"  {company.name} | FY end {revenue['period_end']} | revenue={revenue['value']} {revenue['unit']} "
                 f"({facts['concepts']['total_revenue']['selected_tag']})"
@@ -1251,13 +1388,18 @@ def process_peers(client: SECClient, peer_tickers: list[str]) -> dict[str, Any]:
                     },
                     "facts": facts,
                     "operating_margin": margin,
+                    "revenue_line_label": revenue_line_label,
+                    "revenue_statement_url": revenue_statement_url,
                 }
             )
         except Exception as exc:  # Continue with remaining peers as required.
             message = f"{type(exc).__name__}: {exc}"
             print(f"  failed: {message}")
             results.append({"ticker": ticker, "status": "failed", "error": message})
-    return {"definition": "Operating income divided by total revenue for each peer's own latest fiscal year.", "peers": results}
+    return {
+        "definition": "Operating income divided by each peer's company-wide revenue line for its own latest fiscal year; preserve the filing's exact line label.",
+        "peers": results,
+    }
 
 
 def new_manifest(company: Company, args: argparse.Namespace, now: datetime) -> dict[str, Any]:
@@ -1396,6 +1538,7 @@ def execute_step(
             filings_path = require_file(run_folder, "filings.json", 4)
             filings = json.loads(filings_path.read_text(encoding="utf-8"))
             facts = retrieve_company_facts(client, company)
+            apply_zero_current_debt_evidence(facts, require_file(run_folder, "10-k.txt", 4))
             latest_10k_end = str(filings["10-k"].get("reportDate") or "")
             selected_fact_end = str(facts["reference_fiscal_year"].get("period_end") or "")
             if not latest_10k_end or selected_fact_end != latest_10k_end:

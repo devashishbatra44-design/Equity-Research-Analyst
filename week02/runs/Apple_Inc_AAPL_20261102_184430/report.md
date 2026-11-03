@@ -1,7 +1,7 @@
 # Apple Inc. (AAPL) — filings read: 10-K accession 0000320193-25-000079; 10-Q accession 0000320193-26-000020; 8-K accession 0000320193-26-000024
 # Run time: 2026-11-02T18:46:39.468146-05:00
 
-## Overview
+# Overview
 
 Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories. The company also sells related services. The filing states: "The Company designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related services." (10-k.txt:845)
 
@@ -11,11 +11,9 @@ The company sells products through direct and indirect channels. In 2025, direct
 
 Total net sales for fiscal year 2025 were $416,161 million. This represents a 6% increase from 2024. The filing states: "Total net sales | $ | 416,161 | 6 | % | $ | 391,035 | 2 | % | $ | 383,285" (10-k.txt:1205)
 
-Apple's fiscal 2026 earnings release reports full-year net sales of $478,834 million, up 15% year over year, and diluted EPS of $8.98. These are the most recent annual results in the supplied materials; the FY2025 10-K facts below remain the latest annual filing-based values in this run. (Exhibit 99.1, accession 0000320193-26-000024, lines 40 and 57.)
-
 Services net sales for fiscal year 2025 were $109,158 million. This represents a 14% increase from 2024. The filing states: "Services (1) | 109,158 | 14 | % | 96,169 | 13 | % | 85,200" (10-k.txt:1224)
 
-## Market Positioning and Growth Outlook
+# Market Positioning and Growth Outlook
 
 The company operates in highly competitive markets. These markets feature aggressive price competition and downward pressure on gross margins. The filing states: "The markets for the Company’s products and services are highly competitive and are characterized by aggressive price competition, downward pressure on gross margins, continual improvement in product performance, and price sensitivity on the part of consumers and businesses." (10-k.txt:945)
 
@@ -88,17 +86,12 @@ Products gross margin percentage decreased in 2025 compared to 2024. This was pr
     *   Period End: September 26, 2026.
     *   Source Line: "Diluted earnings per share was $2.10".
 
-*   **Fiscal 2026 annual net sales:** $478.834 billion, up 15% year over year.
-    *   Source: Exhibit 99.1, accession 0000320193-26-000024, line 40. The release's table states $478,834 million for FY2026 versus $416,161 million for FY2025.
-*   **Fiscal 2026 annual GAAP diluted EPS:** $8.98.
-    *   Source: Exhibit 99.1, accession 0000320193-26-000024, line 57.
+**Valuation Metrics**
 
-**FY-EPS valuation**
-
-*   **Supplied close:** $347.10 on October 27, 2026. Source: Nasdaq historical data.
-*   **FY-EPS P/E:** 46.5282x = $347.10 / $7.46.
-*   The denominator is FY2025 GAAP diluted EPS from the latest 10-K used by the data run. This is a backward-looking FY-EPS P/E. It is not TTM P/E.
-*   The earnings release later reports FY2026 GAAP diluted EPS of $8.98. The report does not combine that later EPS with a post-release price because that price was not an input to this Lab 03 run.
+*   **FY-EPS P/E:** 46.53.
+    *   Formula: Share price / Latest fiscal-year diluted EPS.
+    *   Inputs: Share price $347.10 (Nasdaq historical quote API, 2026-10-27); FY2025 Diluted EPS $7.46.
+    *   Source: 10-K, filed 2025-10-31, accession 0000320193-25-000079.
 
 **Peer Operating Margins**
 
@@ -131,7 +124,7 @@ Products gross margin percentage decreased in 2025 compared to 2024. This was pr
 - Alphabet Inc. (GOOGL) operating margin: 32.0326% = 129,039 / 402,836 million; period end 2025-12-31; total-revenue tag `us-gaap:Revenues`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001652044-26-000018.
 - AMAZON COM INC (AMZN) operating margin: 11.1553% = 79,975 / 716,924 million; period end 2025-12-31; total-revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001018724-26-000004.
 
-## Future Developments and Strategic Recommendations
+# Future Developments and Strategic Recommendations
 
 New U.S. tariffs were announced beginning in the second quarter of 2025. These include additional tariffs on imports from China, India, Japan, South Korea, Taiwan, Vietnam, and the EU. The filing states: "Beginning in the second quarter of 2025, new U.S. Tariffs were announced, including additional tariffs on imports from China, India, Japan, South Korea, Taiwan, Vietnam and the EU, among others." (10-k.txt:1196)
 
@@ -147,18 +140,18 @@ The company expects competition to intensify. Competitors may imitate the compan
 
 The filing does not establish specific future revenue targets or detailed strategic recommendations beyond the stated focus on innovation and competition.
 
-## Investment Recommendation
+# Investment Recommendation
 
 **Recommendation:** Hold
 
 **Thesis:**
-Apple reported FY2026 net sales of $478.834 billion, up 15%, with GAAP diluted EPS of $8.98. Q4 net sales were $114.477 billion, up 12%, and Q4 GAAP diluted EPS was $2.10. The FY2025 10-K identifies intense competition, tariff exposure, and lower Greater China sales in FY2025. The filings show strong recent results and material execution risks.
+Apple Inc. reported total net sales of $416,161 million for fiscal year 2025. This represents a 6% increase from 2024. Services net sales increased 14% to $109,158 million. The company holds a minority market share in global smartphone, personal computer, tablet, and wearables markets. Competition is highly aggressive. New U.S. tariffs announced in the second quarter of 2025 create uncertainty for supply chains and gross margins. Products gross margin decreased in 2025 due to product mix and tariff costs. The company expects competition to intensify.
 
 **Deciding Number:**
-The deciding number is the code-supplied FY-EPS P/E of 46.5282x. It equals the October 27, 2026 close of $347.10 divided by FY2025 GAAP diluted EPS of $7.46. This one backward-looking multiple does not establish intrinsic value. Therefore, the recommendation is Hold.
+The FY-EPS P/E ratio is 46.53. This metric uses a share price of $347.10 from 2026-10-27 and FY2025 diluted EPS of $7.46. A single multiple without a suitable comparison cannot establish intrinsic value. The supplied analysis lacks a valuation benchmark to determine if this multiple is attractive. Therefore, the recommendation is Hold.
 
 **Limitation:**
-The desk has no suitable filing-based valuation benchmark or intrinsic-value estimate. The peer operating margins compare profitability, not valuation. The FY-EPS P/E uses a pre-release price and FY2025 EPS, so it is not a current TTM or forward multiple. These limits support Hold rather than a stronger recommendation.
+The supplied analysis does not provide a target price or a comparable peer P/E multiple to establish value. Peer operating margins are provided, but these do not substitute for a valuation benchmark.
 
 ---
 

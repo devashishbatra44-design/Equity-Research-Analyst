@@ -27,13 +27,13 @@ Net income attributable to Belden Inc. for fiscal year 2025 was $237,522,000. Th
 
 Return on average equity for fiscal year 2025 was 18.56%. This calculation uses net income of $237,522,000 and average stockholders' equity. Average equity uses fiscal year 2025 equity of $1,264,424,000 and fiscal year 2024 equity of $1,294,736,000. Both equity figures are from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009), XBRL tag `us-gaap:StockholdersEquity`.
 
-Debt to equity was 1.0168x at December 31, 2025. The calculation is ($1,285,666,000 long-term debt + $0 current portion) / $1,264,424,000 stockholders' equity. Long-term debt and equity are from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009), XBRL tags `us-gaap:LongTermDebtNoncurrent` and `us-gaap:StockholdersEquity`, respectively. The balance sheet reports no current portion of long-term debt, and Note 15's debt-maturity table shows no principal due in 2026. The XBRL facts reader did not return a separate current-debt tag; the zero current portion is based on the filed balance sheet and maturity schedule.
+Debt to equity is unavailable. The current portion of long-term debt is unavailable. The 10-K filing does not provide a candidate tag for the current portion of long-term debt for the fiscal year ending 2025-12-31. Long-term debt was $1,285,666,000. This is from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009), XBRL tag `us-gaap:LongTermDebtNoncurrent`, as of 2025-12-31.
 
 Free cash flow for fiscal year 2025 was $218,692,000. This calculation subtracts property and equipment additions of $136,172,000 from net cash provided by operating activities of $354,864,000. Both inputs are from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009). The cash flow tag is `us-gaap:NetCashProvidedByUsedInOperatingActivities`. The capital expenditure tag is `us-gaap:PaymentsToAcquirePropertyPlantAndEquipment`.
 
 For the quarter ended September 27, 2026, revenue was $965,954,000. This figure is from the earnings release dated October 29, 2026 (8-K accession 0000913142-26-000039), exhibit 99.1, line 45. The same-quarter revenue growth was 38.35%. This calculation compares the current quarter revenue of $965,954,000 to the prior year same quarter revenue of $698,221,000. Both figures are from the earnings release exhibit 99.1, line 45. GAAP diluted earnings per share for the quarter ended September 27, 2026 was ($0.29). This data is from the earnings release exhibit 99.1, line 185.
 
-The FY-EPS P/E ratio was 18.05x on October 28, 2026. This calculation divides the $106.66 closing share price by FY2025 GAAP diluted EPS of $5.91. The share price is from stockanalysis.com; EPS is from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009), XBRL tag `us-gaap:EarningsPerShareDiluted`, for the period ended 2025-12-31. This is not a TTM P/E.
+The FY-EPS P/E ratio is 18.05. This calculation divides the share price of $106.66 by the latest fiscal year diluted EPS of $5.91. The share price is from stockanalysis.com on 2026-10-28. The EPS is from the 10-K filed on 2026-02-17 (accession 0000913142-26-000009), XBRL tag `us-gaap:EarningsPerShareDiluted`, for the period ended 2025-12-31. This is not a TTM P/E.
 
 Peer operating margins for fiscal year 2025 are as follows. Amphenol Corp (APH) had an operating margin of 25.41%. This uses operating income of $5,868,600,000 and total revenue of $23,094,700,000 from the 10-K filed on 2026-02-11 (accession 0001104659-26-013549). TE Connectivity plc (TEL) had an operating margin of 18.60%. This uses operating income of $3,211,000,000 and total revenue of $17,262,000,000 from the 10-K filed on 2025-11-10 (accession 0001104659-25-109150). Corning Inc (GLW) had an operating margin of 14.58%. This uses operating income of $2,279,000,000 and total revenue of $15,629,000,000 from the 10-K filed on 2026-02-12 (accession 0000024741-26-000124).
 
@@ -50,13 +50,13 @@ For the fourth quarter of 2026, guidance for revenues is "$960 - $980" million (
 **Recommendation: Hold**
 
 **Thesis**
-Belden shows positive operating momentum, but its Q3 2026 reported revenue growth of 38% includes the Ruckus acquisition; organic growth was 11% (earnings release, Exhibit 99.1). Management cites AI and automation as demand drivers and targets mid-single-digit annual revenue growth and 10% to 12% annual Adjusted EPS growth (10-K). The FY2025 debt-to-equity ratio is 1.0168x. Acquisition integration and leverage create execution risk.
+Belden Inc. shows strong operational momentum. Q3 2026 revenues reached $966 million, up 38% year-over-year. Management cites AI and automation as drivers for continued investment in networking infrastructure. The company targets mid-single-digit annual revenue growth and 10% to 12% annual Adjusted EPS growth. However, the supplied analysis lacks a complete valuation benchmark to establish intrinsic value.
 
 **Deciding Number**
-The deciding number is the code-supplied FY-EPS P/E of 18.0474x. It equals the October 28, 2026 close of $106.66 divided by FY2025 GAAP diluted EPS of $5.91. This backward-looking multiple does not establish intrinsic value without a suitable valuation benchmark.
+The FY-EPS P/E ratio of 18.05 is the deciding number. This multiple is calculated using the share price of $106.66 (dated 2026-10-28) and FY 2025 diluted EPS of $5.91. A single multiple without a suitable comparison cannot establish intrinsic value. Peer operating margins range from 14.58% to 25.41%, but peer P/E multiples are not supplied. Therefore, value cannot be confirmed.
 
 **Limitation**
-The selected peer data compare operating margins, not valuation. The FY2025 P/E is backward-looking and is not a TTM P/E. Reported Q3 growth includes an acquisition. These limits support Hold rather than a stronger recommendation.
+The valuation data is incomplete. The provided P/E is based on FY 2025 EPS, not trailing twelve months. No peer P/E multiples are available for comparison. This prevents a definitive Buy or Sell recommendation based on value.
 
 *This section is for informational purposes only and does not constitute financial advice.*
 

@@ -1,0 +1,112 @@
+{
+  "definition": "All ratios use the stated filing periods and total-revenue definition.",
+  "calculations": {
+    "revenue_growth": {
+      "measure": "Revenue growth",
+      "formula": "(Current-year revenue - Prior-year revenue) / Prior-year revenue",
+      "inputs": {
+        "current_revenue": 2715194000,
+        "prior_revenue": 2460979000
+      },
+      "fiscal_periods": {
+        "current": "2025-12-31",
+        "prior": "2024-12-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "(2715194000 - 2460979000) / 2460979000",
+      "result": 0.10329832152163834,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "operating_margin": {
+      "measure": "Operating margin",
+      "formula": "Current-year operating income / Current-year total revenue",
+      "inputs": {
+        "operating_income": 315692000,
+        "total_revenue": 2715194000
+      },
+      "fiscal_periods": {
+        "period_end": "2025-12-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "315692000 / 2715194000",
+      "result": 0.11626867177814919,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "Denominator is total revenue, not net sales."
+    },
+    "return_on_average_equity": {
+      "measure": "Return on average equity",
+      "formula": "Current-year net income / average current-and-prior equity",
+      "inputs": {
+        "net_income": 237522000,
+        "current_equity": 1264424000,
+        "prior_equity": 1294736000
+      },
+      "fiscal_periods": {
+        "current": "2025-12-31",
+        "prior": "2024-12-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "237522000 / ((1264424000 + 1294736000) / 2)",
+      "result": 0.1856249706935088,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "debt_to_equity": {
+      "measure": "Debt to equity",
+      "formula": "(Long-term debt + Current portion of long-term debt) / Stockholders' equity",
+      "inputs": {
+        "long_term_debt": 1285666000,
+        "current_portion": 0,
+        "stockholders_equity": 1264424000
+      },
+      "fiscal_periods": {
+        "period_end": "2025-12-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "(1285666000 + 0) / 1264424000",
+      "result": 1.0167997443895402,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "free_cash_flow": {
+      "measure": "Free cash flow",
+      "formula": "Net cash from operations - Additions to property and equipment",
+      "inputs": {
+        "cash_from_operations": 354864000,
+        "property_equipment_additions_sec_value": 136172000,
+        "property_equipment_additions_as_positive_expenditure": 136172000
+      },
+      "fiscal_periods": {
+        "period_end": "2025-12-31"
+      },
+      "unit": "USD",
+      "arithmetic": "354864000 - 136172000",
+      "result": 218692000,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "The original SEC value is preserved. The calculation treats additions as a positive expenditure amount."
+    },
+    "price_to_earnings": {
+      "measure": "Price-to-earnings ratio",
+      "formula": "User-supplied share price / Latest fiscal-year diluted EPS",
+      "inputs": {
+        "share_price": 106.66,
+        "diluted_eps": 5.91
+      },
+      "fiscal_periods": {
+        "diluted_eps_period_end": "2025-12-31"
+      },
+      "unit": "multiple",
+      "arithmetic": "106.66 / 5.91",
+      "result": 18.047377326565144,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "Price divided by latest fiscal-year diluted EPS. This is not labeled TTM P/E."
+    }
+  }
+}

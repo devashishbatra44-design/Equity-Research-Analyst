@@ -77,4 +77,4 @@ Sources: [8-K filing detail and Exhibit 99.1](https://www.sec.gov/Archives/edgar
 - Run the `.env` check and tests above, then use `python3 week01/list_genai_models.py` and `python3 week01/api_smoke_test.py` to verify account access and one live model response.
 - Fill `SEC_USER_AGENT` in `.env` with your name and Purdue email before any SEC downloader runs.
 - Read the paper sections and watch/read the materials above. Confirm the interpretations aloud with your partner.
-- Keep the GitHub repository private until the instructor says to change it. Do not push `.env`.
+- Keep the GitHub repository public for instructor access. Never push `.env`.

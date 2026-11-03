@@ -125,11 +125,11 @@ The FY-EPS P/E ratio is 47.79.
     *   **Formula:** 29,825,000,000 / 713,163,000,000
     *   **Inputs:** Operating income $29,825 million; Total revenue $713,163 million.
     *   **Filing:** 10-K (Accession 0000104169-26-000055)
-*   **Target (TGT):** Operating margin was 4.88% for fiscal 2025, ended January 31, 2026.
+*   **Target (TGT):** Operating margin was 4.88% for the fiscal year ended January 31, 2026.
     *   **Formula:** 5,117,000,000 / 104,780,000,000
-    *   **Inputs:** Operating income $5,117 million; Net sales $104,780 million (Target's reported company-wide revenue line).
+    *   **Inputs:** Operating income $5,117 million; Total revenue $104,780 million.
     *   **Filing:** 10-K (Accession 0000027419-26-000016)
-*   **BJ's Wholesale Club (BJ):** Operating margin was 3.81% for fiscal 2025, ended January 31, 2026.
+*   **BJ's Wholesale Club (BJ):** Operating margin was 3.81% for the fiscal year ended January 31, 2026.
     *   **Formula:** 816,604,000 / 21,457,274,000
     *   **Inputs:** Operating income $816.604 million; Total revenue $21,457.274 million.
     *   **Filing:** 10-K (Accession 0001531152-26-000007)
@@ -150,8 +150,8 @@ The FY-EPS P/E ratio is 47.79.
 
 - FY-EPS P/E: 47.7905x = 992.13 / 20.76. Price date: 2026-10-27; price source: https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100. EPS period end: 2026-08-30; EPS tag: `us-gaap:EarningsPerShareDiluted`; 10-K accession 0000909832-26-000093. Not TTM P/E.
 - Walmart Inc. (WMT) operating margin: 4.1821% = 29,825 / 713,163 million; period end 2026-01-31; total-revenue tag `us-gaap:Revenues`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000104169-26-000055.
-- TARGET CORP (TGT) operating margin: 4.8836% = 5,117 / 104,780 million; fiscal 2025, period ended 2026-01-31; **Net sales** line (Target's company-wide revenue measure), XBRL tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000027419-26-000016.
-- BJ's Wholesale Club Holdings, Inc. (BJ) operating margin: 3.8057% = 817 / 21,457 million; fiscal 2025, period ended 2026-01-31; **Total revenues** line; XBRL tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001531152-26-000007.
+- TARGET CORP (TGT) operating margin: 4.8836% = 5,117 / 104,780 million; period end 2026-01-31; total-revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000027419-26-000016.
+- BJ's Wholesale Club Holdings, Inc. (BJ) operating margin: 3.8057% = 817 / 21,457 million; period end 2026-01-31; total-revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001531152-26-000007.
 
 # Future Developments and Strategic Recommendations
 

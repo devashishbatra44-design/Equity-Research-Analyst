@@ -195,16 +195,16 @@ Status meanings:
 | Model-provider API key | Verified | The local `.env` contains a Purdue GenAI key. The safe check reports presence without printing it. A prior minimal call returned `READY`. |
 | `.env` excluded from Git | Verified | `.gitignore` excludes `.env`. Git history contains no `.env` commit. Three environment tests pass. |
 | GitHub CLI connected | Verified | `gh` can read `devashishbatra44-design/Equity-Research-Analyst`. |
-| Repository public | Exception | The official rule requires public access. The repository is currently **PRIVATE** under the temporary instruction reported by the user. Do not change visibility without explicit approval. Resolve before a public or instructor-access permalink is required. |
+| Repository public | Verified | The repository is public for instructor access. `.env` remains ignored and absent from Git history. |
 | LSEG, WRDS, and Capital IQ accounts | User-confirmed | Devashish reports registration and successful login with the Purdue account. |
 | Week 1 paper and assigned media | User-confirmed | Devashish reports completing the reading and video. The repository records the required conclusions and definitions. |
 | Costco filing exercise | Verified | The repository records the SEC filing links, periods, units, and revenue values. |
 | Lab 01 partner demonstration | User-confirmed | Partner: Shivani Rathi. Devashish reports that the witnessed checks passed. |
 | Session 1 Brightspace checkout | User-confirmed complete | Devashish confirms that Brightspace received the repository link and partner name, Shivani Rathi. |
-| Lab 02 seven-step desk | Pending | This is the active Session 2 build. |
-| Lab 03 app and Checkpoint 1 | Pending | Due October 29 at 11:59 PM Eastern. |
+| Lab 02 seven-step desk | Verified | The seven-step desk and saved runs are present and tested. |
+| Lab 03 app and Checkpoint 1 | Verified/user-confirmed | The four-role app and audited reports are present. Devashish reports that Brightspace received the submission; the receipt remains outside this repository. |
 
-Week 1 is complete under the temporary repository-visibility exception reported by the user. The published public-repository requirement remains open until the instructor's temporary private-repository instruction ends.
+Week 1 is complete. The public-repository requirement is satisfied.
 
 ## Immediate critical path
 

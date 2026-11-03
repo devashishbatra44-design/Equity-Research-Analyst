@@ -4,8 +4,8 @@ Netflix is Shivani Rathi's selected company. This file records Devashish Batra's
 
 | Claim checked against Netflix's filings | Filing value | Source | Mark |
 |---|---:|---|---|
-| FY2025 total revenue | $45,183,036,000 | 10-K accession 0001065280-26-000034; `us-gaap:Revenues`; period ended December 31, 2025 | PASS |
-| Q3 2026 revenue, year-over-year growth, and GAAP diluted EPS | $12,874,176,000; 11.8491%; $0.87 | Earnings-release Exhibit 99.1, revenue line 277 and diluted-EPS line 291 | PASS |
+| Claim 1 — FY2025 total revenue | $45,183,036,000 | 10-K accession 0001065280-26-000034; `us-gaap:Revenues`; period ended December 31, 2025 | **Correct** |
+| Claim 9 — Q3 2026 revenue | $12,874,176,000 | 8-K accession 0001065280-26-000290, Exhibit 99.1, revenue line 277 | **Correct** |
 
 Reviewer: Devashish Batra (DB).
 
