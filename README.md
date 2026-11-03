@@ -51,14 +51,14 @@ The Week 2 company sequence is recorded as follows: Costco is the professor-assi
 
 | Company | Purpose | Report | Manual audit |
 |---|---|---|---|
-| Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261031_191554/manual_audit.md) |
+| Costco (COST) | Professor-assigned Week 2 baseline with peers | [report](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/report.md) | [audit](week02/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261102_223224/manual_audit.md) |
 | Apple (AAPL) | Professor-assigned in-class transfer run | [report](week02/runs/Apple_Inc_AAPL_20261102_184430/report.md) | [audit](week02/runs/Apple_Inc_AAPL_20261102_184430/manual_audit.md) |
 | Belden (BDC) | Devashish's selected company | [report](week02/runs/BELDEN_INC_BDC_20261102_191754/report.md) | [audit](week02/runs/BELDEN_INC_BDC_20261102_191754/manual_audit.md) |
 | Netflix (NFLX) | Shivani Rathi's selected company; partner-review material | [report](week02/runs/NETFLIX_INC_NFLX_20261102_202506/report.md) | [worksheet](week02/runs/NETFLIX_INC_NFLX_20261102_202506/manual_audit.md) |
 
 ## Submission and privacy
 
-Checkpoint 1 uses a commit permalink submitted in Brightspace. Confirm the required reports and desk are in the linked commit before submitting. The course instructions require a public repository; repository visibility has not been changed as part of this update.
+Checkpoint 1 uses a commit permalink submitted in Brightspace. The repository is public, and its final commit permalink is accessible while logged out. Confirm that Brightspace contains the final permalink and retain the submission receipt.
 
 Secrets and local environment files must stay out of version control. Do not upload `.env`, API keys, or licensed raw data.
 

@@ -4,7 +4,7 @@ Last checked: November 2, 2026.
 
 ## Arrival check
 
-- Lab 01 is complete under the temporary private-repository instruction.
+- Lab 01 is complete. The repository is now public as required by the course.
 - Francis and Zhang (2026), Section 3.1 and Figure 2: user-confirmed read.
 - Figure 1 is a workflow made from agent-like model calls. Code fixes the main path, JSON hand-offs, checklist, and one retry.
 - The model-provider key is available locally. Lab 02 does not need it. Lab 03 does.
@@ -128,9 +128,10 @@ The Apple run exposed that the Lab 02 release extractor did not recognize prose-
 
 - [x] Retained the NFLX desk output as supporting material for the reciprocal review of Shivani's selected company.
 - [x] Devashish reports that his reciprocal check of Shivani's Netflix work is complete.
-- [x] The local Netflix worksheet is labeled as partner-review support. Its blank 11-claim table is not represented as Devashish's own-company hand audit.
+- [x] The Netflix worksheet records Devashish's two reciprocal PASS checks for Shivani's selected company. It is partner-review support, not Devashish's own-company 11-claim audit.
 
 ## Checkpoint 1
 
-- [ ] Confirm the Brightspace submission contains a commit permalink to the repository commit holding the desk, the Costco and Apple course runs, Devashish's Belden selected-company report, and any required reciprocal partner evidence. The Brightspace submission status has not been verified here.
-- Repository visibility remains private per Devashish's instruction, although the course prerequisite specifies a public repository. Resolve that mismatch before relying on instructor access to the permalink.
+- [x] The public repository contains the desk, Costco and Apple course runs, Devashish's Belden report and audit, and the reciprocal Netflix partner-review evidence.
+- [x] Public visibility and logged-out access were verified. `.env` is not tracked and its public raw URL returns 404.
+- [ ] Devashish reports that Checkpoint 1 was submitted in Brightspace. Confirm that Brightspace contains the latest commit permalink and retain the submission receipt; this workspace cannot inspect that external receipt.

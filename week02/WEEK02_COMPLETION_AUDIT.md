@@ -63,20 +63,19 @@ Devashish reports that the reciprocal partner check is complete. Shivani's two c
 
 ## GitHub and submission status
 
-- The GitHub repository is private at the time of this audit.
-- The course instructions require a public repository for instructor access.
-- The private `main` branch contains the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and the reciprocal Netflix partner-review material.
-- Local and remote `main` were verified to match after the private push.
+- The GitHub repository is public, as required for instructor access.
+- The public `main` branch contains the desk, prompt rewrites, Costco and Apple course runs, Devashish's Belden run, and the reciprocal Netflix partner-review material.
+- Logged-out access to the repository and commit permalink returned HTTP 200.
+- Local and remote `main` were verified to match after the push.
 - `.env`, downloaded filing text, licensed vendor files, and the licensed course-paper PDF are absent from the published commit contents.
 - Devashish confirms the Brightspace Checkpoint 1 upload was submitted. The receipt and exact submitted URL are not visible from this repository, so the submission status is user-reported rather than independently verified.
 - The licensed Francis and Zhang paper PDF has been removed from Git tracking. The local file remains on the laptop.
 
 ## Checkpoint 1 access and submission notes
 
-The local work, commit, and private push are complete. Devashish reports that the Brightspace upload is complete. One access constraint remains:
+The local work, public commit, push, and logged-out access check are complete. Devashish reports that the Brightspace upload is complete. One external confirmation remains:
 
-1. The repository is still private by instruction. The course says it should be public for instructor access; do not change visibility without Devashish's authorization.
-2. Because the repository is private, a logged-out access check cannot verify instructor access. The Brightspace submission is user-reported and its receipt was not inspected here.
+1. Confirm that Brightspace contains the latest commit permalink and retain the submission receipt. The workspace cannot inspect that external receipt.
 
 The public schedule still lists Checkpoint 1 on Session 3. Devashish reports that Brightspace changed the deadline to November 2, 2026. The Brightspace deadline should control if it records the instructor's private course update.
 
