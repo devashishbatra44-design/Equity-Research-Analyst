@@ -87,6 +87,6 @@ The supplied analysis does not provide peer P/E multiples. It only provides peer
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
+AI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
 
 Any remaining errors are my own.

@@ -1,0 +1,177 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "3.03154e+11",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "10.14",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.1685e+10, 3.85",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "9.226e+09",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "20.76",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "28.4",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "0.17",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.382e+09",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "9.5723e+10",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.1",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "6.75",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The release states that net sales for the fiscal year increased 10.1 percent , while the code-calculated annual revenue growth based on total revenue is 10.14% ; the release does not explain the divergence between the net sales growth rate and the total revenue growth rate, which is driven by the different growth rates of net sales and membership fees.",
+      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
+      "mark": "Correct",
+      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The 20.9%  growth in digitally-enabled comparable sales significantly outpaces the 8.4%  total company comparable sales growth, indicating that digital channels are a primary driver of organic revenue expansion and a key component of Costco's evolving competitive moat.",
+      "filing_says": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "mark": "Correct",
+      "evidence": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | Total Company | 9.4% | 6.7% | 8.4% | 6.6%"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The 47.7905x `` multiple is high relative to the 3.85% `` operating margin, indicating that the stock price already prices in significant future growth; if the 8.4% `` comparable sales growth slows, the valuation support erodes rapidly.",
+      "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
+      "mark": "Correct",
+      "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    }
+  ],
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "1. Total revenue, latest fiscal year",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm total revenue of $303,154 million for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "2. Revenue growth versus prior year",
+        "mark": "Correct",
+        "reason": "The calculated growth of 10.14% is supported by the XBRL facts for current and prior year total revenue."
+      },
+      {
+        "claim": "3. Operating income and operating margin",
+        "mark": "Correct",
+        "reason": "The XBRL facts confirm operating income of $11,685 million and total revenue of $303,154 million, supporting the 3.85% margin."
+      },
+      {
+        "claim": "4. Net income attributable to the company",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm net income of $9,226 million for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "5. Diluted earnings per share, GAAP",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm diluted EPS of $20.76 for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "6. Return on average equity",
+        "mark": "Correct",
+        "reason": "The calculation using the XBRL facts for net income and average stockholders' equity supports the 28.40% figure."
+      },
+      {
+        "claim": "7. Debt to equity, including current debt",
+        "mark": "Correct",
+        "reason": "The calculation using the XBRL facts for total debt and stockholders' equity supports the 0.17 ratio."
+      },
+      {
+        "claim": "8. Free cash flow",
+        "mark": "Correct",
+        "reason": "The calculation using the XBRL facts for operating cash flow and property/equipment additions supports the $9,382 million figure."
+      },
+      {
+        "claim": "9. Latest-quarter revenue",
+        "mark": "Correct",
+        "reason": "The cited earnings release line confirms total revenue of $95,723 million for the latest quarter."
+      },
+      {
+        "claim": "10. Quarter revenue growth versus the same quarter last year",
+        "mark": "Correct",
+        "reason": "The calculation using the cited earnings release figures for current and prior year quarter revenue supports the 11.10% growth."
+      },
+      {
+        "claim": "11. Quarter diluted EPS, GAAP",
+        "mark": "Correct",
+        "reason": "The cited earnings release line confirms diluted EPS of $6.75 for the latest quarter."
+      },
+      {
+        "claim": "Insight 1",
+        "mark": "Correct",
+        "reason": "The cited release line confirms net sales growth of 10.1%, and the code calculation confirms total revenue growth of 10.14%."
+      },
+      {
+        "claim": "Insight 2",
+        "mark": "Correct",
+        "reason": "The cited release lines confirm digitally-enabled comparable sales growth of 20.9% and total company comparable sales growth of 8.4%."
+      },
+      {
+        "claim": "Insight 3",
+        "mark": "Correct",
+        "reason": "The code calculations and cited release lines support the 47.7905x P/E, 3.85% operating margin, and 8.4% comparable sales growth figures."
+      }
+    ]
+  },
+  "semantic_raw": "```json\n{\n  \"assessments\": [\n    {\n      \"claim\": \"1. Total revenue, latest fiscal year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The XBRL fact and cited 10-K line confirm total revenue of $303,154 million for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"2. Revenue growth versus prior year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculated growth of 10.14% is supported by the XBRL facts for current and prior year total revenue.\"\n    },\n    {\n      \"claim\": \"3. Operating income and operating margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The XBRL facts confirm operating income of $11,685 million and total revenue of $303,154 million, supporting the 3.85% margin.\"\n    },\n    {\n      \"claim\": \"4. Net income attributable to the company\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The XBRL fact and cited 10-K line confirm net income of $9,226 million for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"5. Diluted earnings per share, GAAP\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The XBRL fact and cited 10-K line confirm diluted EPS of $20.76 for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"6. Return on average equity\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation using the XBRL facts for net income and average stockholders' equity supports the 28.40% figure.\"\n    },\n    {\n      \"claim\": \"7. Debt to equity, including current debt\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation using the XBRL facts for total debt and stockholders' equity supports the 0.17 ratio.\"\n    },\n    {\n      \"claim\": \"8. Free cash flow\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation using the XBRL facts for operating cash flow and property/equipment additions supports the $9,382 million figure.\"\n    },\n    {\n      \"claim\": \"9. Latest-quarter revenue\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited earnings release line confirms total revenue of $95,723 million for the latest quarter.\"\n    },\n    {\n      \"claim\": \"10. Quarter revenue growth versus the same quarter last year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation using the cited earnings release figures for current and prior year quarter revenue supports the 11.10% growth.\"\n    },\n    {\n      \"claim\": \"11. Quarter diluted EPS, GAAP\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited earnings release line confirms diluted EPS of $6.75 for the latest quarter.\"\n    },\n    {\n      \"claim\": \"Insight 1\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited release line confirms net sales growth of 10.1%, and the code calculation confirms total revenue growth of 10.14%.\"\n    },\n    {\n      \"claim\": \"Insight 2\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited release lines confirm digitally-enabled comparable sales growth of 20.9% and total company comparable sales growth of 8.4%.\"\n    },\n    {\n      \"claim\": \"Insight 3\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The code calculations and cited release lines support the 47.7905x P/E, 3.85% operating margin, and 8.4% comparable sales growth figures.\"\n    }\n  ]\n}\n```"
+}

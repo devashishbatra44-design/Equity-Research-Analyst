@@ -14,7 +14,6 @@ from pathlib import Path
 from typing import Any
 
 from dotenv import load_dotenv
-from openai import OpenAI
 
 try:
     from .desk_steps import PROJECT_ROOT, RUNS_ROOT, parse_peers
@@ -51,6 +50,10 @@ def load_role_instructions() -> dict[str, str]:
 
 
 ROLE_INSTRUCTIONS = load_role_instructions()
+
+CREWAI_SOURCE_ROOT = Path(__file__).resolve().parents[1] / "equity_research_crewai" / "src"
+if str(CREWAI_SOURCE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CREWAI_SOURCE_ROOT))
 
 
 def load_model_config() -> tuple[str, str, str]:
@@ -411,7 +414,6 @@ def record_role_call(
 
 
 def call_model(
-    client: OpenAI,
     model: str,
     role: str,
     instruction: str,
@@ -421,55 +423,40 @@ def call_model(
     purpose: str = "initial",
 ) -> str:
     print(f"Running role: {role}", flush=True)
-    response = client.chat.completions.create(
-        model=model,
-        temperature=temperature,
-        max_tokens=3200,
-        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
-        messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are one role in an equity-research desk. Write 80% of the way to ASD-STE100. "
-                    "Use short, direct sentences. Keep every number, condition, and hedge supported. "
-                    "Never invent facts, sources, quotes, filing lines, or arithmetic. "
-                    "Follow the JSON task, context, and expected-output fields.\n\n" + instruction
-                ),
-            },
-            {"role": "user", "content": handoff},
-        ],
-    )
-    content = response.choices[0].message.content if response.choices else None
-    finish_reason = getattr(response.choices[0], "finish_reason", None) if response.choices else None
-    if not content or not content.strip():
-        choice = response.choices[0] if response.choices else None
-        reason = getattr(choice, "finish_reason", None)
-        usage = getattr(response, "usage", None)
-        completion_tokens = getattr(usage, "completion_tokens", None)
-        raise RuntimeError(
-            f"The {role} returned no answer text (finish_reason={reason}, completion_tokens={completion_tokens}). "
-            "The provider response metadata is recorded without exposing key material or private model reasoning."
-        )
-    if finish_reason == "length":
-        raise RuntimeError(f"The {role} response was truncated at the output limit; no report will be marked complete.")
-    output = content.strip()
+    from equity_research_crewai.main import run_role as run_crewai_role
+
+    output = run_crewai_role(role, instruction, handoff, model, temperature)
     if records is not None:
-        record_role_call(records, role, purpose, handoff, output)
+        record_role_call(records, role, purpose, handoff, output, "crewai_flow")
     return output
 
 
 def extract_markdown_section(output: str, heading: str) -> str | None:
-    match = re.search(rf"^#{{1,6}}\s+{re.escape(heading)}\s*#*\s*$", output, flags=re.MULTILINE | re.IGNORECASE)
+    match = re.search(
+        rf"^(#{{1,6}})\s+{re.escape(heading)}\s*#*\s*$",
+        output,
+        flags=re.MULTILINE | re.IGNORECASE,
+    )
     if not match:
         return None
-    next_heading = re.search(r"^#{1,6}\s+", output[match.end():], flags=re.MULTILINE)
+    heading_level = len(match.group(1))
+    next_heading = re.search(
+        rf"^#{{1,{heading_level}}}\s+",
+        output[match.end():],
+        flags=re.MULTILINE,
+    )
     end = match.end() + next_heading.start() if next_heading else len(output)
     return output[match.start():end].strip()
 
 
 def assemble_report(research: str, financial: str, advisor: str) -> tuple[str | None, list[str]]:
-    combined = "\n\n".join([research, financial, advisor])
-    sections = {heading: extract_markdown_section(combined, heading) for heading in HEADINGS}
+    sections = {
+        "Overview": extract_markdown_section(research, "Overview"),
+        "Market Positioning and Growth Outlook": extract_markdown_section(research, "Market Positioning and Growth Outlook"),
+        "Valuation Insights": extract_markdown_section(financial, "Valuation Insights"),
+        "Future Developments and Strategic Recommendations": extract_markdown_section(research, "Future Developments and Strategic Recommendations"),
+        "Investment Recommendation": extract_markdown_section(advisor, "Investment Recommendation"),
+    }
     missing = [heading for heading, value in sections.items() if not value]
     if missing:
         return None, missing
@@ -496,7 +483,7 @@ def render_report_text(header: str, report: str) -> str:
         + "\n\n"
         + report.strip()
         + "\n\n---\n\nThis is a learning exercise, not financial advice.\n\n"
-        + "AI assistance: OpenAI Codex and Purdue GenAI Studio. "
+        + "AI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. "
         + "I verified the sources myself; the judgments are mine.\n\n"
         + "Any remaining errors are my own.\n"
     )
@@ -525,7 +512,6 @@ def normalize_role_outputs(outputs: dict[str, str]) -> dict[str, str]:
 
 
 def manager_review(
-    client: OpenAI,
     model: str,
     role_outputs: dict[str, str],
     report: str | None,
@@ -546,7 +532,6 @@ def manager_review(
     }
     instruction = ROLE_INSTRUCTIONS["Strategy Manager"]
     output = call_model(
-        client,
         model,
         "Strategy Manager",
         instruction,
@@ -617,7 +602,8 @@ def quantitative_source_notes(context: dict[str, Any]) -> str:
     pe = context["price_provenance"]
     eps = context["annual_facts"]["diluted_eps"]["current"]
     lines.append(
-        f"- FY-EPS P/E: {float(pe['result']):.4f}x = {float(pe['share_price']):.2f} / {float(eps['value']):.2f}. "
+        f"- FY-EPS P/E `(calculations.json:price_to_earnings)`: "
+        f"{float(pe['result']):.4f}x = {float(pe['share_price']):.2f} / {float(eps['value']):.2f}. "
         f"Price date: {pe['date']}; price source: {pe['source']}. EPS period end: {eps['period_end']}; "
         f"EPS tag: `{eps['xbrl_tag']}`; {eps['filing_form']} accession {eps['accession_number']}. Not TTM P/E."
     )
@@ -640,6 +626,28 @@ def quantitative_source_notes(context: dict[str, Any]) -> str:
             f"revenue tag `{revenue['xbrl_tag']}`; "
             f"operating-income tag `{operating['xbrl_tag']}`; 10-K accession {revenue['accession_number']}."
         )
+    lines.extend(["", "**Code-supplied calculation details**", ""])
+    calculation_labels = {
+        "revenue_growth": "Revenue growth",
+        "operating_margin": "Operating margin",
+        "return_on_average_equity": "Return on average equity",
+        "debt_to_equity": "Debt to equity",
+        "free_cash_flow": "Free cash flow",
+    }
+    for key, label in calculation_labels.items():
+        calculation = context["calculations"].get(key, {})
+        if calculation.get("validation_status") == "available":
+            lines.append(
+                f"- {label} `(calculations.json:{key})`. Arithmetic: {calculation.get('arithmetic')}; "
+                f"definition: {calculation.get('definition') or calculation.get('formula')}."
+            )
+    lines.extend(["", "**Quarter release source excerpts**", ""])
+    for key, label in (("total_revenue", "Total revenue"), ("diluted_eps", "Diluted EPS")):
+        claim = context["quarterly_release_claims"].get(key, {})
+        quote = str(claim.get("quoted_source_text") or "").replace("\n", " ")
+        lines.append(
+            f"- {label}. Exhibit 99.1 source line {claim.get('source_line_start', 'not located')}: {quote}"
+        )
     return "\n".join(lines)
 
 
@@ -653,7 +661,6 @@ def strip_quantitative_source_notes(financial_output: str) -> str:
 
 
 def retry_role_section(
-    client: OpenAI,
     model: str,
     section: str,
     original: str,
@@ -671,7 +678,6 @@ def retry_role_section(
         "expected_output": f"Only the complete ## {section} Markdown section. Do not add other headings.",
     }
     return call_model(
-        client,
         model,
         role,
         instruction,
@@ -905,8 +911,7 @@ def main(argv: list[str] | None = None) -> int:
         "basis": "latest fiscal-year diluted EPS; not TTM P/E",
     }
 
-    api_key, base_url, model = load_model_config()
-    client = OpenAI(api_key=api_key, base_url=base_url.rstrip("/") + "/", timeout=90, max_retries=0)
+    _, _, model = load_model_config()
     role_records: dict[str, list[dict[str, Any]]] = {}
 
     research_context = context["business_and_mda_source_text"] | {
@@ -966,7 +971,6 @@ def main(argv: list[str] | None = None) -> int:
         )
     else:
         research_output = call_model(
-            client,
             model,
             "Research Analyst",
             ROLE_INSTRUCTIONS["Research Analyst"],
@@ -974,7 +978,6 @@ def main(argv: list[str] | None = None) -> int:
             records=role_records,
         )
         finance_output = call_model(
-            client,
             model,
             "Financial Analyst",
             ROLE_INSTRUCTIONS["Financial Analyst"],
@@ -992,7 +995,6 @@ def main(argv: list[str] | None = None) -> int:
         "One Markdown section with the exact heading Investment Recommendation.",
     )
     advisor_output = call_model(
-        client,
         model,
         "Investment Advisor",
         ROLE_INSTRUCTIONS["Investment Advisor"],
@@ -1008,7 +1010,7 @@ def main(argv: list[str] | None = None) -> int:
     outputs_path.write_text(json.dumps(outputs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     report, missing = assemble_report(research_output, finance_output, advisor_output)
-    review = manager_review(client, model, outputs, report, missing, role_records)
+    review = manager_review(model, outputs, report, missing, role_records)
     (run_folder / "manager_review.json").write_text(json.dumps(review, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if review["status"] == "retry":
         for section in dict.fromkeys(review["sections_to_retry"]):
@@ -1017,7 +1019,6 @@ def main(argv: list[str] | None = None) -> int:
             original = outputs[role]
             role_context = research_context if role == "Research Analyst" else (finance_context if role == "Financial Analyst" else advisor_context)
             retry_output = retry_role_section(
-                client,
                 model,
                 section,
                 original,
@@ -1039,7 +1040,6 @@ def main(argv: list[str] | None = None) -> int:
             outputs_path.write_text(json.dumps(outputs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         report, missing = assemble_report(research_output, finance_output, advisor_output)
         review = manager_review(
-            client,
             model,
             outputs,
             report,
@@ -1083,7 +1083,7 @@ def main(argv: list[str] | None = None) -> int:
             ]
         )
     )
-    manifest["model_provider"] = "Purdue GenAI Studio (OpenAI-compatible endpoint)"
+    manifest["model_provider"] = "CrewAI using Purdue GenAI Studio (OpenAI-compatible endpoint)"
     manifest["model_name"] = model
     manifest["model_key_source"] = "local .env; secret value not stored"
     manifest["manager_review"] = {"status": review["status"], "issues": review.get("issues", [])}

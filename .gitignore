@@ -32,6 +32,7 @@ data/exports/
 !week02/runs/**/*.csv
 
 # Superseded local runs. Keep only the final reviewed folders eligible for Git.
+/week03/runs/superseded/
 /week02/runs/Apple_Inc_AAPL_20261102_184323/
 /week02/runs/BELDEN_INC_BDC_20261102_191550/
 /week02/runs/BELDEN_INC_BDC_20261102_191645/

@@ -1,0 +1,29 @@
+[project]
+name = "equity_research_crewai"
+version = "0.1.0"
+description = "A fixed-graph, source-verified equity-research agent team for FIN 67110"
+authors = [{ name = "Devashish Batra", email = "batra44@purdue.edu" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai==1.9.3",
+    "python-dotenv>=1.0,<2",
+    "streamlit>=1.40,<2",
+]
+
+[project.scripts]
+kickoff = "equity_research_crewai.main:kickoff"
+run_crew = "equity_research_crewai.main:kickoff"
+plot = "equity_research_crewai.main:plot"
+run_with_trigger = "equity_research_crewai.main:run_with_trigger"
+ui = "equity_research_crewai.ui:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:crewai.*"]

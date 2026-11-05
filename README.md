@@ -6,6 +6,7 @@ This repository contains the FIN 67110 equity-research desk, its SEC data workfl
 
 - Week 1 setup and learning notes: [week01/README.md](week01/README.md)
 - Week 2 desk, readings, run status, and audit notes: [week02/README.md](week02/README.md)
+- Week 3 fixed graph, Verifier proofs, personas, and run status: [week03/README.md](week03/README.md)
 
 ## Local setup and verification
 
@@ -53,6 +54,35 @@ Check report provenance with:
 python week02/report_provenance.py week02/runs/RUN_FOLDER
 ```
 
+## Run the Week 3 agent team
+
+The Week 3 implementation uses a fixed CrewAI Flow:
+
+`Steps → Research Analyst → Financial Analyst → Investment Advisor → Strategy Manager → Verifier`
+
+Code selects every node and the Verifier cannot be skipped.
+Run the graph from the repository root:
+
+```bash
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.main TICKER \
+  --peers T1,T2,T3 \
+  --price PRICE \
+  --price-date YYYY-MM-DD \
+  --price-source "SOURCE"
+```
+
+Start the browser page with:
+
+```bash
+.venv/bin/python -m streamlit run equity_research_crewai/src/equity_research_crewai/ui.py
+```
+
+Final Week 3 generated proofs:
+
+- [Costco verified persona report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261105_085335/verified_report.md): 11 core claims and three Insights marked Correct.
+- [Netflix verified partner-pick report](week03/runs/NETFLIX_INC_NFLX_20261105_090924/verified_report.md): 10 available core claims and three Insights marked Correct; debt-to-equity is marked Not in filings.
+- [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.
+
 ## Company runs
 
 The Week 2 company sequence is recorded as follows: Costco is the professor-assigned baseline, Apple is the professor-assigned in-class transfer run, and Belden is Devashish's selected company. Netflix was chosen by my partner Shivani Rathi, and the saved Netflix desk run is my partner’s-pick report.
@@ -66,12 +96,15 @@ The Week 2 company sequence is recorded as follows: Costco is the professor-assi
 
 ## Submission and privacy
 
-Checkpoint 1 uses a commit permalink submitted in Brightspace. The repository is public, and its final commit permalink is accessible while logged out. Confirm that Brightspace contains the final permalink and retain the submission receipt.
+Checkpoint 1 uses the commit permalink already submitted in Brightspace.
+The repository is kept private while work is in progress.
+Before a checkpoint submission, make the repository public and verify the exact commit permalink while logged out.
+Checkpoint 2 requires a commit permalink containing the agent team and the seeded-error Verifier marks.
 
 Secrets and local environment files must stay out of version control. Do not upload `.env`, API keys, or licensed raw data.
 
 This is a learning exercise, not financial advice.
 
-AI assistance: OpenAI Codex and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
+AI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
 
 Any remaining errors are my own.

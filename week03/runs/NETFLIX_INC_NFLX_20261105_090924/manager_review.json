@@ -1,0 +1,87 @@
+{
+  "status": "pass",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "4.5183e+10",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "15.85",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.33266e+10, 29.49",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "1.09812e+10",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "2.53",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "42.76",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the filings",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.46105e+09",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "1.28742e+10",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.85",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "0.87",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": []
+}

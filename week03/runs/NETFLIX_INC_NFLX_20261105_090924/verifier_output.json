@@ -1,0 +1,177 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "4.5183e+10",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "15.85",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.33266e+10, 29.49",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "1.09812e+10",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "2.53",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "42.76",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the filings",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.46105e+09",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "1.28742e+10",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.85",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "0.87",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The release states that operating margin was 34.6% , which is significantly higher than the annual operating margin of 29.49% , a divergence not explained in the release's first paragraph.",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The current quarter operating margin of 34.6%  contrasts with the latest fiscal year operating margin of 29.5% , indicating that the strategic shift toward ad-supported plans and third-party licensing is driving significant profitability expansion beyond the baseline annual performance.",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The current quarter operating margin of 34.6%  significantly exceeds the latest fiscal year operating margin of 29.49% , indicating that the strategic shift toward ad-supported plans is driving profitability expansion that justifies the 27.6087x  valuation multiple on latest fiscal year diluted EPS of $2.53 .",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 69.85 / 2.53; result 27.6087",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 69.85 / 2.53; result 27.6087"
+    }
+  ],
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "1. Total revenue, latest fiscal year",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for us-gaap:Revenues for the period ending 2025-12-31 is $45,183,036,000, which matches the report's stated value."
+      },
+      {
+        "claim": "2. Revenue growth versus prior year",
+        "mark": "Correct",
+        "reason": "The calculated growth of 15.85% is supported by the saved facts for current ($45,183,036,000) and prior ($39,000,966,000) year revenues."
+      },
+      {
+        "claim": "3. Operating income and operating margin",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for us-gaap:OperatingIncomeLoss is $13,326,603,000, and the calculated margin (13,326,603,000 / 45,183,036,000) is 29.49%."
+      },
+      {
+        "claim": "4. Net income attributable to the company",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for us-gaap:NetIncomeLoss for the period ending 2025-12-31 is $10,981,201,000, matching the report."
+      },
+      {
+        "claim": "5. Diluted earnings per share, GAAP",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for us-gaap:EarningsPerShareDiluted for the period ending 2025-12-31 is $2.53, matching the report."
+      },
+      {
+        "claim": "6. Return on average equity",
+        "mark": "Correct",
+        "reason": "The calculated ROE of 42.76% is supported by the saved facts for net income ($10,981,201,000) and average equity (average of $26,615,488,000 and $24,743,567,000)."
+      },
+      {
+        "claim": "7. Debt to equity, including current debt",
+        "mark": "Not in filings",
+        "reason": "The report correctly states that debt to equity was not stated in the filings, as the current portion of long-term debt is unavailable in the selected facts."
+      },
+      {
+        "claim": "8. Free cash flow",
+        "mark": "Correct",
+        "reason": "The calculated FCF of $9,461,053,000 is supported by the saved facts for net cash from operations ($10,149,273,000) and property/equipment additions ($688,220,000)."
+      },
+      {
+        "claim": "9. Latest-quarter revenue",
+        "mark": "Correct",
+        "reason": "The cited filing line (exhibit-99-1.txt:277) explicitly states the quarterly revenue as $12,874,176,000."
+      },
+      {
+        "claim": "10. Quarter revenue growth versus the same quarter last year",
+        "mark": "Correct",
+        "reason": "The calculated growth of 11.85% is supported by the cited filing line showing current quarter revenue ($12,874,176,000) and prior year same quarter revenue ($11,510,307,000)."
+      },
+      {
+        "claim": "11. Quarter diluted EPS, GAAP",
+        "mark": "Correct",
+        "reason": "The cited filing line (exhibit-99-1.txt:291) explicitly states the quarterly diluted EPS as $0.87."
+      },
+      {
+        "claim": "Insight 1",
+        "mark": "Correct",
+        "reason": "The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, and the calculated annual margin is 29.49%."
+      },
+      {
+        "claim": "Insight 2",
+        "mark": "Correct",
+        "reason": "The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, and the cited 10-K line (10-k.txt:2061) states the annual operating margin was 29.5%."
+      },
+      {
+        "claim": "Insight 3",
+        "mark": "Correct",
+        "reason": "The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, the calculated annual margin is 29.49%, and the cited 10-K line (10-k.txt:2449) states the diluted EPS was $2.53."
+      }
+    ]
+  },
+  "semantic_raw": "```json\n{\n  \"assessments\": [\n    {\n      \"claim\": \"1. Total revenue, latest fiscal year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for us-gaap:Revenues for the period ending 2025-12-31 is $45,183,036,000, which matches the report's stated value.\"\n    },\n    {\n      \"claim\": \"2. Revenue growth versus prior year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculated growth of 15.85% is supported by the saved facts for current ($45,183,036,000) and prior ($39,000,966,000) year revenues.\"\n    },\n    {\n      \"claim\": \"3. Operating income and operating margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for us-gaap:OperatingIncomeLoss is $13,326,603,000, and the calculated margin (13,326,603,000 / 45,183,036,000) is 29.49%.\"\n    },\n    {\n      \"claim\": \"4. Net income attributable to the company\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for us-gaap:NetIncomeLoss for the period ending 2025-12-31 is $10,981,201,000, matching the report.\"\n    },\n    {\n      \"claim\": \"5. Diluted earnings per share, GAAP\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for us-gaap:EarningsPerShareDiluted for the period ending 2025-12-31 is $2.53, matching the report.\"\n    },\n    {\n      \"claim\": \"6. Return on average equity\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculated ROE of 42.76% is supported by the saved facts for net income ($10,981,201,000) and average equity (average of $26,615,488,000 and $24,743,567,000).\"\n    },\n    {\n      \"claim\": \"7. Debt to equity, including current debt\",\n      \"mark\": \"Not in filings\",\n      \"reason\": \"The report correctly states that debt to equity was not stated in the filings, as the current portion of long-term debt is unavailable in the selected facts.\"\n    },\n    {\n      \"claim\": \"8. Free cash flow\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculated FCF of $9,461,053,000 is supported by the saved facts for net cash from operations ($10,149,273,000) and property/equipment additions ($688,220,000).\"\n    },\n    {\n      \"claim\": \"9. Latest-quarter revenue\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line (exhibit-99-1.txt:277) explicitly states the quarterly revenue as $12,874,176,000.\"\n    },\n    {\n      \"claim\": \"10. Quarter revenue growth versus the same quarter last year\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculated growth of 11.85% is supported by the cited filing line showing current quarter revenue ($12,874,176,000) and prior year same quarter revenue ($11,510,307,000).\"\n    },\n    {\n      \"claim\": \"11. Quarter diluted EPS, GAAP\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line (exhibit-99-1.txt:291) explicitly states the quarterly diluted EPS as $0.87.\"\n    },\n    {\n      \"claim\": \"Insight 1\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, and the calculated annual margin is 29.49%.\"\n    },\n    {\n      \"claim\": \"Insight 2\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, and the cited 10-K line (10-k.txt:2061) states the annual operating margin was 29.5%.\"\n    },\n    {\n      \"claim\": \"Insight 3\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line (exhibit-99-1.txt:14) states the operating margin was 34.6%, the calculated annual margin is 29.49%, and the cited 10-K line (10-k.txt:2449) states the diluted EPS was $2.53.\"\n    }\n  ]\n}\n```"
+}

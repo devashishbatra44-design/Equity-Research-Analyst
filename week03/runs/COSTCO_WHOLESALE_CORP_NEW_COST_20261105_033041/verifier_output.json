@@ -1,0 +1,146 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "3.03154e+11",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "10.14",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.1685e+10, 3.85",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "9.226e+09",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "20.76",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "28.4",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "0.17",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.382e+09",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "9.5723e+10",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.1",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "6.75",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    }
+  ],
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "Annual total revenue was $303,154,000,000",
+        "mark": "Correct",
+        "reason": "The saved XBRL facts and 10-K source details confirm total revenue of $303,154 million for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "Annual revenue growth was 10.14%",
+        "mark": "Correct",
+        "reason": "The calculation (303,154 - 275,235) / 275,235 using the saved XBRL facts for FY2026 and FY2025 yields 10.14%."
+      },
+      {
+        "claim": "Annual operating income was $11,685,000,000",
+        "mark": "Correct",
+        "reason": "The saved XBRL facts and 10-K source details confirm operating income of $11,685 million for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "Annual operating margin was 3.85%",
+        "mark": "Correct",
+        "reason": "The calculation 11,685 / 303,154 using the saved XBRL facts for FY2026 yields 3.85%."
+      },
+      {
+        "claim": "Annual net income attributable to the company was $9,226,000,000",
+        "mark": "Correct",
+        "reason": "The saved XBRL facts and 10-K source details confirm net income of $9,226 million for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "Annual GAAP diluted EPS was $20.76",
+        "mark": "Correct",
+        "reason": "The saved XBRL facts and 10-K source details confirm diluted EPS of $20.76 for the fiscal year ended August 30, 2026."
+      },
+      {
+        "claim": "Return on average equity was 28.40%",
+        "mark": "Correct",
+        "reason": "The calculation 9,226 / ((35,803 + 29,164) / 2) using the saved XBRL facts for FY2026 and FY2025 yields 28.40%."
+      },
+      {
+        "claim": "Debt to equity was 0.17",
+        "mark": "Correct",
+        "reason": "The calculation (3,914 + 2,248) / 35,803 using the saved XBRL facts for FY2026 yields 0.17."
+      },
+      {
+        "claim": "Free cash flow was $9,382,000,000",
+        "mark": "Correct",
+        "reason": "The calculation 15,817 - 6,435 using the saved XBRL facts for FY2026 yields $9,382 million."
+      },
+      {
+        "claim": "Quarter total revenue was $95,723,000,000",
+        "mark": "Correct",
+        "reason": "The cited 8-K exhibit line 39 explicitly states total revenue of 95,723 for the quarter ended August 30, 2026."
+      },
+      {
+        "claim": "Quarter revenue growth was 11.10%",
+        "mark": "Correct",
+        "reason": "The calculation (95,723 - 86,156) / 86,156 using the cited 8-K exhibit line 39 yields 11.10%."
+      },
+      {
+        "claim": "Quarter GAAP diluted EPS was $6.75",
+        "mark": "Correct",
+        "reason": "The cited 8-K exhibit line 20 explicitly states $6.75 per diluted share for the fourth quarter."
+      }
+    ]
+  },
+  "semantic_raw": "```json\n{\n  \"assessments\": [\n    {\n      \"claim\": \"Annual total revenue was $303,154,000,000\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL facts and 10-K source details confirm total revenue of $303,154 million for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"Annual revenue growth was 10.14%\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (303,154 - 275,235) / 275,235 using the saved XBRL facts for FY2026 and FY2025 yields 10.14%.\"\n    },\n    {\n      \"claim\": \"Annual operating income was $11,685,000,000\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL facts and 10-K source details confirm operating income of $11,685 million for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"Annual operating margin was 3.85%\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 11,685 / 303,154 using the saved XBRL facts for FY2026 yields 3.85%.\"\n    },\n    {\n      \"claim\": \"Annual net income attributable to the company was $9,226,000,000\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL facts and 10-K source details confirm net income of $9,226 million for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"Annual GAAP diluted EPS was $20.76\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL facts and 10-K source details confirm diluted EPS of $20.76 for the fiscal year ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"Return on average equity was 28.40%\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 9,226 / ((35,803 + 29,164) / 2) using the saved XBRL facts for FY2026 and FY2025 yields 28.40%.\"\n    },\n    {\n      \"claim\": \"Debt to equity was 0.17\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (3,914 + 2,248) / 35,803 using the saved XBRL facts for FY2026 yields 0.17.\"\n    },\n    {\n      \"claim\": \"Free cash flow was $9,382,000,000\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 15,817 - 6,435 using the saved XBRL facts for FY2026 yields $9,382 million.\"\n    },\n    {\n      \"claim\": \"Quarter total revenue was $95,723,000,000\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited 8-K exhibit line 39 explicitly states total revenue of 95,723 for the quarter ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"Quarter revenue growth was 11.10%\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (95,723 - 86,156) / 86,156 using the cited 8-K exhibit line 39 yields 11.10%.\"\n    },\n    {\n      \"claim\": \"Quarter GAAP diluted EPS was $6.75\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited 8-K exhibit line 20 explicitly states $6.75 per diluted share for the fourth quarter.\"\n    }\n  ]\n}\n```"
+}

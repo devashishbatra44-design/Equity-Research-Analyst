@@ -1,0 +1,726 @@
+{
+  "task": "Check whether each cited line or XBRL fact states the report's number for the stated period and definition. Do not assess the Investment Advisor's thesis. For an Insight line, check its numbers, periods, definitions, and cited evidence only; do not grade whether its analytical inference is persuasive. Return JSON only.",
+  "compiled_report": "# COSTCO WHOLESALE CORP /NEW (COST) — filings read: 10-K accession 0000909832-26-000093; 10-Q accession 0000909832-26-000051; 8-K accession 0000909832-26-000084\n# Run time: 2026-11-05T08:54:23.305035-05:00\n\n# Overview\n\nCostco Wholesale Corporation operates a membership warehouse and e-commerce business model centered on high sales volumes and rapid inventory turnover achieved through low prices on a limited selection of nationally-branded and private-label products. The company explicitly states that this model enables it to \"operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers\" (10-k.txt:724). A core component of this durability is the membership fee structure, which provides continuing revenue and reinforces loyalty; in fiscal year 2026, membership fee revenue increased 11% to $5,907 million (10-k.txt:1036). The company’s primary operating KPI is comparable sales, which management identifies as the \"most important driver of our profitability\" (10-k.txt:1010). For the 52 weeks ended August 30, 2026, total company comparable sales increased 8.4% on an adjusted basis, excluding the impacts of gasoline prices and foreign exchange (exhibit-99-1.txt:17). This organic growth was supported by a strong member retention rate, with the worldwide renewal rate at 89.8% and the U.S. and Canada renewal rate at 92.3% at the end of 2026 (10-k.txt:770). The company also reported net income of $9,226 million, or $20.76 per diluted share, for fiscal year 2026 (exhibit-99-1.txt:20).\n\n# Market Positioning and Growth Outlook\n\nCostco’s competitive position is characterized by its ability to maintain \"pricing authority\" and consistently provide competitive values, which management believes is a skill \"repeatedly demonstrated over the long-term\" (10-k.txt:1010). The company’s growth in fiscal year 2026 was driven by both organic comparable sales growth and expansion. Net sales increased 10.1% to $297,247 million, driven by an increase in comparable sales and sales at new warehouses (10-k.txt:1032). Expansion contributed to this growth through the opening of 28 new warehouses, including three relocations, for a total of 25 net new warehouses (10-k.txt:1030). The company operated 939 warehouses worldwide at August 30, 2026, up from 914 at August 31, 2025 (10-k.txt:721). \n\nA significant portion of Costco’s growth is driven by its digitally-enabled sales, which represented 11% of total net sales in 2026 (10-k.txt:754). The growth in this segment is substantial, with digitally-enabled comparable sales increasing 20.9% on an adjusted basis for the 52 weeks ended August 30, 2026 (exhibit-99-1.txt:18). This digital growth outpaces the total company comparable sales growth of 8.4% (exhibit-99-1.txt:17), indicating a strengthening competitive position in the e-commerce channel. The company also benefits from its gasoline business, which represented 11% of total net sales in 2026 (10-k.txt:751) and positively impacted net sales by $3,501 million, or 130 basis points, in fiscal year 2026 (10-k.txt:1034). \n\nCostco’s competitive advantage is further supported by its supply chain efficiencies, including cross-docking and direct purchasing from suppliers, which lower costs associated with traditional distribution channels (10-k.txt:725). The company’s limited SKU count, with less than 4,000 active SKUs per warehouse in its core business (10-k.txt:731), allows for high inventory turnover and volume purchasing power. The company’s international expansion is also a key growth driver, with Other International comparable sales increasing 9.8% on an adjusted basis for the 52 weeks ended August 30, 2026 (exhibit-99-1.txt:16).\n\n## Valuation Insights\n\nAnnual total revenue was $303,154,000,000 (10-k.txt:1240).\nAnnual revenue growth was 10.14% (calculations.json:revenue_growth).\nAnnual operating income was $11,685,000,000 (10-k.txt:1285).\nAnnual operating margin was 3.85% (calculations.json:operating_margin).\nAnnual net income attributable to the company was $9,226,000,000 (10-k.txt:1291).\nAnnual GAAP diluted EPS was $20.76 (10-k.txt:1294).\nReturn on average equity was 28.40% (calculations.json:return_on_average_equity).\nDebt to equity was 0.17 (calculations.json:debt_to_equity).\nFree cash flow was $9,382,000,000 (calculations.json:free_cash_flow).\nQuarter total revenue was $95,723,000,000 (exhibit-99-1.txt:39).\nQuarter revenue growth was 11.10% (calculations.json:quarter_revenue_growth).\nQuarter GAAP diluted EPS was $6.75 (exhibit-99-1.txt:20).\n\n**Annual XBRL source details**\n\n- Total revenue: $303,154 million at 2026-08-30; prior $275,235 million at 2025-08-31; XBRL tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Operating income: $11,685 million at 2026-08-30; prior $10,383 million at 2025-08-31; XBRL tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Net income: $9,226 million at 2026-08-30; prior $8,099 million at 2025-08-31; XBRL tag `us-gaap:NetIncomeLoss`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Diluted earnings per share: $20.76 at 2026-08-30; prior $18.21 at 2025-08-31; XBRL tag `us-gaap:EarningsPerShareDiluted`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Stockholders' equity: $35,803 million at 2026-08-30; prior $29,164 million at 2025-08-31; XBRL tag `us-gaap:StockholdersEquity`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Long-term debt: $3,914 million at 2026-08-30; prior $5,713 million at 2025-08-31; XBRL tag `us-gaap:LongTermDebtNoncurrent`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Current portion of long-term debt: $2,248 million at 2026-08-30; prior $75 million at 2025-08-31; XBRL tag `us-gaap:LongTermDebtCurrent`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Net cash provided by operating activities: $15,817 million at 2026-08-30; prior $13,335 million at 2025-08-31; XBRL tag `us-gaap:NetCashProvidedByUsedInOperatingActivities`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n- Additions to property and equipment: $6,435 million at 2026-08-30; prior $5,498 million at 2025-08-31; XBRL tag `us-gaap:PaymentsToAcquirePropertyPlantAndEquipment`; 10-K accession 0000909832-26-000093; source: https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html.\n\n**Price and peer source details**\n\n- FY-EPS P/E `(calculations.json:price_to_earnings)`: 47.7905x = 992.13 / 20.76. Price date: 2026-10-27; price source: https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100. EPS period end: 2026-08-30; EPS tag: `us-gaap:EarningsPerShareDiluted`; 10-K accession 0000909832-26-000093. Not TTM P/E.\n- Walmart Inc. (WMT) operating margin: 4.1821% = 29,825 / 713,163 million; period end 2026-01-31; denominator line label `Total revenues`; revenue tag `us-gaap:Revenues`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000104169-26-000055.\n- TARGET CORP (TGT) operating margin: 4.8836% = 5,117 / 104,780 million; period end 2026-01-31; denominator line label `Net sales`; revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0000027419-26-000016.\n- BJ's Wholesale Club Holdings, Inc. (BJ) operating margin: 3.8057% = 817 / 21,457 million; period end 2026-01-31; denominator line label `Total revenues`; revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001531152-26-000007.\n\n**Code-supplied calculation details**\n\n- Revenue growth `(calculations.json:revenue_growth)`. Arithmetic: (303154000000 - 275235000000) / 275235000000; definition: (Current-year revenue - Prior-year revenue) / Prior-year revenue.\n- Operating margin `(calculations.json:operating_margin)`. Arithmetic: 11685000000 / 303154000000; definition: Current-year operating income / Current-year total revenue.\n- Return on average equity `(calculations.json:return_on_average_equity)`. Arithmetic: 9226000000 / ((35803000000 + 29164000000) / 2); definition: Current-year net income / average current-and-prior equity.\n- Debt to equity `(calculations.json:debt_to_equity)`. Arithmetic: (3914000000 + 2248000000) / 35803000000; definition: (Long-term debt + Current portion of long-term debt) / Stockholders' equity.\n- Free cash flow `(calculations.json:free_cash_flow)`. Arithmetic: 15817000000 - 6435000000; definition: Net cash from operations - Additions to property and equipment.\n\n**Quarter release source excerpts**\n\n- Total revenue. Exhibit 99.1 source line 39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235\n- Diluted EPS. Exhibit 99.1 source line 20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year.\n\nInsight: The release states that net sales for the fiscal year increased 10.1 percent (exhibit-99-1.txt:10), while the code-calculated annual revenue growth based on total revenue is 10.14% (calculations.json:revenue_growth); the release does not explain the divergence between the net sales growth rate and the total revenue growth rate, which is driven by the different growth rates of net sales and membership fees.\n\n# Future Developments and Strategic Recommendations\n\nCostco’s future growth is expected to be driven by continued warehouse expansion, particularly in international markets where the base is smaller and square footage growth rates are generally higher (10-k.txt:1017). The company opened two new warehouses in its Other International segment in fiscal year 2026 (10-k.txt:1030). Management notes that as the warehouse base grows, securing desirable sites becomes more difficult, making square footage growth a comparatively less substantial component of growth (10-k.txt:1017). This suggests that future growth will increasingly rely on comparable sales growth and digital penetration rather than new store openings.\n\nA key catalyst for future profitability is the continued penetration of Executive memberships, which represented 42,300 thousand of total paid members in 2026 (10-k.txt:769). Executive members earn a 2% reward on qualified purchases, which reduces net sales but drives higher spending and loyalty (10-k.txt:769). The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026 (10-k.txt:769), indicating a strong base for future fee revenue growth. The company also faces risks from tariffs, which management states are \"more likely to adversely impact rather than improve our results\" (10-k.txt:1015). The company’s strategy to mitigate this includes working with suppliers to share cost increases and adjusting merchandise mix (10-k.txt:1011).\n\nStrategic recommendations for investors should focus on monitoring the sustainability of comparable sales growth, particularly in the U.S. market, which saw adjusted comparable sales growth of 8.2% for the 52 weeks ended August 30, 2026 (exhibit-99-1.txt:14). The company’s ability to maintain high renewal rates, currently at 89.8% worldwide (10-k.txt:770), is critical to the durability of its membership fee revenue. Additionally, the growth in digitally-enabled sales, which grew 20.9% on an adjusted basis (exhibit-99-1.txt:18), is a key indicator of the company’s ability to adapt to changing consumer preferences and compete with pure-play e-commerce retailers.\n\nInsight: The 20.9% (exhibit-99-1.txt:18) growth in digitally-enabled comparable sales significantly outpaces the 8.4% (exhibit-99-1.txt:17) total company comparable sales growth, indicating that digital channels are a primary driver of organic revenue expansion and a key component of Costco's evolving competitive moat.\n\n# Investment Recommendation\n\n**Recommendation:** Hold\n\n**Thesis:** Costco exhibits high-quality business fundamentals, evidenced by a 28.40% return on average equity `(calculations.json:return_on_average_equity)` and strong organic growth with 8.4% adjusted comparable sales `(exhibit-99-1.txt:17)`. However, the current valuation of 47.7905x FY-EPS `(calculations.json:price_to_earnings)` is elevated relative to the company's 3.85% operating margin `(calculations.json:operating_margin)`, which is below peer averages such as Target's 4.8836% and Walmart's 4.1821%. While the digital channel is growing rapidly at 20.9% `(exhibit-99-1.txt:18)`, the premium multiple requires sustained high-margin growth to justify the entry price, creating a risk-reward profile that favors waiting for a better valuation entry point rather than immediate accumulation.\n\n**Deciding Number:** 47.7905x FY-EPS `(calculations.json:price_to_earnings)`\n\n**Principal Catalyst:** Continued expansion of digitally-enabled sales, which grew 20.9% on an adjusted basis `(exhibit-99-1.txt:18)`, potentially driving higher-margin revenue mix and supporting the premium valuation.\n\n**Principal Risk:** Tariff impacts, which management states are \"more likely to adversely impact rather than improve our results\" `(10-k.txt:1015)`, could compress the already thin 3.85% operating margin `(calculations.json:operating_margin)` and pressure the high valuation multiple.\n\n**Valuation Limitation:** The provided P/E ratio is based on fiscal year-end EPS and a specific price date (2026-10-27) and is explicitly noted as \"Not TTM P/E\" `(calculations.json:price_to_earnings)`, meaning it may not reflect the most current trailing earnings power or real-time market sentiment.\n\n**Measurable Result That Could Change Recommendation:** A decline in the FY-EPS P/E ratio below 40x in the next quarterly filing or market update would improve the risk-reward profile, potentially shifting the recommendation to Buy. Conversely, if the operating margin falls below 3.5% due to tariff costs, the recommendation would shift to Sell.\n\nInsight: The 47.7905x `(calculations.json:price_to_earnings)` multiple is high relative to the 3.85% `(calculations.json:operating_margin)` operating margin, indicating that the stock price already prices in significant future growth; if the 8.4% `(exhibit-99-1.txt:17)` comparable sales growth slows, the valuation support erodes rapidly.\n\n---\n\nThis is a learning exercise, not financial advice.\n\nAI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.\n\nAny remaining errors are my own.\n",
+  "saved_facts": {
+    "reference_fiscal_year": {
+      "fiscal_year": 2026,
+      "period_start": "2025-09-01",
+      "period_end": "2026-08-30",
+      "selected_revenue_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "concepts": {
+      "total_revenue": {
+        "label": "Total revenue",
+        "selected_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "current": {
+          "value": 303154000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 275235000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "operating_income": {
+        "label": "Operating income",
+        "selected_tag": "us-gaap:OperatingIncomeLoss",
+        "current": {
+          "value": 11685000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 10383000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "net_income": {
+        "label": "Net income",
+        "selected_tag": "us-gaap:NetIncomeLoss",
+        "current": {
+          "value": 9226000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 8099000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "diluted_eps": {
+        "label": "Diluted earnings per share",
+        "selected_tag": "us-gaap:EarningsPerShareDiluted",
+        "current": {
+          "value": 20.76,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 18.21,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "stockholders_equity": {
+        "label": "Stockholders' equity",
+        "selected_tag": "us-gaap:StockholdersEquity",
+        "current": {
+          "value": 35803000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026Q3I",
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 29164000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025Q3I",
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "long_term_debt": {
+        "label": "Long-term debt",
+        "selected_tag": "us-gaap:LongTermDebtNoncurrent",
+        "current": {
+          "value": 3914000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026Q3I",
+          "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 5713000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025Q3I",
+          "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "current_long_term_debt": {
+        "label": "Current portion of long-term debt",
+        "selected_tag": "us-gaap:LongTermDebtCurrent",
+        "current": {
+          "value": 2248000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026Q3I",
+          "xbrl_tag": "us-gaap:LongTermDebtCurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 75000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025Q3I",
+          "xbrl_tag": "us-gaap:LongTermDebtCurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "cash_from_operations": {
+        "label": "Net cash provided by operating activities",
+        "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "current": {
+          "value": 15817000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 13335000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      },
+      "property_equipment_additions": {
+        "label": "Additions to property and equipment",
+        "selected_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "current": {
+          "value": 6435000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2026,
+          "fiscal_period": "FY",
+          "period_start": "2025-09-01",
+          "period_end": "2026-08-30",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2026",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        },
+        "prior": {
+          "value": 5498000000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2024-09-02",
+          "period_end": "2025-08-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0000909832-26-000093",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+        }
+      }
+    },
+    "earnings_release_extraction": {
+      "source_filename": "exhibit-99-1.txt",
+      "claims": {
+        "total_revenue": {
+          "label": "Quarterly total revenue",
+          "status": "found",
+          "quoted_source_text": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235",
+          "source_line_start": 39,
+          "source_line_end": 39,
+          "candidates": [
+            {
+              "line_start": 39,
+              "line_end": 39,
+              "text": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235",
+              "score": 12
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        },
+        "diluted_eps": {
+          "label": "Quarterly diluted EPS",
+          "status": "found",
+          "quoted_source_text": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year.",
+          "source_line_start": 20,
+          "source_line_end": 20,
+          "candidates": [
+            {
+              "line_start": 20,
+              "line_end": 20,
+              "text": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year.",
+              "score": 5
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        }
+      }
+    }
+  },
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "3.03154e+11",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "10.14",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.1685e+10, 3.85",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "9.226e+09",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "20.76",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "28.4",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "0.17",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.382e+09",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "9.5723e+10",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.1",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "6.75",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The release states that net sales for the fiscal year increased 10.1 percent , while the code-calculated annual revenue growth based on total revenue is 10.14% ; the release does not explain the divergence between the net sales growth rate and the total revenue growth rate, which is driven by the different growth rates of net sales and membership fees.",
+      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
+      "mark": "Correct",
+      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The 20.9%  growth in digitally-enabled comparable sales significantly outpaces the 8.4%  total company comparable sales growth, indicating that digital channels are a primary driver of organic revenue expansion and a key component of Costco's evolving competitive moat.",
+      "filing_says": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "mark": "Correct",
+      "evidence": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | Total Company | 9.4% | 6.7% | 8.4% | 6.6%"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The 47.7905x `` multiple is high relative to the 3.85% `` operating margin, indicating that the stock price already prices in significant future growth; if the 8.4% `` comparable sales growth slows, the valuation support erodes rapidly.",
+      "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
+      "mark": "Correct",
+      "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    }
+  ],
+  "cited_filing_lines": [
+    {
+      "citation": "10-k.txt:724",
+      "report_sentence": "The company explicitly states that this model enables it to \"operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers\"",
+      "source_line": "We operate membership warehouses and e-commerce sites based on the concept that offering low prices on a limited selection of nationally-branded and private-label products in a wide range of categories will produce high sales volumes and rapid inventory turnover. When combined with the operating efficiencies achieved by volume purchasing, efficient distribution and reduced handling of merchandise in no-frills, self-service warehouse facilities, these volumes and turnover enable us to operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers. We often sell inventory before we are required to pay for it, even while taking advantage of early payment discounts.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1036",
+      "report_sentence": "A core component of this durability is the membership fee structure, which provides continuing revenue and reinforces loyalty; in fiscal year 2026, membership fee revenue increased 11% to $5,907 million",
+      "source_line": "Membership fee revenue increased 11% to $5,907, driven by new member sign-ups, membership fee increases, and upgrades to Executive membership;",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1010",
+      "report_sentence": "The company’s primary operating KPI is comparable sales, which management identifies as the \"most important driver of our profitability\"",
+      "source_line": "We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:17",
+      "report_sentence": "For the 52 weeks ended August 30, 2026, total company comparable sales increased 8.4% on an adjusted basis, excluding the impacts of gasoline prices and foreign exchange",
+      "source_line": "Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:770",
+      "report_sentence": "and Canada renewal rate at 92.3% at the end of 2026",
+      "source_line": "Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:20",
+      "report_sentence": "The company also reported net income of $9,226 million, or $20.76 per diluted share, for fiscal year 2026",
+      "source_line": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1010",
+      "report_sentence": "# Market Positioning and Growth Outlook\n\nCostco’s competitive position is characterized by its ability to maintain \"pricing authority\" and consistently provide competitive values, which management believes is a skill \"repeatedly demonstrated over the long-term\"",
+      "source_line": "We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1032",
+      "report_sentence": "Net sales increased 10.1% to $297,247 million, driven by an increase in comparable sales and sales at new warehouses",
+      "source_line": "Net sales increased 10% to $297,247, driven by an increase in comparable sales and sales at new warehouses;",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1030",
+      "report_sentence": "Expansion contributed to this growth through the opening of 28 new warehouses, including three relocations, for a total of 25 net new warehouses",
+      "source_line": "We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025;",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:721",
+      "report_sentence": "The company operated 939 warehouses worldwide at August 30, 2026, up from 914 at August 31, 2025",
+      "source_line": "Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.”",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:754",
+      "report_sentence": "A significant portion of Costco’s growth is driven by its digitally-enabled sales, which represented 11% of total net sales in 2026",
+      "source_line": "Our other businesses sell products and services that largely complement our warehouse operations. Our business centers carry items tailored for food services, convenience stores, and offices, and offer walk-in shopping and deliveries. Business centers are included in our total warehouse count. Our e-commerce operations give members convenience and a broader selection of goods and services. Costco Travel offers vacation packages, car rentals, cruises and other travel products exclusively for Costco members in varying degrees in the U.S., Canada, the U.K., and Australia. Digitally-enabled sales, which represents sales that are initiated through a digital device, whether fulfilled through a warehouse or distribution center, as well as Costco Travel, represented 11% of total net sales in 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "The growth in this segment is substantial, with digitally-enabled comparable sales increasing 20.9% on an adjusted basis for the 52 weeks ended August 30, 2026",
+      "source_line": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:17",
+      "report_sentence": "This digital growth outpaces the total company comparable sales growth of 8.4%",
+      "source_line": "Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:751",
+      "report_sentence": "The company also benefits from its gasoline business, which represented 11% of total net sales in 2026",
+      "source_line": "Warehouse ancillary operate primarily within, next to or near our warehouses, encouraging more frequent shopping. The number of warehouses with gas stations varies significantly by country. We operated 774 gas stations at the end of 2026. Our gasoline business represented 11% of total net sales in 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1034",
+      "report_sentence": "The company also benefits from its gasoline business, which represented 11% of total net sales in 2026 (10-k.txt:751) and positively impacted net sales by $3,501 million, or 130 basis points, in fiscal year 2026",
+      "source_line": "Higher gasoline prices positively impacted net sales by $3,501, or 130 basis points, and changes in foreign currencies positively impacted net sales by $1,332, or 49 basis points;",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:725",
+      "report_sentence": "Costco’s competitive advantage is further supported by its supply chain efficiencies, including cross-docking and direct purchasing from suppliers, which lower costs associated with traditional distribution channels",
+      "source_line": "We buy most of our merchandise directly from suppliers and route it to cross-docking consolidation points (depots) or directly to our warehouses. Our depots receive large shipments from suppliers and quickly",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:731",
+      "report_sentence": "The company’s limited SKU count, with less than 4,000 active SKUs per warehouse in its core business",
+      "source_line": "Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:16",
+      "report_sentence": "The company’s international expansion is also a key growth driver, with Other International comparable sales increasing 9.8% on an adjusted basis for the 52 weeks ended August 30, 2026",
+      "source_line": "Other International | 7.0% | 6.2% | 9.8% | 6.5%",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1240",
+      "report_sentence": "## Valuation Insights\n\nAnnual total revenue was $303,154,000,000",
+      "source_line": "to the consolidated financial statements, the Company generated $219,823 million and $40,561 million of total revenue in the United States (U.S.) and Canada, respectively, for the year ended August 30, 2026, which included revenue from membership fees, merchandise sales, and gasoline sales (U.S. and Canada revenue). The processing and recording of U.S. and Canada revenue is dependent upon the use of multiple information technology (IT) systems.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1285",
+      "report_sentence": "Annual operating income was $11,685,000,000",
+      "source_line": "Operating income | 11,685 | 10,383 | 9,285",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1291",
+      "report_sentence": "Annual net income attributable to the company was $9,226,000,000",
+      "source_line": "NET INCOME | $ | 9,226 | $ | 8,099 | $ | 7,367",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1294",
+      "report_sentence": "Annual GAAP diluted EPS was $20.76",
+      "source_line": "Diluted | $ | 20.76 | $ | 18.21 | $ | 16.56",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:39",
+      "report_sentence": "Quarter total revenue was $95,723,000,000",
+      "source_line": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:20",
+      "report_sentence": "Quarter GAAP diluted EPS was $6.75",
+      "source_line": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:10",
+      "report_sentence": "Insight: The release states that net sales for the fiscal year increased 10.1 percent",
+      "source_line": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1017",
+      "report_sentence": "# Future Developments and Strategic Recommendations\n\nCostco’s future growth is expected to be driven by continued warehouse expansion, particularly in international markets where the base is smaller and square footage growth rates are generally higher",
+      "source_line": "We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1030",
+      "report_sentence": "The company opened two new warehouses in its Other International segment in fiscal year 2026",
+      "source_line": "We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025;",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1017",
+      "report_sentence": "Management notes that as the warehouse base grows, securing desirable sites becomes more difficult, making square footage growth a comparatively less substantial component of growth",
+      "source_line": "We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:769",
+      "report_sentence": "A key catalyst for future profitability is the continued penetration of Executive memberships, which represented 42,300 thousand of total paid members in 2026",
+      "source_line": "Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:769",
+      "report_sentence": "Executive members earn a 2% reward on qualified purchases, which reduces net sales but drives higher spending and loyalty",
+      "source_line": "Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:769",
+      "report_sentence": "The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026",
+      "source_line": "Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1015",
+      "report_sentence": "The company also faces risks from tariffs, which management states are \"more likely to adversely impact rather than improve our results\"",
+      "source_line": "Government actions in various countries relating to tariffs affect the costs of some of our merchandise. The degree of our exposure is dependent on (among other things) the type of goods, rates imposed, and timing of the tariffs. Higher tariffs are more likely to adversely impact rather than improve our results.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1011",
+      "report_sentence": "The company’s strategy to mitigate this includes working with suppliers to share cost increases and adjusting merchandise mix",
+      "source_line": "Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "market, which saw adjusted comparable sales growth of 8.2% for the 52 weeks ended August 30, 2026",
+      "source_line": "U.S. | 10.7% | 7.2% | 8.2% | 6.6%",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:770",
+      "report_sentence": "The company’s ability to maintain high renewal rates, currently at 89.8% worldwide",
+      "source_line": "Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "Additionally, the growth in digitally-enabled sales, which grew 20.9% on an adjusted basis",
+      "source_line": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "Insight: The 20.9%",
+      "source_line": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:17",
+      "report_sentence": "Insight: The 20.9% (exhibit-99-1.txt:18) growth in digitally-enabled comparable sales significantly outpaces the 8.4%",
+      "source_line": "Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:17",
+      "report_sentence": "# Investment Recommendation\n\n**Recommendation:** Hold\n\n**Thesis:** Costco exhibits high-quality business fundamentals, evidenced by a 28.40% return on average equity `(calculations.json:return_on_average_equity)` and strong organic growth with 8.4% adjusted comparable sales `",
+      "source_line": "Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "While the digital channel is growing rapidly at 20.9% `",
+      "source_line": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "**Deciding Number:** 47.7905x FY-EPS `(calculations.json:price_to_earnings)`\n\n**Principal Catalyst:** Continued expansion of digitally-enabled sales, which grew 20.9% on an adjusted basis `",
+      "source_line": "Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1015",
+      "report_sentence": "**Principal Risk:** Tariff impacts, which management states are \"more likely to adversely impact rather than improve our results\" `",
+      "source_line": "Government actions in various countries relating to tariffs affect the costs of some of our merchandise. The degree of our exposure is dependent on (among other things) the type of goods, rates imposed, and timing of the tariffs. Higher tariffs are more likely to adversely impact rather than improve our results.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:17",
+      "report_sentence": "Insight: The 47.7905x `(calculations.json:price_to_earnings)` multiple is high relative to the 3.85% `(calculations.json:operating_margin)` operating margin, indicating that the stock price already prices in significant future growth; if the 8.4% `",
+      "source_line": "Total Company | 9.4% | 6.7% | 8.4% | 6.6%",
+      "line_found": true
+    }
+  ],
+  "expected_output": {
+    "assessments": [
+      {
+        "claim": "claim name",
+        "mark": "Correct, Wrong, or Unsupported",
+        "reason": "short reason"
+      }
+    ]
+  }
+}

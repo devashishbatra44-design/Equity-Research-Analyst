@@ -1,0 +1,650 @@
+{
+  "task": "Check whether each cited line or XBRL fact states the report's number for the stated period and definition. Use the mark Not in filings when the code mark says Not in filings and the report does not invent a value. Do not assess the Investment Advisor's thesis. For an Insight line, check its numbers, periods, definitions, and cited evidence only; do not grade whether its analytical inference is persuasive. Return JSON only.",
+  "compiled_report": "# NETFLIX INC (NFLX) — filings read: 10-K accession 0001065280-26-000034; 10-Q accession 0001065280-26-000291; 8-K accession 0001065280-26-000290\n# Run time: 2026-11-05T09:10:06.566155-05:00\n\n# Overview\n\nNetflix operates as a single operating segment, deriving its revenues primarily from monthly membership fees for streaming content, with advertising, consumer products, and live experiences contributing a non-material portion of total revenue (10-k.txt:1721, 10-k.txt:2073). The company’s core strategy is to grow globally within the parameters of its operating margin target, offering a range of pricing plans including an ad-supported subscription plan to meet diverse consumer needs (10-k.txt:1719). In the latest fiscal year, total revenues reached $45,183,036 thousand, representing a 16% increase from the prior year, while operating income grew 28% to $13,326,603 thousand, expanding the operating margin to 29.5% (10-k.txt:2058, 10-k.txt:2060, 10-k.txt:2061). Management has shifted its primary financial metrics to revenue and operating margin, discontinuing the reporting of membership numbers and average monthly revenue per paying membership (10-k.txt:2063). The business model relies on a combination of proprietary intellectual property, a global content delivery network known as Open Connect, and a culture focused on excellence to retain talent and members (10-k.txt:1730, 10-k.txt:2109, 10-k.txt:1735).\n\n# Market Positioning and Growth Outlook\n\nNetflix competes in an intensely competitive market for consumers' leisure time, facing rivals including linear television, other streaming providers, video gaming, and social media (10-k.txt:1725). The company’s competitive advantage is anchored in its ability to \"win moments of truth\" by offering compelling, differentiated content and a superior user interface (10-k.txt:1726). In the current quarter, revenue grew 12% year over year to $12.9 billion, with operating margin reaching 34.6%, up from 28.2% in the same quarter of the prior year (exhibit-99-1.txt:14). This margin expansion was driven by the timing of expenses and revenue upside (exhibit-99-1.txt:14). Growth is supported by healthy retention in every region, with churn improving year-over-year globally and in the U.S. (exhibit-99-1.txt:61). The company is expanding its third-party content offerings through new partnerships, such as the TF1 partnership in France and a licensing deal with Disney, which brings titles like the *Ice Age* films to its service (exhibit-99-1.txt:26, exhibit-99-1.txt:130). Additionally, Netflix is expanding its advertising tier to 15 new countries in the coming year, with the first tranche launching in March (exhibit-99-1.txt:153). The company’s audience is approaching one billion people, which management cites as a key asset for partnering with studios and networks (exhibit-99-1.txt:26).\n\n## Valuation Insights\n\nAnnual total revenue was $45,183,036,000 (10-k.txt:2440).\nAnnual revenue growth was 15.85% (calculations.json:revenue_growth).\nAnnual operating income was $13,326,603,000 (10-k.txt:2440).\nAnnual operating margin was 29.49% (calculations.json:operating_margin).\nAnnual net income attributable to the company was $10,981,201,000 (10-k.txt:2446).\nAnnual GAAP diluted EPS was $2.53 (10-k.txt:2449).\nReturn on average equity was 42.76% (calculations.json:return_on_average_equity).\nDebt to equity was not stated in the filings.\nFree cash flow was $9,461,053,000 (calculations.json:free_cash_flow).\nQuarter total revenue was $12,874,176,000 (exhibit-99-1.txt:277).\nQuarter revenue growth was 11.85% (exhibit-99-1.txt:277).\nQuarter GAAP diluted EPS was $0.87 (exhibit-99-1.txt:291).\n\n**Annual XBRL source details**\n\n- Total revenue: $45,183 million at 2025-12-31; prior $39,001 million at 2024-12-31; XBRL tag `us-gaap:Revenues`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Operating income: $13,327 million at 2025-12-31; prior $10,418 million at 2024-12-31; XBRL tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Net income: $10,981 million at 2025-12-31; prior $8,712 million at 2024-12-31; XBRL tag `us-gaap:NetIncomeLoss`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Diluted earnings per share: $2.53 at 2025-12-31; prior $1.98 at 2024-12-31; XBRL tag `us-gaap:EarningsPerShareDiluted`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Stockholders' equity: $26,615 million at 2025-12-31; prior $24,744 million at 2024-12-31; XBRL tag `us-gaap:StockholdersEquity`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Long-term debt: $13,464 million at 2025-12-31; prior $13,798 million at 2024-12-31; XBRL tag `us-gaap:LongTermDebtNoncurrent`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Current portion of long-term debt: unavailable in the selected 10-K facts.\n- Net cash provided by operating activities: $10,149 million at 2025-12-31; prior $7,361 million at 2024-12-31; XBRL tag `us-gaap:NetCashProvidedByUsedInOperatingActivities`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n- Additions to property and equipment: $688 million at 2025-12-31; prior $440 million at 2024-12-31; XBRL tag `us-gaap:PaymentsToAcquirePropertyPlantAndEquipment`; 10-K accession 0001065280-26-000034; source: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html.\n\n**Price and peer source details**\n\n- FY-EPS P/E `(calculations.json:price_to_earnings)`: 27.6087x = 69.85 / 2.53. Price date: 2026-10-19; price source: Yahoo Finance historical data (split-adjusted close): https://finance.yahoo.com/quote/NFLX/history/. EPS period end: 2025-12-31; EPS tag: `us-gaap:EarningsPerShareDiluted`; 10-K accession 0001065280-26-000034. Not TTM P/E.\n- Walt Disney Co (DIS) operating margin: 18.5872% = 17,551 / 94,425 million; period end 2025-09-27; denominator line label `not recovered from the filing`; revenue tag `us-gaap:Revenues`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001744489-25-000155.\n- COMCAST CORP (CMCSA) operating margin: 16.7105% = 20,672 / 123,707 million; period end 2025-12-31; denominator line label `not recovered from the filing`; revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001628280-26-004994.\n- ROKU, INC (ROKU) operating margin: -0.1187% = -6 / 4,737 million; period end 2025-12-31; denominator line label `not recovered from the filing`; revenue tag `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`; operating-income tag `us-gaap:OperatingIncomeLoss`; 10-K accession 0001628280-26-008114.\n\n**Code-supplied calculation details**\n\n- Revenue growth `(calculations.json:revenue_growth)`. Arithmetic: (45183036000 - 39000966000) / 39000966000; definition: (Current-year revenue - Prior-year revenue) / Prior-year revenue.\n- Operating margin `(calculations.json:operating_margin)`. Arithmetic: 13326603000 / 45183036000; definition: Current-year operating income / Current-year total revenue.\n- Return on average equity `(calculations.json:return_on_average_equity)`. Arithmetic: 10981201000 / ((26615488000 + 24743567000) / 2); definition: Current-year net income / average current-and-prior equity.\n- Free cash flow `(calculations.json:free_cash_flow)`. Arithmetic: 10149273000 - 688220000; definition: Net cash from operations - Additions to property and equipment.\n\n**Quarter release source excerpts**\n\n- Total revenue. Exhibit 99.1 source line 277: Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274\n- Diluted EPS. Exhibit 99.1 source line 291: Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97\n\nInsight: The release states that operating margin was 34.6% (exhibit-99-1.txt:14), which is significantly higher than the annual operating margin of 29.49% (calculations.json:operating_margin), a divergence not explained in the release's first paragraph.\n\n# Future Developments and Strategic Recommendations\n\nFor the full year, Netflix expects revenue of $51.1 billion, representing 13% year-over-year growth, and an operating margin of 31.5% (exhibit-99-1.txt:16). This guidance includes a negative impact of approximately 30 basis points on operating margin associated with recently announced headcount reductions, which management states will enable continued investment in high-impact areas (exhibit-99-1.txt:65). A key strategic development is the expansion of the advertising business, with the introduction of the advertising tier to 15 new countries, including nine in EMEA, Colombia, Peru, and New Zealand (exhibit-99-1.txt:153). Management acknowledges investor concern regarding view hours growth but asserts that member response to price changes indicates healthy engagement (exhibit-99-1.txt:157). The company plans to continue investing in its ad tech stack, including programmatic access through CTV marketplace deals and partnerships with MercadoLibre and AdForm (exhibit-99-1.txt:153). Strategic recommendations should focus on monitoring the execution of the ad product rollout, as the company currently expects ad revenue of approximately $2.7 billion, which is below the previous estimate of $3 billion due to slower-than-expected capability rollout (exhibit-99-1.txt:65). Additionally, the impact of the headcount reductions on operational efficiency and content investment should be closely tracked in subsequent filings.\n\nInsight: The current quarter operating margin of 34.6% (exhibit-99-1.txt:14) contrasts with the latest fiscal year operating margin of 29.5% (10-k.txt:2061), indicating that the strategic shift toward ad-supported plans and third-party licensing is driving significant profitability expansion beyond the baseline annual performance.\n\n## Investment Recommendation\n\n**Recommendation:** Buy\n\n**Thesis:** Netflix demonstrates superior business quality through a dominant market position and a shift toward high-margin ad-supported plans, evidenced by a current quarter operating margin of 34.6% (exhibit-99-1.txt:14) that significantly exceeds the latest fiscal year operating margin of 29.49% (calculations.json:operating_margin). This margin expansion, driven by healthy retention and strategic content partnerships, supports a valuation of 27.6087x (calculations.json:price_to_earnings) on latest fiscal year diluted EPS of $2.53 (10-k.txt:2449), which is justified by the company's strong free cash flow generation of $9,461,053,000 (calculations.json:free_cash_flow) and return on average equity of 42.76% (calculations.json:return_on_average_equity).\n\n**Deciding Number:** The current quarter operating margin of 34.6% (exhibit-99-1.txt:14).\n\n**Principal Catalyst:** The expansion of the advertising tier to 15 new countries, which management expects to drive ad revenue toward the $2.7 billion (exhibit-99-1.txt:65) target, further supporting margin expansion beyond the latest fiscal year baseline.\n\n**Principal Risk:** Slower-than-expected capability rollout for the advertising business, which has already caused a reduction in ad revenue estimates from $3 billion (exhibit-99-1.txt:65) to $2.7 billion (exhibit-99-1.txt:65), potentially stalling the margin expansion trajectory.\n\n**Valuation Limitation:** The provided valuation metric is a forward P/E ratio of 27.6087x (calculations.json:price_to_earnings) based on latest fiscal year EPS, which does not account for the significant divergence between the current quarter operating margin of 34.6% (exhibit-99-1.txt:14) and the annual operating margin of 29.49% (calculations.json:operating_margin), nor does it provide a direct comparison to peer valuations beyond operating margin benchmarks.\n\n**Measurable Result That Could Change Recommendation:** A decline in the next quarter's operating margin below 30% (exhibit-99-1.txt:14) would indicate that the margin expansion is not sustainable and that the advertising rollout is failing to offset content costs, potentially shifting the recommendation to Hold or Sell.\n\nInsight: The current quarter operating margin of 34.6% (exhibit-99-1.txt:14) significantly exceeds the latest fiscal year operating margin of 29.49% (calculations.json:operating_margin), indicating that the strategic shift toward ad-supported plans is driving profitability expansion that justifies the 27.6087x (calculations.json:price_to_earnings) valuation multiple on latest fiscal year diluted EPS of $2.53 (10-k.txt:2449).\n\n---\n\nThis is a learning exercise, not financial advice.\n\nAI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.\n\nAny remaining errors are my own.\n",
+  "saved_facts": {
+    "reference_fiscal_year": {
+      "fiscal_year": 2025,
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "selected_revenue_tag": "us-gaap:Revenues"
+    },
+    "concepts": {
+      "total_revenue": {
+        "label": "Total revenue",
+        "selected_tag": "us-gaap:Revenues",
+        "current": {
+          "value": 45183036000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:Revenues",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 39000966000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:Revenues",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "operating_income": {
+        "label": "Operating income",
+        "selected_tag": "us-gaap:OperatingIncomeLoss",
+        "current": {
+          "value": 13326603000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 10417614000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "net_income": {
+        "label": "Net income",
+        "selected_tag": "us-gaap:NetIncomeLoss",
+        "current": {
+          "value": 10981201000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": null,
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 8711631000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": null,
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "diluted_eps": {
+        "label": "Diluted earnings per share",
+        "selected_tag": "us-gaap:EarningsPerShareDiluted",
+        "current": {
+          "value": 2.53,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 1.98,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "stockholders_equity": {
+        "label": "Stockholders' equity",
+        "selected_tag": "us-gaap:StockholdersEquity",
+        "current": {
+          "value": 26615488000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 24743567000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "long_term_debt": {
+        "label": "Long-term debt",
+        "selected_tag": "us-gaap:LongTermDebtNoncurrent",
+        "current": {
+          "value": 13463971000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": null,
+          "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 13798351000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024Q4I",
+          "xbrl_tag": "us-gaap:LongTermDebtNoncurrent",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "current_long_term_debt": {
+        "label": "Current portion of long-term debt",
+        "selected_tag": null,
+        "current": null,
+        "prior": null
+      },
+      "cash_from_operations": {
+        "label": "Net cash provided by operating activities",
+        "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "current": {
+          "value": 10149273000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 7361364000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      },
+      "property_equipment_additions": {
+        "label": "Additions to property and equipment",
+        "selected_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "current": {
+          "value": 688220000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        },
+        "prior": {
+          "value": 439538000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-01-23",
+          "accession_number": "0001065280-26-000034",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.html"
+        }
+      }
+    },
+    "earnings_release_extraction": {
+      "source_filename": "exhibit-99-1.txt",
+      "claims": {
+        "total_revenue": {
+          "label": "Quarterly total revenue",
+          "status": "found",
+          "quoted_source_text": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274",
+          "source_line_start": 277,
+          "source_line_end": 277,
+          "candidates": [
+            {
+              "line_start": 277,
+              "line_end": 277,
+              "text": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274",
+              "score": 12
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        },
+        "diluted_eps": {
+          "label": "Quarterly diluted EPS",
+          "status": "found",
+          "quoted_source_text": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97",
+          "source_line_start": 291,
+          "source_line_end": 291,
+          "candidates": [
+            {
+              "line_start": 291,
+              "line_end": 291,
+              "text": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97",
+              "score": 8
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        }
+      }
+    }
+  },
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "4.5183e+10",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "15.85",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.33266e+10, 29.49",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "1.09812e+10",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "2.53",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "42.76",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the filings",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.46105e+09",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "1.28742e+10",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.85",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "0.87",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The release states that operating margin was 34.6% , which is significantly higher than the annual operating margin of 29.49% , a divergence not explained in the release's first paragraph.",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The current quarter operating margin of 34.6%  contrasts with the latest fiscal year operating margin of 29.5% , indicating that the strategic shift toward ad-supported plans and third-party licensing is driving significant profitability expansion beyond the baseline annual performance.",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The current quarter operating margin of 34.6%  significantly exceeds the latest fiscal year operating margin of 29.49% , indicating that the strategic shift toward ad-supported plans is driving profitability expansion that justifies the 27.6087x  valuation multiple on latest fiscal year diluted EPS of $2.53 .",
+      "filing_says": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 69.85 / 2.53; result 27.6087",
+      "mark": "Correct",
+      "evidence": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 69.85 / 2.53; result 27.6087"
+    }
+  ],
+  "cited_filing_lines": [
+    {
+      "citation": "10-k.txt:1719",
+      "report_sentence": "The company’s core strategy is to grow globally within the parameters of its operating margin target, offering a range of pricing plans including an ad-supported subscription plan to meet diverse consumer needs",
+      "source_line": "Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2063",
+      "report_sentence": "Management has shifted its primary financial metrics to revenue and operating margin, discontinuing the reporting of membership numbers and average monthly revenue per paying membership",
+      "source_line": "(1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1725",
+      "report_sentence": "# Market Positioning and Growth Outlook\n\nNetflix competes in an intensely competitive market for consumers' leisure time, facing rivals including linear television, other streaming providers, video gaming, and social media",
+      "source_line": "The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1726",
+      "report_sentence": "The company’s competitive advantage is anchored in its ability to \"win moments of truth\" by offering compelling, differentiated content and a superior user interface",
+      "source_line": "While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "In the current quarter, revenue grew 12% year over year to $12.9 billion, with operating margin reaching 34.6%, up from 28.2% in the same quarter of the prior year",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "This margin expansion was driven by the timing of expenses and revenue upside",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:61",
+      "report_sentence": "Growth is supported by healthy retention in every region, with churn improving year-over-year globally and in the U.S.",
+      "source_line": "Revenue in Q3 grew 12% year over year (+11% on a foreign exchange (F/X) neutral basis), and was in-line with our forecast. In Q3, revenue growth was driven primarily by subscription revenue, reflecting increases in memberships and pricing, growth in advertising revenue and a favorable impact from F/X rates, net of hedging. Membership growth benefited from continued, healthy retention in every region; globally and in the US, churn improved year-over-year and was better than forecast.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:153",
+      "report_sentence": "Additionally, Netflix is expanding its advertising tier to 15 new countries in the coming year, with the first tranche launching in March",
+      "source_line": "We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:26",
+      "report_sentence": "The company’s audience is approaching one billion people, which management cites as a key asset for partnering with studios and networks",
+      "source_line": "We’ll continue to expand our entertainment offering through licensing and new ways to bring more third-party content to our service, like our TF1 partnership in France. Our audience, which is approaching one billion people, and our best-in-class product capabilities, make us great partners for studios, networks and creative talent.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2440",
+      "report_sentence": "## Valuation Insights\n\nAnnual total revenue was $45,183,036,000",
+      "source_line": "Operating income | 13,326,603 | 10,417,614 | 6,954,003",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2440",
+      "report_sentence": "Annual operating income was $13,326,603,000",
+      "source_line": "Operating income | 13,326,603 | 10,417,614 | 6,954,003",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2446",
+      "report_sentence": "Annual net income attributable to the company was $10,981,201,000",
+      "source_line": "Net income | $ | 10,981,201 | $ | 8,711,631 | $ | 5,407,990",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2449",
+      "report_sentence": "Annual GAAP diluted EPS was $2.53",
+      "source_line": "Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:277",
+      "report_sentence": "Quarter total revenue was $12,874,176,000",
+      "source_line": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:277",
+      "report_sentence": "Quarter revenue growth was 11.85%",
+      "source_line": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:291",
+      "report_sentence": "Quarter GAAP diluted EPS was $0.87",
+      "source_line": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "Exhibit 99.1 source line 291: Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97\n\nInsight: The release states that operating margin was 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:16",
+      "report_sentence": "# Future Developments and Strategic Recommendations\n\nFor the full year, Netflix expects revenue of $51.1 billion, representing 13% year-over-year growth, and an operating margin of 31.5%",
+      "source_line": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:65",
+      "report_sentence": "This guidance includes a negative impact of approximately 30 basis points on operating margin associated with recently announced headcount reductions, which management states will enable continued investment in high-impact areas",
+      "source_line": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:153",
+      "report_sentence": "A key strategic development is the expansion of the advertising business, with the introduction of the advertising tier to 15 new countries, including nine in EMEA, Colombia, Peru, and New Zealand",
+      "source_line": "We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:157",
+      "report_sentence": "Management acknowledges investor concern regarding view hours growth but asserts that member response to price changes indicates healthy engagement",
+      "source_line": "We know there’s some investor concern about our view hours growth. Member response to our 2026 price increases is consistent with prior price changes and our expectations, an indicator that our engagement - which encompasses quantity, quality and variety of viewing - remains healthy and that we continue to deliver strong value to members. But we do seek to accelerate growth in view hours as well, and we’re confident we’ll do that by relentlessly focusing and executing against the aforementioned strategy.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:153",
+      "report_sentence": "The company plans to continue investing in its ad tech stack, including programmatic access through CTV marketplace deals and partnerships with MercadoLibre and AdForm",
+      "source_line": "We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:65",
+      "report_sentence": "Strategic recommendations should focus on monitoring the execution of the ad product rollout, as the company currently expects ad revenue of approximately $2.7 billion, which is below the previous estimate of $3 billion due to slower-than-expected capability rollout",
+      "source_line": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "Insight: The current quarter operating margin of 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2061",
+      "report_sentence": "Insight: The current quarter operating margin of 34.6% (exhibit-99-1.txt:14) contrasts with the latest fiscal year operating margin of 29.5%",
+      "source_line": "Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "## Investment Recommendation\n\n**Recommendation:** Buy\n\n**Thesis:** Netflix demonstrates superior business quality through a dominant market position and a shift toward high-margin ad-supported plans, evidenced by a current quarter operating margin of 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2449",
+      "report_sentence": "This margin expansion, driven by healthy retention and strategic content partnerships, supports a valuation of 27.6087x (calculations.json:price_to_earnings) on latest fiscal year diluted EPS of $2.53",
+      "source_line": "Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "**Deciding Number:** The current quarter operating margin of 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:65",
+      "report_sentence": "**Principal Catalyst:** The expansion of the advertising tier to 15 new countries, which management expects to drive ad revenue toward the $2.7 billion",
+      "source_line": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:65",
+      "report_sentence": "**Principal Risk:** Slower-than-expected capability rollout for the advertising business, which has already caused a reduction in ad revenue estimates from $3 billion",
+      "source_line": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:65",
+      "report_sentence": "**Principal Risk:** Slower-than-expected capability rollout for the advertising business, which has already caused a reduction in ad revenue estimates from $3 billion (exhibit-99-1.txt:65) to $2.7 billion",
+      "source_line": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "**Valuation Limitation:** The provided valuation metric is a forward P/E ratio of 27.6087x (calculations.json:price_to_earnings) based on latest fiscal year EPS, which does not account for the significant divergence between the current quarter operating margin of 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "**Measurable Result That Could Change Recommendation:** A decline in the next quarter's operating margin below 30%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:14",
+      "report_sentence": "Insight: The current quarter operating margin of 34.6%",
+      "source_line": ") to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:2449",
+      "report_sentence": "Insight: The current quarter operating margin of 34.6% (exhibit-99-1.txt:14) significantly exceeds the latest fiscal year operating margin of 29.49% (calculations.json:operating_margin), indicating that the strategic shift toward ad-supported plans is driving profitability expansion that justifies the 27.6087x (calculations.json:price_to_earnings) valuation multiple on latest fiscal year diluted EPS of $2.53",
+      "source_line": "Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20",
+      "line_found": true
+    }
+  ],
+  "expected_output": {
+    "assessments": [
+      {
+        "claim": "claim name",
+        "mark": "Correct, Wrong, Unsupported, or Not in filings",
+        "reason": "short reason"
+      }
+    ]
+  }
+}

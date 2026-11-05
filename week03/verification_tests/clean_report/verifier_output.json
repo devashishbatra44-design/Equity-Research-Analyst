@@ -1,0 +1,166 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "3.03154e+11",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "10.14",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "1.1685e+10, 3.85",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "9.226e+09",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "20.76",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "28.4",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "0.17",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "9.382e+09",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "9.5723e+10",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "11.1",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "6.75",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    }
+  ],
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "1. Annual Total Revenue",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax` confirms a value of $303,154,000,000 for the period ending 2026-08-30."
+      },
+      {
+        "claim": "2. Annual Revenue Growth",
+        "mark": "Correct",
+        "reason": "The calculation (303,154 - 275,235) / 275,235 correctly yields 10.14% using the current and prior year revenue values from the saved facts."
+      },
+      {
+        "claim": "3. Annual Operating Income",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for `us-gaap:OperatingIncomeLoss` confirms a value of $11,685,000,000 for the period ending 2026-08-30."
+      },
+      {
+        "claim": "4. Annual Operating Margin",
+        "mark": "Correct",
+        "reason": "The calculation 11,685 / 303,154 correctly yields 3.85% using the operating income and total revenue values from the saved facts."
+      },
+      {
+        "claim": "5. Annual Attributable Net Income",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for `us-gaap:NetIncomeLoss` confirms a value of $9,226,000,000 for the period ending 2026-08-30."
+      },
+      {
+        "claim": "6. Annual GAAP Diluted EPS",
+        "mark": "Correct",
+        "reason": "The saved XBRL fact for `us-gaap:EarningsPerShareDiluted` confirms a value of $20.76 for the period ending 2026-08-30."
+      },
+      {
+        "claim": "7. Return on Average Equity",
+        "mark": "Correct",
+        "reason": "The calculation 9,226 / ((35,803 + 29,164) / 2) correctly yields 28.40% using the net income and stockholders' equity values from the saved facts."
+      },
+      {
+        "claim": "8. Debt to Equity (Including Current Debt)",
+        "mark": "Correct",
+        "reason": "The calculation (3,914 + 2,248) / 35,803 correctly yields 0.17 using the long-term debt, current portion of long-term debt, and stockholders' equity values from the saved facts."
+      },
+      {
+        "claim": "9. Free Cash Flow",
+        "mark": "Correct",
+        "reason": "The calculation 15,817 - 6,435 correctly yields $9,382 million using the net cash provided by operating activities and additions to property and equipment values from the saved facts."
+      },
+      {
+        "claim": "10. Quarter Revenue",
+        "mark": "Correct",
+        "reason": "The cited filing line from exhibit-99-1.txt:39 explicitly states 'Total revenue | 95,723' for the 16 weeks ended August 30, 2026."
+      },
+      {
+        "claim": "11. Quarter GAAP Diluted EPS",
+        "mark": "Correct",
+        "reason": "The cited filing line from exhibit-99-1.txt:20 explicitly states '$6.75 per diluted share' for the fourth quarter."
+      },
+      {
+        "claim": "12. Quarter Revenue Growth",
+        "mark": "Correct",
+        "reason": "The calculation (95,723 - 86,156) / 86,156 correctly yields 11.10% using the current and prior year quarter revenue values from the cited filing line."
+      },
+      {
+        "claim": "13. FY-EPS P/E",
+        "mark": "Correct",
+        "reason": "The calculation 992.13 / 20.76 correctly yields 47.79 using the provided share price and the FY2026 diluted EPS from the saved facts."
+      },
+      {
+        "claim": "Walmart Inc. (WMT) Operating Margin",
+        "mark": "Correct",
+        "reason": "The calculation 29,825 / 713,163 correctly yields 4.18% using the provided operating income and total revenues values."
+      },
+      {
+        "claim": "Target Corp (TGT) Operating Margin",
+        "mark": "Correct",
+        "reason": "The calculation 5,117 / 104,780 correctly yields 4.88% using the provided operating income and net sales values."
+      },
+      {
+        "claim": "BJ's Wholesale Club Holdings, Inc. (BJ) Operating Margin",
+        "mark": "Correct",
+        "reason": "The calculation 816.604 / 21,457.274 correctly yields 3.81% using the provided operating income and total revenues values."
+      }
+    ]
+  },
+  "semantic_raw": "```json\n{\n  \"assessments\": [\n    {\n      \"claim\": \"1. Annual Total Revenue\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax` confirms a value of $303,154,000,000 for the period ending 2026-08-30.\"\n    },\n    {\n      \"claim\": \"2. Annual Revenue Growth\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (303,154 - 275,235) / 275,235 correctly yields 10.14% using the current and prior year revenue values from the saved facts.\"\n    },\n    {\n      \"claim\": \"3. Annual Operating Income\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for `us-gaap:OperatingIncomeLoss` confirms a value of $11,685,000,000 for the period ending 2026-08-30.\"\n    },\n    {\n      \"claim\": \"4. Annual Operating Margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 11,685 / 303,154 correctly yields 3.85% using the operating income and total revenue values from the saved facts.\"\n    },\n    {\n      \"claim\": \"5. Annual Attributable Net Income\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for `us-gaap:NetIncomeLoss` confirms a value of $9,226,000,000 for the period ending 2026-08-30.\"\n    },\n    {\n      \"claim\": \"6. Annual GAAP Diluted EPS\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The saved XBRL fact for `us-gaap:EarningsPerShareDiluted` confirms a value of $20.76 for the period ending 2026-08-30.\"\n    },\n    {\n      \"claim\": \"7. Return on Average Equity\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 9,226 / ((35,803 + 29,164) / 2) correctly yields 28.40% using the net income and stockholders' equity values from the saved facts.\"\n    },\n    {\n      \"claim\": \"8. Debt to Equity (Including Current Debt)\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (3,914 + 2,248) / 35,803 correctly yields 0.17 using the long-term debt, current portion of long-term debt, and stockholders' equity values from the saved facts.\"\n    },\n    {\n      \"claim\": \"9. Free Cash Flow\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 15,817 - 6,435 correctly yields $9,382 million using the net cash provided by operating activities and additions to property and equipment values from the saved facts.\"\n    },\n    {\n      \"claim\": \"10. Quarter Revenue\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line from exhibit-99-1.txt:39 explicitly states 'Total revenue | 95,723' for the 16 weeks ended August 30, 2026.\"\n    },\n    {\n      \"claim\": \"11. Quarter GAAP Diluted EPS\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The cited filing line from exhibit-99-1.txt:20 explicitly states '$6.75 per diluted share' for the fourth quarter.\"\n    },\n    {\n      \"claim\": \"12. Quarter Revenue Growth\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation (95,723 - 86,156) / 86,156 correctly yields 11.10% using the current and prior year quarter revenue values from the cited filing line.\"\n    },\n    {\n      \"claim\": \"13. FY-EPS P/E\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 992.13 / 20.76 correctly yields 47.79 using the provided share price and the FY2026 diluted EPS from the saved facts.\"\n    },\n    {\n      \"claim\": \"Walmart Inc. (WMT) Operating Margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 29,825 / 713,163 correctly yields 4.18% using the provided operating income and total revenues values.\"\n    },\n    {\n      \"claim\": \"Target Corp (TGT) Operating Margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 5,117 / 104,780 correctly yields 4.88% using the provided operating income and net sales values.\"\n    },\n    {\n      \"claim\": \"BJ's Wholesale Club Holdings, Inc. (BJ) Operating Margin\",\n      \"mark\": \"Correct\",\n      \"reason\": \"The calculation 816.604 / 21,457.274 correctly yields 3.81% using the provided operating income and total revenues values.\"\n    }\n  ]\n}\n```"
+}
