@@ -45,6 +45,88 @@ Never commit `.env`.
   --price-source "LSEG Workspace"
 ```
 
+To add the professor's optional FAskills methodology, add `--faskills`.
+This option makes one Financial Datasets API request.
+It saves local `faskills_financialdatasets.json` plus reviewable metrics, methodology, and DRIVER-trace files in the run folder.
+The raw vendor response is ignored by Git.
+The program cross-checks revenue, operating income, net income, diluted EPS, accession number, and period against the saved SEC run before it allows report use.
+
+```bash
+.venv/bin/python -m equity_research_crewai.main TICKER \
+  --peers AAA,BBB \
+  --price 123.45 \
+  --price-date YYYY-MM-DD \
+  --price-source "LSEG Workspace" \
+  --faskills
+```
+
+The extension calculates Piotroski F-Score, both Altman model variants, Beneish M-Score, owner earnings, DuPont decomposition, Sloan accruals, gross profitability, and FCF conversion in Python.
+It applies all nine FAskills frameworks as independent, source-bounded analytical lenses inside the three required course personas.
+The Research Analyst receives the Buffett, Lynch, Wood, and Soros lenses.
+The Financial Analyst receives the Graham, Dalio, Burry, Simons, and Shiller lenses.
+The Investment Advisor synthesizes only the two analyst outputs.
+Each generated lens finding is labeled, and missing evidence produces `unavailable`.
+The extension does not simulate current investor opinions, holdings intent, confidence votes, or automatic price targets.
+It does not add or bypass a graph node.
+The mandatory Verifier remains the final node.
+
+Each FAskills run saves:
+
+- `faskills_metrics.json`: deterministic metrics and SEC cross-check.
+- `faskills_methodology.json`: all nine lens definitions, routing, data availability, and course boundaries.
+- `faskills_driver_trace.json`: the visible DISCOVER, PROCESS, REPRESENT, IMPLEMENT, VALIDATE, EVOLVE, and REFLECT record.
+- `faskills_methodology.md`: the human-readable methodology and lens-coverage report.
+
+## Add supplementary Tavily web research
+
+Add `--tavily` to make one focused web search before the Research Analyst runs.
+The default `advanced` search uses 2 Tavily credits.
+Use `--tavily-depth basic` to use 1 credit.
+
+```bash
+.venv/bin/python -m equity_research_crewai.main TICKER \
+  --peers AAA,BBB \
+  --price 123.45 \
+  --price-date YYYY-MM-DD \
+  --price-source "LSEG Workspace" \
+  --faskills \
+  --tavily
+```
+
+Set `TAVILY_API_KEY` in the repository `.env` for reliable repeated use.
+If the key is absent, the program uses Tavily's official rate-limited keyless mode.
+The program never prints or saves the key.
+
+Each Tavily run saves:
+
+- `tavily_research.json`: the exact query, request settings, result excerpts, URLs, dates, and course boundaries.
+- `tavily_research.md`: a readable source record.
+
+Tavily results go only to the Research Analyst.
+They can support qualitative recent developments, catalysts, and competitive risks.
+They cannot replace SEC evidence for any audited financial claim.
+The Research Analyst must cite the URL and publication date.
+The final `Insight:` line remains filing-bounded.
+The Verifier receives cited Tavily excerpts and remains the final graph node.
+
+To correct or reproduce a saved run without spending another Tavily credit, use:
+
+```bash
+.venv/bin/python -m equity_research_crewai.main TICKER \
+  --saved-run week03/runs/SAVED_RUN_WITH_TAVILY \
+  --tavily \
+  --reuse-tavily
+```
+
+`--reuse-tavily` requires `--saved-run` and an existing `tavily_research.json` file.
+
+The final validated course-safe run is:
+
+`week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`
+
+It reused saved Tavily results, so the correction consumed no additional Tavily search credit.
+Its Manager has no unresolved issue, all nine FAskills lenses are present, and both the 14 code marks and 14 model definition marks are Correct.
+
 To reuse an existing successful data folder while testing the graph:
 
 ```bash

@@ -16,6 +16,7 @@ run_crew = "equity_research_crewai.main:kickoff"
 plot = "equity_research_crewai.main:plot"
 run_with_trigger = "equity_research_crewai.main:run_with_trigger"
 ui = "equity_research_crewai.ui:main"
+faskills_metrics = "equity_research_crewai.faskills_extension:main"
 
 [build-system]
 requires = ["hatchling"]

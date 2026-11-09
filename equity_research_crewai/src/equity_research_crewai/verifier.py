@@ -60,6 +60,15 @@ def _close(a: float, b: float, tolerance: float) -> bool:
     return math.isclose(a, b, rel_tol=0.0, abs_tol=tolerance)
 
 
+def _distinct_values(values: list[float], tolerance: float) -> list[float]:
+    """Collapse repeated, numerically identical report statements."""
+    distinct: list[float] = []
+    for value in values:
+        if not any(_close(value, existing, tolerance) for existing in distinct):
+            distinct.append(value)
+    return distinct
+
+
 def _format_money(value: float) -> str:
     if abs(value) >= 1_000_000_000:
         return f"${value / 1_000_000_000:,.3f} billion"
@@ -309,7 +318,13 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
         ),
         _mark_values(
             "8. Free cash flow",
-            _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+            _distinct_values(
+                _amounts(
+                    analysis,
+                    r"(?m)^(?!Insight:)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+\$?([\d,.]+)\s*(million|billion|thousand)?",
+                ),
+                1_000_000,
+            ),
             [float(free_cash_flow.get("result"))],
             _format_money(float(free_cash_flow.get("result"))),
             str(free_cash_flow.get("arithmetic")),
@@ -370,13 +385,18 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
         flags=re.IGNORECASE,
     )
     calculation_pattern = re.compile(r"\(calculations\.json:([a-z_]+)\)", flags=re.IGNORECASE)
+    faskills_pattern = re.compile(r"\(faskills_metrics\.json:([a-z0-9_]+)\)", flags=re.IGNORECASE)
     calculations = load_json(run_folder / "calculations.json") if (run_folder / "calculations.json").exists() else {}
+    facts = load_json(run_folder / "facts.json") if (run_folder / "facts.json").exists() else {}
+    faskills = load_json(run_folder / "faskills_metrics.json") if (run_folder / "faskills_metrics.json").exists() else {}
     for index, insight in enumerate(insight_lines, start=1):
         citations = citation_pattern.findall(insight)
         calculation_citations = calculation_pattern.findall(insight)
-        claim_without_citations = calculation_pattern.sub("", citation_pattern.sub("", insight))
+        faskills_citations = faskills_pattern.findall(insight)
+        claim_without_citations = faskills_pattern.sub("", calculation_pattern.sub("", citation_pattern.sub("", insight)))
         reported_numbers = _numbers(claim_without_citations)
         source_lines: list[str] = []
+        cited_ranges: list[tuple[str, int, int]] = []
         missing_citation = False
         for filename, line_start_text, line_end_text in citations:
             path = run_folder / filename.lower()
@@ -386,6 +406,7 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
             if not (0 < line_start <= line_end <= len(lines)):
                 missing_citation = True
                 continue
+            cited_ranges.append((filename.lower(), line_start, line_end))
             source_lines.extend(lines[line_start - 1:line_end])
         calculation_numbers: list[float] = []
         calculation_evidence: list[str] = []
@@ -400,7 +421,44 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
             calculation_evidence.append(
                 f"{calculation_name}: {calculation.get('arithmetic')}; result {result:g}"
             )
+        faskills_allowed = (
+            faskills.get("sec_crosscheck", {}).get("status") == "approved"
+            and faskills.get("course_boundary", {}).get("report_use_allowed") is True
+        )
+        for metric_name in faskills_citations:
+            metric = faskills.get("metrics", {}).get(metric_name, {})
+            if not faskills_allowed or metric.get("validation_status") != "available":
+                missing_citation = True
+                continue
+            result = metric.get("value")
+            if not isinstance(result, (int, float)):
+                missing_citation = True
+                continue
+            calculation_numbers.extend([float(result), float(result) * 100])
+            calculation_numbers.extend(_numbers(json.dumps(metric.get("inputs", {}))))
+            calculation_evidence.append(
+                f"FAskills {metric_name}: {metric.get('formula')}; result {float(result):g}; "
+                f"period {faskills.get('source_periods', {}).get('current_period')}; "
+                f"accession {faskills.get('source_periods', {}).get('current_accession')}"
+            )
         evidence_parts = source_lines + calculation_evidence
+        revenue_claim = facts.get("earnings_release_extraction", {}).get("claims", {}).get("total_revenue", {})
+        revenue_line = revenue_claim.get("source_line_start")
+        cites_release_revenue = isinstance(revenue_line, int) and any(
+            filename == "exhibit-99-1.txt" and line_start <= revenue_line <= line_end
+            for filename, line_start, line_end in cited_ranges
+        )
+        if cites_release_revenue:
+            current_revenue, prior_revenue, _ = _release_quarter_revenues(run_folder, facts)
+            if current_revenue is not None and prior_revenue not in {None, 0}:
+                quarter_growth_percent = (current_revenue - prior_revenue) / prior_revenue * 100
+                calculation_numbers.extend([quarter_growth_percent, quarter_growth_percent / 100])
+                calculation_evidence.append(
+                    "quarter_revenue_growth: "
+                    f"({current_revenue:g} - {prior_revenue:g}) / {prior_revenue:g}; "
+                    f"result {quarter_growth_percent:.4f}%"
+                )
+                evidence_parts = source_lines + calculation_evidence
         evidence = " | ".join(evidence_parts) if evidence_parts else "No valid source citation."
         if not citations or missing_citation or not source_lines:
             mark = "Unsupported"
@@ -451,6 +509,32 @@ def cited_line_evidence(run_folder: Path, report: str) -> list[dict[str, Any]]:
     return evidence
 
 
+def cited_tavily_evidence(run_folder: Path, report: str) -> list[dict[str, Any]]:
+    """Return only saved Tavily sources whose exact URL appears in the report."""
+    path = run_folder / "tavily_research.json"
+    if not path.exists():
+        return []
+    record = load_json(path)
+    evidence: list[dict[str, Any]] = []
+    for result in record.get("results", []):
+        if not isinstance(result, dict):
+            continue
+        url = str(result.get("url") or "")
+        if not url or url not in report:
+            continue
+        evidence.append(
+            {
+                "title": result.get("title"),
+                "url": url,
+                "published_date": result.get("published_date"),
+                "content": result.get("content"),
+                "source_class": result.get("source_class"),
+                "filing_evidence": False,
+            }
+        )
+    return evidence
+
+
 def build_semantic_payload(run_folder: Path, report: str, marks: list[VerificationMark]) -> dict[str, Any]:
     facts = load_json(run_folder / "facts.json")
     compact_facts = {
@@ -466,15 +550,47 @@ def build_semantic_payload(run_folder: Path, report: str, marks: list[Verificati
         },
         "earnings_release_extraction": facts.get("earnings_release_extraction"),
     }
+    faskills_path = run_folder / "faskills_metrics.json"
+    faskills = load_json(faskills_path) if faskills_path.exists() else {}
+    compact_faskills = {
+        "sec_crosscheck": faskills.get("sec_crosscheck"),
+        "source_periods": faskills.get("source_periods"),
+        "metrics": {
+            name: {
+                "validation_status": metric.get("validation_status"),
+                "value": metric.get("value"),
+                "unit": metric.get("unit"),
+                "formula": metric.get("formula"),
+                "inputs": metric.get("inputs"),
+                "components": metric.get("components"),
+            }
+            for name, metric in faskills.get("metrics", {}).items()
+        },
+    } if faskills else {"status": "not present"}
+    tavily_path = run_folder / "tavily_research.json"
+    tavily = load_json(tavily_path) if tavily_path.exists() else {}
+    compact_tavily = {
+        "status": "present",
+        "query": tavily.get("query"),
+        "retrieved_at": tavily.get("retrieved_at"),
+        "course_boundary": tavily.get("course_boundary"),
+        "cited_results": cited_tavily_evidence(run_folder, report),
+    } if tavily else {"status": "not present"}
     return {
         "task": (
             "Check whether each cited line or XBRL fact states the report's number for the stated period and definition. "
             "Use the mark Not in filings when the code mark says Not in filings and the report does not invent a value. "
             "Do not assess the Investment Advisor's thesis. For an Insight line, check its numbers, periods, definitions, "
-            "and cited evidence only; do not grade whether its analytical inference is persuasive. Return JSON only."
+            "and cited evidence only; do not grade whether its analytical inference is persuasive. "
+            "Mark an Insight Correct when its numbers, periods, definitions, and citations are correct, even when the "
+            "relationship or implication is the analyst's inference rather than a sentence stated verbatim in a filing. "
+            "For a supplementary web claim, check only the saved Tavily excerpt cited by the exact URL. "
+            "Never accept Tavily as a replacement for filing evidence or as unconfirmed support for a number. Return JSON only."
         ),
         "compiled_report": report,
         "saved_facts": compact_facts,
+        "supplemental_faskills_metrics": compact_faskills,
+        "supplemental_tavily_research": compact_tavily,
         "code_marks": [asdict(mark) for mark in marks],
         "cited_filing_lines": cited_line_evidence(run_folder, report),
         "expected_output": {

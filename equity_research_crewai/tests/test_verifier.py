@@ -37,6 +37,17 @@ def test_clean_report_has_all_eleven_core_claims_correct() -> None:
     assert {mark.mark for mark in marks} == {"Correct"}
 
 
+def test_repeated_identical_free_cash_flow_is_not_marked_wrong() -> None:
+    report = (CLEAN_RUN / "report.md").read_text(encoding="utf-8")
+    report = report.replace(
+        "Free cash flow was $9,382 million.",
+        "Free cash flow was $9,382 million.\n\nDalio lens: positive free cash flow of $9,382 million.",
+        1,
+    )
+    marks = verify_core_claims(CLEAN_RUN, report)
+    assert mark_for(marks, "8.").mark == "Correct"
+
+
 def test_seeded_eps_error_is_wrong_and_corrected(tmp_path: Path) -> None:
     run = copy_run(tmp_path, "seeded_eps")
     report_path = run / "report.md"
@@ -110,6 +121,16 @@ def test_insight_accepts_line_range_and_code_calculation() -> None:
     insight = (
         "Insight: Total revenue was $95,723 million and the FY-EPS P/E was 47.7905x. "
         "(exhibit-99-1.txt:37-39) (calculations.json:price_to_earnings)"
+    )
+    marks = verify_insight_claims(CLEAN_RUN, insight)
+    assert marks[0].mark == "Correct"
+
+
+def test_insight_accepts_code_computed_quarter_growth_from_cited_release_row() -> None:
+    insight = (
+        "Insight: Current-quarter revenue growth was 11.10% (exhibit-99-1.txt:39), "
+        "compared with latest-fiscal-year revenue growth of 10.14% "
+        "(calculations.json:revenue_growth)."
     )
     marks = verify_insight_claims(CLEAN_RUN, insight)
     assert marks[0].mark == "Correct"

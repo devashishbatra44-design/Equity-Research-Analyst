@@ -1,0 +1,221 @@
+{
+  "program_version": "1.0.0",
+  "run_status": "success",
+  "steps": {
+    "1": {
+      "name": "Resolve the ticker",
+      "status": "success"
+    },
+    "2": {
+      "name": "Select the filings",
+      "status": "success"
+    },
+    "3": {
+      "name": "Download and convert the documents",
+      "status": "success"
+    },
+    "4": {
+      "name": "Retrieve annual XBRL company facts",
+      "status": "success"
+    },
+    "5": {
+      "name": "Calculate financial measures",
+      "status": "success",
+      "unavailable_calculations": []
+    },
+    "6": {
+      "name": "Extract quarterly revenue and diluted EPS",
+      "status": "success",
+      "extraction_statuses": {
+        "total_revenue": "found",
+        "diluted_eps": "found"
+      }
+    },
+    "7": {
+      "name": "Process the peers",
+      "status": "success",
+      "peer_failures": 0
+    }
+  },
+  "local_run_time": "2026-11-02T23:47:08.407339-05:00",
+  "utc_run_time": "2026-11-03T04:47:08.407339+00:00",
+  "time_zone": "EST",
+  "arguments": {
+    "ticker": "COST",
+    "peers": "WMT,TGT,BJ",
+    "price": 992.13,
+    "price_date": "2026-10-27",
+    "price_source": "https://api.nasdaq.com/api/quote/COST/historical?assetclass=stocks&fromdate=2026-10-27&todate=2026-10-31&limit=100",
+    "step": null
+  },
+  "main_ticker": "COST",
+  "peer_tickers": [
+    "WMT",
+    "TGT",
+    "BJ"
+  ],
+  "company": {
+    "ticker": "COST",
+    "legal_name": "COSTCO WHOLESALE CORP /NEW",
+    "cik": 909832,
+    "cik_10_digit": "0000909832"
+  },
+  "source_urls": {
+    "company_tickers": "https://www.sec.gov/files/company_tickers.json",
+    "submissions": "https://data.sec.gov/submissions/CIK0000909832.json",
+    "company_facts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json"
+  },
+  "filings": {
+    "10-k": {
+      "form": "10-K",
+      "filing_date": "2026-10-07",
+      "reporting_period": "2026-08-30",
+      "accession_number": "0000909832-26-000093",
+      "accepted_timestamp": "2026-10-06 21:13:15",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.html"
+    },
+    "10-q": {
+      "form": "10-Q",
+      "filing_date": "2026-06-03",
+      "reporting_period": "2026-05-10",
+      "accession_number": "0000909832-26-000051",
+      "accepted_timestamp": "2026-06-03 16:43:00",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000051/0000909832-26-000051-index.html"
+    },
+    "8-k": {
+      "form": "8-K",
+      "filing_date": "2026-09-24",
+      "reporting_period": "2026-09-24",
+      "accession_number": "0000909832-26-000084",
+      "accepted_timestamp": "2026-09-24 16:17:37",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000084/0000909832-26-000084-index.html"
+    }
+  },
+  "selected_xbrl_tags": {
+    "total_revenue": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "operating_income": "us-gaap:OperatingIncomeLoss",
+    "net_income": "us-gaap:NetIncomeLoss",
+    "diluted_eps": "us-gaap:EarningsPerShareDiluted",
+    "stockholders_equity": "us-gaap:StockholdersEquity",
+    "long_term_debt": "us-gaap:LongTermDebtNoncurrent",
+    "current_long_term_debt": "us-gaap:LongTermDebtCurrent",
+    "cash_from_operations": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "property_equipment_additions": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  "output_filenames": [
+    "10-k.txt",
+    "10-q.txt",
+    "8-k.txt",
+    "calculations.json",
+    "exhibit-99-1.txt",
+    "facts.csv",
+    "facts.json",
+    "faskills_driver_trace.json",
+    "faskills_financialdatasets.json",
+    "faskills_methodology.json",
+    "faskills_methodology.md",
+    "faskills_metrics.json",
+    "filings.json",
+    "manifest.json",
+    "node_order.json",
+    "node_records.json",
+    "peers.csv",
+    "peers.json",
+    "tavily_research.json",
+    "tavily_research.md",
+    "verified_report.md",
+    "verifier_input.json",
+    "verifier_output.json"
+  ],
+  "retrieval_errors": [],
+  "validation_errors": [],
+  "unavailable_values": [],
+  "documents": {
+    "10-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
+      "local_filename": "10-k.txt",
+      "accession_number": "0000909832-26-000093",
+      "retrieval_status": "success"
+    },
+    "10-q": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000051/cost-20260510.htm",
+      "local_filename": "10-q.txt",
+      "accession_number": "0000909832-26-000051",
+      "retrieval_status": "success"
+    },
+    "8-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000084/cost-20260924.htm",
+      "local_filename": "8-k.txt",
+      "accession_number": "0000909832-26-000084",
+      "retrieval_status": "success"
+    },
+    "exhibit-99-1": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000084/costex9918-k92426.htm",
+      "local_filename": "exhibit-99-1.txt",
+      "accession_number": "0000909832-26-000084",
+      "document_type": "EX-99.1",
+      "description": "EX-99.1",
+      "retrieval_status": "success"
+    }
+  },
+  "tag_selection_reasons": {
+    "total_revenue": "Selected the candidate with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is newest (2026-08-30); when candidate years tied, selected the larger total-revenue value, with tag priority as the final tie-breaker.",
+    "operating_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "net_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "diluted_eps": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "stockholders_equity": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "current_long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "cash_from_operations": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "property_equipment_additions": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage."
+  },
+  "model_provider": "Purdue GenAI Studio (OpenAI-compatible endpoint)",
+  "model_name": "qwen3.8:27b",
+  "model_key_source": "local .env; secret value not stored",
+  "manager_review": {
+    "status": "pass",
+    "issues": []
+  },
+  "week03_parent_run": "week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020113",
+  "week03_replay_time": "2026-11-09T02:05:25.698437-05:00",
+  "tavily_research": {
+    "enabled": true,
+    "provider": "Tavily Search API",
+    "auth_mode": "api_key",
+    "query_count": 1,
+    "search_depth": "basic",
+    "result_count": 5,
+    "json": "tavily_research.json",
+    "markdown": "tavily_research.md",
+    "supplementary_only": true
+  },
+  "faskills_extension": {
+    "enabled": true,
+    "status": "approved",
+    "source": "CinderZhang/FAskills v2.0.0",
+    "provider": "financialdatasets.ai",
+    "metrics_file": "faskills_metrics.json",
+    "local_raw_file": "faskills_financialdatasets.json"
+  },
+  "week03_agent_team": {
+    "framework": "CrewAI Flow",
+    "node_order": [
+      "Steps",
+      "Research Analyst",
+      "Financial Analyst",
+      "Investment Advisor",
+      "Strategy Manager",
+      "Verifier"
+    ],
+    "verifier_required": true,
+    "verified_report": "verified_report.md"
+  },
+  "faskills_methodology": {
+    "enabled": true,
+    "source": "CinderZhang/FAskills financial-researcher v2.0.0",
+    "json": "faskills_methodology.json",
+    "driver_trace": "faskills_driver_trace.json",
+    "markdown": "faskills_methodology.md",
+    "nine_lenses_routed_through_course_personas": true
+  }
+}

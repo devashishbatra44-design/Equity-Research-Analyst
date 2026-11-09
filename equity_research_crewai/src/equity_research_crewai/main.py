@@ -32,6 +32,18 @@ from week02 import desk_app  # noqa: E402
 from week02.desk_steps import RUNS_ROOT, parse_peers, safe_folder_component  # noqa: E402
 
 from equity_research_crewai.verifier import verify_core_claims, verify_insight_claims, verify_saved_run  # noqa: E402
+from equity_research_crewai.faskills_extension import enrich_run_folder  # noqa: E402
+from equity_research_crewai.faskills_methodology import (  # noqa: E402
+    lens_coverage,
+    methodology_context_for_role,
+    record_driver_stage,
+    render_methodology_report,
+    save_methodology_plan,
+)
+from equity_research_crewai.tavily_research import (  # noqa: E402
+    research_run_folder,
+    role_context as tavily_role_context,
+)
 
 
 ROLE_FILES = {
@@ -60,6 +72,10 @@ class TeamState(BaseModel):
     price_date: str = ""
     price_source: str = ""
     saved_run: str = ""
+    faskills: bool = False
+    tavily: bool = False
+    tavily_depth: str = "advanced"
+    reuse_tavily: bool = False
     run_folder: str = ""
     node_order: list[str] = Field(default_factory=list)
     node_records: dict[str, list[dict[str, Any]]] = Field(default_factory=dict)
@@ -326,11 +342,33 @@ def create_week03_run(source: Path) -> Path:
         "manifest.json",
         "peers.json",
         "peers.csv",
+        "faskills_financialdatasets.json",
+        "faskills_metrics.json",
+        "faskills_methodology.json",
+        "faskills_driver_trace.json",
+        "faskills_methodology.md",
+        "tavily_research.json",
+        "tavily_research.md",
     }
     for filename in data_files:
         source_path = source / filename
         if source_path.exists():
             shutil.copy2(source_path, destination / filename)
+    _save_quarter_revenue_growth_calculation(destination)
+    trace_path = destination / "faskills_driver_trace.json"
+    if trace_path.exists():
+        trace_path.write_text(
+            json.dumps(
+                {
+                    "methodology_version": "2.0.0-course-adaptation",
+                    "adapted_from": "CinderZhang/FAskills financial-researcher v2.0.0",
+                    "records": [],
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     copied_manifest_path = destination / "manifest.json"
     copied_manifest = desk_app.load_json(copied_manifest_path)
     copied_manifest["week03_parent_run"] = str(source.relative_to(REPOSITORY_ROOT) if source.is_relative_to(REPOSITORY_ROOT) else source)
@@ -338,6 +376,43 @@ def create_week03_run(source: Path) -> Path:
     copied_manifest["output_filenames"] = sorted(path.name for path in destination.iterdir() if path.is_file())
     copied_manifest_path.write_text(json.dumps(copied_manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return destination
+
+
+def _save_quarter_revenue_growth_calculation(run_folder: Path) -> None:
+    """Persist the code-calculated quarter growth used by claim 10 and Lab 05 Insights."""
+    calculations_path = run_folder / "calculations.json"
+    if not calculations_path.exists():
+        return
+    calculations = desk_app.load_json(calculations_path)
+    entries = calculations.setdefault("calculations", {})
+    if entries.get("quarter_revenue_growth", {}).get("validation_status") == "available":
+        return
+    context = desk_app.read_run_context(run_folder)
+    growth = context.get("quarterly_release_claims", {}).get("quarter_revenue_growth", {})
+    result_percent = growth.get("result_percent")
+    if not isinstance(result_percent, (int, float)):
+        return
+    current_revenue = growth.get("current_quarter_revenue_thousands")
+    prior_revenue = growth.get("prior_year_same_quarter_revenue_thousands")
+    calculations["calculations"]["quarter_revenue_growth"] = {
+        "measure": "Quarter revenue growth versus the same quarter last year",
+        "formula": "(Current-quarter revenue - Same-quarter prior-year revenue) / Same-quarter prior-year revenue",
+        "inputs": {
+            "current_quarter_revenue_thousands": current_revenue,
+            "prior_year_same_quarter_revenue_thousands": prior_revenue,
+        },
+        "fiscal_periods": {"current_quarter_end": context.get("quarter_period_end")},
+        "unit": "ratio",
+        "arithmetic": growth.get("formula"),
+        "result": float(result_percent) / 100,
+        "validation_status": "available",
+        "unavailable_reason": None,
+        "note": growth.get("source_line"),
+    }
+    calculations_path.write_text(
+        json.dumps(calculations, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _context(run_folder: Path, state: TeamState) -> dict[str, Any]:
@@ -350,7 +425,49 @@ def _context(run_folder: Path, state: TeamState) -> dict[str, Any]:
         "result": context["calculations"].get("price_to_earnings", {}).get("result"),
         "basis": "latest fiscal-year diluted EPS; not TTM P/E",
     }
+    faskills_path = run_folder / "faskills_metrics.json"
+    context["faskills_metrics"] = (
+        desk_app.load_json(faskills_path)
+        if faskills_path.exists()
+        else {
+            "status": "not requested",
+            "course_boundary": {
+                "report_use_allowed": False,
+                "reason": "Run the optional --faskills extension to create the audited sidecar.",
+            },
+        }
+    )
+    methodology_path = run_folder / "faskills_methodology.json"
+    context["faskills_methodology"] = (
+        desk_app.load_json(methodology_path)
+        if methodology_path.exists()
+        else {"status": "not requested", "expert_lenses": {}, "routing": {}}
+    )
+    tavily_path = run_folder / "tavily_research.json"
+    context["tavily_research"] = (
+        desk_app.load_json(tavily_path)
+        if state.tavily and tavily_path.exists()
+        else {
+            "status": "not requested",
+            "course_boundary": {
+                "supplementary_context_only": True,
+                "sec_remains_authoritative": True,
+            },
+        }
+    )
     return context
+
+
+def _record_driver_if_enabled(
+    run_folder: Path,
+    stage: str,
+    action: str,
+    *,
+    status: str = "complete",
+    details: dict[str, Any] | None = None,
+) -> None:
+    if (run_folder / "faskills_methodology.json").exists():
+        record_driver_stage(run_folder, stage, action, status=status, details=details)
 
 
 def _research_handoff(context: dict[str, Any]) -> str:
@@ -359,9 +476,17 @@ def _research_handoff(context: dict[str, Any]) -> str:
         "earnings_release_source_lines": context["earnings_release_source_text"],
         "filings": context["filings"],
     }
+    methodology = context.get("faskills_methodology", {})
+    if methodology.get("expert_lenses"):
+        source["faskills_methodology_lenses"] = methodology_context_for_role(methodology, "Research Analyst")
+    tavily = context.get("tavily_research", {})
+    if tavily.get("provider") == "Tavily Search API":
+        source["supplementary_tavily_research"] = tavily_role_context(tavily)
     return desk_app.json_handoff(
         (
             "Research the business model, competitive position, catalysts, and recent developments from the supplied filings. "
+            "When FAskills methodology lenses are supplied, apply every assigned lens independently and label each concise finding. "
+            "When supplementary Tavily research is supplied, use it only under the web-source rules in that context. "
             "End with an Insight line. Put an exact citation immediately after every number. "
             "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
         ),
@@ -383,10 +508,15 @@ def _financial_handoff(context: dict[str, Any]) -> str:
         "release_income_statement_lines": context["release_income_statement_lines"],
         "annual_statement_source_lines": context["annual_statement_source_lines"],
         "peers": context["peers"],
+        "optional_faskills_metrics": context["faskills_metrics"],
     }
+    methodology = context.get("faskills_methodology", {})
+    if methodology.get("expert_lenses"):
+        source["faskills_methodology_lenses"] = methodology_context_for_role(methodology, "Financial Analyst")
     return desk_app.json_handoff(
         (
             "Analyze the sourced annual statements and calculations, quarter, valuation, and peers. Never calculate in the model. "
+            "When FAskills methodology lenses are supplied, apply every assigned lens independently and label each concise finding. "
             "End with an Insight line. Put an exact citation immediately after every number. "
             "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
         ),
@@ -401,6 +531,8 @@ def _advisor_handoff(research_output: str, financial_output: str) -> str:
             "Synthesize the two supplied role outputs into a thesis and Buy, Hold, or Sell recommendation. "
             "Choose one deciding number. State any valuation limitation. End with an Insight line. "
             "Put an exact supplied citation immediately after every number. "
+            "If the Insight uses a calculations.json ratio, also include one reported input from that calculation and "
+            "copy its exact filing-line citation from the Financial Analyst output. "
             "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
         ),
         {"Research Analyst": research_output, "Financial Analyst": financial_output},
@@ -408,10 +540,20 @@ def _advisor_handoff(research_output: str, financial_output: str) -> str:
     )
 
 
-def _manager_handoff(outputs: dict[str, str], report: str | None, missing: list[str]) -> str:
+def _manager_handoff(
+    outputs: dict[str, str],
+    report: str | None,
+    missing: list[str],
+    methodology_plan: dict[str, Any] | None = None,
+) -> str:
     return desk_app.json_handoff(
         "Review the five-part report. Report missing or inconsistent parts. Never add report content.",
-        {"role_outputs": outputs, "compiled_report": report, "missing_sections": missing},
+        {
+            "role_outputs": outputs,
+            "compiled_report": report,
+            "missing_sections": missing,
+            "faskills_methodology_plan": methodology_plan or {"status": "not requested"},
+        },
         json.dumps(
             {
                 "status": "pass or retry",
@@ -448,7 +590,12 @@ def _retry_financial_core_claims(
     handoff = desk_app.json_handoff(
         (
             "Rewrite the complete Valuation Insights section once. Repair every listed core-claim issue. "
-            "State all eleven course claims explicitly. Use only supplied facts and code calculations."
+            "State all eleven course claims explicitly. Use only supplied facts and code calculations. "
+            "Do not derive a percentage that the supplied code did not calculate. "
+            "Do not relabel the FAskills fcf_conversion metric; its supplied formula is authoritative. "
+            "The final Insight must compare only the supplied current-quarter revenue-growth result with the supplied "
+            "latest-fiscal-year revenue-growth result. State which is higher without calculating their difference. "
+            "Do not state a peer average, a selected-peer average, or a new conversion percentage."
         ),
         {
             "core_claim_issues": issues,
@@ -478,7 +625,9 @@ def _retry_role_insight(
             "Remove every number that has no exact supplied citation. "
             "The insight must not restate the earnings release's first paragraph. "
             "Use only filing-line and calculations.json citation tokens that appear in the supplied source context. "
-            "Do not invent a calculation citation name or a numerical threshold."
+            "Do not invent a calculation citation name or a numerical threshold. "
+            "If this is the Investment Advisor and the Insight uses a calculations.json ratio, also include one reported "
+            "input from that ratio and copy its exact filing-line citation from the supplied Financial Analyst output."
         ),
         {
             "manager_issue": issue,
@@ -547,6 +696,97 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             before = set(RUNS_ROOT.iterdir()) if RUNS_ROOT.exists() else set()
             subprocess.run(command, cwd=REPOSITORY_ROOT, check=True)
             run_folder = desk_app.newest_successful_run(ticker, before)
+        tavily_output: str | dict[str, Any] = "not requested"
+        if self.state.tavily:
+            tavily_path = run_folder / "tavily_research.json"
+            if self.state.reuse_tavily:
+                if not tavily_path.exists():
+                    raise RuntimeError("--reuse-tavily requires tavily_research.json in the saved run.")
+            else:
+                tavily_path = research_run_folder(
+                    run_folder,
+                    REPOSITORY_ROOT,
+                    search_depth=self.state.tavily_depth,
+                )
+            tavily_result = desk_app.load_json(tavily_path)
+            tavily_output = {
+                "json": tavily_path.name,
+                "markdown": "tavily_research.md",
+                "auth_mode": tavily_result.get("auth_mode"),
+                "query_count": 1,
+                "result_count": tavily_result.get("result_count"),
+                "supplementary_only": True,
+                "reused_without_api_request": self.state.reuse_tavily,
+            }
+        faskills_output: str | dict[str, Any] = "not requested"
+        if self.state.faskills:
+            if self.state.price is None or self.state.price <= 0:
+                manifest_for_price = desk_app.load_json(run_folder / "manifest.json")
+                saved_price = manifest_for_price.get("arguments", {}).get("price")
+                if saved_price is None or float(saved_price) <= 0:
+                    raise RuntimeError("The optional FAskills extension requires a positive documented price.")
+                self.state.price = float(saved_price)
+            faskills_path = enrich_run_folder(
+                run_folder,
+                ticker,
+                float(self.state.price),
+                REPOSITORY_ROOT,
+            )
+            faskills_result = desk_app.load_json(faskills_path)
+            methodology_path = save_methodology_plan(run_folder)
+            record_driver_stage(
+                run_folder,
+                "DISCOVER",
+                "Collected the saved SEC run and one Financial Datasets annual-financials response.",
+                details={
+                    "ticker": ticker,
+                    "sec_crosscheck_status": faskills_result.get("sec_crosscheck", {}).get("status"),
+                    "news_used": self.state.tavily,
+                    "tavily_file": "tavily_research.json" if self.state.tavily else None,
+                    "thirteen_f_used": False,
+                },
+            )
+            record_driver_stage(
+                run_folder,
+                "PROCESS",
+                "Calculated deterministic FAskills metrics in Python before any analyst model call.",
+                details={
+                    "metrics_file": faskills_path.name,
+                    "missing_inputs_remain_unavailable": True,
+                },
+            )
+            faskills_output = {
+                "metrics_file": faskills_path.name,
+                "methodology_file": methodology_path.name,
+                "sec_crosscheck_status": faskills_result.get("sec_crosscheck", {}).get("status"),
+                "report_use_allowed": faskills_result.get("course_boundary", {}).get("report_use_allowed"),
+            }
+        elif (run_folder / "faskills_methodology.json").exists():
+            record_driver_stage(
+                run_folder,
+                "DISCOVER",
+                "Reused the saved SEC filing set, approved Financial Datasets cross-check, and saved Tavily research without a new external request.",
+                details={
+                    "ticker": ticker,
+                    "saved_run_replay": True,
+                    "tavily_reused": self.state.reuse_tavily,
+                },
+            )
+            record_driver_stage(
+                run_folder,
+                "PROCESS",
+                "Reused the saved deterministic FAskills metrics and recalculated quarter growth in Python.",
+                details={
+                    "metrics_file": "faskills_metrics.json",
+                    "quarter_growth_file": "calculations.json",
+                    "new_vendor_request": False,
+                },
+            )
+            faskills_output = {
+                "metrics_file": "faskills_metrics.json",
+                "methodology_file": "faskills_methodology.json",
+                "reused_without_vendor_request": True,
+            }
         self.state.run_folder = str(run_folder)
         manifest = desk_app.load_json(run_folder / "manifest.json")
         arguments = manifest.get("arguments", {})
@@ -556,30 +796,62 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         _save_node_record(
             self.state,
             "Steps",
-            {"ticker": ticker, "peers": self.state.peers},
-            {"run_folder": str(run_folder)},
+            {
+                "ticker": ticker,
+                "peers": self.state.peers,
+                "tavily_requested": self.state.tavily,
+                "tavily_depth": self.state.tavily_depth if self.state.tavily else None,
+                "tavily_reused": self.state.reuse_tavily,
+            },
+            {
+                "run_folder": str(run_folder),
+                "faskills_extension": faskills_output,
+                "tavily_research": tavily_output,
+            },
         )
         return str(run_folder)
 
     @listen(run_steps)
     def run_research_analyst(self, run_folder_value: str) -> str:
         _print_node("Research Analyst")
-        context = _context(Path(run_folder_value), self.state)
+        run_folder = Path(run_folder_value)
+        context = _context(run_folder, self.state)
         handoff = _research_handoff(context)
+        _record_driver_if_enabled(
+            run_folder,
+            "REPRESENT",
+            "Routed the filing-bounded Buffett, Lynch, Wood, and Soros lenses to the Research Analyst.",
+        )
         output = call_role("Research Analyst", handoff)
         self.state.research_output = output
         _save_node_record(self.state, "Research Analyst", json.loads(handoff), output)
+        _record_driver_if_enabled(
+            run_folder,
+            "IMPLEMENT",
+            "Completed the Research Analyst call with four independently labeled FAskills lenses.",
+        )
         return output
 
     @listen(run_research_analyst)
     def run_financial_analyst(self, _: str) -> str:
         _print_node("Financial Analyst")
-        context = _context(Path(self.state.run_folder), self.state)
+        run_folder = Path(self.state.run_folder)
+        context = _context(run_folder, self.state)
         handoff = _financial_handoff(context)
+        _record_driver_if_enabled(
+            run_folder,
+            "REPRESENT",
+            "Routed the Graham, Dalio, Burry, Simons, and Shiller lenses plus approved deterministic metrics to the Financial Analyst.",
+        )
         output = call_role("Financial Analyst", handoff)
         output = _attach_quantitative_source_notes(output, context)
         self.state.financial_output = output
         _save_node_record(self.state, "Financial Analyst", json.loads(handoff), output)
+        _record_driver_if_enabled(
+            run_folder,
+            "IMPLEMENT",
+            "Completed the Financial Analyst call with five independently labeled FAskills lenses.",
+        )
         return output
 
     @listen(run_financial_analyst)
@@ -589,6 +861,11 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         output = call_role("Investment Advisor", handoff)
         self.state.advisor_output = output
         _save_node_record(self.state, "Investment Advisor", json.loads(handoff), output)
+        _record_driver_if_enabled(
+            Path(self.state.run_folder),
+            "IMPLEMENT",
+            "Synthesized only the two source-bounded analyst outputs into the Investment Advisor section.",
+        )
         return output
 
     @listen(run_investment_advisor)
@@ -606,7 +883,9 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             outputs["Financial Analyst"],
             outputs["Investment Advisor"],
         )
-        handoff = _manager_handoff(outputs, report, missing)
+        methodology_path = Path(self.state.run_folder) / "faskills_methodology.json"
+        methodology_plan = desk_app.load_json(methodology_path) if methodology_path.exists() else None
+        handoff = _manager_handoff(outputs, report, missing, methodology_plan)
         manager_raw = call_role("Strategy Manager", handoff)
         manager_review = _parse_manager_output(manager_raw)
         self.state.manager_output = manager_raw
@@ -761,6 +1040,20 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         manager_review["unresolved_core_claims_after_one_retry"] = core_issues
         manager_review["lab05_persona_checks_enabled"] = persona_mode
         manager_review["unresolved_insight_issues_after_one_retry"] = unresolved_insights
+        if methodology_path.exists():
+            assert methodology_plan is not None
+            manager_review["faskills_lens_coverage"] = lens_coverage(outputs, methodology_plan)
+            _record_driver_if_enabled(
+                Path(self.state.run_folder),
+                "VALIDATE",
+                "Checked five-section completeness, core claims, Insight citations, and all nine lens labels.",
+                status=(
+                    "complete"
+                    if manager_review["faskills_lens_coverage"].get("all_nine_complete")
+                    else "limited"
+                ),
+                details=manager_review["faskills_lens_coverage"],
+            )
         header = desk_app.report_header(Path(self.state.run_folder), context)
         report_text = desk_app.render_report_text(header, report)
         run_folder = Path(self.state.run_folder)
@@ -773,6 +1066,12 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             encoding="utf-8",
         )
         (run_folder / "report.md").write_text(report_text, encoding="utf-8")
+        _record_driver_if_enabled(
+            run_folder,
+            "EVOLVE",
+            "Applied the fixed Manager checklist, used no more than one retry per role, and compiled the five report sections.",
+            details={"retried_roles": sorted(retried_roles)},
+        )
         self.state.report = report_text
         return report_text
 
@@ -780,6 +1079,11 @@ class EquityResearchTeamFlow(Flow[TeamState]):
     def run_verifier(self, _: str) -> str:
         _print_node("Verifier")
         run_folder = Path(self.state.run_folder)
+        _record_driver_if_enabled(
+            run_folder,
+            "VALIDATE",
+            "Started the mandatory final Verifier on the compiled report and saved evidence.",
+        )
         verified_path, marks, semantic_review, payload = verify_saved_run(
             run_folder,
             _semantic_check,
@@ -813,6 +1117,35 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 "verifier_output.json",
             }
         )
+        methodology_path = run_folder / "faskills_methodology.json"
+        if methodology_path.exists():
+            outputs = desk_app.load_json(run_folder / "role_outputs.json")
+            _record_driver_if_enabled(
+                run_folder,
+                "REFLECT",
+                "Saved the verified report, DRIVER trace, expert-lens coverage, limitations, and reusable methodology record.",
+                details={
+                    "verified_report": verified_path.name,
+                    "node_order": self.state.node_order,
+                },
+            )
+            methodology_report = render_methodology_report(run_folder, outputs)
+            manifest["faskills_methodology"] = {
+                "enabled": True,
+                "source": "CinderZhang/FAskills financial-researcher v2.0.0",
+                "json": methodology_path.name,
+                "driver_trace": "faskills_driver_trace.json",
+                "markdown": methodology_report.name,
+                "nine_lenses_routed_through_course_personas": True,
+            }
+            manifest["output_filenames"] = sorted(
+                set(manifest.get("output_filenames", []))
+                | {
+                    methodology_path.name,
+                    "faskills_driver_trace.json",
+                    methodology_report.name,
+                }
+            )
         manifest_path.write_text(
             json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
@@ -824,7 +1157,13 @@ class EquityResearchTeamFlow(Flow[TeamState]):
 def _semantic_check(payload: str) -> str:
     handoff = json.dumps(
         {
-            "task": "Check the period and definition of each number using only this report, saved facts, and cited filing lines.",
+            "task": (
+                "Check the period and definition of each number using only this report, saved facts, and cited filing lines. "
+                "Check qualitative Tavily claims only against the cited saved Tavily excerpts. "
+                "Never treat Tavily as filing evidence. For an Insight line, verify the numbers and citations only. "
+                "Do not mark an Insight unsupported merely because its analytical implication is an inference rather than "
+                "a sentence stated verbatim in a filing."
+            ),
             "context": json.loads(payload),
             "expected_output": {
                 "assessments": [
@@ -856,6 +1195,27 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--price-date", default="", help="Closing-price date in YYYY-MM-DD")
     parser.add_argument("--price-source", default="", help="Exchange or LSEG source for the closing price")
     parser.add_argument("--saved-run", type=Path, help="Reuse a successful saved data run")
+    parser.add_argument(
+        "--faskills",
+        action="store_true",
+        help="Run the course-safe FAskills DRIVER methodology, nine lenses, and audited metrics sidecar",
+    )
+    parser.add_argument(
+        "--tavily",
+        action="store_true",
+        help="Run one source-bounded Tavily search for supplementary qualitative web context",
+    )
+    parser.add_argument(
+        "--tavily-depth",
+        choices=("basic", "advanced"),
+        default="advanced",
+        help="Tavily search depth; advanced costs 2 Tavily credits and basic costs 1",
+    )
+    parser.add_argument(
+        "--reuse-tavily",
+        action="store_true",
+        help="Reuse tavily_research.json from --saved-run without making a Tavily API request",
+    )
     parser.add_argument("--verify-only", type=Path, help="Run only the mandatory Verifier on a saved run")
     return parser
 
@@ -872,6 +1232,10 @@ def kickoff() -> None:
             raise SystemExit("A new run requires --price-date in YYYY-MM-DD format.")
         if not args.price_source:
             raise SystemExit("A new run requires --price-source.")
+    if args.reuse_tavily and not args.saved_run:
+        raise SystemExit("--reuse-tavily requires --saved-run.")
+    if args.reuse_tavily and not args.tavily:
+        raise SystemExit("--reuse-tavily also requires --tavily.")
     flow = EquityResearchTeamFlow()
     flow.kickoff(
         inputs={
@@ -881,6 +1245,10 @@ def kickoff() -> None:
             "price_date": args.price_date,
             "price_source": args.price_source,
             "saved_run": str(args.saved_run.resolve()) if args.saved_run else "",
+            "faskills": args.faskills,
+            "tavily": args.tavily,
+            "tavily_depth": args.tavily_depth,
+            "reuse_tavily": args.reuse_tavily,
         }
     )
 

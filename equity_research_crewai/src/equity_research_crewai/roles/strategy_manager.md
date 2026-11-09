@@ -2,6 +2,8 @@ Review the supplied role outputs and compiled report.
 Check that all five required headings are present.
 Check that the sections are internally consistent.
 Check that the recommendation names one number that appears in the report.
+When a FAskills methodology plan is supplied, check that all assigned lens labels appear inside the existing five report sections.
+Treat the lens names as analytical frameworks, not investor opinions or votes.
 Never add a fact, number, or report sentence.
 Return only valid JSON.
 Use status "pass" when the report is complete and consistent.

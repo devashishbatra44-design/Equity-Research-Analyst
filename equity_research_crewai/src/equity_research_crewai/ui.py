@@ -23,6 +23,25 @@ def main() -> None:
     price = st.number_input("Closing price", min_value=0.0, value=0.0, step=0.01)
     price_date = st.text_input("Closing-price date (YYYY-MM-DD)").strip()
     price_source = st.text_input("Price source (exchange or LSEG)").strip()
+    use_faskills = st.checkbox(
+        "Run the course-safe FAskills methodology",
+        help=(
+            "Uses one Financial Datasets API request, applies all nine source-bounded analytical lenses through the three course personas, "
+            "and saves the DRIVER trace plus audited metrics."
+        ),
+    )
+    use_tavily = st.checkbox(
+        "Add supplementary Tavily web research",
+        help=(
+            "Runs one focused Tavily search. Web results go only to the Research Analyst and cannot replace SEC evidence."
+        ),
+    )
+    tavily_depth = st.selectbox(
+        "Tavily search depth",
+        options=("advanced", "basic"),
+        help="Advanced uses 2 Tavily credits. Basic uses 1 Tavily credit.",
+        disabled=not use_tavily,
+    )
 
     if st.button("Run agent team", type="primary"):
         if not ticker or price <= 0 or not price_date or not price_source:
@@ -42,6 +61,10 @@ def main() -> None:
             "--price-source",
             price_source,
         ]
+        if use_faskills:
+            command.append("--faskills")
+        if use_tavily:
+            command.extend(["--tavily", "--tavily-depth", tavily_depth])
         status = st.status("Starting fixed graph", expanded=True)
         output_box = st.empty()
         lines: list[str] = []

@@ -1,0 +1,301 @@
+{
+  "integration_version": "1.0.0",
+  "generated_at": "2026-11-08T23:09:35.728155-05:00",
+  "ticker": "COST",
+  "provider": "financialdatasets.ai",
+  "endpoint": "https://api.financialdatasets.ai/financials",
+  "adapted_from": "CinderZhang/FAskills v2.0.0",
+  "course_boundary": {
+    "guru_personas_enabled": false,
+    "nine_analytical_lenses_enabled": true,
+    "automatic_price_targets_enabled": false,
+    "verifier_bypass_enabled": false,
+    "report_use_allowed": true
+  },
+  "source_periods": {
+    "current_period": "2026-08-30",
+    "prior_period": "2025-08-31",
+    "current_accession": "0000909832-26-000093",
+    "prior_accession": "0000909832-25-000101",
+    "currency": "USD"
+  },
+  "sec_crosscheck": {
+    "status": "approved",
+    "accession_matches": true,
+    "period_matches": true,
+    "expected_accession": "0000909832-26-000093",
+    "financialdatasets_accession": "0000909832-26-000093",
+    "expected_period": "2026-08-30",
+    "financialdatasets_period": "2026-08-30",
+    "checks": {
+      "total_revenue": {
+        "financialdatasets_value": 303154000000.0,
+        "sec_value": 303154000000.0,
+        "sec_period_end": "2026-08-30",
+        "matches": true
+      },
+      "operating_income": {
+        "financialdatasets_value": 11685000000.0,
+        "sec_value": 11685000000.0,
+        "sec_period_end": "2026-08-30",
+        "matches": true
+      },
+      "net_income": {
+        "financialdatasets_value": 9226000000.0,
+        "sec_value": 9226000000.0,
+        "sec_period_end": "2026-08-30",
+        "matches": true
+      },
+      "diluted_eps": {
+        "financialdatasets_value": 20.76,
+        "sec_value": 20.76,
+        "sec_period_end": "2026-08-30",
+        "matches": true
+      }
+    }
+  },
+  "metrics": {
+    "piotroski_f_score": {
+      "name": "piotroski_f_score",
+      "validation_status": "available",
+      "value": 6,
+      "unit": "points out of 9",
+      "formula": "Sum of nine binary signals",
+      "inputs": {
+        "current_net_income": 9226000000.0,
+        "current_operating_cash_flow": 15817000000.0,
+        "current_total_assets": 89045000000.0,
+        "current_non_current_debt": 3914000000.0,
+        "current_current_assets": 46582000000.0,
+        "current_current_liabilities": 43952000000.0,
+        "current_outstanding_shares": 443129349.0,
+        "current_gross_profit": 38875000000.0,
+        "current_revenue": 303154000000.0,
+        "prior_net_income": 8099000000.0,
+        "prior_total_assets": 77099000000.0,
+        "prior_non_current_debt": 5713000000.0,
+        "prior_current_assets": 38380000000.0,
+        "prior_current_liabilities": 37108000000.0,
+        "prior_outstanding_shares": 443179176.0,
+        "prior_gross_profit": 35349000000.0,
+        "prior_revenue": 275235000000.0
+      },
+      "components": {
+        "f1_roa_positive": 1,
+        "f2_cfo_positive": 1,
+        "f3_roa_improving": 0,
+        "f4_accruals_quality": 1,
+        "f5_leverage_decreasing": 1,
+        "f6_liquidity_improving": 1,
+        "f7_no_dilution": 1,
+        "f8_margin_improving": 0,
+        "f9_turnover_improving": 0
+      },
+      "interpretation": "Mixed financial-strength signal under the FAskills thresholds.",
+      "warnings": [],
+      "missing_fields": [],
+      "note": null
+    },
+    "altman_z_manufacturing": {
+      "name": "altman_z_manufacturing",
+      "validation_status": "available",
+      "value": 9.2736,
+      "unit": "score",
+      "formula": "1.2*X1 + 1.4*X2 + 3.3*X3 + 0.6*X4 + 0.999*X5",
+      "inputs": {
+        "share_price": 992.13,
+        "outstanding_shares": 443129349.0,
+        "market_cap": 439641921023.37,
+        "working_capital": 2630000000.0,
+        "retained_earnings": 28591000000.0,
+        "ebit": 11685000000.0,
+        "revenue": 303154000000.0,
+        "total_assets": 89045000000.0,
+        "total_liabilities": 53242000000.0
+      },
+      "components": {
+        "x1": 0.02953562805323151,
+        "x2": 0.3210848447414229,
+        "x3": 0.13122578471559324,
+        "x4": 8.257426862690545,
+        "x5": 3.4045033410073557
+      },
+      "interpretation": "Safe zone",
+      "warnings": [],
+      "missing_fields": [],
+      "note": "Use only for a public manufacturing company."
+    },
+    "altman_z_nonmanufacturing": {
+      "name": "altman_z_nonmanufacturing",
+      "validation_status": "available",
+      "value": 10.7926,
+      "unit": "score",
+      "formula": "6.56*X1 + 3.26*X2 + 6.72*X3 + 1.05*X4",
+      "inputs": {
+        "share_price": 992.13,
+        "outstanding_shares": 443129349.0,
+        "market_cap": 439641921023.37,
+        "working_capital": 2630000000.0,
+        "retained_earnings": 28591000000.0,
+        "ebit": 11685000000.0,
+        "revenue": 303154000000.0,
+        "total_assets": 89045000000.0,
+        "total_liabilities": 53242000000.0
+      },
+      "components": {
+        "x1": 0.02953562805323151,
+        "x2": 0.3210848447414229,
+        "x3": 0.13122578471559324,
+        "x4": 8.257426862690545
+      },
+      "interpretation": "Safe zone",
+      "warnings": [],
+      "missing_fields": [],
+      "note": "Use only for a non-manufacturing company. The code does not guess the industry classification."
+    },
+    "beneish_m_score": {
+      "name": "beneish_m_score",
+      "validation_status": "available",
+      "value": -2.6474,
+      "unit": "score",
+      "formula": "-4.84 + 0.920*DSRI + 0.528*GMI + 0.404*AQI + 0.892*SGI + 0.115*DEPI - 0.172*SGAI + 4.679*TATA - 0.327*LVGI",
+      "inputs": {
+        "current_receivables": 3959000000.0,
+        "current_revenue": 303154000000.0,
+        "current_gross_profit": 38875000000.0,
+        "current_assets": 89045000000.0,
+        "current_current_assets": 46582000000.0,
+        "current_ppe": 35633000000.0,
+        "current_depreciation_and_amortization": 2674000000.0,
+        "current_sga": 27190000000.0,
+        "current_total_debt": 6256000000.0,
+        "current_net_income": 9226000000.0,
+        "current_operating_cash_flow": 15817000000.0,
+        "prior_receivables": 3203000000.0,
+        "prior_revenue": 275235000000.0,
+        "prior_gross_profit": 35349000000.0,
+        "prior_assets": 77099000000.0,
+        "prior_current_assets": 38380000000.0,
+        "prior_ppe": 31909000000.0,
+        "prior_depreciation_and_amortization": 2426000000.0,
+        "prior_sga": 24966000000.0,
+        "prior_total_debt": 5866000000.0
+      },
+      "components": {
+        "dsri": 1.122196525840843,
+        "gmi": 1.001535559679869,
+        "aqi": 0.8683859709271056,
+        "sgi": 1.101436953875779,
+        "depi": 1.0122096737249104,
+        "sgai": 0.9887821055324092,
+        "lvgi": 0.9234085433230136,
+        "tata": -0.07401875456229996
+      },
+      "interpretation": "Unlikely manipulation signal",
+      "warnings": [
+        "DSRI",
+        "DEPI"
+      ],
+      "missing_fields": [],
+      "note": "This adaptation uses each period's own current-assets value. Missing inputs make the score unavailable."
+    },
+    "owner_earnings": {
+      "name": "owner_earnings",
+      "validation_status": "available",
+      "value": 4107000000.0,
+      "unit": "currency units",
+      "formula": "Net income + D&A - capex - increase in working capital",
+      "inputs": {
+        "net_income": 9226000000.0,
+        "depreciation_and_amortization": 2674000000.0,
+        "capex": 6435000000.0,
+        "working_capital_change": 1358000000.0
+      },
+      "components": {
+        "per_share": 9.2681742007569
+      },
+      "interpretation": "Positive owner earnings",
+      "warnings": [],
+      "missing_fields": [],
+      "note": "Full capex is used as a conservative maintenance-capex proxy."
+    },
+    "dupont_5_factor": {
+      "name": "dupont_5_factor",
+      "validation_status": "available",
+      "value": 0.25768790324833113,
+      "unit": "ratio",
+      "formula": "Tax burden * interest burden * EBIT margin * asset turnover * leverage",
+      "inputs": {
+        "net_income": 9226000000.0,
+        "income_tax_expense": 3025000000.0,
+        "derived_earnings_before_tax": 12251000000.0,
+        "ebit": 11685000000.0,
+        "revenue": 303154000000.0,
+        "total_assets": 89045000000.0,
+        "shareholders_equity": 35803000000.0
+      },
+      "components": {
+        "tax_burden": 0.7530813811117459,
+        "interest_burden": 1.0484381685922122,
+        "ebit_margin": 0.03854476602650798,
+        "asset_turnover": 3.4045033410073557,
+        "leverage": 2.4870820880931768
+      },
+      "interpretation": "Decomposed ROE is 25.77%.",
+      "warnings": [],
+      "missing_fields": [],
+      "note": "Earnings before tax is derived as net income plus income-tax expense because the combined endpoint does not supply an EBT field."
+    },
+    "sloan_accrual_ratio": {
+      "name": "sloan_accrual_ratio",
+      "validation_status": "available",
+      "value": -0.079340812788906,
+      "unit": "ratio",
+      "formula": "(Net income - operating cash flow) / average total assets",
+      "inputs": {
+        "net_income": 9226000000.0,
+        "operating_cash_flow": 15817000000.0,
+        "average_assets": 83072000000.0
+      },
+      "components": {},
+      "interpretation": "FAskills safe zone",
+      "warnings": [],
+      "missing_fields": [],
+      "note": null
+    },
+    "gross_profitability": {
+      "name": "gross_profitability",
+      "validation_status": "available",
+      "value": 0.4365770116233365,
+      "unit": "ratio",
+      "formula": "Gross profit / total assets",
+      "inputs": {
+        "gross_profit": 38875000000.0,
+        "total_assets": 89045000000.0
+      },
+      "components": {},
+      "interpretation": "Gross profit generated per unit of year-end assets.",
+      "warnings": [],
+      "missing_fields": [],
+      "note": null
+    },
+    "fcf_conversion": {
+      "name": "fcf_conversion",
+      "validation_status": "available",
+      "value": 0.6533881189497875,
+      "unit": "ratio",
+      "formula": "Free cash flow / (EBIT + D&A)",
+      "inputs": {
+        "free_cash_flow": 9382000000.0,
+        "derived_ebitda": 14359000000.0
+      },
+      "components": {
+        "fcf_to_net_income": 1.01690873618036
+      },
+      "interpretation": "Below the FAskills 80% threshold",
+      "warnings": [],
+      "missing_fields": [],
+      "note": null
+    }
+  }
+}

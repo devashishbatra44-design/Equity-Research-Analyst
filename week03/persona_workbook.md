@@ -47,9 +47,10 @@ Devashish remains responsible for the final judgments and source checks.
 ## Team formation
 
 - Student 1: Devashish Batra
-- Student 2: [Name]
-- Student 3: [Name]
-- Team name: [Name]
+- Student 2: Kuan-Jie Liao
+- Student 3: Shivani Rathi
+- Team name: DJS Signal & Source Capital
+- Team-name initials: Devashish, Jason, and Shivani. Jason refers to Kuan-Jie Liao.
 
 This is a learning exercise, not financial advice.
 

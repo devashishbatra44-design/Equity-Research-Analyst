@@ -1,6 +1,8 @@
 # Week 3 — Your Agent Team
 
 This folder tracks Week 3 against the current course instructions.
+The optional professor-provided FAskills methodology is documented in [FASKILLS_INTEGRATION.md](FASKILLS_INTEGRATION.md).
+It implements DRIVER and all nine expert frameworks as source-bounded lenses without changing the fixed course graph.
 
 ## Prework completed in code
 
@@ -49,7 +51,7 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] Clean, seeded-EPS, and invented-growth checks pass offline.
 - [x] Run and save the three verifier proofs with the configured model.
 - [x] Run the complete graph twice on the same ticker and retain both folders.
-- [ ] Have the partner check the seeded-EPS mark against the 10-K.
+- [x] Have the partner check the seeded-EPS mark against the 10-K.
 
 ## Lab 05 implementation
 
@@ -63,9 +65,10 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] Devashish supplied the three six-part persona designs; Codex made permitted editorial and operational updates.
 - [x] Add the persona Insight checks after the student text is ready.
 - [x] Run the full team on the partner's chosen company, Netflix.
-- [ ] Partner checks two core claims and records both marks at the report top.
-- [ ] Partner opens one Netflix Insight citation and confirms the filing line contains the claim.
-- [ ] Record the three student names and team name.
+- [x] Partner checks two core claims and records both marks in `HUMAN_SIGNOFF.md`.
+- [x] Partner opens one Netflix Insight citation and confirms the filing line contains the claim.
+- [x] Record the three student names.
+- [ ] Record the team name.
 - [ ] Push the final Week 3 artifacts.
 - [ ] Submit a commit permalink to Brightspace Checkpoint 2.
 
@@ -90,6 +93,28 @@ The Costco run has 11 core claims and three Insights marked Correct.
 The Netflix run has 10 available core claims and three Insights marked Correct.
 Netflix debt-to-equity is marked `Not in filings` because the supplied facts do not state the current portion of long-term debt.
 The Netflix run has no unresolved Manager issue and no role retry.
+
+## Final FAskills and Tavily proof
+
+- Final controlled run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+- Fixed node order: Steps; Research Analyst; Financial Analyst; Investment Advisor; Strategy Manager; Verifier.
+- Manager status: pass, with no unresolved core claim or Insight issue.
+- FAskills coverage: all nine source-bounded analytical lenses present.
+- Code marks: 14 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
+- Model definition marks: 14 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
+- Tavily: five saved results reused locally; no new Tavily search request for the final correction.
+- DRIVER trace: 11 records for this run only, from DISCOVER through REFLECT.
+- Full repository test result after the run: 62 passed.
+
+The final verified artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md).
+
+## Team formation
+
+- Student 1: Devashish Batra.
+- Student 2: Kuan-Jie Liao.
+- Student 3: Shivani Rathi.
+- Team name: DJS Signal & Source Capital.
+- DJS represents Devashish, Jason, and Shivani; Jason refers to Kuan-Jie Liao.
 
 This is a learning exercise, not financial advice.
 

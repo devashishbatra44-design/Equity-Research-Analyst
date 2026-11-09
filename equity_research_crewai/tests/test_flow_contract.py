@@ -111,3 +111,22 @@ def test_financial_source_notes_keep_existing_insight_as_final_line() -> None:
     result = main._attach_quantitative_source_notes(output, context)
     assert result.splitlines()[-1].startswith("Insight:")
     assert "(calculations.json:price_to_earnings)" in result
+
+
+def test_replay_saves_deterministic_quarter_revenue_growth(tmp_path: Path) -> None:
+    run = tmp_path / "quarter_growth"
+    shutil.copytree(CLEAN_RUN, run)
+    calculations_path = run / "calculations.json"
+    calculations = json.loads(calculations_path.read_text(encoding="utf-8"))
+    calculations["calculations"].pop("quarter_revenue_growth", None)
+    calculations_path.write_text(json.dumps(calculations), encoding="utf-8")
+
+    main._save_quarter_revenue_growth_calculation(run)
+
+    saved = json.loads(calculations_path.read_text(encoding="utf-8"))["calculations"]["quarter_revenue_growth"]
+    assert saved["validation_status"] == "available"
+    assert saved["result"] == 0.111043
+    assert saved["inputs"] == {
+        "current_quarter_revenue_thousands": 95723,
+        "prior_year_same_quarter_revenue_thousands": 86156,
+    }

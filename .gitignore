@@ -6,6 +6,10 @@
 # Local Python environments and caches
 .venv/
 venv/
+.agents/
+.claude/
+agent/
+skills-lock.json
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -19,6 +23,9 @@ data/exports/
 *.parquet
 *.xlsx
 
+# Keep raw Financial Datasets API responses local. Commit only derived, sourced metrics.
+week03/runs/**/faskills_financialdatasets.json
+
 # Supplied research exports/transcripts may contain licensed third-party content.
 # Keep the local Company reports folder out of the public repository.
 /Company reports\ /
@@ -30,6 +37,7 @@ data/exports/
 !week02/runs/
 !week02/runs/**/
 !week02/runs/**/*.csv
+!week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/*.csv
 
 # Superseded local runs. Keep only the final reviewed folders eligible for Git.
 /week03/runs/superseded/

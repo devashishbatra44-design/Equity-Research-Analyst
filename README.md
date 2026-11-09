@@ -2,11 +2,16 @@
 
 This repository contains the FIN 67110 equity-research desk, its SEC data workflow, company reports, and manual audit records.
 
+The Week 3 desk supports optional, source-bounded Tavily research through `--tavily`.
+Tavily supplies supplementary qualitative context only.
+SEC filings remain authoritative for audited financial claims.
+
 ## Course work
 
 - Week 1 setup and learning notes: [week01/README.md](week01/README.md)
 - Week 2 desk, readings, run status, and audit notes: [week02/README.md](week02/README.md)
 - Week 3 fixed graph, Verifier proofs, personas, and run status: [week03/README.md](week03/README.md)
+- Professor-provided FAskills course integration: [week03/FASKILLS_INTEGRATION.md](week03/FASKILLS_INTEGRATION.md)
 
 ## Local setup and verification
 
@@ -79,9 +84,12 @@ Start the browser page with:
 
 Final Week 3 generated proofs:
 
+- [Final Costco FAskills and Tavily verified report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md): fixed graph, all nine source-bounded lenses, 14 of 14 code marks Correct, and 14 of 14 model definition marks Correct.
 - [Costco verified persona report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261105_085335/verified_report.md): 11 core claims and three Insights marked Correct.
 - [Netflix verified partner-pick report](week03/runs/NETFLIX_INC_NFLX_20261105_090924/verified_report.md): 10 available core claims and three Insights marked Correct; debt-to-equity is marked Not in filings.
 - [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.
+
+The final Costco correction reused the saved Tavily result. It made no new Tavily search request.
 
 ## Company runs
 

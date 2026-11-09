@@ -1,0 +1,70 @@
+{
+  "provider": "Tavily Search API",
+  "retrieved_at": "2026-11-08T23:09:35.090676-05:00",
+  "auth_mode": "api_key",
+  "query": "\"COSTCO WHOLESALE CORP\" COST latest company developments catalysts competitive risks investor relations official sources",
+  "request": {
+    "query": "\"COSTCO WHOLESALE CORP\" COST latest company developments catalysts competitive risks investor relations official sources",
+    "topic": "finance",
+    "search_depth": "basic",
+    "chunks_per_source": 3,
+    "max_results": 5,
+    "include_answer": false,
+    "include_raw_content": false,
+    "include_images": false,
+    "include_published_date": true
+  },
+  "request_id": "ab2bc8ee-d7d6-4cf5-93d4-8239e10f0393",
+  "response_time_seconds": 1.74,
+  "result_count": 5,
+  "results": [
+    {
+      "title": "Financial Analysis for COST",
+      "url": "https://finance.yahoo.com/quote/COST/",
+      "published_date": null,
+      "score": 0.98909,
+      "content": "Stock: COST\nFinancial Analysis:\nLatest Open Price: 1045.25 Latest Close Price: 1053.56 Highest Close Price: 1090.97 Lowest Close Price: 845.02 Average Close Price (2 years): 956.91 Standard Deviation of Close Price: 44.35 Volume Traded (2 years): 1132747800 Total Return (2 years): 16.56% Annualized Return (2 years): 7.96% CAGR (2 years): 7.96% Sharpe Ratio (2 years): 0.18 Max Drawdown (2 years): 0.01%",
+      "source_class": "supplementary_web"
+    },
+    {
+      "title": "Costco's Membership Dynamics and Pricing Strategies Fuel Performance",
+      "url": "https://finance.yahoo.com/news/costcos-membership-dynamics-pricing-strategies-131500764.html",
+      "published_date": "Fri, 11 Oct 2024 00:00:00 GMT",
+      "score": 0.47154015,
+      "content": "2. Best high-yield savings accounts. 3. Best money market accounts. 4. Best free checking accounts. **Costco Wholesale Corporation** COST continues to impress investors and shoppers alike with its robust business model and strategic pricing. The company's membership-based approach and commitment to offering high-quality products at unbeatable prices have positioned it as a leader in the sector. ## Costco's Robust Membership Model. Costco's success lies in its membership-based business model, which generates a reliable revenue stream and fosters strong customer loyalty. Costco ended the final quarter of fiscal 2024 with 76.2 million paid household members, up 7.3% from the prior year. Executive memberships, a more profitable category for Costco, grew by 9.6% year over year to reach 35.4 million, now accounting for 46.5% of all paid members and driving 73.5% of worldwide sales. The company's commitment to value and quality has fostered strong loyalty among members. Costco Wholesale Corporation (COST) : Free Stock Analysis Report.",
+      "source_class": "supplementary_web"
+    },
+    {
+      "title": "COSTCO WHOLESALE CORP (COST.SN) Q4 FY2026 earnings call transcript",
+      "url": "https://finance.yahoo.com/quote/COST.SN/earnings/COST.SN-Q4-2026-earnings_call-682005.html",
+      "published_date": "Thu, 24 Sep 2026 00:00:00 GMT",
+      "score": 0.46380913,
+      "content": "At this time, I would like to welcome everyone to the Costco Wholesale Corporation fourth quarter fiscal year 2026 conference call. If you would like to ask a question during that time, simply press star followed by the number one on your telephone keypad. If you would like to withdraw your question, press star one again. Good afternoon, everyone, and thank you for joining us for Costco's fourth quarter 2026 earnings call. The risks and uncertainties include, but are not limited to, those outlined in today's call, as well as other risks identified from time to time in the company's public statements and reports filed with the SEC. Comparable sales and comparable sales excluding impacts from changes in gasoline prices and foreign exchange are intended as supplemental information and are not a substitute for net sales presented in accordance with GAAP. As we wrap up fiscal year 2026, I'll share a few highlights from the year before turning the call back over to Gary.",
+      "source_class": "supplementary_web"
+    },
+    {
+      "title": "PHAR 6-K & SEC Filings",
+      "url": "https://ca.finance.yahoo.com/sec-filing/PHAR/0001828316-25-000041_1828316",
+      "published_date": null,
+      "score": 0.048428554,
+      "content": "PHAR 6-K and SEC filings offer investors the in-depth insights and information you've come to expect from Yahoo Finance.",
+      "source_class": "supplementary_web"
+    },
+    {
+      "title": "Target Corporation (TGT) Stock Price, News, Quote & History - Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/TGT",
+      "published_date": "Wed, 04 Nov 2026 14:00:00 GMT",
+      "score": 0.026377967,
+      "content": "# Target Corporation (TGT). Regular market price: 158.41 0.46 (0.29%) as of 2026-11-06 21:03 UTC. Post market price: 158.49 0.08 (0.05%) as of 2026-11-07 00:53 UTC. | Five year avg dividend yield | 2.81 |. | Average volume10days | 3,992,290 |. | Average daily volume10 day | 3,992,290 |. | Fifty two week low | 83.44 |. | Fifty two week high | 170.75 |. | All time low | 0.14 |. | Fullday change percent | 0.34% |. | Price to sales trailing12 months | 0.67 |. | Two hundred day average | 135.26 |. | Trailing annual dividend yield | 2.89% |. | 0m | 2 | 11 | 21 | 0 | 4 |. #### Performance overview benchmark. | As of date | 2026-11-06 |. | One month return | 2.64% |. | Shares short previous month date | 2026-09-15 |. | Date short interest | 2026-10-15 |. | Date | Fiscal quarter | Revenue | Earnings | Profit margin |.",
+      "source_class": "supplementary_web"
+    }
+  ],
+  "course_boundary": {
+    "supplementary_context_only": true,
+    "sec_remains_authoritative": true,
+    "core_financial_claims_allowed": false,
+    "numbers_require_primary_source_confirmation": true,
+    "recommendation_may_not_rely_on_tavily_alone": true,
+    "verifier_remains_final_node": true
+  }
+}

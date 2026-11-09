@@ -110,6 +110,7 @@
     "exhibit-99-1.txt",
     "facts.csv",
     "facts.json",
+    "faskills_metrics.json",
     "filings.json",
     "manifest.json",
     "node_order.json",
@@ -183,5 +184,13 @@
     ],
     "verifier_required": true,
     "verified_report": "verified_report.md"
+  },
+  "faskills_extension": {
+    "enabled": true,
+    "status": "approved",
+    "source": "CinderZhang/FAskills v2.0.0",
+    "provider": "financialdatasets.ai",
+    "metrics_file": "faskills_metrics.json",
+    "local_raw_file": "faskills_financialdatasets.json"
   }
 }
