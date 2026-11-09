@@ -1,0 +1,118 @@
+# NETFLIX INC (NFLX) — filings read: 10-K accession 0001065280-26-000034; 10-Q accession 0001065280-26-000291; 8-K accession 0001065280-26-000290
+# Run time: 2026-11-09T18:05:10.783432-05:00
+
+# Overview
+
+Netflix operates as a single-segment global entertainment service, deriving the vast majority of its revenue from monthly membership fees for streaming content, with a growing but currently non-material contribution from advertising, consumer products, and live experiences (10-k.txt:1721). The company’s core strategy is to grow globally within the parameters of its operating margin target, utilizing a range of pricing plans—including an ad-supported tier—to meet diverse consumer needs while continuously enhancing the user interface and content offerings (10-k.txt:1719). In fiscal year 2025, Netflix reported total revenues of $45,183,036 thousand, representing a 16% increase from $39,000,966 thousand in 2024 (10-k.txt:2058). Operating income expanded by 28% to $13,326,603 thousand, driving the operating margin up by 2.8 percentage points to 29.5% (10-k.txt:2061). This margin expansion was primarily driven by revenue growth outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses (10-k.txt:2069). Notably, the company discontinued the reporting of membership numbers and average monthly revenue per paying membership in 2025, shifting its primary financial metrics to revenue and operating margin (10-k.txt:2063).
+
+**Criterion Scores:**
+*   **Business-model durability:** 5. The model demonstrates strong durability, evidenced by a 29.5% operating margin in 2025, up from 26.7% in 2024 and 20.6% in 2023 (10-k.txt:2061). The shift to a multi-tier pricing model, including ad-supported plans, provides diversified revenue streams within the subscription base (10-k.txt:1719).
+*   **Customer retention / Primary operating KPI:** 3. The company no longer discloses membership counts or churn rates in its 10-K, citing a focus on revenue and operating margin as primary metrics (10-k.txt:2063). While the Q3 2026 earnings release notes "continued, healthy retention in every region" and improved churn year-over-year (exhibit-99-1.txt:61), the absence of specific retention KPIs in the annual filing limits the ability to score this criterion highly based solely on the 10-K evidence.
+*   **Organic growth:** 5. Revenue growth of 16% in 2025 was driven by memberships, price increases, and advertising revenue (10-k.txt:2080). Constant currency revenue growth was 17%, indicating strong underlying organic demand independent of foreign exchange fluctuations (10-k.txt:2059).
+*   **Expansion-driven growth:** 4. Geographic expansion is evident in the revenue breakdown, with APAC growing 21% and EMEA growing 17% in 2025 (10-k.txt:2088). The company is also expanding its advertising tier to 15 new countries in 2027 (exhibit-99-1.txt:153).
+*   **Competitive advantage:** 4. Netflix competes in an "intensely competitive" market against linear TV, other streaming providers, and social media (10-k.txt:1725). Its advantage lies in its global scale, proprietary content library, and technology infrastructure like Open Connect (10-k.txt:2109). The company states it strives to "win moments of truth" by continually improving service and content (10-k.txt:1726).
+*   **Catalyst evidence:** 4. Catalysts include the expansion of the ad-supported tier to new markets, new licensing deals such as with Disney and TF1, and live events like NFL games and boxing matches (exhibit-99-1.txt:26). The company expects 2026 revenue of $51.1B and an operating margin of 31.5% (exhibit-99-1.txt:16).
+*   **Moat risk:** 3. Risks include intense competition for consumer leisure time, regulatory changes in various countries that may increase operating costs or restrict content, and the need to continuously invest in content to maintain member engagement (10-k.txt:1725). The company acknowledges that it cannot provide assurance of prevailing in intellectual property disputes (10-k.txt:1730).
+
+# Market Positioning and Growth Outlook
+
+Netflix is positioned as a leading global entertainment service, competing for consumers' leisure time against a broad set of activities including linear television, other streaming providers, video gaming, and social media (10-k.txt:1725). The company’s strategy is to "win moments of truth" by offering compelling content and a superior user experience (10-k.txt:1726). In 2025, Netflix achieved significant geographic diversification, with UCAN contributing $19,957,152 thousand (15% growth), EMEA $14,514,646 thousand (17% growth), LATAM $5,357,521 thousand (11% growth), and APAC $5,353,717 thousand (21% growth) (10-k.txt:2087). The constant currency growth in LATAM was 23%, suggesting strong underlying demand in the region despite reported currency headwinds (10-k.txt:2102).
+
+The company’s growth outlook is supported by its ability to raise prices and expand its advertising revenue. In Q3 2026, revenue grew 12% year-over-year to $12.9 billion, with operating margin reaching 34.6% (exhibit-99-1.txt:14). For full-year 2026, Netflix expects revenue of $51.1 billion, a 13% increase, and an operating margin of 31.5% (exhibit-99-1.txt:16). The company notes that member response to 2026 price changes has been consistent with prior adjustments, indicating healthy engagement and strong value perception (exhibit-99-1.txt:28). Additionally, the expansion of the advertising tier to 15 new countries in 2027, starting with nine EMEA countries, Colombia, Peru, and New Zealand in March 2027, provides a clear path for further revenue diversification (exhibit-99-1.txt:153).
+
+**Criterion Scores:**
+*   **Business-model durability:** 5. The model’s durability is reinforced by the 29.5% operating margin in 2025 and the projected 31.5% margin for 2026 (10-k.txt:2061). The company’s ability to maintain margin expansion while growing revenue at 16% demonstrates strong operational leverage (10-k.txt:2069).
+*   **Customer retention / Primary operating KPI:** 3. While the 10-K does not provide specific retention metrics, the Q3 2026 earnings release highlights "continued, healthy retention in every region" and improved churn year-over-year (exhibit-99-1.txt:61). The company’s focus on engagement metrics, such as view hours, suggests a shift in how it measures customer value (exhibit-99-1.txt:157).
+*   **Organic growth:** 5. The 17% constant currency revenue growth in 2025 indicates strong organic demand (10-k.txt:2059). The company’s ability to drive growth through price increases and advertising revenue, rather than solely relying on membership additions, supports the sustainability of this growth (10-k.txt:2080).
+*   **Expansion-driven growth:** 4. The 21% growth in APAC and 17% growth in EMEA in 2025 highlight the company’s successful international expansion (10-k.txt:2088). The planned expansion of the ad-supported tier to new markets in 2027 further supports this growth vector (exhibit-99-1.txt:153).
+*   **Competitive advantage:** 4. Netflix’s competitive advantage is underpinned by its global scale, proprietary content, and technology infrastructure. The company’s ability to secure licensing deals with major studios like Disney and TF1 demonstrates its attractiveness as a partner for content distribution (exhibit-99-1.txt:26).
+*   **Catalyst evidence:** 4. Key catalysts include the launch of new ad-supported markets, new content partnerships, and live events. The company’s guidance for 2026 implies annual operating income growth of over 20% (exhibit-99-1.txt:65).
+*   **Moat risk:** 3. The primary risks to the moat are intense competition and regulatory changes. The company notes that regulators in some countries are looking at restrictions that could require formal reviews of content, potentially increasing operating costs (10-k.txt:1732).
+
+## Valuation Insights
+
+**Criterion Scores**
+
+1. **Revenue-growth quality: 4** Evidence source: (calculations.json:revenue_growth).
+   Annual revenue growth of 15.85% (calculations.json:revenue_growth) is supported by the 10-K revenue line (10-k.txt:2435). The Q3 2026 release notes revenue grew 12% year over year (exhibit-99-1.txt:12), consistent with the annual trend, though the quarterly growth rate (11.85%, calculations.json:quarter_revenue_growth) is slightly lower than the annual average, suggesting a modest deceleration in the most recent quarter.
+
+2. **Operating-margin direction: 5** Evidence source: (calculations.json:operating_margin).
+
+3. **Cash conversion: 5** Evidence source: (calculations.json:free_cash_flow).
+
+4. **Return on average equity: 5** Evidence source: (calculations.json:return_on_average_equity).
+
+5. **Debt capacity: 4** Evidence source: (calculations.json:debt_to_equity).
+
+6. **Financial flexibility: 4** Evidence source: (calculations.json:free_cash_flow).
+   The company generated $9.461 billion in free cash flow (calculations.json:free_cash_flow) while reducing total debt (10-k.txt:2543, 10-k.txt:2546). This provides significant flexibility for acquisitions, share buybacks, or content investment.
+
+7. **GAAP diluted-EPS quality: 5** Evidence source: (facts.json:diluted_eps).
+
+8. **Valuation support: 3** Evidence source: (calculations.json:price_to_earnings).
+   The price-to-earnings ratio is 27.15x (calculations.json:price_to_earnings), based on a share price of $68.69 (manifest.json:price) and FY2025 diluted EPS of $2.53 (10-k.txt:2449). This multiple is reasonable given the 15.85% revenue growth (calculations.json:revenue_growth) and 42.76% ROE (calculations.json:return_on_average_equity), but it is not cheap relative to the company's historical multiples or peer group.
+
+9. **Peer-definition consistency: 4** Evidence source: (calculations.json:operating_margin).
+   Netflix's operating margin of 29.49% (calculations.json:operating_margin) is significantly higher than Disney's 18.59% (peers.json:DIS:operating_margin), Comcast's 16.71% (peers.json:CMCSA:operating_margin), and Roku's -0.12% (peers.json:ROKU:operating_margin). The peer comparison uses consistent definitions (operating income divided by total revenue), but the large margin gap reflects Netflix's asset-light, subscription-based model versus the peers' more capital-intensive or diversified operations.
+
+**Relationship Between Sourced Numbers**
+
+The Q3 2026 operating margin of 34.6% (exhibit-99-1.txt:14) is substantially higher than the annual 2025 operating margin of 29.49% (calculations.json:operating_margin). This divergence is explained by the release's note that the Q3 margin was "ahead of our forecast primarily due to the timing of expenses" (exhibit-99-1.txt:14), indicating that the annual margin is not fully representative of the current quarter's profitability trajectory.
+
+### Required Course Claims — Code-Built Audit Block
+
+Annual total revenue was $45.183 billion (facts.json:total_revenue).
+Annual revenue growth was 15.8511% (calculations.json:revenue_growth).
+Annual operating income was $13.327 billion (facts.json:operating_income).
+Annual operating margin was 29.4947% (calculations.json:operating_margin).
+Annual net income attributable to the company was $10.981 billion (facts.json:net_income).
+Annual GAAP diluted EPS was $2.53 (facts.json:diluted_eps).
+Return on average equity was 42.7625% (calculations.json:return_on_average_equity).
+Debt to equity was 0.5434x (calculations.json:debt_to_equity).
+Free cash flow was $9.461 billion (calculations.json:free_cash_flow).
+Quarter total revenue was $12.874 billion (exhibit-99-1.txt:277).
+Quarter revenue growth was 11.8491% (calculations.json:quarter_revenue_growth).
+Quarter GAAP diluted EPS was $0.87 (exhibit-99-1.txt:291).
+
+Insight: The Q3 operating margin of 34.6% (exhibit-99-1.txt:14) exceeds the annual operating margin of 29.49% (calculations.json:operating_margin) by 511 basis points, a gap attributed to expense timing (exhibit-99-1.txt:14) that suggests the annual margin understates current-period profitability.
+
+# Future Developments and Strategic Recommendations
+
+Netflix’s future developments are centered on expanding its entertainment offering through licensing, new third-party content partnerships, and live events. The company has recently secured a licensing deal with Disney, bringing a variety of current and library series and films to its service, including the *Ice Age* films (exhibit-99-1.txt:129). Additionally, the partnership with TF1 in France allows Netflix to provide local series, film, news, and sports programming, generating incremental viewing in the region (exhibit-99-1.txt:152). The company is also investing in its ad tech stack, extending programmatic access through globally-available CTV marketplace deals and securing new partnerships with MercadoLibre in LATAM and AdForm in EMEA (exhibit-99-1.txt:153).
+
+Strategically, Netflix is focusing on three priorities: delivering more entertainment value, leveraging technology to improve the service, and improving monetization (exhibit-99-1.txt:68). The company plans to introduce its advertising tier to 15 new countries in 2027, with the first tranche launching in March 2027 (exhibit-99-1.txt:153). This expansion is expected to drive further revenue growth and diversification. The company also anticipates that its 2026 operating margin of 31.5% will include a negative impact of approximately 30 basis points associated with Q4 headcount reductions, which are intended to enable continued investment in high-impact areas (exhibit-99-1.txt:65).
+
+**Criterion Scores:**
+*   **Business-model durability:** 5. The model’s durability is supported by the company’s ability to maintain high operating margins while expanding into new revenue streams such as advertising and live events (10-k.txt:2061).
+*   **Customer retention / Primary operating KPI:** 3. The company’s focus on engagement metrics and its statement that member response to price changes is consistent with expectations suggest stable retention, but the lack of specific KPIs in the 10-K limits the score (10-k.txt:2063).
+*   **Organic growth:** 5. The 17% constant currency revenue growth in 2025 and the expected 13% growth in 2026 indicate strong organic momentum (10-k.txt:2059).
+*   **Expansion-driven growth:** 4. The expansion of the ad-supported tier to new markets and the growth in APAC and EMEA revenues support this score (10-k.txt:2088).
+*   **Competitive advantage:** 4. Netflix’s competitive advantage is reinforced by its global scale, proprietary content, and technology infrastructure, as well as its ability to secure major licensing deals (exhibit-99-1.txt:26).
+*   **Catalyst evidence:** 4. The launch of new ad-supported markets, new content partnerships, and live events provide clear catalysts for future growth (exhibit-99-1.txt:153).
+*   **Moat risk:** 3. Risks include intense competition, regulatory changes, and the need to continuously invest in content to maintain member engagement (10-k.txt:1725).
+
+Insight: The 23% constant currency revenue growth in LATAM (10-k.txt:2102) indicates that the company’s pricing and content strategy is resonating strongly in emerging markets, suggesting that the moat is being reinforced by successful localization and price optimization in regions with high growth potential.
+
+# Investment Recommendation
+
+**Recommendation:** Buy
+
+**Deciding Number:** 31.5% (exhibit-99-1.txt:16)
+
+**Principal Catalyst:** Expansion of the ad-supported tier to 15 new countries in 2027 (exhibit-99-1.txt:153)
+
+**Principal Risk:** Intense competition for consumer leisure time and regulatory changes that may increase operating costs (10-k.txt:1725)
+
+**Valuation Limitation:** The price-to-earnings ratio of 27.15x (calculations.json:price_to_earnings) is not cheap relative to the company's historical multiples or peer group, limiting the margin of safety despite strong growth (calculations.json:price_to_earnings).
+
+**Result in Next Filing That Would Change Recommendation:** A full-year 2026 operating margin below 31.5% (exhibit-99-1.txt:16) would indicate that the projected margin expansion is not materializing as guided, undermining the thesis that operational leverage is driving sustainable earnings growth.
+
+Insight: The 31.5% operating margin guidance for (exhibit-99-1.txt:16) is the deciding number because it bridges the gap between the 29.49% annual operating margin in (calculations.json:operating_margin) and the 34.6% Q3 operating margin (exhibit-99-1.txt:14), confirming that the current-period profitability trajectory is sustainable and not merely an artifact of expense timing. If the full-year margin fails to reach 31.5%, the risk-reward conclusion shifts from Buy to Hold, as the valuation support at 27.15x (calculations.json:price_to_earnings) would no longer be adequately compensated by the expected upside in earnings power.
+
+---
+
+This is a learning exercise, not financial advice.
+
+AI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.
+
+Any remaining errors are my own.

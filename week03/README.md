@@ -66,8 +66,8 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] Keep operating rules separate from the student-authored persona identity, values, and criteria.
 - [x] Add the persona Insight checks after the student text is ready.
 - [x] Preserve the Week 2 Netflix partner-pick report and its completed human marks.
-- [ ] Run Lab 05 on a new company that Shivani chooses and confirms reported in November 2026.
-- [ ] Have Shivani check two core claims and one Insight citation in that new report.
+- [x] Run Lab 05 with the final personas on Netflix, the company selected by Shivani Rathi.
+- [x] Record Shivani's completed checks of two Netflix core claims and one Insight citation.
 - [x] Record the three student names.
 - [x] Record the team name.
 - [x] Push the Week 3 artifacts completed to date.
@@ -88,14 +88,14 @@ Each model definition review has no non-correct finding.
 ## Current graph-produced reports
 
 - Costco: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
-- Netflix: `runs/NETFLIX_INC_NFLX_20261109_131548`.
+- Final-persona Netflix run: `runs/NETFLIX_INC_NFLX_20261109_180226`.
 
 The Costco report has 67 Correct and 144 Unsupported deterministic marks. The Unsupported marks expose web, unreproduced vendor, and uncited numerical claims instead of deleting them.
-The Netflix report has 42 Correct and one Unsupported deterministic mark. The failed Insight remains visible.
+The final-persona Netflix report has 92 Correct, 9 Unsupported, and 0 Wrong deterministic marks. Unsupported claims remain visible with their verifier explanations.
 The fresh Netflix facts use the 10-K short-term-debt line, so debt-to-equity is calculated instead of marked unavailable.
 Neither report was edited after the graph. The Verifier marks and filing corrections are appended to `verified_report.md`.
 The old folders containing `RECONCILED` are historical post-processing diagnostics. They are not graph output and are not current proof runs.
-Netflix remains Shivani Rathi's Week 2 partner pick; it does not satisfy the separate Lab 05 requirement for a company that reported in November.
+Netflix is Shivani Rathi's confirmed partner company. It reported in October 2026; the repository discloses that timing mismatch instead of claiming a November filing.
 
 ## FAskills and Tavily boundary
 
@@ -104,7 +104,10 @@ Netflix remains Shivani Rathi's Week 2 partner pick; it does not satisfy the sep
 - FAskills methodology labels remain optional, but vendor-derived metric values are blocked from the graded report until every input is reproduced from SEC XBRL.
 - Tavily results are saved as sidecars and excluded from graded role hand-offs.
 - Current code marks on the unedited graph report: 67 Correct; 0 Wrong; 144 Unsupported; 0 Missing.
-- Full repository result after the verifier correction: 71 tests passed.
+- Full repository result after the verifier and final-persona corrections: 73 tests passed.
+
+The exact request for written confirmation of the permitted persona-wording workflow is saved in `PERSONA_PERMISSION_REQUEST.txt`.
+The request is ready to send, but this repository does not claim that the instructor has replied.
 
 The current verified graph artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md).
 

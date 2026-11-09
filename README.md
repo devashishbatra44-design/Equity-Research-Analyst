@@ -87,7 +87,7 @@ Start the browser page with:
 Week 3 verification artifacts:
 
 - [Costco graph-produced report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md): the report is unchanged after the graph. The current Verifier shows 67 Correct and 144 Unsupported marks, including blocked web and vendor-derived numbers.
-- [Netflix graph-produced report](week03/runs/NETFLIX_INC_NFLX_20261109_131548/verified_report.md): the report is unchanged after the graph. The current Verifier shows 42 Correct and one Unsupported Insight.
+- [Final-persona Netflix graph report](week03/runs/NETFLIX_INC_NFLX_20261109_180226/verified_report.md): the report is unchanged after the graph. The current Verifier shows 92 Correct, 9 Unsupported, and 0 Wrong marks.
 - [Clean all-number Verifier proof](week03/verification_tests/clean_report/verified_report.md): all 41 report numbers outside the Advisor thesis are checked and Correct.
 - [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.
 - [Web-and-unsourced-number proof](week03/verification_tests/web_and_unsourced_numbers/verified_report.md): three added web or uncited values are marked Unsupported.

@@ -1,0 +1,313 @@
+{
+  "status": "pass",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $45.183 billion (facts.json:total_revenue).",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 15.8511% (calculations.json:revenue_growth).",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $13.327 billion (facts.json:operating_income). Annual operating margin was 29.4947% (calculations.json:operating_margin).",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $10.981 billion (facts.json:net_income).",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $2.53 (facts.json:diluted_eps).",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31; 10-k.txt:2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 42.7625% (calculations.json:return_on_average_equity).",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.5434x (calculations.json:debt_to_equity).",
+      "filing_says": "0.5434",
+      "mark": "Correct",
+      "evidence": "(13463971000 + 998865000) / 26615488000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9.461 billion (calculations.json:free_cash_flow).",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $12.874 billion (exhibit-99-1.txt:277).",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.8491% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $0.87 (exhibit-99-1.txt:291).",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [],
+  "unresolved_other_numbers_after_one_retry": [
+    {
+      "claim": "Other number L3.4",
+      "report_said": "28%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 28%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
+    },
+    {
+      "claim": "Other number L3.5",
+      "report_said": "$13,326,603 thousand",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $13,326,603 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
+    },
+    {
+      "claim": "Other number L6.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable."
+    },
+    {
+      "claim": "Other number L7.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance. | exhibit-99-1.txt:61-61: Revenue in Q3 grew 12% year over year (+11% on a foreign exchange (F/X) neutral basis), and was in-line with our forecast. In Q3, revenue growth was driven primarily by subscription revenue, reflecting increases in memberships and pricing, growth in advertising revenue and a favorable impact from F/X rates, net of hedging. Membership growth benefited from continued, healthy retention in every region; globally and in the US, churn improved year-over-year and was better than forecast."
+    },
+    {
+      "claim": "Other number L8.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2080-2080: Revenues for the year ended December 31, 2025 increased 16% as compared to the year ended December 31, 2024, primarily due to the growth in memberships, price increases, and increased advertising revenue, partially offset by unfavorable changes in foreign exchange rates, net of hedging. | 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | %"
+    },
+    {
+      "claim": "Other number L9.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L9.2",
+      "report_said": "21%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L10.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:2109-2109: Expenses related to the acquisition, licensing and production of content not included in content amortization may include payroll, stock-based compensation, facilities, and other personnel-related expenses, costs associated with obtaining rights to music included in our content, overall deals with talent, miscellaneous production-related costs and participations and residuals. Streaming delivery costs are primarily related to our global content delivery network (“Open Connect”). We have built our own Open Connect network to help us efficiently stream a high volume of content to our members over the internet. Delivery expenses, therefore, include equipment costs related to Open Connect, payroll and related personnel expenses and all third-party costs, such as cloud computing costs, associated with delivering content over the internet. Other operating costs include customer service and payment processing fees, including those we pay to our integrated payment partners, as well as other costs incurred in making our content available to members. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings."
+    },
+    {
+      "claim": "Other number L11.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:26-26: We’ll continue to expand our entertainment offering through licensing and new ways to bring more third-party content to our service, like our TF1 partnership in France. Our audience, which is approaching one billion people, and our best-in-class product capabilities, make us great partners for studios, networks and creative talent. | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%."
+    },
+    {
+      "claim": "Other number L12.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1730-1730: We regard our trademarks, service marks, copyrights, patents, domain names, trade dress, trade secrets, proprietary technologies and similar intellectual property as important to our success. We use a combination of patent, trademark, copyright and trade secret laws and confidentiality agreements to protect our proprietary intellectual property. Our intellectual property rights extend to our technology, business processes, the content we produce and distribute through our service, and the consumer products and experiences based thereon. We use the intellectual property of third parties in creating some of our content, merchandising our products and marketing our service. Our ability to provide our members with content they can watch depends on studios, content providers and other rights holders licensing rights, including distribution rights, to such content and certain related elements thereof, such as the public performance of music contained within the content we distribute. The license periods and the terms and conditions of such licenses vary. Our ability to protect and enforce our intellectual property rights is subject to certain risks and from time to time we encounter disputes over rights and obligations concerning intellectual property. We cannot provide assurance that we will prevail in any intellectual property disputes."
+    },
+    {
+      "claim": "Other number L16.3",
+      "report_said": "$14,514,646 thousand",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $14,514,646 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %"
+    },
+    {
+      "claim": "Other number L16.7",
+      "report_said": "$5,353,717 thousand",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $5,353,717 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %"
+    },
+    {
+      "claim": "Other number L21.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses."
+    },
+    {
+      "claim": "Other number L21.3",
+      "report_said": "31.5%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 31.5%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses."
+    },
+    {
+      "claim": "Other number L21.4",
+      "report_said": "16%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 16%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses."
+    },
+    {
+      "claim": "Other number L22.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:61-61: Revenue in Q3 grew 12% year over year (+11% on a foreign exchange (F/X) neutral basis), and was in-line with our forecast. In Q3, revenue growth was driven primarily by subscription revenue, reflecting increases in memberships and pricing, growth in advertising revenue and a favorable impact from F/X rates, net of hedging. Membership growth benefited from continued, healthy retention in every region; globally and in the US, churn improved year-over-year and was better than forecast. | exhibit-99-1.txt:157-157: We know there’s some investor concern about our view hours growth. Member response to our 2026 price increases is consistent with prior price changes and our expectations, an indicator that our engagement - which encompasses quantity, quality and variety of viewing - remains healthy and that we continue to deliver strong value to members. But we do seek to accelerate growth in view hours as well, and we’re confident we’ll do that by relentlessly focusing and executing against the aforementioned strategy."
+    },
+    {
+      "claim": "Other number L23.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | % | 10-k.txt:2080-2080: Revenues for the year ended December 31, 2025 increased 16% as compared to the year ended December 31, 2024, primarily due to the growth in memberships, price increases, and increased advertising revenue, partially offset by unfavorable changes in foreign exchange rates, net of hedging."
+    },
+    {
+      "claim": "Other number L24.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L24.2",
+      "report_said": "21%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L25.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:26-26: We’ll continue to expand our entertainment offering through licensing and new ways to bring more third-party content to our service, like our TF1 partnership in France. Our audience, which is approaching one billion people, and our best-in-class product capabilities, make us great partners for studios, networks and creative talent."
+    },
+    {
+      "claim": "Other number L26.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026."
+    },
+    {
+      "claim": "Other number L27.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1732-1732: The media landscape and the internet delivery of content have seen growing regulatory action. Historically, media has been highly regulated in many countries. We are seeing some of these legacy regulatory frameworks be updated and expanded to address services like ours. In particular, we are seeing some countries update their cultural support legislation to include services like Netflix. This includes investment obligations, levies, and content catalog quotas. Some even restrict the extent of ownership rights we can have both in our service and in our content. In certain countries, regulators are also looking at restrictions that could require formal reviews of and/or adjustments to content that appears on our service in their country. In general these regulations impact all services and may make operating in certain jurisdictions more expensive or restrictive as to the content offerings we may provide."
+    },
+    {
+      "claim": "Other number L45.1",
+      "report_said": "$9.461 billion",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $9.461 billion, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2543-2543: Short-term debt | 998,865 | 1,784,453 | 10-k.txt:2546-2546: Long-term debt | 13,463,971 | 13,798,351 | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09"
+    },
+    {
+      "claim": "Other number L83.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | %"
+    },
+    {
+      "claim": "Other number L84.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
+    },
+    {
+      "claim": "Other number L85.1",
+      "report_said": "5",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 5, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | %"
+    },
+    {
+      "claim": "Other number L85.3",
+      "report_said": "13%",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 13%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | %"
+    },
+    {
+      "claim": "Other number L86.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | %"
+    },
+    {
+      "claim": "Other number L87.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:26-26: We’ll continue to expand our entertainment offering through licensing and new ways to bring more third-party content to our service, like our TF1 partnership in France. Our audience, which is approaching one billion people, and our best-in-class product capabilities, make us great partners for studios, networks and creative talent."
+    },
+    {
+      "claim": "Other number L88.1",
+      "report_said": "4",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L89.1",
+      "report_said": "3",
+      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 3, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects."
+    }
+  ],
+  "post_generation_report_edits": [],
+  "code_written_insight_fallbacks": [],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": [
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line failed source verification: Wrong; The cited line does not contain: 511. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947"
+    }
+  ]
+}

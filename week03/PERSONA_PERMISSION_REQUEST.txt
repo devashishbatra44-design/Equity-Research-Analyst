@@ -1,0 +1,14 @@
+Subject: FIN 67110 persona-wording confirmation
+
+Hi Prof. Zhang,
+
+I wrote the original design for my three Week 3 personas in my own words. I preserved that exact draft in my repository as week03/persona_original_draft.md.
+
+After I wrote the design, I used Codex to separate mechanical operating rules from the persona files and to improve the wording. The identities, analytical perspectives, criteria, and judgment framework remain based on my original draft.
+
+Could you please confirm in writing whether this use of AI to edit wording after I wrote the original persona design is permitted for Lab 05?
+
+I will preserve both the original draft and the operational files so that the provenance is visible.
+
+Best regards,
+Devashish Batra

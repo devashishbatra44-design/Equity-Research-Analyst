@@ -17,12 +17,12 @@ The first run folder remained unchanged when the second run was created.
 | Run folder | Company | Deterministic result | Report edited after graph? |
 |---|---|---|---|
 | `COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525` | Costco | 67 Correct; 144 Unsupported | No |
-| `NETFLIX_INC_NFLX_20261109_131548` | Netflix, Shivani Rathi's Week 2 partner pick | 42 Correct; 1 Unsupported | No |
+| `NETFLIX_INC_NFLX_20261109_180226` | Netflix, selected by Shivani Rathi; final personas | 92 Correct; 9 Unsupported; 0 Wrong | No |
 
 The fresh Netflix data run reads the 10-K short-term-debt line and calculates debt-to-equity.
 The verifier output shows unresolved claims instead of deleting them. Code never writes an Insight.
 The old `RECONCILED` folders are historical post-processing diagnostics and are not the desk's output.
-Netflix reported in October, so it does not satisfy the separate Lab 05 requirement for a November-reporting partner pick.
+Netflix reported in October 2026. Shivani selected Netflix, and the repository discloses the timing mismatch rather than relabeling the filing month.
 
 ## Browser page check
 

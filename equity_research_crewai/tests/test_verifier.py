@@ -241,3 +241,28 @@ The DuPont 5-factor framework is used as an analytical label.
 No number is checked here.
 """
     assert verify_all_other_numbers(CLEAN_RUN, report) == []
+
+
+def test_insight_accepts_basis_point_difference_from_cited_percentages() -> None:
+    insight = (
+        "Insight: The quarter operating margin of 34.6% (exhibit-99-1.txt:14) "
+        "exceeded the annual operating margin of 29.49% "
+        "(calculations.json:operating_margin) by 511 basis points."
+    )
+    marks = verify_insight_claims(NETFLIX_RUN, insight)
+    assert len(marks) == 1
+    assert marks[0].mark == "Correct"
+    assert "basis points" in marks[0].evidence
+
+
+def test_persona_criterion_score_is_analytical_not_a_filing_value() -> None:
+    report = """# Test report
+# Overview
+* **Business-model durability:** 5. Evidence supports the score (10-k.txt:1010).
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(CLEAN_RUN, report)
+    score = next(mark for mark in marks if mark.report_said == "5")
+    assert score.mark == "Correct"
+    assert "Analytical score" in score.filing_says

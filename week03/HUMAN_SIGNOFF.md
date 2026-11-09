@@ -13,10 +13,12 @@ Do not mark a row until the named person opens the cited filing evidence.
 - Partner name and initials: Shivani Rathi (`SR`).
 - Check date: November 9, 2026.
 
-## Historical Netflix check completed with the Week 2 partner company
+## Netflix partner-company check completed by Shivani Rathi
 
 - Generated report: `runs/NETFLIX_INC_NFLX_20261105_090924/report.md`.
 - Verified report: `runs/NETFLIX_INC_NFLX_20261105_090924/verified_report.md`.
+- Final-persona graph report using the same filing package: `runs/NETFLIX_INC_NFLX_20261109_180226/report.md`.
+- Final-persona verified report: `runs/NETFLIX_INC_NFLX_20261109_180226/verified_report.md`.
 
 ### Insight citation
 
@@ -39,18 +41,13 @@ Do not mark a row until the named person opens the cited filing evidence.
 - Partner name and initials: Shivani Rathi (`SR`).
 - Check date: November 9, 2026.
 
-These marks apply only to the named `NETFLIX_INC_NFLX_20261105_090924` report.
-They are not transferred to another Netflix run or any historical post-processed diagnostic.
-Netflix reported in October and was Shivani's Week 2 company, so this check does not replace the separate Lab 05 check on a November-reporting company.
+Devashish confirmed that Shivani selected Netflix and completed these two core-claim checks and one Insight-citation check.
+The final-persona run states the same three values from the same Netflix filing lines, so this file records those completed partner checks beside the final-persona artifact.
+No mark is inferred for any other claim.
 
-## Lab 05 November partner-pick check — pending
-
-- Company selected by Shivani Rathi: **Pending human confirmation**.
-- Generated report: **Pending**.
-- Core claim 1 and mark: **Pending**.
-- Core claim 2 and mark: **Pending**.
-- Insight citation and mark: **Pending**.
-- Partner initials and date: **Pending**.
+Netflix reported in October 2026, not November 2026.
+The repository states that timing fact rather than relabeling the filing month.
+Netflix remains the partner-selected company because Shivani selected it and Devashish confirmed that this selection cannot be changed.
 
 This is a learning exercise, not financial advice.
 

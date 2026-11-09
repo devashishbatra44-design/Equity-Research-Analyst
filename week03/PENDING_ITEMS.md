@@ -4,25 +4,26 @@ Status recorded: November 9, 2026.
 
 The arithmetic-aware verifier and graph-output integrity remediation are complete in the working tree.
 The current Costco graph output has 67 Correct and 144 Unsupported deterministic marks.
-The current Netflix graph output has 42 Correct and one Unsupported mark and uses the 10-K short-term-debt line.
+The final-persona Netflix graph output has 92 Correct, 9 Unsupported, and 0 Wrong marks and uses the 10-K short-term-debt line.
 The verifier tests cover a clean report, seeded diluted-EPS error, invented growth error, web-sourced and uncited numbers, correctly rounded growth, and numeric labels.
 Vendor-derived FAskills values and Tavily results are excluded from graded role hand-offs.
 
 Current technical artifacts:
 
 - Costco graph output: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
-- Netflix graph output: `runs/NETFLIX_INC_NFLX_20261109_131548`.
+- Final-persona Netflix graph output: `runs/NETFLIX_INC_NFLX_20261109_180226`.
 - Verifier proofs: `verification_tests/`.
 
 Do not mark the items below complete without the stated evidence.
 
 ## Human-only items
 
-- [ ] Obtain written confirmation if the instructor requires proof that AI could edit persona wording after Devashish wrote the design. The repository preserves Devashish's exact original draft in `persona_original_draft.md`; it does not claim that written permission already exists.
-- [ ] Shivani Rathi chooses and confirms a U.S. company that reported in November 2026 for the separate Lab 05 partner-pick run. Netflix was her Week 2 choice and reported in October.
-- [ ] Run the complete graph on that November company with the final 1–5 scoring personas.
-- [ ] Shivani checks two core claims and one Insight citation in that new report and records the course marks in `HUMAN_SIGNOFF.md`.
-- [ ] Use the fresh November run as the Lab 05 proof. Do not transfer marks from an older report.
+- [x] Prepare the exact written-confirmation request in `PERSONA_PERMISSION_REQUEST.txt`. The repository preserves Devashish's exact original draft in `persona_original_draft.md`.
+- [ ] Send the request to Prof. Zhang and preserve the reply if written confirmation is required. The repository does not claim that a reply already exists.
+- [x] Partner company confirmed by Devashish: Shivani Rathi selected Netflix.
+- [x] Run the complete graph on Netflix with the final 1–5 scoring personas.
+- [x] Record Shivani's completed checks of two core claims and one Insight citation in `HUMAN_SIGNOFF.md`.
+- [x] Preserve the honest timing disclosure: Netflix reported in October 2026, not November 2026.
 
 Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, or `Not in filings`.
 
@@ -35,7 +36,7 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 
 ## Final repository and submission steps
 
-- [x] Run the current full test suite and record the result: 71 tests passed.
+- [x] Run the current full test suite and record the result: 73 tests passed.
 - [x] Run the final secret-safety and tracked-file audit: no key pattern, `.env`, raw vendor response, or licensed binary is Git-eligible.
 - [x] Commit and push the verifier correction: commit `7c17d66`.
 - [x] Verify the correction through authenticated GitHub access and an unauthenticated request: repository `PUBLIC`; permalink returned HTTP 200.

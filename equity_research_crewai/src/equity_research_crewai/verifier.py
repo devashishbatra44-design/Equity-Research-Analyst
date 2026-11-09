@@ -111,6 +111,30 @@ def _rounded_match(reported: float, calculated: float, mention: str) -> bool:
     return math.isclose(reported, calculated, rel_tol=0.0, abs_tol=tolerance)
 
 
+def _mention_numeric_equivalent(mention: str, report_value: float, source_value: float) -> bool:
+    """Compare a cited value using the unit and rounding printed in the report."""
+    lower = mention.lower()
+    if "billion" in lower:
+        report_scale = 1_000_000_000.0
+    elif "million" in lower:
+        report_scale = 1_000_000.0
+    elif "thousand" in lower:
+        report_scale = 1_000.0
+    else:
+        report_scale = 1.0
+    precision = _reported_precision(mention)
+    tolerance = (0.5 * (10 ** -precision) * report_scale) + 1e-9
+    report_base = report_value * report_scale
+    for source_scale in (1.0, 1_000.0, 1_000_000.0, 1_000_000_000.0):
+        if math.isclose(report_base, source_value * source_scale, rel_tol=0.0, abs_tol=tolerance):
+            return True
+    if report_scale == 1.0:
+        return _rounded_match(report_value, source_value, mention) or _numeric_equivalent(
+            report_value, source_value
+        )
+    return False
+
+
 def _derived_arithmetic_match(
     line: str,
     mention: str,
@@ -128,6 +152,7 @@ def _derived_arithmetic_match(
 
     lower_line = line.lower()
     is_percent = "%" in mention or "basis point" in mention.lower()
+    is_basis_points = "basis point" in mention.lower()
     is_multiple = bool(re.search(r"\bx\b", mention, flags=re.IGNORECASE))
     growth_language = bool(
         re.search(
@@ -154,6 +179,13 @@ def _derived_arithmetic_match(
                 ratio_percent = (left / right) * 100
                 if _rounded_match(reported_value, ratio_percent, mention):
                     return f"{left:g} / {right:g} = {ratio_percent:.8g}%"
+            if is_basis_points:
+                basis_point_difference = (left - right) * 100
+                if _rounded_match(reported_value, basis_point_difference, mention):
+                    return (
+                        f"({left:g} percentage points - {right:g} percentage points) "
+                        f"= {basis_point_difference:.8g} basis points"
+                    )
             if is_multiple and ratio_language:
                 ratio = left / right
                 if _rounded_match(reported_value, ratio, mention):
@@ -634,7 +666,7 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
         calculation_citations = calculation_pattern.findall(insight)
         faskills_citations = faskills_pattern.findall(insight)
         claim_without_citations = faskills_pattern.sub("", calculation_pattern.sub("", citation_pattern.sub("", insight)))
-        reported_numbers = _numbers(claim_without_citations)
+        reported_mentions = [match.group(0).strip() for match in NUMBER_MENTION_RE.finditer(claim_without_citations)]
         source_lines: list[str] = []
         cited_ranges: list[tuple[str, int, int]] = []
         missing_citation = False
@@ -702,14 +734,30 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
             mark = "Unsupported"
         else:
             source_numbers = [number for line in source_lines for number in _numbers(line)] + calculation_numbers
-            unmatched = [
-                number
-                for number in reported_numbers
-                if not any(_close(number, source_number, 0.005) for source_number in source_numbers)
-            ]
+            unmatched: list[str] = []
+            arithmetic_evidence: list[str] = []
+            for mention in reported_mentions:
+                number = _number_from_mention(mention)
+                if any(
+                    _mention_numeric_equivalent(mention, number, source_number)
+                    for source_number in source_numbers
+                ):
+                    continue
+                arithmetic = _derived_arithmetic_match(
+                    claim_without_citations,
+                    mention,
+                    number,
+                    source_numbers,
+                )
+                if arithmetic:
+                    arithmetic_evidence.append(arithmetic)
+                    continue
+                unmatched.append(mention)
             mark = "Wrong" if unmatched else "Correct"
+            if arithmetic_evidence:
+                evidence = "Simple arithmetic from cited inputs: " + "; ".join(arithmetic_evidence) + ". " + evidence
             if unmatched:
-                evidence = f"The cited line does not contain: {', '.join(f'{number:g}' for number in unmatched)}. " + evidence
+                evidence = f"The cited line does not contain or establish: {', '.join(unmatched)}. " + evidence
         marks.append(
             VerificationMark(
                 claim=f"Insight {index}",
@@ -887,15 +935,8 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
             citation_window = line[mention_match.end():next_start]
             preceding_text = line[:mention_match.start()]
             score_mention = (
-                value in {1, 2, 3, 4, 5}
+                mention in {"1", "2", "3", "4", "5"}
                 and bool(re.search(r":\s*\*{0,2}\s*$", preceding_text))
-                and bool(
-                    re.search(
-                        r"\bevidence(?:\s+source)?\s*:",
-                        line[mention_match.end():],
-                        flags=re.IGNORECASE,
-                    )
-                )
             )
             has_vendor_source = bool(FASKILLS_CITATION_RE.search(citation_window))
             has_permitted_citation = any(
@@ -927,7 +968,10 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
                 mark = "Correct"
                 evidence = "Analytical score; the cited filing or calculation supplies the evidence used for the score."
                 filing_says = "Analytical score, not a filing value"
-            elif any(_numeric_equivalent(value, source_value) for source_value in source_numbers):
+            elif any(
+                _mention_numeric_equivalent(mention, value, source_value)
+                for source_value in source_numbers
+            ):
                 mark = "Correct"
                 evidence = " | ".join(evidence_parts)
                 filing_says = "Matched cited filing or deterministic calculation"
