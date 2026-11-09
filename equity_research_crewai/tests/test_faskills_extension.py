@@ -97,7 +97,7 @@ def test_financialdatasets_values_must_match_saved_sec_facts() -> None:
     assert crosscheck_with_sec(payload, facts, manifest)["status"] == "failed"
 
 
-def test_insight_accepts_approved_faskills_metric_only_with_filing_line(tmp_path: Path) -> None:
+def test_insight_rejects_vendor_faskills_metric_until_all_inputs_are_sec_derived(tmp_path: Path) -> None:
     (tmp_path / "10-k.txt").write_text("Revenue and cash-flow evidence.\n", encoding="utf-8")
     (tmp_path / "calculations.json").write_text('{"calculations": {}}\n', encoding="utf-8")
     sidecar = {
@@ -114,6 +114,6 @@ def test_insight_accepts_approved_faskills_metric_only_with_filing_line(tmp_path
     (tmp_path / "faskills_metrics.json").write_text(json.dumps(sidecar), encoding="utf-8")
     report = "Insight: The Piotroski F-Score was 7 (faskills_metrics.json:piotroski_f_score), supported by the filing evidence. (10-k.txt:1)"
     marks = verify_insight_claims(tmp_path, report)
-    assert marks[0].mark == "Correct"
+    assert marks[0].mark == "Unsupported"
     report_without_filing = "Insight: The Piotroski F-Score was 7 (faskills_metrics.json:piotroski_f_score)."
     assert verify_insight_claims(tmp_path, report_without_filing)[0].mark == "Unsupported"

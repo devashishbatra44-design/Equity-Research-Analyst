@@ -1,0 +1,308 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $45.183 billion (facts.json:total_revenue).",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 15.8511% (calculations.json:revenue_growth).",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $13.327 billion (facts.json:operating_income). Annual operating margin was 29.4947% (calculations.json:operating_margin).",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $10.981 billion (facts.json:net_income).",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $2.53 (facts.json:diluted_eps).",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31; 10-k.txt:2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 42.7625% (calculations.json:return_on_average_equity).",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.5434x (calculations.json:debt_to_equity).",
+      "filing_says": "0.5434",
+      "mark": "Correct",
+      "evidence": "(13463971000 + 998865000) / 26615488000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9.461 billion (calculations.json:free_cash_flow).",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $12.874 billion (exhibit-99-1.txt:277).",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.8491% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $0.87 (exhibit-99-1.txt:291).",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "Latest-fiscal-year revenue growth was 15.8511% () using the reported revenue row (), while operating margin was 29.4947% () using the operating-income row (); the margin was above growth, which shows how reported growth translated into profitability.",
+      "filing_says": "Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | Operating income | 13,326,603 | 10,417,614 | 6,954,003 | revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | Operating income | 13,326,603 | 10,417,614 | 6,954,003 | revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | operating_margin: 13326603000 / 45183036000; result 0.294947"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The source-bounded operating evidence () suggests that competitive durability should be tested against the next filing rather than inferred from the earnings headline.",
+      "filing_says": "The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects.",
+      "mark": "Correct",
+      "evidence": "The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects."
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The operating margin guidance of 31.5% () is the deciding number because it must be achieved to justify the price-to-earnings ratio of 27.15 () against the 13% revenue growth outlook (); if the margin fails to expand from the 29.49% () baseline, the risk-reward profile deteriorates due to the limited valuation cushion.",
+      "filing_says": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | price_to_earnings: 68.69 / 2.53; result 27.1502 | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "mark": "Correct",
+      "evidence": "Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | price_to_earnings: 68.69 / 2.53; result 27.1502 | operating_margin: 13326603000 / 45183036000; result 0.294947"
+    },
+    {
+      "claim": "Other number L11.1",
+      "report_said": "$19,957,152 thousand",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | 10-k.txt:2089-2089: Latin America (LATAM) | 5,357,521 | 4,839,816 | 4,446,461 | 517,705 | 11 | % | 10-k.txt:2090-2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
+    },
+    {
+      "claim": "Other number L11.2",
+      "report_said": "$14,514,646 thousand",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | 10-k.txt:2089-2089: Latin America (LATAM) | 5,357,521 | 4,839,816 | 4,446,461 | 517,705 | 11 | % | 10-k.txt:2090-2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
+    },
+    {
+      "claim": "Other number L11.3",
+      "report_said": "$5,357,521 thousand",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | 10-k.txt:2089-2089: Latin America (LATAM) | 5,357,521 | 4,839,816 | 4,446,461 | 517,705 | 11 | % | 10-k.txt:2090-2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
+    },
+    {
+      "claim": "Other number L11.4",
+      "report_said": "$5,353,717 thousand",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | 10-k.txt:2089-2089: Latin America (LATAM) | 5,357,521 | 4,839,816 | 4,446,461 | 517,705 | 11 | % | 10-k.txt:2090-2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
+    },
+    {
+      "claim": "Other number L13.1",
+      "report_said": "$51.1 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L13.2",
+      "report_said": "13%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L13.3",
+      "report_said": "31.5%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L13.4",
+      "report_said": "$2.7 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L13.5",
+      "report_said": "$3 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L13.6",
+      "report_said": "15",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+    },
+    {
+      "claim": "Other number L19.1",
+      "report_said": "15.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | 10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | exhibit-99-1.txt:12-12: Q3 revenue grew 12% year over year (11% on a F/X neutral basis | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:quarter_revenue_growth: (12,874,176 - 11,510,307) / 11,510,307; result 0.118491"
+    },
+    {
+      "claim": "Other number L19.2",
+      "report_said": "$39,000,966,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | 10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | exhibit-99-1.txt:12-12: Q3 revenue grew 12% year over year (11% on a F/X neutral basis | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:quarter_revenue_growth: (12,874,176 - 11,510,307) / 11,510,307; result 0.118491"
+    },
+    {
+      "claim": "Other number L19.3",
+      "report_said": "$45,183,036,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | 10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | exhibit-99-1.txt:12-12: Q3 revenue grew 12% year over year (11% on a F/X neutral basis | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:quarter_revenue_growth: (12,874,176 - 11,510,307) / 11,510,307; result 0.118491"
+    },
+    {
+      "claim": "Other number L19.4",
+      "report_said": "11.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | 10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | exhibit-99-1.txt:12-12: Q3 revenue grew 12% year over year (11% on a F/X neutral basis | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:quarter_revenue_growth: (12,874,176 - 11,510,307) / 11,510,307; result 0.118491"
+    },
+    {
+      "claim": "Other number L19.5",
+      "report_said": "12%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | 10-k.txt:2435-2435: Revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | exhibit-99-1.txt:12-12: Q3 revenue grew 12% year over year (11% on a F/X neutral basis | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:quarter_revenue_growth: (12,874,176 - 11,510,307) / 11,510,307; result 0.118491"
+    },
+    {
+      "claim": "Other number L29.1",
+      "report_said": "$9,461,053,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:28-28: Member response to our 2026 price changes is consistent with prior adjustments and our expectations, an indicator that our engagement - which encompasses quantity, quality and variety of viewing - remains healthy and that we continue to deliver strong value to members. | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09"
+    },
+    {
+      "claim": "Other number L31.1",
+      "report_said": "$2.53",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | 10-k.txt:2446-2446: Net income | $ | 10,981,201 | $ | 8,711,631 | $ | 5,407,990 | exhibit-99-1.txt:291-291: Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Other number L31.2",
+      "report_said": "$10,981,201,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | 10-k.txt:2446-2446: Net income | $ | 10,981,201 | $ | 8,711,631 | $ | 5,407,990 | exhibit-99-1.txt:291-291: Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Other number L31.3",
+      "report_said": "$0.87",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | 10-k.txt:2446-2446: Net income | $ | 10,981,201 | $ | 8,711,631 | $ | 5,407,990 | exhibit-99-1.txt:291-291: Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    },
+    {
+      "claim": "Other number L33.1",
+      "report_said": "27.15",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | manifest.json:price: 68.69"
+    },
+    {
+      "claim": "Other number L33.2",
+      "report_said": "$68.69",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | manifest.json:price: 68.69"
+    },
+    {
+      "claim": "Other number L33.3",
+      "report_said": "$2.53",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | manifest.json:price: 68.69"
+    },
+    {
+      "claim": "Other number L33.4",
+      "report_said": "13%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | manifest.json:price: 68.69"
+    },
+    {
+      "claim": "Other number L35.1",
+      "report_said": "29.49%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+    },
+    {
+      "claim": "Other number L35.2",
+      "report_said": "18.59%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+    },
+    {
+      "claim": "Other number L35.3",
+      "report_said": "16.71%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+    },
+    {
+      "claim": "Other number L35.4",
+      "report_said": "-0.12%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+    },
+    {
+      "claim": "Other number L56.1",
+      "report_said": "120 basis points",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:68-68: To successfully execute this strategy, we focus on three priorities: 1) delivering more entertainment value to our members, 2) leveraging technology to improve all aspects of our service, and 3) improving our monetization. These priorities work in concert to drive acquisition and retention, create member value that lets us occasionally raise prices, and increase advertiser demand. We reinvest returns in our business so we can win more moments of truth and fund the next wave of entertainment. Done well, | exhibit-99-1.txt:152-152: Our investment in our product capabilities, including our new TV UI, enables us to seamlessly integrate and merchandise more third party content to Netflix members. This summer we launched our partnership with TF1, a leading French broadcaster. This partnership enables us to provide our French members with even more highly local series, film, news and sports programming, all within a frictionless choosing and viewing experience that complements our French slate and global programming. We’re pleased with the TF1 partnership and the early metrics indicate that it’s generating incremental viewing in France. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in | exhibit-99-1.txt:64-64: In Q4, we expect revenue of $13.4 billion, which represents year over year growth of 12% (or 11% F/X neutral) driven by growth in memberships, pricing, and ad revenue. We project a Q4 operating margin of 26.0% which includes ~120 basis points negative impact associated with our recently announced headcount reductions, and compares with 24.5% in the year ago quarter. These organizational changes enable us to continue to aggressively invest in high impact areas to improve our service, and drive growth and innovation."
+    },
+    {
+      "claim": "Other number L58.1",
+      "report_said": "20%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:65-65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026."
+    }
+  ],
+  "semantic_review": null,
+  "semantic_raw": "",
+  "semantic_error": ""
+}

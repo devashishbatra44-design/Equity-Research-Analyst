@@ -10,6 +10,7 @@ from equity_research_crewai.verifier import (
     _release_quarter_revenues,
     load_json,
     verify_core_claims,
+    verify_all_other_numbers,
     verify_insight_claims,
     verify_saved_run,
 )
@@ -61,8 +62,9 @@ def test_seeded_eps_error_is_wrong_and_corrected(tmp_path: Path) -> None:
     _, marks, _, _ = verify_saved_run(run)
     mark = mark_for(marks, "5.")
     assert mark.mark == "Wrong"
-    assert mark.report_said == "21.76"
+    assert "$21.76" in mark.report_said
     assert mark.filing_says == "$20.76"
+    assert "10-k.txt:1294" in mark.evidence
 
 
 def test_invented_growth_is_wrong(tmp_path: Path) -> None:
@@ -190,3 +192,18 @@ def test_release_parser_uses_same_quarter_and_table_units() -> None:
     assert current == 12_874_176_000
     assert prior == 11_510_307_000
     assert eps == 0.87
+
+
+def test_web_number_and_unsourced_number_are_unsupported() -> None:
+    report = """# Test report
+# Overview
+Executive memberships grew 9.6% to 35.4 million ([Yahoo](https://finance.yahoo.com/example)).
+An uncited operating KPI improved 7.5%.
+# Investment Recommendation
+The Advisor thesis uses 47.79x and is outside this deterministic check.
+"""
+    marks = verify_all_other_numbers(CLEAN_RUN, report)
+    assert marks
+    assert {mark.report_said for mark in marks} >= {"9.6%", "35.4 million", "7.5%"}
+    assert {mark.mark for mark in marks} == {"Unsupported"}
+    assert not any(mark.report_said == "47.79x" for mark in marks)

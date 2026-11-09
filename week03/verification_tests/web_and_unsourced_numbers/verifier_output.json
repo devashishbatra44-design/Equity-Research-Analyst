@@ -1,0 +1,315 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $303.154 billion (facts.json:total_revenue).",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 10.1437% (calculations.json:revenue_growth).",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $11.685 billion (facts.json:operating_income). Annual operating margin was 3.8545% (calculations.json:operating_margin).",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $9.226 billion (facts.json:net_income).",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $20.76 (facts.json:diluted_eps).",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30; 10-k.txt:1294: Diluted | $ | 20.76 | $ | 18.21 | $ | 16.56"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 28.4021% (calculations.json:return_on_average_equity).",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.1721x (calculations.json:debt_to_equity).",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9.382 billion (calculations.json:free_cash_flow).",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $95.723 billion (exhibit-99-1.txt:39).",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.1043% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $6.75 (exhibit-99-1.txt:20).",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The current quarter revenue growth of 11.10% () is higher than the latest fiscal year revenue growth of 10.14% (), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter () and 10.1% for the fiscal year ().",
+      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
+      "mark": "Correct",
+      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The 8.4% () growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point () decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
+      "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;",
+      "mark": "Correct",
+      "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The 47.79x () multiple is supported by a 3.85% () operating margin, which is calculated using an operating income of $11,685,000,000 (); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
+      "filing_says": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
+      "mark": "Correct",
+      "evidence": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L6.1",
+      "report_said": "10.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.2",
+      "report_said": "$297.2 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.3",
+      "report_said": "8.4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.4",
+      "report_said": "4,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.5",
+      "report_said": "84.1 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L11.1",
+      "report_said": "89.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L11.2",
+      "report_said": "$15.825 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L11.3",
+      "report_said": "$6.435 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L14.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | 10-k.txt:754-754: Our other businesses sell products and services that largely complement our warehouse operations. Our business centers carry items tailored for food services, convenience stores, and offices, and offer walk-in shopping and deliveries. Business centers are included in our total warehouse count. Our e-commerce operations give members convenience and a broader selection of goods and services. Costco Travel offers vacation packages, car rentals, cruises and other travel products exclusively for Costco members in varying degrees in the U.S., Canada, the U.K., and Australia. Digitally-enabled sales, which represents sales that are initiated through a digital device, whether fulfilled through a warehouse or distribution center, as well as Costco Travel, represented 11% of total net sales in 2026."
+    },
+    {
+      "claim": "Other number L14.2",
+      "report_said": "11%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | 10-k.txt:754-754: Our other businesses sell products and services that largely complement our warehouse operations. Our business centers carry items tailored for food services, convenience stores, and offices, and offer walk-in shopping and deliveries. Business centers are included in our total warehouse count. Our e-commerce operations give members convenience and a broader selection of goods and services. Costco Travel offers vacation packages, car rentals, cruises and other travel products exclusively for Costco members in varying degrees in the U.S., Canada, the U.K., and Australia. Digitally-enabled sales, which represents sales that are initiated through a digital device, whether fulfilled through a warehouse or distribution center, as well as Costco Travel, represented 11% of total net sales in 2026."
+    },
+    {
+      "claim": "Other number L16.1",
+      "report_said": "8.4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L16.2",
+      "report_said": "10 basis points",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L16.3",
+      "report_said": "89.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L20.1",
+      "report_said": "939 warehouses",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L20.2",
+      "report_said": "28",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L20.3",
+      "report_said": "25",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L22.1",
+      "report_said": "11%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | 10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | 10-k.txt:751-751: Warehouse ancillary operate primarily within, next to or near our warehouses, encouraging more frequent shopping. The number of warehouses with gas stations varies significantly by country. We operated 774 gas stations at the end of 2026. Our gasoline business represented 11% of total net sales in 2026. | 10-k.txt:1016-1016: We believe our gasoline business enhances traffic in our warehouses; it generally has a lower gross margin percentage and lower SG&A expense relative to our non-gasoline businesses. A higher penetration of gasoline sales will generally lower our gross margin percentage. Generally, rising gasoline prices benefit net sales growth which, given the higher sales base, negatively impacts our gross margin percentage but decreases our SG&A expenses as a percentage of net sales. A decline in gasoline prices has the inverse effect."
+    },
+    {
+      "claim": "Other number L30.1",
+      "report_said": "92.3%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498)"
+    },
+    {
+      "claim": "Other number L30.2",
+      "report_said": "$6.435 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498)"
+    },
+    {
+      "claim": "Other number L33.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%"
+    },
+    {
+      "claim": "Other number L35.1",
+      "report_said": "10 basis point",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    },
+    {
+      "claim": "Other number L46.1",
+      "report_said": "47.79x",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L46.2",
+      "report_said": "3.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L70.1",
+      "report_said": "75.2%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
+    },
+    {
+      "claim": "Other number L74.1",
+      "report_said": "$15.825 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335"
+    },
+    {
+      "claim": "Other number L77.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%"
+    },
+    {
+      "claim": "Other number L79.1",
+      "report_said": "10 basis point",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    },
+    {
+      "claim": "Other number L84.1",
+      "report_said": "9.6%",
+      "filing_says": "No permitted filing or code source",
+      "mark": "Unsupported",
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+    },
+    {
+      "claim": "Other number L84.2",
+      "report_said": "35.4 million",
+      "filing_says": "No permitted filing or code source",
+      "mark": "Unsupported",
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+    },
+    {
+      "claim": "Other number L86.1",
+      "report_said": "7.5%",
+      "filing_says": "No valid source citation",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+    }
+  ],
+  "semantic_review": null,
+  "semantic_raw": "",
+  "semantic_error": ""
+}

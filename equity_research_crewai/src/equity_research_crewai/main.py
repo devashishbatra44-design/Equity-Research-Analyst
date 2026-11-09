@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import shutil
@@ -31,7 +32,14 @@ if str(REPOSITORY_ROOT) not in sys.path:
 from week02 import desk_app  # noqa: E402
 from week02.desk_steps import RUNS_ROOT, parse_peers, safe_folder_component  # noqa: E402
 
-from equity_research_crewai.verifier import verify_core_claims, verify_insight_claims, verify_saved_run  # noqa: E402
+from equity_research_crewai.verifier import (  # noqa: E402
+    _quarter_eps,
+    _release_quarter_revenues,
+    verify_all_other_numbers,
+    verify_core_claims,
+    verify_insight_claims,
+    verify_saved_run,
+)
 from equity_research_crewai.faskills_extension import enrich_run_folder  # noqa: E402
 from equity_research_crewai.faskills_methodology import (  # noqa: E402
     lens_coverage,
@@ -40,10 +48,7 @@ from equity_research_crewai.faskills_methodology import (  # noqa: E402
     render_methodology_report,
     save_methodology_plan,
 )
-from equity_research_crewai.tavily_research import (  # noqa: E402
-    research_run_folder,
-    role_context as tavily_role_context,
-)
+from equity_research_crewai.tavily_research import research_run_folder  # noqa: E402
 
 
 ROLE_FILES = {
@@ -113,6 +118,13 @@ def load_role_instruction(role: str) -> str:
     return path.read_text(encoding="utf-8").strip()
 
 
+def load_operating_rules() -> str:
+    path = ROLES_ROOT / "operating_rules.md"
+    if not path.exists():
+        raise FileNotFoundError(f"Missing course operating-rules file: {path}")
+    return path.read_text(encoding="utf-8").strip()
+
+
 def lab05_personas_ready() -> bool:
     return all(
         all(heading.lower() in load_role_instruction(role).lower() for heading in PERSONA_HEADINGS)
@@ -141,7 +153,7 @@ def insight_issues(outputs: dict[str, str], run_folder: Path) -> list[dict[str, 
     first_line_number, first_paragraph = _release_first_paragraph_line(run_folder)
     issues: list[dict[str, str]] = []
     citation_pattern = re.compile(
-        r"\((10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):(\d+)(?:-(\d+))?\)",
+        r"(10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):\s*(\d+)(?:-(\d+))?",
         flags=re.IGNORECASE,
     )
     for role in ANALYST_ROLES:
@@ -152,6 +164,27 @@ def insight_issues(outputs: dict[str, str], run_folder: Path) -> list[dict[str, 
         citations = citation_pattern.findall(line)
         if not citations:
             issues.append({"role": role, "reason": "The Insight line has no filing and line citation."})
+            continue
+        insight_without_citations = citation_pattern.sub("", line)
+        insight_without_citations = re.sub(r"calculations\.json:\s*[a-z_]+", "", insight_without_citations, flags=re.IGNORECASE)
+        insight_numbers = [
+            number
+            for number in re.findall(r"(?<![A-Za-z])(-?\d[\d,]*(?:\.\d+)?)", insight_without_citations)
+        ]
+        headline_numbers = [
+            float(number.replace(",", ""))
+            for number in re.findall(r"(?<![A-Za-z])(-?\d[\d,]*(?:\.\d+)?)", first_paragraph)
+        ]
+        if insight_numbers and headline_numbers and all(
+            any(math.isclose(float(number.replace(",", "")), source, abs_tol=0.005) for source in headline_numbers)
+            for number in insight_numbers
+        ):
+            issues.append(
+                {
+                    "role": role,
+                    "reason": "Every number in the Insight also appears in the earnings release's first paragraph, so it restates the headline.",
+                }
+            )
             continue
         if first_line_number is not None and citations and all(
             filename.lower() == "exhibit-99-1.txt" and int(line_start) == first_line_number
@@ -184,7 +217,12 @@ def insight_issues(outputs: dict[str, str], run_folder: Path) -> list[dict[str, 
 
 
 def _attach_quantitative_source_notes(financial_output: str, context: dict[str, Any]) -> str:
-    """Keep deterministic source notes inside Valuation Insights and the Insight line last."""
+    """Insert the eleven code-built audit claims and keep the Insight last.
+
+    The model owns the analysis and scoring. The harness owns the required
+    facts and arithmetic. This prevents a retry from silently dropping or
+    rewriting one of the course's eleven audit claims.
+    """
     original_lines = financial_output.splitlines()
     original_insight_index = next(
         (
@@ -200,17 +238,310 @@ def _attach_quantitative_source_notes(financial_output: str, context: dict[str, 
         else ""
     )
     clean = desk_app.strip_quantitative_source_notes(financial_output)
-    lines = clean.splitlines()
+    required_leads = (
+        "annual total revenue was",
+        "annual revenue growth was",
+        "annual operating income was",
+        "annual operating margin was",
+        "annual net income attributable to the company was",
+        "annual net income was",
+        "annual gaap diluted eps was",
+        "return on average equity was",
+        "debt to equity was",
+        "free cash flow was",
+        "quarter total revenue was",
+        "quarter revenue growth was",
+        "quarter gaap diluted eps was",
+    )
+    lines = [
+        line
+        for line in clean.splitlines()
+        if "required course claims — code-built audit block" not in line.strip().lower()
+        and not any(lead in line.strip().lower() for lead in required_leads)
+    ]
     insight_index = next(
         (index for index in range(len(lines) - 1, -1, -1) if lines[index].strip().startswith("Insight:")),
         None,
     )
     insight = lines.pop(insight_index).strip() if insight_index is not None else original_insight
     body = "\n".join(lines).rstrip()
-    result = body + "\n\n" + desk_app.quantitative_source_notes(context)
+    required_claims = _render_required_course_claims(context)
+    result = body + "\n\n" + required_claims
     if insight:
         result += "\n\n" + insight
     return result.strip()
+
+
+def _report_money(value: float) -> str:
+    if abs(value) >= 1_000_000_000:
+        return f"${value / 1_000_000_000:,.3f} billion"
+    if abs(value) >= 1_000_000:
+        return f"${value / 1_000_000:,.3f} million"
+    return f"${value:,.2f}"
+
+
+def _render_required_course_claims(context: dict[str, Any]) -> str:
+    facts = context["annual_facts"]
+    calculations = context["calculations"]
+    run_folder = Path(context["run_folder"])
+    saved_facts = desk_app.load_json(run_folder / "facts.json")
+    quarter_revenue, _, _ = _release_quarter_revenues(run_folder, saved_facts)
+    quarter_eps, _ = _quarter_eps(saved_facts)
+    release_claims = context["quarterly_release_claims"]
+
+    def fact_value(name: str) -> float:
+        return float(facts[name]["current"]["value"])
+
+    def calc_percent(name: str) -> float:
+        return float(calculations[name]["result"]) * 100
+
+    lines = [
+        "### Required Course Claims — Code-Built Audit Block",
+        "",
+        f"Annual total revenue was {_report_money(fact_value('total_revenue'))} (facts.json:total_revenue).",
+        f"Annual revenue growth was {calc_percent('revenue_growth'):.4f}% (calculations.json:revenue_growth).",
+        f"Annual operating income was {_report_money(fact_value('operating_income'))} (facts.json:operating_income).",
+        f"Annual operating margin was {calc_percent('operating_margin'):.4f}% (calculations.json:operating_margin).",
+        f"Annual net income attributable to the company was {_report_money(fact_value('net_income'))} (facts.json:net_income).",
+        f"Annual GAAP diluted EPS was ${fact_value('diluted_eps'):.2f} (facts.json:diluted_eps).",
+        f"Return on average equity was {calc_percent('return_on_average_equity'):.4f}% (calculations.json:return_on_average_equity).",
+    ]
+    debt_to_equity = calculations.get("debt_to_equity", {})
+    if debt_to_equity.get("validation_status") == "available" and debt_to_equity.get("result") is not None:
+        lines.append(
+            f"Debt to equity was {float(debt_to_equity['result']):.4f}x (calculations.json:debt_to_equity)."
+        )
+    else:
+        lines.append("Debt to equity was not stated in the supplied filings because the required inputs were unavailable.")
+    free_cash_flow = calculations["free_cash_flow"]
+    lines.append(
+        f"Free cash flow was {_report_money(float(free_cash_flow['result']))} (calculations.json:free_cash_flow)."
+    )
+    revenue_line = release_claims.get("total_revenue", {}).get("source_line_start")
+    if quarter_revenue is not None and isinstance(revenue_line, int):
+        lines.append(
+            f"Quarter total revenue was {_report_money(quarter_revenue)} (exhibit-99-1.txt:{revenue_line})."
+        )
+    quarter_growth = calculations.get("quarter_revenue_growth", {})
+    if quarter_growth.get("validation_status") == "available" and quarter_growth.get("result") is not None:
+        lines.append(
+            f"Quarter revenue growth was {float(quarter_growth['result']) * 100:.4f}% "
+            "(calculations.json:quarter_revenue_growth)."
+        )
+    eps_line = release_claims.get("diluted_eps", {}).get("source_line_start")
+    if quarter_eps is not None and isinstance(eps_line, int):
+        lines.append(
+            f"Quarter GAAP diluted EPS was ${quarter_eps:.2f} (exhibit-99-1.txt:{eps_line})."
+        )
+    for peer in context.get("peers", {}).get("peers", []):
+        if (
+            peer.get("status") == "success"
+            and str(peer.get("revenue_line_label") or "").strip().lower() == "net sales"
+        ):
+            ticker = str(peer.get("ticker") or "peer").upper()
+            lines.append(
+                f"Peer denominator definition: {ticker} labels its issuer-reported top operating-revenue line "
+                f"`Net sales`; the desk uses that line as the total operating-revenue denominator "
+                f"(peers.json:{ticker}:operating_margin)."
+            )
+    return "\n".join(lines)
+
+
+def _join_score_evidence_lines(output: str) -> str:
+    """Keep a numerical persona score and its cited evidence on one line."""
+    lines = output.splitlines()
+    merged: list[str] = []
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if (
+            re.search(r":\s*[1-5]\s*\*{0,2}\s*$", line.strip())
+            and index + 1 < len(lines)
+            and re.search(r"\bevidence\s*:", lines[index + 1], flags=re.IGNORECASE)
+        ):
+            evidence = re.sub(r"^\s*[-*]+\s*", "", lines[index + 1]).strip()
+            merged.append(line.rstrip() + " " + evidence)
+            index += 2
+            continue
+        merged.append(line)
+        index += 1
+    return "\n".join(merged)
+
+
+def _bind_financial_score_sources(output: str) -> str:
+    """Attach deterministic evidence tokens to any otherwise bare score."""
+    source_by_label = {
+        "revenue-growth quality": "calculations.json:revenue_growth",
+        "operating-margin direction": "calculations.json:operating_margin",
+        "cash conversion": "calculations.json:free_cash_flow",
+        "return on average equity": "calculations.json:return_on_average_equity",
+        "debt capacity": "calculations.json:debt_to_equity",
+        "financial flexibility": "calculations.json:free_cash_flow",
+        "gaap diluted-eps quality": "facts.json:diluted_eps",
+        "valuation support": "calculations.json:price_to_earnings",
+        "peer-definition consistency": "calculations.json:operating_margin",
+    }
+    bound: list[str] = []
+    for line in output.splitlines():
+        lower = line.lower()
+        if re.search(r":\s*[1-5]\s*\*{0,2}\s*$", line.strip()) and not any(
+            pattern.search(line)
+            for pattern in (
+                re.compile(r"(?:10-k|10-q|8-k|exhibit-99-1)\.txt:\d+", flags=re.IGNORECASE),
+                re.compile(r"(?:facts|calculations|peers|manifest)\.json:", flags=re.IGNORECASE),
+            )
+        ):
+            source = next((token for label, token in source_by_label.items() if label in lower), "")
+            if source:
+                line = line.rstrip() + f" Evidence source: ({source})."
+        bound.append(line)
+    return "\n".join(bound)
+
+
+def _normalize_analyst_output(role: str, output: str, context: dict[str, Any]) -> str:
+    normalized = _normalize_insight_prefix(_join_score_evidence_lines(output))
+    if role == "Financial Analyst":
+        normalized = _attach_quantitative_source_notes(normalized, context)
+        normalized = _bind_financial_score_sources(normalized)
+    return normalized.strip()
+
+
+def _normalize_insight_prefix(output: str) -> str:
+    citation_pattern = re.compile(
+        r"(?:10-k|10-q|8-k|exhibit-99-1)\.txt:\d+(?:-\d+)?"
+        r"|(?:facts|calculations|peers|manifest)\.json:[A-Za-z0-9_.-]+",
+        flags=re.IGNORECASE,
+    )
+    lines = output.splitlines()
+    for index, line in enumerate(lines):
+        match = re.match(r"^(\s*)\*{0,2}Insight:\*{0,2}\s*(.*)$", line, flags=re.IGNORECASE)
+        if match:
+            citations: list[str] = []
+
+            def stash_citation(citation_match: re.Match[str]) -> str:
+                citations.append(citation_match.group(0))
+                return f"__CITATION_{len(citations) - 1}__"
+
+            insight_text = citation_pattern.sub(stash_citation, match.group(2))
+            insight_text = re.sub(r"\b(?:19|20)\d{2}\b\s*", "", insight_text)
+            for citation_index, citation in enumerate(citations):
+                insight_text = insight_text.replace(f"__CITATION_{citation_index}__", citation)
+            insight_text = re.sub(r"\s{2,}", " ", insight_text).strip()
+            lines[index] = f"{match.group(1)}Insight: {insight_text}".rstrip()
+    return "\n".join(lines)
+
+
+def _normalize_advisor_output(output: str) -> str:
+    """Keep the Advisor within the two analyst outputs and remove blocked sidecar citations."""
+    normalized = _normalize_insight_prefix(output)
+    normalized = re.sub(
+        r"\s*\((?:faskills_financialdatasets|faskills_metrics)\.json:[^)]+\)",
+        "",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+    return normalized.strip()
+
+
+def _fail_closed_numeric_lines(
+    role: str,
+    output: str,
+    run_folder: Path,
+) -> tuple[str, list[dict[str, str]]]:
+    """Omit unresolved numerical lines after the one permitted role retry.
+
+    A failed criterion score becomes `Not scored`; another failed numerical
+    line is removed. The Manager records every omission. The original output
+    and retry remain available in node_records.json.
+    """
+    bad_marks = [
+        mark
+        for mark in verify_all_other_numbers(run_folder, output)
+        if mark.mark != "Correct"
+    ]
+    bad_by_line: dict[int, list[Any]] = {}
+    for mark in bad_marks:
+        match = re.match(r"Other number L(\d+)\.", mark.claim)
+        if match:
+            bad_by_line.setdefault(int(match.group(1)), []).append(mark)
+    if not bad_by_line:
+        return output, []
+    cleaned: list[str] = []
+    omissions: list[dict[str, str]] = []
+    for line_number, line in enumerate(output.splitlines(), start=1):
+        marks = bad_by_line.get(line_number)
+        if not marks:
+            cleaned.append(line)
+            continue
+        score_match = re.search(r"^(.*?:)\s*[1-5]\s*\*{0,2}(?:\s+Evidence.*)?$", line.strip())
+        if score_match:
+            prefix = score_match.group(1).rstrip("*")
+            replacement = f"{prefix} Not scored — the numerical evidence did not pass the deterministic source check."
+            cleaned.append(replacement)
+            action = "replaced score with Not scored"
+        else:
+            action = "omitted line"
+        omissions.append(
+            {
+                "role": role,
+                "line": str(line_number),
+                "action": action,
+                "marks": ", ".join(f"{mark.mark}: {mark.report_said}" for mark in marks),
+            }
+        )
+    return "\n".join(cleaned).strip(), omissions
+
+
+def _replace_insight(output: str, insight: str) -> str:
+    lines = [
+        line
+        for line in output.splitlines()
+        if not re.match(r"^\s*\*{0,2}Insight:\*{0,2}", line, flags=re.IGNORECASE)
+    ]
+    return "\n".join(lines).rstrip() + "\n\n" + insight
+
+
+def _fallback_insight(role: str, output: str, context: dict[str, Any]) -> str:
+    """Return a distinct source-bounded Insight when the role retry still fails."""
+    if role == "Research Analyst":
+        citation = next(
+            iter(re.findall(r"10-k\.txt:\d+(?:-\d+)?", output, flags=re.IGNORECASE)),
+            "",
+        )
+        if not citation:
+            citation = next(
+                iter(re.findall(r"exhibit-99-1\.txt:\d+(?:-\d+)?", output, flags=re.IGNORECASE)),
+                "exhibit-99-1.txt:1",
+            )
+        return (
+            "Insight: The source-bounded operating evidence "
+            f"({citation}) suggests that competitive durability should be tested against the next filing "
+            "rather than inferred from the earnings headline."
+        )
+    calculations = context["calculations"]
+    growth = float(calculations["revenue_growth"]["result"]) * 100
+    margin = float(calculations["operating_margin"]["result"]) * 100
+    statement_citations = re.findall(
+        r"10-k\.txt:\d+(?:-\d+)?",
+        str(context.get("annual_statement_source_lines") or ""),
+        flags=re.IGNORECASE,
+    )
+    revenue_citation = statement_citations[0] if statement_citations else "10-k.txt:1"
+    operating_citation = statement_citations[1] if len(statement_citations) > 1 else revenue_citation
+    if role == "Financial Analyst":
+        relationship = "above" if margin > growth else "below"
+        return (
+            f"Insight: Latest-fiscal-year revenue growth was {growth:.4f}% "
+            f"(calculations.json:revenue_growth) using the reported revenue row ({revenue_citation}), while operating margin was "
+            f"{margin:.4f}% (calculations.json:operating_margin) using the operating-income row ({operating_citation}); "
+            f"the margin was {relationship} growth, "
+            "which shows how reported growth translated into profitability."
+        )
+    return (
+        f"Insight: The {margin:.4f}% operating margin (calculations.json:operating_margin) from the operating-income row "
+        f"({operating_citation}) is the deciding "
+        "number because it links reported growth to profitability; a decline would weaken the recommendation."
+    )
 
 
 def make_llm() -> LLM:
@@ -417,10 +748,15 @@ def _save_quarter_revenue_growth_calculation(run_folder: Path) -> None:
 
 def _context(run_folder: Path, state: TeamState) -> dict[str, Any]:
     context = desk_app.read_run_context(run_folder)
+    context["run_folder"] = str(run_folder.resolve())
+    manifest_arguments = desk_app.load_json(run_folder / "manifest.json").get("arguments", {})
+    saved_price = manifest_arguments.get("price")
+    saved_price_date = manifest_arguments.get("price_date")
+    saved_price_source = manifest_arguments.get("price_source")
     context["price_provenance"] = {
-        "share_price": state.price,
-        "date": state.price_date,
-        "source": state.price_source,
+        "share_price": state.price if state.price is not None else saved_price,
+        "date": state.price_date or saved_price_date or "not supplied",
+        "source": state.price_source or saved_price_source or "not supplied",
         "arithmetic": context["calculations"].get("price_to_earnings", {}).get("arithmetic"),
         "result": context["calculations"].get("price_to_earnings", {}).get("result"),
         "basis": "latest fiscal-year diluted EPS; not TTM P/E",
@@ -475,20 +811,16 @@ def _research_handoff(context: dict[str, Any]) -> str:
         "company": context["company"],
         "earnings_release_source_lines": context["earnings_release_source_text"],
         "filings": context["filings"],
+        "course_operating_rules": load_operating_rules(),
     }
     methodology = context.get("faskills_methodology", {})
     if methodology.get("expert_lenses"):
         source["faskills_methodology_lenses"] = methodology_context_for_role(methodology, "Research Analyst")
-    tavily = context.get("tavily_research", {})
-    if tavily.get("provider") == "Tavily Search API":
-        source["supplementary_tavily_research"] = tavily_role_context(tavily)
     return desk_app.json_handoff(
         (
             "Research the business model, competitive position, catalysts, and recent developments from the supplied filings. "
             "When FAskills methodology lenses are supplied, apply every assigned lens independently and label each concise finding. "
-            "When supplementary Tavily research is supplied, use it only under the web-source rules in that context. "
-            "End with an Insight line. Put an exact citation immediately after every number. "
-            "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
+            "Apply the separate course operating rules in the hand-off."
         ),
         source,
         "Markdown sections with exact headings: Overview; Market Positioning and Growth Outlook; Future Developments and Strategic Recommendations.",
@@ -508,7 +840,11 @@ def _financial_handoff(context: dict[str, Any]) -> str:
         "release_income_statement_lines": context["release_income_statement_lines"],
         "annual_statement_source_lines": context["annual_statement_source_lines"],
         "peers": context["peers"],
-        "optional_faskills_metrics": context["faskills_metrics"],
+        "course_operating_rules": load_operating_rules(),
+        "vendor_metrics": {
+            "status": "blocked from report use",
+            "reason": "The vendor-derived inputs are not yet fully reproduced from SEC XBRL facts.",
+        },
     }
     methodology = context.get("faskills_methodology", {})
     if methodology.get("expert_lenses"):
@@ -517,8 +853,7 @@ def _financial_handoff(context: dict[str, Any]) -> str:
         (
             "Analyze the sourced annual statements and calculations, quarter, valuation, and peers. Never calculate in the model. "
             "When FAskills methodology lenses are supplied, apply every assigned lens independently and label each concise finding. "
-            "End with an Insight line. Put an exact citation immediately after every number. "
-            "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
+            "Apply the separate course operating rules in the hand-off."
         ),
         source,
         "One Markdown section with the exact heading Valuation Insights.",
@@ -529,13 +864,13 @@ def _advisor_handoff(research_output: str, financial_output: str) -> str:
     return desk_app.json_handoff(
         (
             "Synthesize the two supplied role outputs into a thesis and Buy, Hold, or Sell recommendation. "
-            "Choose one deciding number. State any valuation limitation. End with an Insight line. "
-            "Put an exact supplied citation immediately after every number. "
-            "If the Insight uses a calculations.json ratio, also include one reported input from that calculation and "
-            "copy its exact filing-line citation from the Financial Analyst output. "
-            "Do not write any four-digit year in the Insight; use current quarter or latest fiscal year."
+            "Choose one deciding number. State any valuation limitation. Apply the separate course operating rules in the hand-off."
         ),
-        {"Research Analyst": research_output, "Financial Analyst": financial_output},
+        {
+            "Research Analyst": research_output,
+            "Financial Analyst": financial_output,
+            "course_operating_rules": load_operating_rules(),
+        },
         "One Markdown section with the exact heading Investment Recommendation.",
     )
 
@@ -586,6 +921,7 @@ def _retry_financial_core_claims(
     original_output: str,
     context: dict[str, Any],
     issues: list[dict[str, str]],
+    number_issues: list[dict[str, str]] | None = None,
 ) -> tuple[str, str]:
     handoff = desk_app.json_handoff(
         (
@@ -596,15 +932,53 @@ def _retry_financial_core_claims(
             "The final Insight must compare only the supplied current-quarter revenue-growth result with the supplied "
             "latest-fiscal-year revenue-growth result. State which is higher without calculating their difference. "
             "Do not state a peer average, a selected-peer average, or a new conversion percentage."
+            " Remove or repair every additional numerical statement listed in number_issues."
         ),
         {
             "core_claim_issues": issues,
+            "number_issues": number_issues or [],
             "original_output": original_output,
             "source_context": json.loads(_financial_handoff(context))["context"],
         },
         "One complete Markdown section with the exact heading Valuation Insights.",
     )
     return handoff, call_role("Financial Analyst", handoff)
+
+
+def _number_issues(run_folder: Path, output: str) -> list[dict[str, str]]:
+    return [
+        {
+            "claim": mark.claim,
+            "report_said": mark.report_said,
+            "mark": mark.mark,
+            "reason": mark.evidence,
+        }
+        for mark in verify_all_other_numbers(run_folder, output)
+        if mark.mark != "Correct"
+    ]
+
+
+def _retry_role_numbers(
+    role: str,
+    original_output: str,
+    context: dict[str, Any],
+    issues: list[dict[str, str]],
+) -> tuple[str, str]:
+    handoff = desk_app.json_handoff(
+        (
+            "Rewrite the complete role output once. Repair every listed numerical-source issue. "
+            "Put the exact source token immediately after each number. Remove a number when the supplied context has no exact source. "
+            "Do not use a web number or a vendor-derived score. Put the evidence citation on the same line as every numerical criterion score. "
+            "Preserve the required report headings and final Insight line."
+        ),
+        {
+            "number_issues": issues[:100],
+            "original_output": original_output,
+            "source_context": context,
+        },
+        "The role's complete corrected Markdown output.",
+    )
+    return handoff, call_role(role, handoff)
 
 
 def _retry_role_insight(
@@ -678,21 +1052,21 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 raise RuntimeError("--saved-run must be a successful run for the requested ticker.")
             run_folder = create_week03_run(source_run)
         else:
-            if self.state.price is None or self.state.price <= 0:
-                raise RuntimeError("A positive --price is required for a new data run.")
             command = [
                 sys.executable,
                 str(WEEK02_ROOT / "desk_steps.py"),
                 ticker,
                 "--peers",
                 ",".join(self.state.peers),
-                "--price",
-                str(self.state.price),
-                "--price-date",
-                self.state.price_date,
-                "--price-source",
-                self.state.price_source,
             ]
+            if self.state.price is not None:
+                if self.state.price <= 0:
+                    raise RuntimeError("--price must be positive when supplied.")
+                command.extend(["--price", str(self.state.price)])
+            if self.state.price_date:
+                command.extend(["--price-date", self.state.price_date])
+            if self.state.price_source:
+                command.extend(["--price-source", self.state.price_source])
             before = set(RUNS_ROOT.iterdir()) if RUNS_ROOT.exists() else set()
             subprocess.run(command, cwd=REPOSITORY_ROOT, check=True)
             run_folder = desk_app.newest_successful_run(ticker, before)
@@ -823,6 +1197,7 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             "Routed the filing-bounded Buffett, Lynch, Wood, and Soros lenses to the Research Analyst.",
         )
         output = call_role("Research Analyst", handoff)
+        output = _normalize_analyst_output("Research Analyst", output, context)
         self.state.research_output = output
         _save_node_record(self.state, "Research Analyst", json.loads(handoff), output)
         _record_driver_if_enabled(
@@ -844,7 +1219,7 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             "Routed the Graham, Dalio, Burry, Simons, and Shiller lenses plus approved deterministic metrics to the Financial Analyst.",
         )
         output = call_role("Financial Analyst", handoff)
-        output = _attach_quantitative_source_notes(output, context)
+        output = _normalize_analyst_output("Financial Analyst", output, context)
         self.state.financial_output = output
         _save_node_record(self.state, "Financial Analyst", json.loads(handoff), output)
         _record_driver_if_enabled(
@@ -858,7 +1233,7 @@ class EquityResearchTeamFlow(Flow[TeamState]):
     def run_investment_advisor(self, _: str) -> str:
         _print_node("Investment Advisor")
         handoff = _advisor_handoff(self.state.research_output, self.state.financial_output)
-        output = call_role("Investment Advisor", handoff)
+        output = _normalize_advisor_output(call_role("Investment Advisor", handoff))
         self.state.advisor_output = output
         _save_node_record(self.state, "Investment Advisor", json.loads(handoff), output)
         _record_driver_if_enabled(
@@ -892,6 +1267,9 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         _save_node_record(self.state, "Strategy Manager", json.loads(handoff), manager_review)
         context = _context(Path(self.state.run_folder), self.state)
         retried_roles: set[str] = set()
+        financial_changed = False
+        analyst_inputs_changed = False
+        fail_closed_omissions: list[dict[str, str]] = []
         if missing:
             sections_by_role: dict[str, list[str]] = {}
             for section in missing:
@@ -913,6 +1291,13 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                     outputs[role],
                     source_context[role],
                 )
+                if role in {"Research Analyst", "Financial Analyst"}:
+                    retry_output = _normalize_analyst_output(role, retry_output, context)
+                if role == "Financial Analyst":
+                    financial_changed = True
+                    analyst_inputs_changed = True
+                elif role == "Research Analyst":
+                    analyst_inputs_changed = True
                 for section in sections:
                     repaired = desk_app.extract_markdown_section(retry_output, section)
                     if repaired:
@@ -944,14 +1329,53 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             for mark in core_marks
             if mark.mark not in {"Correct", "Not in filings"}
         ]
+        role_source_context = {
+            "Research Analyst": json.loads(_research_handoff(context))["context"],
+            "Financial Analyst": json.loads(_financial_handoff(context))["context"],
+        }
+        research_number_issues = _number_issues(
+            Path(self.state.run_folder), outputs["Research Analyst"]
+        )
+        financial_number_issues = _number_issues(
+            Path(self.state.run_folder), outputs["Financial Analyst"]
+        )
+        if research_number_issues and "Research Analyst" not in retried_roles:
+            _print_node("Research Analyst retry")
+            retry_handoff, retry_output = _retry_role_numbers(
+                "Research Analyst",
+                outputs["Research Analyst"],
+                role_source_context["Research Analyst"],
+                research_number_issues,
+            )
+            outputs["Research Analyst"] = retry_output
+            outputs["Research Analyst"] = _normalize_analyst_output(
+                "Research Analyst", outputs["Research Analyst"], context
+            )
+            analyst_inputs_changed = True
+            retried_roles.add("Research Analyst")
+            _save_node_record(
+                self.state,
+                "Research Analyst retry",
+                json.loads(retry_handoff),
+                retry_output,
+            )
+            outputs = desk_app.normalize_role_outputs(outputs)
+            report, missing = desk_app.assemble_report(
+                outputs["Research Analyst"],
+                outputs["Financial Analyst"],
+                outputs["Investment Advisor"],
+            )
+            if report is None or missing:
+                raise RuntimeError("The Research Analyst number retry did not preserve the five-part template.")
         if core_issues and "Financial Analyst" not in retried_roles:
             _print_node("Financial Analyst retry")
             retry_handoff, retry_output = _retry_financial_core_claims(
                 outputs["Financial Analyst"],
                 context,
                 core_issues,
+                financial_number_issues,
             )
-            retry_output = _attach_quantitative_source_notes(retry_output, context)
+            retry_output = _normalize_analyst_output("Financial Analyst", retry_output, context)
             repaired = desk_app.extract_markdown_section(retry_output, "Valuation Insights")
             if repaired:
                 outputs["Financial Analyst"] = repaired
@@ -962,6 +1386,8 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 retry_output,
             )
             retried_roles.add("Financial Analyst")
+            financial_changed = True
+            analyst_inputs_changed = True
             outputs = desk_app.normalize_role_outputs(outputs)
             report, missing = desk_app.assemble_report(
                 outputs["Research Analyst"],
@@ -982,9 +1408,83 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 for mark in core_marks
                 if mark.mark not in {"Correct", "Not in filings"}
             ]
+        elif financial_number_issues and "Financial Analyst" not in retried_roles:
+            _print_node("Financial Analyst retry")
+            retry_handoff, retry_output = _retry_role_numbers(
+                "Financial Analyst",
+                outputs["Financial Analyst"],
+                role_source_context["Financial Analyst"],
+                financial_number_issues,
+            )
+            retry_output = _normalize_analyst_output("Financial Analyst", retry_output, context)
+            outputs["Financial Analyst"] = retry_output
+            retried_roles.add("Financial Analyst")
+            financial_changed = True
+            analyst_inputs_changed = True
+            _save_node_record(
+                self.state,
+                "Financial Analyst retry",
+                json.loads(retry_handoff),
+                retry_output,
+            )
+            outputs = desk_app.normalize_role_outputs(outputs)
+            report, missing = desk_app.assemble_report(
+                outputs["Research Analyst"],
+                outputs["Financial Analyst"],
+                outputs["Investment Advisor"],
+            )
+            if report is None or missing:
+                raise RuntimeError("The Financial Analyst number retry did not preserve the five-part template.")
+            core_marks = verify_core_claims(Path(self.state.run_folder), report)
+            core_issues = [
+                {
+                    "claim": mark.claim,
+                    "mark": mark.mark,
+                    "report_said": mark.report_said,
+                    "filing_says": mark.filing_says,
+                    "reason": mark.evidence,
+                }
+                for mark in core_marks
+                if mark.mark not in {"Correct", "Not in filings"}
+            ]
+        for analyst_role in ("Research Analyst", "Financial Analyst"):
+            cleaned_output, omissions = _fail_closed_numeric_lines(
+                analyst_role,
+                outputs[analyst_role],
+                Path(self.state.run_folder),
+            )
+            if cleaned_output != outputs[analyst_role]:
+                outputs[analyst_role] = cleaned_output
+                analyst_inputs_changed = True
+                if analyst_role == "Financial Analyst":
+                    financial_changed = True
+            fail_closed_omissions.extend(omissions)
+        if analyst_inputs_changed:
+            _print_node("Investment Advisor refresh")
+            advisor_handoff = _advisor_handoff(outputs["Research Analyst"], outputs["Financial Analyst"])
+            outputs["Investment Advisor"] = _normalize_advisor_output(
+                call_role("Investment Advisor", advisor_handoff)
+            )
+            retried_roles.add("Investment Advisor")
+            _save_node_record(
+                self.state,
+                "Investment Advisor refresh",
+                json.loads(advisor_handoff),
+                outputs["Investment Advisor"],
+            )
+            outputs = desk_app.normalize_role_outputs(outputs)
+            report, missing = desk_app.assemble_report(
+                outputs["Research Analyst"],
+                outputs["Financial Analyst"],
+                outputs["Investment Advisor"],
+            )
+            if report is None or missing:
+                raise RuntimeError("The Investment Advisor refresh did not preserve the five-part template.")
         persona_mode = lab05_personas_ready()
         unresolved_insights: list[dict[str, str]] = []
+        fail_closed_insight_fallbacks: list[dict[str, str]] = []
         if persona_mode:
+            financial_insight_changed = False
             source_context = {
                 "Research Analyst": json.loads(_research_handoff(context))["context"],
                 "Financial Analyst": json.loads(_financial_handoff(context))["context"],
@@ -1006,7 +1506,12 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                     issue["reason"],
                 )
                 if role == "Financial Analyst":
-                    retry_output = _attach_quantitative_source_notes(retry_output, context)
+                    retry_output = _normalize_analyst_output("Financial Analyst", retry_output, context)
+                    financial_insight_changed = True
+                elif role == "Research Analyst":
+                    retry_output = _normalize_analyst_output("Research Analyst", retry_output, context)
+                else:
+                    retry_output = _normalize_advisor_output(retry_output)
                 outputs[role] = retry_output
                 retried_roles.add(role)
                 _save_node_record(
@@ -1014,6 +1519,19 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                     f"{role} retry",
                     json.loads(retry_handoff),
                     retry_output,
+                )
+            if financial_insight_changed and "Investment Advisor" not in retried_roles:
+                _print_node("Investment Advisor refresh")
+                advisor_handoff = _advisor_handoff(outputs["Research Analyst"], outputs["Financial Analyst"])
+                outputs["Investment Advisor"] = _normalize_advisor_output(
+                    call_role("Investment Advisor", advisor_handoff)
+                )
+                retried_roles.add("Investment Advisor")
+                _save_node_record(
+                    self.state,
+                    "Investment Advisor refresh",
+                    json.loads(advisor_handoff),
+                    outputs["Investment Advisor"],
                 )
             outputs = desk_app.normalize_role_outputs(outputs)
             report, missing = desk_app.assemble_report(
@@ -1024,6 +1542,29 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             if report is None or missing:
                 raise RuntimeError("An Insight retry did not preserve the five-part template.")
             unresolved_insights = insight_issues(outputs, Path(self.state.run_folder))
+            if unresolved_insights:
+                roles_with_issues = {issue["role"] for issue in unresolved_insights}
+                for role in ANALYST_ROLES:
+                    if role not in roles_with_issues:
+                        continue
+                    replacement = _fallback_insight(role, outputs[role], context)
+                    outputs[role] = _replace_insight(outputs[role], replacement)
+                    fail_closed_insight_fallbacks.append(
+                        {
+                            "role": role,
+                            "action": "replaced unresolved Insight after one model retry",
+                            "replacement": replacement,
+                        }
+                    )
+                outputs = desk_app.normalize_role_outputs(outputs)
+                report, missing = desk_app.assemble_report(
+                    outputs["Research Analyst"],
+                    outputs["Financial Analyst"],
+                    outputs["Investment Advisor"],
+                )
+                if report is None or missing:
+                    raise RuntimeError("The fail-closed Insight fallback did not preserve the five-part template.")
+                unresolved_insights = insight_issues(outputs, Path(self.state.run_folder))
             core_marks = verify_core_claims(Path(self.state.run_folder), report)
             core_issues = [
                 {
@@ -1038,6 +1579,14 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             ]
         manager_review["deterministic_core_claims"] = [mark.__dict__ for mark in core_marks]
         manager_review["unresolved_core_claims_after_one_retry"] = core_issues
+        final_number_issues = [
+            mark.__dict__
+            for mark in verify_all_other_numbers(Path(self.state.run_folder), report)
+            if mark.mark != "Correct"
+        ]
+        manager_review["unresolved_other_numbers_after_one_retry"] = final_number_issues
+        manager_review["fail_closed_numeric_omissions"] = fail_closed_omissions
+        manager_review["fail_closed_insight_fallbacks"] = fail_closed_insight_fallbacks
         manager_review["lab05_persona_checks_enabled"] = persona_mode
         manager_review["unresolved_insight_issues_after_one_retry"] = unresolved_insights
         if methodology_path.exists():
@@ -1162,7 +1711,8 @@ def _semantic_check(payload: str) -> str:
                 "Check qualitative Tavily claims only against the cited saved Tavily excerpts. "
                 "Never treat Tavily as filing evidence. For an Insight line, verify the numbers and citations only. "
                 "Do not mark an Insight unsupported merely because its analytical implication is an inference rather than "
-                "a sentence stated verbatim in a filing."
+                "a sentence stated verbatim in a filing. Review every code mark, but return assessment rows only for "
+                "disagreements, definition problems, or non-Correct marks so the response stays bounded."
             ),
             "context": json.loads(payload),
             "expected_output": {
@@ -1182,9 +1732,144 @@ def _semantic_check(payload: str) -> str:
 
 def verify_only(run_folder: Path) -> Path:
     _print_node("Verifier")
-    path, _, _, _ = verify_saved_run(run_folder, _semantic_check)
+    stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
+    output_name = f"verified_report_rerun_{stamp}.md"
+    try:
+        path, _, _, _ = verify_saved_run(run_folder, _semantic_check, output_name=output_name)
+    except Exception as exc:
+        print(f"Model definition review unavailable: {exc}", flush=True)
+        path, _, _, _ = verify_saved_run(run_folder, output_name=output_name)
     print(f"Verified report saved: {path}")
     return path
+
+
+def reconcile_saved_run(source_run: Path) -> Path:
+    """Create a new, deterministic fail-closed copy of a successful saved run."""
+    source_run = source_run.resolve()
+    for required in ("manifest.json", "role_outputs.json", "report.md"):
+        if not (source_run / required).exists():
+            raise FileNotFoundError(f"Missing {required} in saved run: {source_run}")
+    stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
+    destination = source_run.with_name(f"{source_run.name}_RECONCILED_{stamp}")
+    shutil.copytree(source_run, destination)
+    shutil.copy2(source_run / "role_outputs.json", destination / "role_outputs_before_reconciliation.json")
+    shutil.copy2(source_run / "report.md", destination / "report_before_reconciliation.md")
+
+    excluded_optional_sidecars: list[str] = []
+    for filename in ("tavily_research.json", "tavily_research.md"):
+        path = destination / filename
+        if path.exists():
+            path.unlink()
+            excluded_optional_sidecars.append(filename)
+
+    manifest = desk_app.load_json(destination / "manifest.json")
+    metrics_path = destination / "faskills_metrics.json"
+    if metrics_path.exists():
+        metrics = desk_app.load_json(metrics_path)
+        boundary = metrics.setdefault("course_boundary", {})
+        boundary["report_use_allowed"] = False
+        boundary["report_use_reason"] = (
+            "Only revenue, operating income, net income, and diluted EPS were cross-checked to SEC facts. "
+            "The remaining score inputs are vendor-derived, so no metric may enter the graded report."
+        )
+        metrics_path.write_text(
+            json.dumps(metrics, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    arguments = manifest.get("arguments", {})
+    ticker = str(manifest.get("main_ticker") or arguments.get("ticker") or "").upper()
+    state = TeamState(
+        ticker=ticker,
+        peers=parse_peers(str(arguments.get("peers") or "")),
+        price=float(arguments["price"]) if arguments.get("price") is not None else None,
+        price_date=str(arguments.get("price_date") or ""),
+        price_source=str(arguments.get("price_source") or ""),
+        run_folder=str(destination),
+    )
+    context = _context(destination, state)
+    outputs = desk_app.load_json(destination / "role_outputs.json")
+    omissions: list[dict[str, str]] = []
+    for role in ("Research Analyst", "Financial Analyst"):
+        outputs[role] = _normalize_analyst_output(role, outputs[role], context)
+        outputs[role], role_omissions = _fail_closed_numeric_lines(role, outputs[role], destination)
+        omissions.extend(role_omissions)
+    outputs["Investment Advisor"] = _normalize_advisor_output(outputs["Investment Advisor"])
+
+    insight_fallbacks: list[dict[str, str]] = []
+    for issue in insight_issues(outputs, destination):
+        role = issue["role"]
+        replacement = _fallback_insight(role, outputs[role], context)
+        outputs[role] = _replace_insight(outputs[role], replacement)
+        insight_fallbacks.append(
+            {"role": role, "reason": issue["reason"], "replacement": replacement}
+        )
+    outputs = desk_app.normalize_role_outputs(outputs)
+    report, missing = desk_app.assemble_report(
+        outputs["Research Analyst"],
+        outputs["Financial Analyst"],
+        outputs["Investment Advisor"],
+    )
+    if report is None or missing:
+        raise RuntimeError("Deterministic reconciliation did not preserve the five-part template.")
+    header = desk_app.report_header(destination, context)
+    report_text = desk_app.render_report_text(header, report)
+    (destination / "role_outputs.json").write_text(
+        json.dumps(outputs, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    (destination / "report.md").write_text(report_text, encoding="utf-8")
+
+    core_marks = verify_core_claims(destination, report_text)
+    insight_marks = verify_insight_claims(destination, report_text)
+    other_marks = verify_all_other_numbers(destination, report_text)
+    reconciliation = {
+        "source_run": source_run.name,
+        "created_at": datetime.now().astimezone().isoformat(),
+        "method": "deterministic fail-closed reconciliation; no model, Tavily, or vendor request",
+        "raw_outputs_preserved_as": "role_outputs_before_reconciliation.json",
+        "raw_report_preserved_as": "report_before_reconciliation.md",
+        "numeric_omissions": omissions,
+        "insight_fallbacks": insight_fallbacks,
+        "unresolved_core": [mark.__dict__ for mark in core_marks if mark.mark != "Correct"],
+        "unresolved_insights": [mark.__dict__ for mark in insight_marks if mark.mark != "Correct"],
+        "unresolved_other_numbers": [mark.__dict__ for mark in other_marks if mark.mark != "Correct"],
+    }
+    (destination / "reconciliation.json").write_text(
+        json.dumps(reconciliation, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    manifest["derived_reconciliation"] = {
+        "source_run": source_run.name,
+        "reconciliation_file": "reconciliation.json",
+        "model_calls": 0,
+        "tavily_calls": 0,
+        "vendor_calls": 0,
+        "excluded_optional_sidecars": excluded_optional_sidecars,
+    }
+    manifest["output_filenames"] = sorted(
+        (set(manifest.get("output_filenames", [])) - set(excluded_optional_sidecars))
+        | {
+            "reconciliation.json",
+            "role_outputs_before_reconciliation.json",
+            "report_before_reconciliation.md",
+        }
+    )
+    manifest["tavily_research"] = {
+        "enabled": False,
+        "reason": "Excluded from the graded reconciled run; the historical source run preserves the sidecar.",
+    }
+    if isinstance(manifest.get("faskills_extension"), dict):
+        manifest["faskills_extension"]["report_use_allowed"] = False
+        manifest["faskills_extension"]["report_use_reason"] = (
+            "Vendor-derived score inputs are not fully reproduced from SEC XBRL."
+        )
+    (destination / "manifest.json").write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    verify_saved_run(destination)
+    print(f"Reconciled run saved: {destination}")
+    return destination
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -1198,12 +1883,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--faskills",
         action="store_true",
-        help="Run the course-safe FAskills DRIVER methodology, nine lenses, and audited metrics sidecar",
+        help="Save the FAskills DRIVER methodology and review-only vendor metrics sidecar",
     )
     parser.add_argument(
         "--tavily",
         action="store_true",
-        help="Run one source-bounded Tavily search for supplementary qualitative web context",
+        help="Save one date- and domain-filtered Tavily sidecar; exclude it from graded role hand-offs",
     )
     parser.add_argument(
         "--tavily-depth",
@@ -1217,6 +1902,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Reuse tavily_research.json from --saved-run without making a Tavily API request",
     )
     parser.add_argument("--verify-only", type=Path, help="Run only the mandatory Verifier on a saved run")
+    parser.add_argument(
+        "--reconcile-only",
+        type=Path,
+        help="Create a new fail-closed copy of a saved run without a model, Tavily, or vendor call",
+    )
     return parser
 
 
@@ -1225,13 +1915,13 @@ def kickoff() -> None:
     if args.verify_only:
         verify_only(args.verify_only)
         return
+    if args.reconcile_only:
+        reconcile_saved_run(args.reconcile_only)
+        return
     if not args.ticker:
         raise SystemExit("Ticker is required unless --verify-only is used.")
-    if not args.saved_run:
-        if not args.price_date or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.price_date):
-            raise SystemExit("A new run requires --price-date in YYYY-MM-DD format.")
-        if not args.price_source:
-            raise SystemExit("A new run requires --price-source.")
+    if args.price_date and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.price_date):
+        raise SystemExit("--price-date must use YYYY-MM-DD format when supplied.")
     if args.reuse_tavily and not args.saved_run:
         raise SystemExit("--reuse-tavily requires --saved-run.")
     if args.reuse_tavily and not args.tavily:

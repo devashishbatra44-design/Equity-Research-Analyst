@@ -107,6 +107,23 @@
       "validation_status": "available",
       "unavailable_reason": null,
       "note": "Price divided by latest fiscal-year diluted EPS. This is not labeled TTM P/E."
+    },
+    "quarter_revenue_growth": {
+      "measure": "Quarter revenue growth versus the same quarter last year",
+      "formula": "(Current-quarter revenue - Same-quarter prior-year revenue) / Same-quarter prior-year revenue",
+      "inputs": {
+        "current_quarter_revenue_thousands": 95723,
+        "prior_year_same_quarter_revenue_thousands": 86156
+      },
+      "fiscal_periods": {
+        "current_quarter_end": "August 30, 2026"
+      },
+      "unit": "ratio",
+      "arithmetic": "(95,723 - 86,156) / 86,156",
+      "result": 0.111043,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "exhibit-99-1.txt:35: August 30, 2026 | August 31, 2025 | August 30, 2026 | August 31, 2025 ; exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
     }
   }
 }

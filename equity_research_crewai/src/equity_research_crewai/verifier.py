@@ -9,6 +9,29 @@ from datetime import datetime
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Callable
+from urllib.parse import urlparse
+
+
+FILING_CITATION_RE = re.compile(
+    r"(10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):\s*(\d+)(?:-(\d+))?",
+    flags=re.IGNORECASE,
+)
+CALCULATION_CITATION_RE = re.compile(r"calculations\.json:\s*([a-z_]+)", flags=re.IGNORECASE)
+FACT_CITATION_RE = re.compile(
+    r"facts\.json:\s*([a-z_]+)(?::(current|prior))?",
+    flags=re.IGNORECASE,
+)
+PEER_CITATION_RE = re.compile(
+    r"peers\.json:\s*([A-Z.\-]+):([a-z_]+)",
+    flags=re.IGNORECASE,
+)
+MANIFEST_CITATION_RE = re.compile(r"manifest\.json:\s*(price|price_date)", flags=re.IGNORECASE)
+FASKILLS_CITATION_RE = re.compile(r"faskills_metrics\.json:\s*([a-z0-9_]+)", flags=re.IGNORECASE)
+NUMBER_MENTION_RE = re.compile(
+    r"(?<![A-Za-z0-9_])(?:\$\s*)?-?\d[\d,]*(?:\.\d+)?(?:/\d+)?"
+    r"(?:\s*(?:%|x|billion|million|thousand|basis points?|members?|warehouses?|SKUs?))?",
+    flags=re.IGNORECASE,
+)
 
 
 @dataclass
@@ -27,6 +50,39 @@ def load_json(path: Path) -> dict[str, Any]:
 def _numbers(text: str) -> list[float]:
     pattern = r"(?<![A-Za-z])\$?(-?\d[\d,]*(?:\.\d+)?)"
     return [float(value.replace(",", "")) for value in re.findall(pattern, text)]
+
+
+def _number_from_mention(text: str) -> float:
+    match = re.search(r"-?\d[\d,]*(?:\.\d+)?", text)
+    if not match:
+        raise ValueError(f"No number in mention: {text}")
+    return float(match.group(0).replace(",", ""))
+
+
+def _mask_matches(text: str, pattern: re.Pattern[str]) -> str:
+    return pattern.sub(lambda match: " " * (match.end() - match.start()), text)
+
+
+def _all_permitted_citation_patterns() -> tuple[re.Pattern[str], ...]:
+    return (
+        FILING_CITATION_RE,
+        CALCULATION_CITATION_RE,
+        FACT_CITATION_RE,
+        PEER_CITATION_RE,
+        MANIFEST_CITATION_RE,
+    )
+
+
+def _numeric_equivalent(report_value: float, source_value: float) -> bool:
+    """Allow presentation-unit changes such as 15.825 billion versus 15,825 million."""
+    if _close(report_value, source_value, 0.005):
+        return True
+    for scale in (1_000.0, 1_000_000.0, 1_000_000_000.0):
+        if _close(report_value * scale, source_value, max(0.005, abs(source_value) * 1e-8)):
+            return True
+        if _close(report_value, source_value * scale, max(0.005, abs(report_value) * 1e-8)):
+            return True
+    return False
 
 
 def _scaled_amount(match: re.Match[str]) -> float:
@@ -137,8 +193,28 @@ def _calculation(calculations: dict[str, Any], name: str) -> dict[str, Any]:
     return calculations.get("calculations", {}).get(name, {})
 
 
+def _find_filing_line(path: Path, label_pattern: str, value: float) -> tuple[int | None, str]:
+    if not path.exists():
+        return None, ""
+    value_forms = {f"{value:g}", f"{value:.2f}"}
+    candidates: list[tuple[int, str]] = []
+    for line_number, line in enumerate(path.read_text(encoding="utf-8", errors="replace").splitlines(), start=1):
+        if re.search(label_pattern, line, flags=re.IGNORECASE) and any(form in line for form in value_forms):
+            candidates.append((line_number, line.strip()))
+    if candidates:
+        return max(
+            candidates,
+            key=lambda item: (
+                int(bool(re.match(r"^\s*diluted\b", item[1], flags=re.IGNORECASE))),
+                int("|" in item[1]),
+                -len(item[1]),
+            ),
+        )
+    return None, ""
+
+
 def _valuation_section(report: str) -> str:
-    match = re.search(r"^##\s+Valuation Insights\s*$", report, flags=re.MULTILINE | re.IGNORECASE)
+    match = re.search(r"^#{1,2}\s+Valuation Insights\s*$", report, flags=re.MULTILINE | re.IGNORECASE)
     if not match:
         return report
     next_section = re.search(r"^#{1,2}\s+", report[match.end():], flags=re.MULTILINE)
@@ -218,8 +294,30 @@ def _mark_unavailable_calculation(
     )
 
 
+def _matching_report_lines(text: str, patterns: list[str]) -> str:
+    matched: list[str] = []
+    for pattern in patterns:
+        line = next(
+            (
+                candidate.strip()
+                for candidate in text.splitlines()
+                if re.search(pattern, candidate, flags=re.IGNORECASE)
+                and not re.match(r"^\s*(?:#+\s*)?(?:\*+)?\d+[.)]", candidate)
+                and (NUMBER_MENTION_RE.search(candidate) or "not stated" in candidate.lower() or "unavailable" in candidate.lower())
+            ),
+            "",
+        )
+        if line:
+            matched.append(line)
+    return " ".join(matched)
+
+
 def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
     analysis = _valuation_section(report)
+    core_analysis = analysis
+    core_marker = "### Required Course Claims — Code-Built Audit Block"
+    if core_marker in analysis:
+        core_analysis = analysis.rsplit(core_marker, 1)[1]
     facts = load_json(run_folder / "facts.json")
     calculations = load_json(run_folder / "calculations.json")
     annual_revenue = _fact(facts, "total_revenue")
@@ -241,77 +339,102 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
     operating_tag = str(operating_income.get("xbrl_tag") or "")
     net_income_tag = str(net_income.get("xbrl_tag") or "")
     eps_tag = str(diluted_eps.get("xbrl_tag") or "")
+    eps_line_number, eps_line_text = _find_filing_line(
+        run_folder / "10-k.txt",
+        r"\bdiluted\b",
+        float(diluted_eps.get("value")),
+    )
+    eps_line_evidence = (
+        f"; 10-k.txt:{eps_line_number}: {eps_line_text}" if eps_line_number is not None else ""
+    )
     marks = [
         _mark_values(
             "1. Total revenue, latest fiscal year",
-            _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+total\s+revenue\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+            _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+total\s+revenue\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
             [float(annual_revenue.get("value"))],
             _format_money(float(annual_revenue.get("value"))),
             f"{annual_tag}; period {annual_revenue.get('period_end')}; accession {annual_revenue.get('accession_number')}",
             [1_000_000],
-            source_ok=annual_tag in analysis and str(annual_revenue.get("period_end")) in analysis,
+            source_ok=bool(re.search(r"facts\.json:\s*total_revenue\b", core_analysis, flags=re.IGNORECASE))
+            or (annual_tag in analysis and str(annual_revenue.get("period_end")) in analysis),
         ),
         _mark_values(
             "2. Revenue growth versus prior year",
-            _percents(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+revenue\s+growth\s+(?:was|of)\s+([\d,.]+)%"),
+            _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+revenue\s+growth\s+(?:was|of)\s+([\d,.]+)%"),
             [float(revenue_growth.get("result")) * 100],
             f"{float(revenue_growth.get('result')) * 100:.4f}%",
             str(revenue_growth.get("arithmetic")),
             [0.02],
-            source_ok="Code-supplied calculation" in analysis or _has_arithmetic(analysis),
+            source_ok=bool(re.search(r"calculations\.json:\s*revenue_growth\b", core_analysis, flags=re.IGNORECASE))
+            or "Code-supplied calculation" in analysis
+            or _has_arithmetic(analysis),
         ),
         _mark_values(
             "3. Operating income and operating margin",
-            _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+operating\s+income\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?")
-            + _percents(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+operating\s+margin\s+(?:was|of)\s+([\d,.]+)%"),
+            _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+operating\s+income\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?")
+            + _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+operating\s+margin\s+(?:was|of)\s+([\d,.]+)%"),
             [float(operating_income.get("value")), float(operating_margin.get("result")) * 100],
             f"{_format_money(float(operating_income.get('value')))}; {float(operating_margin.get('result')) * 100:.4f}%",
             f"{operating_tag}; {operating_margin.get('arithmetic')}",
             [1_000_000, 0.02],
-            source_ok=operating_tag in analysis and _has_arithmetic(analysis),
+            source_ok=(
+                bool(re.search(r"facts\.json:\s*operating_income\b", core_analysis, flags=re.IGNORECASE))
+                and bool(re.search(r"calculations\.json:\s*operating_margin\b", core_analysis, flags=re.IGNORECASE))
+            )
+            or (operating_tag in analysis and _has_arithmetic(analysis)),
         ),
         _mark_values(
             "4. Net income attributable to the company",
-            _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+net\s+income(?:\s+attributable\s+to\s+the\s+company)?\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+            _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+net\s+income(?:\s+attributable\s+to\s+the\s+company)?\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
             [float(net_income.get("value"))],
             _format_money(float(net_income.get("value"))),
             f"{net_income_tag}; period {net_income.get('period_end')}",
             [1_000_000],
-            source_ok=net_income_tag in analysis,
+            source_ok=bool(re.search(r"facts\.json:\s*net_income\b", core_analysis, flags=re.IGNORECASE))
+            or net_income_tag in analysis,
         ),
         _mark_values(
             "5. Diluted earnings per share, GAAP",
-            _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bannual\s+GAAP\s+diluted\s+(?:earnings per share|EPS)\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+            _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+GAAP\s+diluted\s+(?:earnings per share|EPS)\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
             [float(diluted_eps.get("value"))],
             f"${float(diluted_eps.get('value')):.2f}",
-            f"{eps_tag}; period {diluted_eps.get('period_end')}",
+            f"{eps_tag}; period {diluted_eps.get('period_end')}{eps_line_evidence}",
             [0.005],
-            source_ok=eps_tag in analysis,
+            source_ok=bool(re.search(r"facts\.json:\s*diluted_eps\b", core_analysis, flags=re.IGNORECASE))
+            or eps_tag in analysis,
         ),
         _mark_values(
             "6. Return on average equity",
-            _percents(analysis, r"(?m)^(?!Insight:)[^\n]*?\breturn\s+on\s+average\s+equity\s+(?:was|of)\s+([\d,.]+)%"),
+            _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\breturn\s+on\s+average\s+equity\s+(?:was|of)\s+([\d,.]+)%"),
             [float(return_on_equity.get("result")) * 100],
             f"{float(return_on_equity.get('result')) * 100:.4f}%",
             str(return_on_equity.get("arithmetic")),
             [0.02],
-            source_ok="Code-supplied calculation" in analysis or _has_arithmetic(analysis),
+            source_ok=bool(
+                re.search(r"calculations\.json:\s*return_on_average_equity\b", core_analysis, flags=re.IGNORECASE)
+            )
+            or "Code-supplied calculation" in analysis
+            or _has_arithmetic(analysis),
         ),
         (
             _mark_values(
                 "7. Debt to equity, including current debt",
-                _ratios(analysis, r"(?m)^(?!Insight:)[^\n]*?\bdebt\s+to\s+equity\s+(?:was|of)\s+([\d,.]+)"),
+                _ratios(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bdebt\s+to\s+equity\s+(?:was|of)\s+([\d,.]+)"),
                 [float(debt_to_equity.get("result"))],
                 f"{float(debt_to_equity.get('result')):.4f}",
                 str(debt_to_equity.get("arithmetic")),
                 [0.01],
-                source_ok="Current portion of long-term debt" in analysis and ("Code-supplied calculation" in analysis or _has_arithmetic(analysis)),
+                source_ok=bool(re.search(r"calculations\.json:\s*debt_to_equity\b", core_analysis, flags=re.IGNORECASE))
+                or (
+                    "Current portion of long-term debt" in analysis
+                    and ("Code-supplied calculation" in analysis or _has_arithmetic(analysis))
+                ),
             )
             if debt_to_equity.get("result") is not None
             else _mark_unavailable_calculation(
                 "7. Debt to equity, including current debt",
-                analysis,
-                r"(?m)^(?!Insight:)[^\n]*?\bdebt\s+to\s+equity\s+(?:was|of)\s+([\d,.]+)",
+                core_analysis,
+                r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bdebt\s+to\s+equity\s+(?:was|of)\s+([\d,.]+)",
                 r"debt\s+to\s+equity",
                 str(debt_to_equity.get("unavailable_reason") or ""),
             )
@@ -320,8 +443,8 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
             "8. Free cash flow",
             _distinct_values(
                 _amounts(
-                    analysis,
-                    r"(?m)^(?!Insight:)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+\$?([\d,.]+)\s*(million|billion|thousand)?",
+                    core_analysis,
+                    r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+\$?([\d,.]+)\s*(million|billion|thousand)?",
                 ),
                 1_000_000,
             ),
@@ -329,46 +452,76 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
             _format_money(float(free_cash_flow.get("result"))),
             str(free_cash_flow.get("arithmetic")),
             [1_000_000],
-            source_ok=("Net cash provided by operating activities" in analysis or "Net cash from operations" in analysis) and ("Code-supplied calculation" in analysis or _has_arithmetic(analysis)),
+            source_ok=bool(re.search(r"calculations\.json:\s*free_cash_flow\b", core_analysis, flags=re.IGNORECASE))
+            or (
+                ("Net cash provided by operating activities" in analysis or "Net cash from operations" in analysis)
+                and ("Code-supplied calculation" in analysis or _has_arithmetic(analysis))
+            ),
         ),
     ]
     if quarter_revenue is not None:
         marks.append(
             _mark_values(
                 "9. Latest-quarter revenue",
-                _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bquarter\s+total\s+revenue\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+                _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?(?<!-)quarter\s+total\s+revenue\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
                 [quarter_revenue],
                 _format_money(quarter_revenue),
                 revenue_quote,
                 [1_000_000],
-                source_ok=("8-K Exhibit 99.1" in analysis or "Exhibit 99.1" in analysis) and "Total revenue" in analysis,
+                source_ok=bool(re.search(r"exhibit-99-1\.txt:\s*\d+", core_analysis, flags=re.IGNORECASE))
+                or (("8-K Exhibit 99.1" in analysis or "Exhibit 99.1" in analysis) and "Total revenue" in analysis),
             )
         )
     if quarter_growth is not None:
         marks.append(
             _mark_values(
                 "10. Quarter revenue growth versus the same quarter last year",
-                _percents(analysis, r"(?m)^(?!Insight:)[^\n]*?\bquarter\s+revenue\s+growth\s+(?:was|of)\s+([\d,.]+)%"),
+                _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?(?<!-)quarter\s+revenue\s+growth\s+(?:was|of)\s+([\d,.]+)%"),
                 [quarter_growth],
                 f"{quarter_growth:.4f}%",
                 f"({quarter_revenue:g} - {prior_quarter_revenue:g}) / {prior_quarter_revenue:g}",
                 [0.02],
-                source_ok="Code-supplied calculation" in analysis or _has_arithmetic(analysis),
+                source_ok=bool(
+                    re.search(r"calculations\.json:\s*quarter_revenue_growth\b", core_analysis, flags=re.IGNORECASE)
+                )
+                or "Code-supplied calculation" in analysis
+                or _has_arithmetic(analysis),
             )
         )
     if quarter_eps is not None:
         marks.append(
             _mark_values(
                 "11. Quarter diluted EPS, GAAP",
-                _amounts(analysis, r"(?m)^(?!Insight:)[^\n]*?\bquarter\s+GAAP\s+diluted\s+(?:earnings per share|EPS)\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
+                _amounts(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?(?<!-)quarter\s+GAAP\s+diluted\s+(?:earnings per share|EPS)\s+(?:of|was)\s+\$?([\d,.]+)\s*(million|billion|thousand)?"),
                 [quarter_eps],
                 f"${quarter_eps:.2f}",
                 eps_quote,
                 [0.005],
-                source_ok=("8-K Exhibit 99.1" in analysis or "Exhibit 99.1" in analysis)
-                and ("per diluted share" in analysis or bool(re.search(r"Diluted\s*\|", analysis, flags=re.IGNORECASE))),
+                source_ok=bool(re.search(r"exhibit-99-1\.txt:\s*\d+", core_analysis, flags=re.IGNORECASE))
+                or (
+                    ("8-K Exhibit 99.1" in analysis or "Exhibit 99.1" in analysis)
+                    and ("per diluted share" in analysis or bool(re.search(r"Diluted\s*\|", analysis, flags=re.IGNORECASE)))
+                ),
             )
         )
+    display_patterns = {
+        "1.": [r"annual\s+total\s+revenue"],
+        "2.": [r"annual\s+revenue\s+growth"],
+        "3.": [r"annual\s+operating\s+income", r"annual\s+operating\s+margin"],
+        "4.": [r"annual\s+net\s+income"],
+        "5.": [r"annual\s+GAAP\s+diluted"],
+        "6.": [r"return\s+on\s+average\s+equity"],
+        "7.": [r"debt\s+to\s+equity"],
+        "8.": [r"free\s+cash\s+flow"],
+        "9.": [r"quarter\s+total\s+revenue"],
+        "10.": [r"quarter\s+revenue\s+growth"],
+        "11.": [r"quarter\s+GAAP\s+diluted"],
+    }
+    for mark in marks:
+        prefix = mark.claim.split(" ", 1)[0]
+        report_text = _matching_report_lines(core_analysis, display_patterns.get(prefix, []))
+        if report_text:
+            mark.report_said = report_text
     return marks
 
 
@@ -380,12 +533,9 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
         for line in report.splitlines()
         if line.strip().lower().startswith("insight:")
     ]
-    citation_pattern = re.compile(
-        r"\((10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):(\d+)(?:-(\d+))?\)",
-        flags=re.IGNORECASE,
-    )
-    calculation_pattern = re.compile(r"\(calculations\.json:([a-z_]+)\)", flags=re.IGNORECASE)
-    faskills_pattern = re.compile(r"\(faskills_metrics\.json:([a-z0-9_]+)\)", flags=re.IGNORECASE)
+    citation_pattern = FILING_CITATION_RE
+    calculation_pattern = CALCULATION_CITATION_RE
+    faskills_pattern = FASKILLS_CITATION_RE
     calculations = load_json(run_folder / "calculations.json") if (run_folder / "calculations.json").exists() else {}
     facts = load_json(run_folder / "facts.json") if (run_folder / "facts.json").exists() else {}
     faskills = load_json(run_folder / "faskills_metrics.json") if (run_folder / "faskills_metrics.json").exists() else {}
@@ -421,10 +571,8 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
             calculation_evidence.append(
                 f"{calculation_name}: {calculation.get('arithmetic')}; result {result:g}"
             )
-        faskills_allowed = (
-            faskills.get("sec_crosscheck", {}).get("status") == "approved"
-            and faskills.get("course_boundary", {}).get("report_use_allowed") is True
-        )
+        # Vendor-only inputs do not meet the course's SEC reproducibility rule.
+        faskills_allowed = False
         for metric_name in faskills_citations:
             metric = faskills.get("metrics", {}).get(metric_name, {})
             if not faskills_allowed or metric.get("validation_status") != "available":
@@ -484,9 +632,228 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
     return marks
 
 
+def _non_advisor_report_lines(report: str) -> list[tuple[int, str]]:
+    """Return substantive report lines, excluding metadata and the Advisor's thesis section."""
+    kept: list[tuple[int, str]] = []
+    in_advisor = False
+    for line_number, line in enumerate(report.splitlines(), start=1):
+        stripped = line.strip()
+        if re.match(r"^#{1,2}\s+Investment Recommendation\s*$", stripped, flags=re.IGNORECASE):
+            in_advisor = True
+            continue
+        if in_advisor:
+            continue
+        if line_number <= 2 or not stripped or stripped == "---" or stripped.startswith("#"):
+            continue
+        if stripped.startswith(("This is a learning exercise", "AI assistance:", "Any remaining errors")):
+            continue
+        kept.append((line_number, stripped))
+    return kept
+
+
+def _is_core_or_insight_line(line: str) -> bool:
+    clean = re.sub(r"^[*_-]+", "", line).strip().lower()
+    if clean.startswith("insight:"):
+        return True
+    return bool(
+        re.match(
+            r"^(?:annual\s+(?:total\s+revenue|revenue\s+growth|operating\s+income|operating\s+margin|"
+            r"net\s+income|gaap\s+diluted)|return\s+on\s+average\s+equity|debt\s+to\s+equity|"
+            r"free\s+cash\s+flow|quarter\s+(?:total\s+revenue|revenue\s+growth|gaap\s+diluted))\b",
+            clean,
+        )
+    )
+
+
+def _source_numbers_for_line(run_folder: Path, line: str) -> tuple[list[float], list[str], bool]:
+    source_numbers: list[float] = []
+    evidence: list[str] = []
+    invalid = False
+    for filename, start_text, end_text in FILING_CITATION_RE.findall(line):
+        path = run_folder / filename.lower()
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
+        start = int(start_text)
+        end = int(end_text or start_text)
+        if not (0 < start <= end <= len(lines)):
+            invalid = True
+            evidence.append(f"Invalid citation {filename.lower()}:{start}-{end}.")
+            continue
+        excerpt = lines[start - 1:end]
+        source_numbers.extend(number for source_line in excerpt for number in _numbers(source_line))
+        evidence.append(f"{filename.lower()}:{start}-{end}: " + " | ".join(excerpt))
+    calculations = load_json(run_folder / "calculations.json") if (run_folder / "calculations.json").exists() else {}
+    for calculation_name in CALCULATION_CITATION_RE.findall(line):
+        calculation = calculations.get("calculations", {}).get(calculation_name, {})
+        if calculation.get("validation_status") != "available" or calculation.get("result") is None:
+            invalid = True
+            evidence.append(f"Calculation {calculation_name} is unavailable.")
+            continue
+        result = float(calculation["result"])
+        source_numbers.extend([result, result * 100])
+        source_numbers.extend(_numbers(str(calculation.get("arithmetic") or "")))
+        source_numbers.extend(_numbers(json.dumps(calculation.get("inputs", {}))))
+        evidence.append(
+            f"calculations.json:{calculation_name}: {calculation.get('arithmetic')}; result {result:g}"
+        )
+    facts = load_json(run_folder / "facts.json") if (run_folder / "facts.json").exists() else {}
+    for concept_name, period_name in FACT_CITATION_RE.findall(line):
+        period_key = (period_name or "current").lower()
+        concept = facts.get("concepts", {}).get(concept_name.lower(), {})
+        observation = concept.get(period_key) or {}
+        value = observation.get("value")
+        if not isinstance(value, (int, float)):
+            invalid = True
+            evidence.append(f"Fact {concept_name}:{period_key} is unavailable.")
+            continue
+        source_numbers.append(float(value))
+        source_numbers.extend(_numbers(str(observation.get("period_end") or "")))
+        evidence.append(
+            f"facts.json:{concept_name}:{period_key}: {value}; "
+            f"tag {observation.get('xbrl_tag')}; period {observation.get('period_end')}; "
+            f"accession {observation.get('accession_number')}"
+        )
+    peers = load_json(run_folder / "peers.json") if (run_folder / "peers.json").exists() else {}
+    peer_rows = {
+        str(peer.get("ticker") or "").upper(): peer
+        for peer in peers.get("peers", [])
+        if isinstance(peer, dict)
+    }
+    for ticker, measure_name in PEER_CITATION_RE.findall(line):
+        peer = peer_rows.get(ticker.upper())
+        measure = measure_name.lower()
+        if not peer:
+            invalid = True
+            evidence.append(f"Peer {ticker.upper()} is unavailable.")
+            continue
+        if measure == "operating_margin":
+            record = peer.get("operating_margin", {})
+            value = record.get("result")
+            if isinstance(value, (int, float)):
+                source_numbers.extend([float(value), float(value) * 100])
+                source_numbers.extend(_numbers(json.dumps(record.get("inputs", {}))))
+                evidence.append(
+                    f"peers.json:{ticker.upper()}:operating_margin: {record.get('arithmetic')}; result {float(value):g}; "
+                    f"denominator {peer.get('revenue_line_label')}"
+                )
+                continue
+        invalid = True
+        evidence.append(f"Peer measure {ticker.upper()}:{measure} is unavailable.")
+    manifest = load_json(run_folder / "manifest.json") if (run_folder / "manifest.json").exists() else {}
+    arguments = manifest.get("arguments", {})
+    for field_name in MANIFEST_CITATION_RE.findall(line):
+        value = arguments.get(field_name.lower())
+        if value in (None, ""):
+            invalid = True
+            evidence.append(f"Manifest field {field_name} is unavailable.")
+            continue
+        source_numbers.extend(_numbers(str(value)))
+        evidence.append(f"manifest.json:{field_name.lower()}: {value}")
+    return source_numbers, evidence, invalid
+
+
+def verify_all_other_numbers(run_folder: Path, report: str) -> list[VerificationMark]:
+    """Verify every non-core number outside the Investment Advisor's thesis.
+
+    Filing lines and deterministic calculations are the only permitted numerical
+    sources. Web numbers and vendor-derived FAskills metrics fail closed.
+    """
+    marks: list[VerificationMark] = []
+    for report_line_number, line in _non_advisor_report_lines(report):
+        if _is_core_or_insight_line(line):
+            continue
+        masked = line
+        for citation_pattern in _all_permitted_citation_patterns():
+            masked = _mask_matches(masked, citation_pattern)
+        masked = _mask_matches(masked, FASKILLS_CITATION_RE)
+        masked = re.sub(r"https?://[^\s)]+", lambda match: " " * (match.end() - match.start()), masked)
+        masked = re.sub(
+            r"\b(?:10-K|10-Q|8-K|Exhibit\s+99\.1)\b",
+            lambda match: " " * (match.end() - match.start()),
+            masked,
+            flags=re.IGNORECASE,
+        )
+        masked = re.sub(
+            r"\bQ[1-4]\b|\b(?:19|20)\d{2}\b",
+            lambda match: " " * (match.end() - match.start()),
+            masked,
+            flags=re.IGNORECASE,
+        )
+        masked = re.sub(r"^\s*(?:[-*]\s+|\d+[.)]\s+)", lambda match: " " * (match.end() - match.start()), masked)
+        mention_matches = list(NUMBER_MENTION_RE.finditer(masked))
+        if not mention_matches:
+            continue
+        urls = re.findall(r"https?://[^\s)]+", line, flags=re.IGNORECASE)
+        has_web_source = any(
+            (urlparse(url).hostname or "").lower() not in {"sec.gov", "www.sec.gov"}
+            and not (urlparse(url).hostname or "").lower().endswith(".sec.gov")
+            for url in urls
+        )
+        for mention_index, mention_match in enumerate(mention_matches, start=1):
+            mention = mention_match.group(0).strip()
+            value = _number_from_mention(mention)
+            claim = f"Other number L{report_line_number}.{mention_index}"
+            next_start = mention_matches[mention_index].start() if mention_index < len(mention_matches) else len(line)
+            citation_window = line[mention_match.end():next_start]
+            preceding_text = line[:mention_match.start()]
+            score_mention = (
+                value in {1, 2, 3, 4, 5}
+                and bool(re.search(r":\s*\*{0,2}\s*$", preceding_text))
+                and bool(
+                    re.search(
+                        r"\bevidence(?:\s+source)?\s*:",
+                        line[mention_match.end():],
+                        flags=re.IGNORECASE,
+                    )
+                )
+            )
+            has_vendor_source = bool(FASKILLS_CITATION_RE.search(citation_window))
+            has_permitted_citation = any(
+                pattern.search(citation_window) for pattern in _all_permitted_citation_patterns()
+            )
+            # A dense financial sentence may cite several lines at its end.
+            # Match each value against every permitted same-line source rather
+            # than assuming the first following token belongs to it.
+            source_window = line
+            has_permitted_citation = any(
+                pattern.search(source_window) for pattern in _all_permitted_citation_patterns()
+            )
+            source_numbers, evidence_parts, invalid_source = _source_numbers_for_line(run_folder, source_window)
+            if has_web_source:
+                mark = "Unsupported"
+                evidence = "Web numbers are supplementary and are not permitted as report evidence."
+                filing_says = "No permitted filing or code source"
+            elif has_vendor_source:
+                mark = "Unsupported"
+                evidence = "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+                filing_says = "No fully SEC-reproduced metric"
+            elif not has_permitted_citation or invalid_source:
+                mark = "Unsupported"
+                evidence = "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+                if evidence_parts:
+                    evidence += " " + " | ".join(evidence_parts)
+                filing_says = "No valid source citation"
+            elif score_mention:
+                mark = "Correct"
+                evidence = "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+                filing_says = "Analytical score, not a filing value"
+            elif any(_numeric_equivalent(value, source_value) for source_value in source_numbers):
+                mark = "Correct"
+                evidence = " | ".join(evidence_parts)
+                filing_says = "Matched cited filing or deterministic calculation"
+            else:
+                mark = "Wrong"
+                evidence = (
+                    f"The cited evidence does not contain the report number {mention}. "
+                    + " | ".join(evidence_parts)
+                )
+                filing_says = "Number not found in cited evidence"
+            marks.append(VerificationMark(claim, mention, filing_says, mark, evidence))
+    return marks
+
+
 def cited_line_evidence(run_folder: Path, report: str) -> list[dict[str, Any]]:
     evidence: list[dict[str, Any]] = []
-    pattern = re.compile(r"\((10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):(\d+)\)", re.IGNORECASE)
+    pattern = re.compile(r"(10-k\.txt|10-q\.txt|8-k\.txt|exhibit-99-1\.txt):\s*(\d+)", re.IGNORECASE)
     cache: dict[str, list[str]] = {}
     for match in pattern.finditer(report):
         filename = match.group(1).lower()
@@ -551,22 +918,10 @@ def build_semantic_payload(run_folder: Path, report: str, marks: list[Verificati
         "earnings_release_extraction": facts.get("earnings_release_extraction"),
     }
     faskills_path = run_folder / "faskills_metrics.json"
-    faskills = load_json(faskills_path) if faskills_path.exists() else {}
     compact_faskills = {
-        "sec_crosscheck": faskills.get("sec_crosscheck"),
-        "source_periods": faskills.get("source_periods"),
-        "metrics": {
-            name: {
-                "validation_status": metric.get("validation_status"),
-                "value": metric.get("value"),
-                "unit": metric.get("unit"),
-                "formula": metric.get("formula"),
-                "inputs": metric.get("inputs"),
-                "components": metric.get("components"),
-            }
-            for name, metric in faskills.get("metrics", {}).items()
-        },
-    } if faskills else {"status": "not present"}
+        "status": "blocked from report use",
+        "reason": "The vendor-derived inputs are not yet fully reproduced from SEC XBRL facts.",
+    } if faskills_path.exists() else {"status": "not present"}
     tavily_path = run_folder / "tavily_research.json"
     tavily = load_json(tavily_path) if tavily_path.exists() else {}
     compact_tavily = {
@@ -584,8 +939,10 @@ def build_semantic_payload(run_folder: Path, report: str, marks: list[Verificati
             "and cited evidence only; do not grade whether its analytical inference is persuasive. "
             "Mark an Insight Correct when its numbers, periods, definitions, and citations are correct, even when the "
             "relationship or implication is the analyst's inference rather than a sentence stated verbatim in a filing. "
-            "For a supplementary web claim, check only the saved Tavily excerpt cited by the exact URL. "
-            "Never accept Tavily as a replacement for filing evidence or as unconfirmed support for a number. Return JSON only."
+            "Every code mark represents one numerical statement outside the Investment Advisor thesis. "
+            "Web numbers, vendor-derived metrics, and uncited numbers are Unsupported. Never override those fail-closed marks. "
+            "For a qualitative supplementary web claim, check only the saved Tavily excerpt cited by the exact URL. "
+            "Never accept Tavily as a replacement for filing evidence. Return JSON only."
         ),
         "compiled_report": report,
         "saved_facts": compact_facts,
@@ -653,29 +1010,43 @@ def render_verified_report(
 def verify_saved_run(
     run_folder: Path,
     semantic_check: Callable[[str], str] | None = None,
+    *,
+    output_name: str = "verified_report.md",
 ) -> tuple[Path, list[VerificationMark], dict[str, Any] | None, dict[str, Any]]:
     run_folder = run_folder.resolve()
     report_path = run_folder / "report.md"
     if not report_path.exists():
         raise FileNotFoundError(f"No report.md in saved run: {run_folder}")
     report = report_path.read_text(encoding="utf-8")
-    marks = verify_core_claims(run_folder, report) + verify_insight_claims(run_folder, report)
+    marks = (
+        verify_core_claims(run_folder, report)
+        + verify_insight_claims(run_folder, report)
+        + verify_all_other_numbers(run_folder, report)
+    )
     payload = build_semantic_payload(run_folder, report, marks)
     semantic_review = None
     semantic_raw = ""
+    semantic_error = ""
     if semantic_check is not None:
-        semantic_raw = semantic_check(json.dumps(payload, ensure_ascii=False))
-        semantic_review = parse_semantic_review(semantic_raw)
+        try:
+            semantic_raw = semantic_check(json.dumps(payload, ensure_ascii=False))
+            semantic_review = parse_semantic_review(semantic_raw)
+        except Exception as exc:
+            semantic_error = f"{type(exc).__name__}: {exc}"
     verified_text = render_verified_report(report, marks, semantic_review)
-    verified_path = run_folder / "verified_report.md"
+    verified_path = run_folder / output_name
     verified_path.write_text(verified_text, encoding="utf-8")
-    (run_folder / "verifier_input.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (run_folder / "verifier_output.json").write_text(
+    suffix = ""
+    if output_name != "verified_report.md":
+        suffix = "_" + Path(output_name).stem.removeprefix("verified_report_")
+    (run_folder / f"verifier_input{suffix}.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (run_folder / f"verifier_output{suffix}.json").write_text(
         json.dumps(
             {
                 "code_marks": [asdict(mark) for mark in marks],
                 "semantic_review": semantic_review,
                 "semantic_raw": semantic_raw,
+                "semantic_error": semantic_error,
             },
             indent=2,
             ensure_ascii=False,

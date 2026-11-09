@@ -140,15 +140,18 @@ def statement_line_excerpt(run_folder: Path) -> str:
     lines = path.read_text(encoding="utf-8").splitlines()
     statements_start = find_item_heading(lines, "8", r"financial statements and supplementary data")
     start = statements_start if statements_start is not None else 0
+    # Prefer statement rows over prose and note disclosures. These lines are
+    # sent to the model as exact, auditable evidence.
     patterns = (
-        r"total revenue|total revenues|net sales|membership fees",
-        r"operating income",
-        r"net income attributable|net income",
-        r"diluted",
-        r"stockholders.? equity|total equity",
-        r"current portion of long.term debt|long.term debt",
-        r"net cash provided by.*operating activities",
-        r"additions to property and equipment|payments to acquire property",
+        r"^\s*(?:total\s+)?revenues?\s*\||^\s*net sales\s*\|",
+        r"^\s*operating income\s*\|",
+        r"^\s*net income(?: attributable[^|]*)?\s*\|",
+        r"^\s*diluted\s*\|",
+        r"^\s*(?:total\s+)?stockholders.? equity\s*\||^\s*total equity\s*\|",
+        r"^\s*(?:short-term debt|current portion of long.term debt)\s*\|",
+        r"^\s*long.term debt\s*\|",
+        r"^\s*net cash provided by operating activities\s*\|",
+        r"^\s*(?:additions to|purchases of|payments to acquire) property(?:, plant)? and equipment\s*\|",
     )
     selected: list[str] = []
     for pattern in patterns:
@@ -601,12 +604,18 @@ def quantitative_source_notes(context: dict[str, Any]) -> str:
     lines.extend(["", "**Price and peer source details**", ""])
     pe = context["price_provenance"]
     eps = context["annual_facts"]["diluted_eps"]["current"]
-    lines.append(
-        f"- FY-EPS P/E `(calculations.json:price_to_earnings)`: "
-        f"{float(pe['result']):.4f}x = {float(pe['share_price']):.2f} / {float(eps['value']):.2f}. "
-        f"Price date: {pe['date']}; price source: {pe['source']}. EPS period end: {eps['period_end']}; "
-        f"EPS tag: `{eps['xbrl_tag']}`; {eps['filing_form']} accession {eps['accession_number']}. Not TTM P/E."
-    )
+    if pe.get("result") is None or pe.get("share_price") is None:
+        lines.append(
+            "- FY-EPS P/E: not computed because no share price was supplied. "
+            f"Price date: {pe['date']}; price source: {pe['source']}."
+        )
+    else:
+        lines.append(
+            f"- FY-EPS P/E `(calculations.json:price_to_earnings)`: "
+            f"{float(pe['result']):.4f}x = {float(pe['share_price']):.2f} / {float(eps['value']):.2f}. "
+            f"Price date: {pe['date']}; price source: {pe['source']}. EPS period end: {eps['period_end']}; "
+            f"EPS tag: `{eps['xbrl_tag']}`; {eps['filing_form']} accession {eps['accession_number']}. Not TTM P/E."
+        )
     for peer in context["peers"].get("peers", []):
         if peer.get("status") != "success":
             lines.append(f"- {peer.get('ticker')}: peer facts unavailable; {peer.get('reason', 'see peers.json')}.")
@@ -626,6 +635,11 @@ def quantitative_source_notes(context: dict[str, Any]) -> str:
             f"revenue tag `{revenue['xbrl_tag']}`; "
             f"operating-income tag `{operating['xbrl_tag']}`; 10-K accession {revenue['accession_number']}."
         )
+        if str(peer.get("revenue_line_label") or "").strip().lower() == "net sales":
+            lines.append(
+                f"  Definition note: the {peer['ticker']} consolidated income statement labels its top revenue line "
+                "`Net sales`; that issuer-reported top line is the total operating-revenue denominator used here."
+            )
     lines.extend(["", "**Code-supplied calculation details**", ""])
     calculation_labels = {
         "revenue_growth": "Revenue growth",

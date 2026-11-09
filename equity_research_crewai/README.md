@@ -49,7 +49,8 @@ To add the professor's optional FAskills methodology, add `--faskills`.
 This option makes one Financial Datasets API request.
 It saves local `faskills_financialdatasets.json` plus reviewable metrics, methodology, and DRIVER-trace files in the run folder.
 The raw vendor response is ignored by Git.
-The program cross-checks revenue, operating income, net income, diluted EPS, accession number, and period against the saved SEC run before it allows report use.
+The program cross-checks revenue, operating income, net income, diluted EPS, accession number, and period against the saved SEC run.
+The remaining metric inputs are still vendor-derived, so every vendor-derived score is blocked from graded report use until all inputs are reproduced from SEC XBRL.
 
 ```bash
 .venv/bin/python -m equity_research_crewai.main TICKER \
@@ -60,8 +61,8 @@ The program cross-checks revenue, operating income, net income, diluted EPS, acc
   --faskills
 ```
 
-The extension calculates Piotroski F-Score, both Altman model variants, Beneish M-Score, owner earnings, DuPont decomposition, Sloan accruals, gross profitability, and FCF conversion in Python.
-It applies all nine FAskills frameworks as independent, source-bounded analytical lenses inside the three required course personas.
+The extension calculates Piotroski F-Score, both Altman model variants, Beneish M-Score, owner earnings, DuPont decomposition, Sloan accruals, gross profitability, and FCF conversion in a review-only sidecar.
+It applies the nine FAskills frameworks as optional methodology labels without passing vendor metric values into the graded report.
 The Research Analyst receives the Buffett, Lynch, Wood, and Soros lenses.
 The Financial Analyst receives the Graham, Dalio, Burry, Simons, and Shiller lenses.
 The Investment Advisor synthesizes only the two analyst outputs.
@@ -102,12 +103,10 @@ Each Tavily run saves:
 - `tavily_research.json`: the exact query, request settings, result excerpts, URLs, dates, and course boundaries.
 - `tavily_research.md`: a readable source record.
 
-Tavily results go only to the Research Analyst.
-They can support qualitative recent developments, catalysts, and competitive risks.
-They cannot replace SEC evidence for any audited financial claim.
-The Research Analyst must cite the URL and publication date.
-The final `Insight:` line remains filing-bounded.
-The Verifier receives cited Tavily excerpts and remains the final graph node.
+Tavily results are saved only as a research sidecar.
+They are excluded from graded role hand-offs because a prior search returned stale and irrelevant pages.
+They cannot replace SEC evidence for any audited claim.
+The final `Insight:` line remains filing-bounded, and the Verifier remains the final graph node.
 
 To correct or reproduce a saved run without spending another Tavily credit, use:
 
@@ -120,12 +119,16 @@ To correct or reproduce a saved run without spending another Tavily credit, use:
 
 `--reuse-tavily` requires `--saved-run` and an existing `tavily_research.json` file.
 
-The final validated course-safe run is:
+The original FAskills/Tavily run is:
 
 `week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`
 
-It reused saved Tavily results, so the correction consumed no additional Tavily search credit.
-Its Manager has no unresolved issue, all nine FAskills lenses are present, and both the 14 code marks and 14 model definition marks are Correct.
+Its saved sidecars remain available for methodology review.
+Its corrected course-safe derivative is:
+
+`week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`
+
+The derivative made zero model, Tavily, or vendor calls, preserves the raw role outputs and report, excludes blocked vendor citations, and has 41 of 41 deterministic marks Correct.
 
 To reuse an existing successful data folder while testing the graph:
 
@@ -142,6 +145,19 @@ This command runs the Verifier and no other role:
 .venv/bin/python -m equity_research_crewai.main \
   --verify-only week02/runs/SAVED_RUN_FOLDER
 ```
+
+If the model endpoint is unavailable, the command still writes the deterministic marks to a new timestamped file and leaves the prior verified report unchanged.
+
+## Reconcile a saved run without external calls
+
+Use the fail-closed reconciliation when a successful saved run contains unsupported model prose:
+
+```bash
+.venv/bin/python -m equity_research_crewai.main \
+  --reconcile-only week03/runs/SAVED_RUN_FOLDER
+```
+
+The command creates a new derived folder. It preserves the original report and role outputs, removes or replaces unresolved numerical lines, runs the mandatory deterministic checks, and makes no model, Tavily, or vendor request.
 
 ## Start the page
 
@@ -163,8 +179,10 @@ cd equity_research_crewai
 ## Lab 05 personas
 
 Devashish Batra supplied the design, purpose, criteria, source boundaries, change conditions, and output rules for all three personas.
-The professor permitted AI-assisted editing after the student supplied that design.
+The exact student draft is preserved in `week03/persona_original_draft.md`.
+Written confirmation of any permitted AI wording edits remains a human follow-up if the instructor requests it.
 The final six-part persona files are in `src/equity_research_crewai/roles/`.
+Operational citation and graph rules are kept separately in `src/equity_research_crewai/roles/operating_rules.md`.
 Each role must end with one `Insight:` line.
 Every number in that line must carry its own exact filing-line or code-calculation citation.
 

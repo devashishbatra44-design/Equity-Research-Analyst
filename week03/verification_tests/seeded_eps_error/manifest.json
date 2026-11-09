@@ -110,15 +110,25 @@
     "exhibit-99-1.txt",
     "facts.csv",
     "facts.json",
+    "faskills_driver_trace.json",
+    "faskills_financialdatasets.json",
+    "faskills_methodology.json",
+    "faskills_methodology.md",
+    "faskills_metrics.json",
     "filings.json",
-    "manager_review.json",
     "manifest.json",
-    "manual_audit.md",
+    "node_order.json",
+    "node_records.json",
     "peers.csv",
     "peers.json",
-    "report.md",
-    "role_outputs.json",
-    "role_records.json"
+    "reconciliation.json",
+    "report_before_reconciliation.md",
+    "role_outputs_before_reconciliation.json",
+    "tavily_research.json",
+    "tavily_research.md",
+    "verified_report.md",
+    "verifier_input.json",
+    "verifier_output.json"
   ],
   "retrieval_errors": [],
   "validation_errors": [],
@@ -168,5 +178,54 @@
   "manager_review": {
     "status": "pass",
     "issues": []
+  },
+  "week03_parent_run": "week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020113",
+  "week03_replay_time": "2026-11-09T02:05:25.698437-05:00",
+  "tavily_research": {
+    "enabled": true,
+    "provider": "Tavily Search API",
+    "auth_mode": "api_key",
+    "query_count": 1,
+    "search_depth": "basic",
+    "result_count": 5,
+    "json": "tavily_research.json",
+    "markdown": "tavily_research.md",
+    "supplementary_only": true
+  },
+  "faskills_extension": {
+    "enabled": true,
+    "status": "approved",
+    "source": "CinderZhang/FAskills v2.0.0",
+    "provider": "financialdatasets.ai",
+    "metrics_file": "faskills_metrics.json",
+    "local_raw_file": "faskills_financialdatasets.json"
+  },
+  "week03_agent_team": {
+    "framework": "CrewAI Flow",
+    "node_order": [
+      "Steps",
+      "Research Analyst",
+      "Financial Analyst",
+      "Investment Advisor",
+      "Strategy Manager",
+      "Verifier"
+    ],
+    "verifier_required": true,
+    "verified_report": "verified_report.md"
+  },
+  "faskills_methodology": {
+    "enabled": true,
+    "source": "CinderZhang/FAskills financial-researcher v2.0.0",
+    "json": "faskills_methodology.json",
+    "driver_trace": "faskills_driver_trace.json",
+    "markdown": "faskills_methodology.md",
+    "nine_lenses_routed_through_course_personas": true
+  },
+  "derived_reconciliation": {
+    "source_run": "COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525",
+    "reconciliation_file": "reconciliation.json",
+    "model_calls": 0,
+    "tavily_calls": 0,
+    "vendor_calls": 0
   }
 }

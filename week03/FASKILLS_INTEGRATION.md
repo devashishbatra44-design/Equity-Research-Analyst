@@ -20,16 +20,17 @@ It calculates these measures in Python:
 - Gross profitability.
 - Free-cash-flow conversion.
 
-Each metric records its formula, inputs, components, period, currency, accession number, interpretation, and missing fields.
+Each review-only metric records its formula, inputs, components, period, currency, accession number, interpretation, and missing fields.
 Missing inputs produce an unavailable result.
+These vendor-derived values do not enter the graded report.
 
 The integration also implements the full DRIVER orchestration pattern:
 
 1. `DISCOVER`: collect the saved SEC run and the licensed annual-financials response.
 2. `PROCESS`: calculate deterministic metrics in Python before any model call.
-3. `REPRESENT`: route only the required evidence and analytical lenses to each course role.
+3. `REPRESENT`: route only SEC-derived evidence and analytical-lens definitions to each course role.
 4. `IMPLEMENT`: run the three required analyst personas and the Manager in the fixed graph.
-5. `VALIDATE`: check report structure, all eleven course claims, lens labels, Insight citations, and filing support.
+5. `VALIDATE`: check report structure, all eleven course claims, every other number outside the Advisor thesis, lens labels, Insight citations, and filing support.
 6. `EVOLVE`: use no more than one retry per role and preserve every independent lens finding.
 7. `REFLECT`: save the verified report, JSON trace, Markdown methodology record, and limitations.
 
@@ -42,9 +43,9 @@ All nine FAskills frameworks are active as independent analytical lenses:
 The labels name methodologies.
 They do not represent statements, holdings, endorsements, or current recommendations from those investors.
 
-## SEC cross-check
+## SEC cross-check and report-use boundary
 
-Before a metric can enter a report, the extension compares these Financial Datasets values with the saved SEC run:
+The extension compares these Financial Datasets values with the saved SEC run:
 
 1. Total revenue.
 2. Operating income.
@@ -53,7 +54,9 @@ Before a metric can enter a report, the extension compares these Financial Datas
 5. The 10-K reporting period.
 6. The 10-K accession number.
 
-The sidecar sets `report_use_allowed` to `true` only when every check passes.
+This partial cross-check is not enough to reproduce Piotroski, Altman, Beneish, DuPont, or the other derived scores.
+Inputs such as assets, liabilities, retained earnings, gross profit, and shares remain vendor-derived.
+Therefore `report_use_allowed` is always `false`, and no vendor-derived score or value may enter the graded report until every input is computed from SEC XBRL or independently cross-checked.
 
 ## Course boundaries
 
@@ -61,10 +64,10 @@ The extension does not replace the three student-designed analyst personas.
 It does not add a graph node.
 It does not remove the mandatory Verifier.
 It does not generate simulated guru opinions, confidence-weighted votes, holdings intent, or automatic price targets.
-Tavily is available as an optional supplementary layer through `--tavily`.
-It is not required for the graded filing checks.
-Its results cannot replace SEC evidence or support an audited financial number without primary-source confirmation.
-The exact query, URLs, dates, and excerpts are saved in `tavily_research.json` and checked by the final Verifier when cited.
+Tavily is available as an optional saved sidecar through `--tavily`.
+It is not required for graded filing checks and is excluded from graded role hand-offs.
+Its results cannot replace SEC evidence or support an audited claim.
+The exact query, URLs, dates, and excerpts are saved in `tavily_research.json` for review.
 Use `--reuse-tavily` with `--saved-run` and `--tavily` to correct a saved report without spending another Tavily credit.
 
 ## Command
@@ -84,18 +87,17 @@ The command writes these files in the new Week 3 run folder:
 - `faskills_methodology.md`.
 
 The first file remains local.
-The second file contains the derived metrics and SEC cross-check that may be reviewed in the course repository.
+The second file contains review-only derived metrics and the partial SEC cross-check.
 
-The Financial Analyst may use an available metric only when the SEC cross-check approves the sidecar.
-The report must cite the sidecar metric, period, and accession number.
-An Insight using a supplemental metric must also cite its supporting local filing line.
+The Financial Analyst receives a block notice instead of vendor metric values.
+An Insight must use SEC filing evidence or a deterministic calculation built from SEC facts.
 
 ## Final validation
 
-The final controlled Costco run is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
-It reused five saved Tavily results without a new search request.
-All nine analytical lenses are present.
-The final Verifier produced 14 Correct code marks and 14 Correct model definition marks, with no Wrong, Unsupported, or Missing mark.
+The original controlled Costco run is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+Its corrected derivative is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
+The derivative preserves the original output, removes unsupported numerical lines fail-closed, strips blocked vendor citations, and makes no model, Tavily, or vendor request.
+The final deterministic Verifier produced 41 Correct marks, with no Wrong, Unsupported, or Missing mark.
 
 This is a learning exercise, not financial advice.
 

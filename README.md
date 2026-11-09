@@ -2,9 +2,9 @@
 
 This repository contains the FIN 67110 equity-research desk, its SEC data workflow, company reports, and manual audit records.
 
-The Week 3 desk supports optional, source-bounded Tavily research through `--tavily`.
-Tavily supplies supplementary qualitative context only.
-SEC filings remain authoritative for audited financial claims.
+The Week 3 desk can save optional Tavily research through `--tavily`.
+Tavily results remain a sidecar and are excluded from graded role hand-offs.
+SEC filings remain authoritative for every audited claim.
 
 ## Course work
 
@@ -76,6 +76,8 @@ PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai
   --price-source "SOURCE"
 ```
 
+`--price`, `--price-date`, and `--price-source` are optional. If price is omitted, the desk records P/E as not computed. If date or source is omitted, the manifest records `not supplied`.
+
 Start the browser page with:
 
 ```bash
@@ -84,12 +86,13 @@ Start the browser page with:
 
 Final Week 3 generated proofs:
 
-- [Final Costco FAskills and Tavily verified report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md): fixed graph, all nine source-bounded lenses, 14 of 14 code marks Correct, and 14 of 14 model definition marks Correct.
-- [Costco verified persona report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261105_085335/verified_report.md): 11 core claims and three Insights marked Correct.
-- [Netflix verified partner-pick report](week03/runs/NETFLIX_INC_NFLX_20261105_090924/verified_report.md): 10 available core claims and three Insights marked Correct; debt-to-equity is marked Not in filings.
+- [Current Costco reconciled report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446/verified_report.md): fixed graph output reconciled without model, Tavily, or vendor calls; all 41 code-checked claims are Correct.
+- [Current Netflix reconciled report](week03/runs/NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520/verified_report.md): fresh SEC facts include short-term debt; all 43 code-checked claims are Correct.
+- [Clean all-number Verifier proof](week03/verification_tests/clean_report/verified_report.md): all 41 report numbers outside the Advisor thesis are checked and Correct.
 - [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.
+- [Web-and-unsourced-number proof](week03/verification_tests/web_and_unsourced_numbers/verified_report.md): three added web or uncited values are marked Unsupported.
 
-The final Costco correction reused the saved Tavily result. It made no new Tavily search request.
+The reconciliation preserves the original model output beside the corrected artifact. It made no model, Tavily, or Financial Datasets request.
 
 ## Company runs
 

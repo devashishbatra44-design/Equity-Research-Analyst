@@ -1,0 +1,174 @@
+{
+  "status": "pass",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Not stated",
+      "filing_says": "$45.183 billion",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Not stated",
+      "filing_says": "15.8511%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Netflix expects full-year next fiscal year revenue of $51.1 billion, representing 13% year-over-year growth, and an operating margin of 31.5% (exhibit-99-1.txt:16, exhibit-99-1.txt:65). The company anticipates annual operating income growth of 20%+ for the next fiscal year (exhibit-99-1.txt:65). In the next quarter, Netflix expects revenue of $13.4 billion and an operating margin of 26.0%, which includes a ~120 basis point negative impact associated with recently announced headcount reductions (exhibit-99-1.txt:64). The company will continue to expand its entertainment offering through licensing and new ways to bring more third-party content to its service, such as the TF1 partnership in France (exhibit-99-1.txt:26). Netflix will also introduce its advertising tier to 15 new countries in the next fiscal year, with the first tranche launching in March of the next fiscal year (exhibit-99-1.txt:153, exhibit-99-1.txt:156).",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Not stated",
+      "filing_says": "$10.981 billion",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Not stated",
+      "filing_says": "$2.53",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 42.76% (`calculations.json`: return_on_average_equity, result 0.42762472946591407).",
+      "filing_says": "42.7625%",
+      "mark": "Unsupported",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity, including current debt, is not stated in the supplied filings.",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Missing",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9,461,053,000 (`calculations.json`: free_cash_flow, result 9461053000).",
+      "filing_says": "$9.461 billion",
+      "mark": "Unsupported",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Not stated",
+      "filing_says": "$12.874 billion",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth versus the same quarter last year was 11.85% (`calculations.json`: quarter_revenue_growth, result 11.8491).",
+      "filing_says": "11.8491%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Not stated",
+      "filing_says": "$0.87",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "$45.183 billion",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "15.8511%",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "mark": "Unsupported",
+      "report_said": "Netflix expects full-year next fiscal year revenue of $51.1 billion, representing 13% year-over-year growth, and an operating margin of 31.5% (exhibit-99-1.txt:16, exhibit-99-1.txt:65). The company anticipates annual operating income growth of 20%+ for the next fiscal year (exhibit-99-1.txt:65). In the next quarter, Netflix expects revenue of $13.4 billion and an operating margin of 26.0%, which includes a ~120 basis point negative impact associated with recently announced headcount reductions (exhibit-99-1.txt:64). The company will continue to expand its entertainment offering through licensing and new ways to bring more third-party content to its service, such as the TF1 partnership in France (exhibit-99-1.txt:26). Netflix will also introduce its advertising tier to 15 new countries in the next fiscal year, with the first tranche launching in March of the next fiscal year (exhibit-99-1.txt:153, exhibit-99-1.txt:156).",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "$10.981 billion",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "$2.53",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "6. Return on average equity",
+      "mark": "Unsupported",
+      "report_said": "Return on average equity was 42.76% (`calculations.json`: return_on_average_equity, result 0.42762472946591407).",
+      "filing_says": "42.7625%",
+      "reason": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "mark": "Missing",
+      "report_said": "Debt to equity, including current debt, is not stated in the supplied filings.",
+      "filing_says": "Not stated in the supplied filings",
+      "reason": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "mark": "Unsupported",
+      "report_said": "Free cash flow was $9,461,053,000 (`calculations.json`: free_cash_flow, result 9461053000).",
+      "filing_says": "$9.461 billion",
+      "reason": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "$12.874 billion",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "mark": "Unsupported",
+      "report_said": "Quarter revenue growth versus the same quarter last year was 11.85% (`calculations.json`: quarter_revenue_growth, result 11.8491).",
+      "filing_says": "11.8491%",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "$0.87",
+      "reason": "The report does not state this required claim."
+    }
+  ],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": [
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line has no filing and line citation."
+    },
+    {
+      "role": "Investment Advisor",
+      "reason": "The role output does not end with a line that begins Insight:."
+    }
+  ]
+}

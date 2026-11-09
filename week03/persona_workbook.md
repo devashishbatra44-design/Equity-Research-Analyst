@@ -1,8 +1,9 @@
 # Week 3 persona design record
 
 Devashish Batra wrote the original design, purpose, criteria, source boundaries, change conditions, output requirements, and quality checks for all three personas.
-The professor permitted AI-assisted editing after the student supplied that design.
-OpenAI Codex refined the wording and converted the design into operational role instructions.
+The exact student draft is preserved in `persona_original_draft.md`.
+OpenAI Codex implemented separate operational citation and graph rules in the code and `roles/operating_rules.md`.
+Written confirmation of any permitted AI wording edits remains pending if the instructor requests it.
 Devashish remains responsible for the final judgments and source checks.
 
 ## Final personas
@@ -54,6 +55,6 @@ Devashish remains responsible for the final judgments and source checks.
 
 This is a learning exercise, not financial advice.
 
-AI assistance: Devashish Batra supplied the persona design; OpenAI Codex made editorial and operational updates with the professor's permission. I verified the sources myself; the judgments are mine.
+AI assistance: Devashish Batra supplied the persona design; OpenAI Codex implemented the separate operating rules and code integration. I verified the sources myself; the judgments are mine.
 
 Any remaining errors are my own.

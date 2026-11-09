@@ -109,6 +109,7 @@ CONCEPTS: OrderedDict[str, dict[str, Any]] = OrderedDict(
             "unit": "USD",
             "tags": (
                 "DebtCurrent",
+                "ShortTermBorrowings",
                 "LongTermDebtCurrent",
                 "LongTermDebtAndFinanceLeaseObligationsCurrent",
                 "CurrentPortionOfLongTermDebt",

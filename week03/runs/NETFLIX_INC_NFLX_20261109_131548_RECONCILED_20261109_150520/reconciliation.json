@@ -1,0 +1,18 @@
+{
+  "source_run": "NETFLIX_INC_NFLX_20261109_131548",
+  "created_at": "2026-11-09T15:05:23.247013-05:00",
+  "method": "deterministic fail-closed reconciliation; no model, Tavily, or vendor request",
+  "raw_outputs_preserved_as": "role_outputs_before_reconciliation.json",
+  "raw_report_preserved_as": "report_before_reconciliation.md",
+  "numeric_omissions": [],
+  "insight_fallbacks": [
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line has no filing and line citation.",
+      "replacement": "Insight: Latest-fiscal-year revenue growth was 15.8511% (calculations.json:revenue_growth) using the reported revenue row (10-k.txt:2435), while operating margin was 29.4947% (calculations.json:operating_margin) using the operating-income row (10-k.txt:2440); the margin was above growth, which shows how reported growth translated into profitability."
+    }
+  ],
+  "unresolved_core": [],
+  "unresolved_insights": [],
+  "unresolved_other_numbers": []
+}

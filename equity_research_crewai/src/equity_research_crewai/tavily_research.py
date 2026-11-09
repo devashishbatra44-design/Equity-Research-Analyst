@@ -174,6 +174,8 @@ def research_run_folder(
         "include_raw_content": False,
         "include_images": False,
         "include_published_date": True,
+        "time_range": "month",
+        "include_domains": ["sec.gov"],
     }
     raw = (requester or _request_search)(payload, headers)
     raw_results = raw.get("results", [])

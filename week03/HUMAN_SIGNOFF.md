@@ -13,7 +13,7 @@ Do not mark a row until the named person opens the cited filing evidence.
 - Partner name and initials: Shivani Rathi (`SR`).
 - Check date: November 9, 2026.
 
-## Lab 05 Netflix partner-pick check
+## Historical Netflix check completed with the Week 2 partner company
 
 - Generated report: `runs/NETFLIX_INC_NFLX_20261105_090924/report.md`.
 - Verified report: `runs/NETFLIX_INC_NFLX_20261105_090924/verified_report.md`.
@@ -38,6 +38,19 @@ Do not mark a row until the named person opens the cited filing evidence.
 
 - Partner name and initials: Shivani Rathi (`SR`).
 - Check date: November 9, 2026.
+
+These marks apply only to the named `NETFLIX_INC_NFLX_20261105_090924` report.
+They are not transferred to the reconciled Netflix report.
+Netflix reported in October and was Shivani's Week 2 company, so this check does not replace the separate Lab 05 check on a November-reporting company.
+
+## Lab 05 November partner-pick check — pending
+
+- Company selected by Shivani Rathi: **Pending human confirmation**.
+- Generated report: **Pending**.
+- Core claim 1 and mark: **Pending**.
+- Core claim 2 and mark: **Pending**.
+- Insight citation and mark: **Pending**.
+- Partner initials and date: **Pending**.
 
 This is a learning exercise, not financial advice.
 

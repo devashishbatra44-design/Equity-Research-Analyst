@@ -12,15 +12,16 @@ No role ran more than twice.
 The Verifier ran last in both runs.
 The first run folder remained unchanged when the second run was created.
 
-## Lab 05 persona proof
+## Current remediated reports
 
-| Run folder | Company | Core result | Insight result | Manager result |
-|---|---|---|---|---|
-| `COSTCO_WHOLESALE_CORP_NEW_COST_20261105_085335` | Costco | 11 Correct | 3 Correct | Pass; no unresolved issue |
-| `NETFLIX_INC_NFLX_20261105_090924` | Netflix, chosen by partner Shivani Rathi | 10 Correct; 1 Not in filings | 3 Correct | Pass; no unresolved issue |
+| Run folder | Company | Deterministic result | External calls during reconciliation |
+|---|---|---|---|
+| `COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446` | Costco | 41 Correct; 0 non-correct | None |
+| `NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520` | Netflix, Shivani Rathi's Week 2 partner pick | 43 Correct; 0 non-correct | None |
 
-Netflix debt-to-equity is not calculated because the supplied filing facts do not state the current portion of long-term debt.
-The desk does not replace that missing input with zero.
+The fresh Netflix data run reads the 10-K short-term-debt line and calculates debt-to-equity.
+Each derived folder preserves the original report and role outputs before reconciliation.
+Netflix reported in October, so it does not satisfy the separate Lab 05 requirement for a November-reporting partner pick.
 
 ## Browser page check
 

@@ -1,0 +1,293 @@
+{
+  "status": "pass",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $45.183 billion (facts.json:total_revenue).",
+      "filing_says": "$45.183 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:Revenues; period 2025-12-31; accession 0001065280-26-000034"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 15.8511% (calculations.json:revenue_growth).",
+      "filing_says": "15.8511%",
+      "mark": "Correct",
+      "evidence": "(45183036000 - 39000966000) / 39000966000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $13.327 billion (facts.json:operating_income). Annual operating margin was 29.4947% (calculations.json:operating_margin).",
+      "filing_says": "$13.327 billion; 29.4947%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 13326603000 / 45183036000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $10.981 billion (facts.json:net_income).",
+      "filing_says": "$10.981 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $2.53 (facts.json:diluted_eps).",
+      "filing_says": "$2.53",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31; 10-k.txt:2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 42.7625% (calculations.json:return_on_average_equity).",
+      "filing_says": "42.7625%",
+      "mark": "Correct",
+      "evidence": "10981201000 / ((26615488000 + 24743567000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.5434x (calculations.json:debt_to_equity).",
+      "filing_says": "0.5434",
+      "mark": "Correct",
+      "evidence": "(13463971000 + 998865000) / 26615488000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9.461 billion (calculations.json:free_cash_flow).",
+      "filing_says": "$9.461 billion",
+      "mark": "Correct",
+      "evidence": "10149273000 - 688220000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $12.874 billion (exhibit-99-1.txt:277).",
+      "filing_says": "$12.874 billion",
+      "mark": "Correct",
+      "evidence": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.8491% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.8491%",
+      "mark": "Correct",
+      "evidence": "(1.28742e+10 - 1.15103e+10) / 1.15103e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $0.87 (exhibit-99-1.txt:291).",
+      "filing_says": "$0.87",
+      "mark": "Correct",
+      "evidence": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [],
+  "unresolved_other_numbers_after_one_retry": [],
+  "fail_closed_numeric_omissions": [
+    {
+      "role": "Research Analyst",
+      "line": "3",
+      "action": "omitted line",
+      "marks": "Wrong: $13,326,603 thousand"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "6",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "7",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "8",
+      "action": "omitted line",
+      "marks": "Wrong: 4, Wrong: 16%"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "9",
+      "action": "omitted line",
+      "marks": "Wrong: 4, Wrong: 21%"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "10",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "11",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "12",
+      "action": "omitted line",
+      "marks": "Wrong: 3"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "21",
+      "action": "omitted line",
+      "marks": "Wrong: 5, Wrong: 31.5%"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "22",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "23",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "24",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "25",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "26",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "27",
+      "action": "omitted line",
+      "marks": "Wrong: 3"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "36",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "37",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "38",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "39",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "40",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "41",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Research Analyst",
+      "line": "42",
+      "action": "omitted line",
+      "marks": "Wrong: 3"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "3",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "6",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "7",
+      "action": "omitted line",
+      "marks": "Wrong: 26.71%"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "9",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "15",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "18",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "21",
+      "action": "omitted line",
+      "marks": "Wrong: 5"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "24",
+      "action": "omitted line",
+      "marks": "Wrong: 3"
+    },
+    {
+      "role": "Financial Analyst",
+      "line": "27",
+      "action": "omitted line",
+      "marks": "Wrong: 4"
+    }
+  ],
+  "fail_closed_insight_fallbacks": [
+    {
+      "role": "Research Analyst",
+      "action": "replaced unresolved Insight after one model retry",
+      "replacement": "Insight: The source-bounded operating evidence (10-k.txt:1725) suggests that competitive durability should be tested against the next filing rather than inferred from the earnings headline."
+    },
+    {
+      "role": "Financial Analyst",
+      "action": "replaced unresolved Insight after one model retry",
+      "replacement": "Insight: Latest-fiscal-year revenue growth was 15.8511% (calculations.json:revenue_growth), while operating margin was 29.4947% (calculations.json:operating_margin); the margin was above growth, which shows how reported growth translated into profitability."
+    }
+  ],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": [
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line has no filing and line citation."
+    }
+  ]
+}

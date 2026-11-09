@@ -1,0 +1,129 @@
+{
+  "definition": "All ratios use the stated filing periods and total-revenue definition.",
+  "calculations": {
+    "revenue_growth": {
+      "measure": "Revenue growth",
+      "formula": "(Current-year revenue - Prior-year revenue) / Prior-year revenue",
+      "inputs": {
+        "current_revenue": 303154000000,
+        "prior_revenue": 275235000000
+      },
+      "fiscal_periods": {
+        "current": "2026-08-30",
+        "prior": "2025-08-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "(303154000000 - 275235000000) / 275235000000",
+      "result": 0.10143695387577888,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "operating_margin": {
+      "measure": "Operating margin",
+      "formula": "Current-year operating income / Current-year total revenue",
+      "inputs": {
+        "operating_income": 11685000000,
+        "total_revenue": 303154000000
+      },
+      "fiscal_periods": {
+        "period_end": "2026-08-30"
+      },
+      "unit": "ratio",
+      "arithmetic": "11685000000 / 303154000000",
+      "result": 0.03854476602650798,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "Denominator is total revenue, not net sales."
+    },
+    "return_on_average_equity": {
+      "measure": "Return on average equity",
+      "formula": "Current-year net income / average current-and-prior equity",
+      "inputs": {
+        "net_income": 9226000000,
+        "current_equity": 35803000000,
+        "prior_equity": 29164000000
+      },
+      "fiscal_periods": {
+        "current": "2026-08-30",
+        "prior": "2025-08-31"
+      },
+      "unit": "ratio",
+      "arithmetic": "9226000000 / ((35803000000 + 29164000000) / 2)",
+      "result": 0.284021118413964,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "debt_to_equity": {
+      "measure": "Debt to equity",
+      "formula": "(Long-term debt + Current portion of long-term debt) / Stockholders' equity",
+      "inputs": {
+        "long_term_debt": 3914000000,
+        "current_portion": 2248000000,
+        "stockholders_equity": 35803000000
+      },
+      "fiscal_periods": {
+        "period_end": "2026-08-30"
+      },
+      "unit": "ratio",
+      "arithmetic": "(3914000000 + 2248000000) / 35803000000",
+      "result": 0.17210848252939698,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": null
+    },
+    "free_cash_flow": {
+      "measure": "Free cash flow",
+      "formula": "Net cash from operations - Additions to property and equipment",
+      "inputs": {
+        "cash_from_operations": 15817000000,
+        "property_equipment_additions_sec_value": 6435000000,
+        "property_equipment_additions_as_positive_expenditure": 6435000000
+      },
+      "fiscal_periods": {
+        "period_end": "2026-08-30"
+      },
+      "unit": "USD",
+      "arithmetic": "15817000000 - 6435000000",
+      "result": 9382000000,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "The original SEC value is preserved. The calculation treats additions as a positive expenditure amount."
+    },
+    "price_to_earnings": {
+      "measure": "Price-to-earnings ratio",
+      "formula": "User-supplied share price / Latest fiscal-year diluted EPS",
+      "inputs": {
+        "share_price": 992.13,
+        "diluted_eps": 20.76
+      },
+      "fiscal_periods": {
+        "diluted_eps_period_end": "2026-08-30"
+      },
+      "unit": "multiple",
+      "arithmetic": "992.13 / 20.76",
+      "result": 47.79046242774566,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "Price divided by latest fiscal-year diluted EPS. This is not labeled TTM P/E."
+    },
+    "quarter_revenue_growth": {
+      "measure": "Quarter revenue growth versus the same quarter last year",
+      "formula": "(Current-quarter revenue - Same-quarter prior-year revenue) / Same-quarter prior-year revenue",
+      "inputs": {
+        "current_quarter_revenue_thousands": 95723,
+        "prior_year_same_quarter_revenue_thousands": 86156
+      },
+      "fiscal_periods": {
+        "current_quarter_end": "August 30, 2026"
+      },
+      "unit": "ratio",
+      "arithmetic": "(95,723 - 86,156) / 86,156",
+      "result": 0.111043,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "exhibit-99-1.txt:35: August 30, 2026 | August 31, 2025 | August 30, 2026 | August 31, 2025 ; exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    }
+  }
+}

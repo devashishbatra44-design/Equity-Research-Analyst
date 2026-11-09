@@ -48,8 +48,8 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] No CLI flag disables the Verifier.
 - [x] `--verify-only` runs the Verifier and no other role.
 - [x] Every node input and output is saved.
-- [x] Clean, seeded-EPS, and invented-growth checks pass offline.
-- [x] Run and save the three verifier proofs with the configured model.
+- [x] Clean, seeded-EPS, invented-growth, and web-plus-unsourced checks pass offline.
+- [x] Save all four deterministic verifier proofs.
 - [x] Run the complete graph twice on the same ticker and retain both folders.
 - [x] Have the partner check the seeded-EPS mark against the 10-K.
 
@@ -62,13 +62,14 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] The Manager code can require one final `Insight:` line from each analyst role once the three six-part personas are present.
 - [x] The Manager rejects an Insight line with no filing-line citation or one sourced only to the release's first paragraph.
 - [x] The Verifier compares numbers in each Insight line with its cited filing line.
-- [x] Devashish supplied the three six-part persona designs; Codex made permitted editorial and operational updates.
+- [x] Devashish supplied and committed the original three-persona design.
+- [x] Keep operating rules separate from the student-authored persona identity, values, and criteria.
 - [x] Add the persona Insight checks after the student text is ready.
-- [x] Run the full team on the partner's chosen company, Netflix.
-- [x] Partner checks two core claims and records both marks in `HUMAN_SIGNOFF.md`.
-- [x] Partner opens one Netflix Insight citation and confirms the filing line contains the claim.
+- [x] Preserve the Week 2 Netflix partner-pick report and its completed human marks.
+- [ ] Run Lab 05 on a new company that Shivani chooses and confirms reported in November 2026.
+- [ ] Have Shivani check two core claims and one Insight citation in that new report.
 - [x] Record the three student names.
-- [ ] Record the team name.
+- [x] Record the team name.
 - [ ] Push the final Week 3 artifacts.
 - [ ] Submit a commit permalink to Brightspace Checkpoint 2.
 
@@ -84,29 +85,29 @@ The second run used the one permitted Financial Analyst retry slot between the M
 Each run has 11 of 11 deterministic core claims marked Correct.
 Each model definition review has no non-correct finding.
 
-## Lab 05 proof runs
+## Current reconciled proof runs
 
-- Final Costco persona run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261105_085335`.
-- Final Netflix partner-pick run: `runs/NETFLIX_INC_NFLX_20261105_090924`.
+- Costco: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
+- Netflix: `runs/NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520`.
 
-The Costco run has 11 core claims and three Insights marked Correct.
-The Netflix run has 10 available core claims and three Insights marked Correct.
-Netflix debt-to-equity is marked `Not in filings` because the supplied facts do not state the current portion of long-term debt.
-The Netflix run has no unresolved Manager issue and no role retry.
+The Costco report has 41 of 41 deterministic marks Correct.
+The Netflix report has 43 of 43 deterministic marks Correct.
+The fresh Netflix facts use the 10-K short-term-debt line, so debt-to-equity is calculated instead of marked unavailable.
+Each reconciliation preserved the original role outputs and report, removed unresolved numerical lines fail-closed, and made zero model, Tavily, or vendor calls.
+Netflix remains Shivani Rathi's Week 2 partner pick; it does not satisfy the separate Lab 05 requirement for a company that reported in November.
 
-## Final FAskills and Tavily proof
+## FAskills and Tavily boundary
 
-- Final controlled run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+- Original controlled run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+- Current corrected artifact: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
 - Fixed node order: Steps; Research Analyst; Financial Analyst; Investment Advisor; Strategy Manager; Verifier.
-- Manager status: pass, with no unresolved core claim or Insight issue.
-- FAskills coverage: all nine source-bounded analytical lenses present.
-- Code marks: 14 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
-- Model definition marks: 14 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
-- Tavily: five saved results reused locally; no new Tavily search request for the final correction.
-- DRIVER trace: 11 records for this run only, from DISCOVER through REFLECT.
-- Full repository test result after the run: 62 passed.
+- FAskills methodology labels remain optional, but vendor-derived metric values are blocked from the graded report until every input is reproduced from SEC XBRL.
+- Tavily results are saved as sidecars and excluded from graded role hand-offs.
+- Code marks on the corrected artifact: 41 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
+- The corrected artifact made no model, Tavily, or vendor request.
+- Full repository result after the final remediation run: 69 tests passed; dependency check passed.
 
-The final verified artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md).
+The current verified artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446/verified_report.md).
 
 ## Team formation
 

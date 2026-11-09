@@ -516,7 +516,11 @@ def enrich_run_folder(run_folder: Path, ticker: str, price: float, repository_ro
             "nine_analytical_lenses_enabled": True,
             "automatic_price_targets_enabled": False,
             "verifier_bypass_enabled": False,
-            "report_use_allowed": crosscheck["status"] == "approved",
+            "report_use_allowed": False,
+            "report_use_reason": (
+                "Only revenue, operating income, net income, and diluted EPS are cross-checked to SEC facts. "
+                "The remaining score inputs are vendor-derived, so no metric may enter the graded report."
+            ),
         },
         "source_periods": {key: calculation[key] for key in ("current_period", "prior_period", "current_accession", "prior_accession", "currency")},
         "sec_crosscheck": crosscheck,

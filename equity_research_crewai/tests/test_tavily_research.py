@@ -94,7 +94,8 @@ def test_research_analyst_receives_bounded_tavily_context(tmp_path: Path) -> Non
         "tavily_research": record,
     }
     handoff = json.loads(main._research_handoff(context))
-    assert handoff["context"]["supplementary_tavily_research"]["query"] == "test query"
+    assert "supplementary_tavily_research" not in handoff["context"]
+    assert "course_operating_rules" in handoff["context"]
 
 
 def test_verifier_receives_only_cited_saved_tavily_results(tmp_path: Path) -> None:
