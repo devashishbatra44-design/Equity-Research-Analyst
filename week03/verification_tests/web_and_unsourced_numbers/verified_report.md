@@ -53,7 +53,7 @@ Code-checked claims: 44. Wrong: 0. Unsupported: 3. Missing: 0. Not in filings: 0
 
 ### Model definition review
 
-The model definition review was not available. The code marks remain authoritative for exact values and arithmetic.
+The optional model definition review was not run for this offline proof. The deterministic code marks above are the Checkpoint 2 evidence for exact values and arithmetic.
 
 # Run time: 2026-11-09T15:14:46.871950-05:00
 

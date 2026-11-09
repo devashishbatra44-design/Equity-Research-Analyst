@@ -78,7 +78,9 @@ def test_verify_only_survives_model_failure_and_writes_new_artifact(monkeypatch,
     output = main.verify_only(run)
     assert output.name.startswith("verified_report_rerun_")
     assert output.exists()
-    assert "model definition review was not available" in output.read_text(encoding="utf-8").lower()
+    rendered = output.read_text(encoding="utf-8").lower()
+    assert "optional model definition review was not run" in rendered
+    assert "checkpoint 2 evidence" in rendered
     assert (run / "verified_report.md").read_text(encoding="utf-8") == original
 
 

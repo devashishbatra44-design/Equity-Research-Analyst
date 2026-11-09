@@ -1142,7 +1142,10 @@ def render_verified_report(
         table.append("| " + " | ".join(str(cell).replace("|", "\\|").replace("\n", " ") for cell in cells) + " |")
     table.extend(["", "### Model definition review", ""])
     if semantic_review is None:
-        table.append("The model definition review was not available. The code marks remain authoritative for exact values and arithmetic.")
+        table.append(
+            "The optional model definition review was not run for this offline proof. "
+            "The deterministic code marks above are the Checkpoint 2 evidence for exact values and arithmetic."
+        )
     else:
         assessments = semantic_review.get("assessments", [])
         if not assessments:

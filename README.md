@@ -11,6 +11,7 @@ SEC filings remain authoritative for every audited claim.
 - Week 1 setup and learning notes: [week01/README.md](week01/README.md)
 - Week 2 desk, readings, run status, and audit notes: [week02/README.md](week02/README.md)
 - Week 3 fixed graph, Verifier proofs, personas, and run status: [week03/README.md](week03/README.md)
+- Checkpoint 2 submission index: [week03/CHECKPOINT2_SUBMISSION.md](week03/CHECKPOINT2_SUBMISSION.md)
 - Professor-provided FAskills course integration: [week03/FASKILLS_INTEGRATION.md](week03/FASKILLS_INTEGRATION.md)
 
 ## Local setup and verification

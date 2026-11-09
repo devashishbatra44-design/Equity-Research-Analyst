@@ -3,6 +3,7 @@
 This folder tracks Week 3 against the current course instructions.
 The optional professor-provided FAskills methodology is documented in [FASKILLS_INTEGRATION.md](FASKILLS_INTEGRATION.md).
 It implements DRIVER and all nine expert frameworks as source-bounded lenses without changing the fixed course graph.
+The concise grading entry point is [CHECKPOINT2_SUBMISSION.md](CHECKPOINT2_SUBMISSION.md).
 
 ## Prework completed in code
 
