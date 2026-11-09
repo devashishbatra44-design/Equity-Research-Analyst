@@ -37,8 +37,8 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 
 - [x] Run the final full test suite and record the result: 69 tests passed; dependency check passed.
 - [x] Run the final secret-safety and tracked-file audit: no key pattern, `.env`, raw vendor response, or licensed binary is Git-eligible.
-- [ ] Commit and push the remediation.
-- [ ] Verify the new commit permalink through authenticated GitHub access and an unauthenticated request. The repository is currently public.
+- [x] Commit and push the remediation: commit `278bbe2cdc0daeb787ede1157bbbeba624009e3f`.
+- [x] Verify the remediation permalink through authenticated GitHub access and an unauthenticated request: both checks passed; the repository is public.
 - [ ] Submit the new commit permalink in Brightspace Checkpoint 2.
 - [ ] Save the Brightspace submission receipt.
 
