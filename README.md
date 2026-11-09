@@ -105,8 +105,8 @@ The Week 2 company sequence is recorded as follows: Costco is the professor-assi
 ## Submission and privacy
 
 Checkpoint 1 uses the commit permalink already submitted in Brightspace.
-The repository is kept private while work is in progress.
-Before a checkpoint submission, make the repository public and verify the exact commit permalink while logged out.
+The repository is public for checkpoint review.
+The final Week 3 commit permalink is verified through authenticated GitHub access and an unauthenticated HTTP request.
 Checkpoint 2 requires a commit permalink containing the agent team and the seeded-error Verifier marks.
 
 Secrets and local environment files must stay out of version control. Do not upload `.env`, API keys, or licensed raw data.

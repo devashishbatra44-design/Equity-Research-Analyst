@@ -38,8 +38,8 @@ Do not assume that a learning partner is also a team member.
 - [x] Re-run the full test suite after the human and team records are updated. Final result: 62 passed.
 - [x] Re-run the secret-safety check after the human and team records were updated. Final result: passed.
 - [x] Commit and push the final Week 3 changes to the private repository.
-- [ ] Make the GitHub repository public only after Devashish gives explicit approval.
-- [ ] Open the final commit permalink while logged out and confirm that it works.
+- [x] Make the GitHub repository public after Devashish gave explicit approval.
+- [x] Open the commit permalink through authenticated GitHub access and an unauthenticated request; both checks passed.
 - [x] Confirm that `.env` and all API keys are absent from the pushed commit.
 - [ ] Submit the final commit permalink in Brightspace Checkpoint 2.
 - [ ] Save the Brightspace submission receipt.
