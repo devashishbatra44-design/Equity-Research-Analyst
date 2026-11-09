@@ -443,107 +443,6 @@ def _normalize_advisor_output(output: str) -> str:
     return normalized.strip()
 
 
-def _fail_closed_numeric_lines(
-    role: str,
-    output: str,
-    run_folder: Path,
-) -> tuple[str, list[dict[str, str]]]:
-    """Omit unresolved numerical lines after the one permitted role retry.
-
-    A failed criterion score becomes `Not scored`; another failed numerical
-    line is removed. The Manager records every omission. The original output
-    and retry remain available in node_records.json.
-    """
-    bad_marks = [
-        mark
-        for mark in verify_all_other_numbers(run_folder, output)
-        if mark.mark != "Correct"
-    ]
-    bad_by_line: dict[int, list[Any]] = {}
-    for mark in bad_marks:
-        match = re.match(r"Other number L(\d+)\.", mark.claim)
-        if match:
-            bad_by_line.setdefault(int(match.group(1)), []).append(mark)
-    if not bad_by_line:
-        return output, []
-    cleaned: list[str] = []
-    omissions: list[dict[str, str]] = []
-    for line_number, line in enumerate(output.splitlines(), start=1):
-        marks = bad_by_line.get(line_number)
-        if not marks:
-            cleaned.append(line)
-            continue
-        score_match = re.search(r"^(.*?:)\s*[1-5]\s*\*{0,2}(?:\s+Evidence.*)?$", line.strip())
-        if score_match:
-            prefix = score_match.group(1).rstrip("*")
-            replacement = f"{prefix} Not scored — the numerical evidence did not pass the deterministic source check."
-            cleaned.append(replacement)
-            action = "replaced score with Not scored"
-        else:
-            action = "omitted line"
-        omissions.append(
-            {
-                "role": role,
-                "line": str(line_number),
-                "action": action,
-                "marks": ", ".join(f"{mark.mark}: {mark.report_said}" for mark in marks),
-            }
-        )
-    return "\n".join(cleaned).strip(), omissions
-
-
-def _replace_insight(output: str, insight: str) -> str:
-    lines = [
-        line
-        for line in output.splitlines()
-        if not re.match(r"^\s*\*{0,2}Insight:\*{0,2}", line, flags=re.IGNORECASE)
-    ]
-    return "\n".join(lines).rstrip() + "\n\n" + insight
-
-
-def _fallback_insight(role: str, output: str, context: dict[str, Any]) -> str:
-    """Return a distinct source-bounded Insight when the role retry still fails."""
-    if role == "Research Analyst":
-        citation = next(
-            iter(re.findall(r"10-k\.txt:\d+(?:-\d+)?", output, flags=re.IGNORECASE)),
-            "",
-        )
-        if not citation:
-            citation = next(
-                iter(re.findall(r"exhibit-99-1\.txt:\d+(?:-\d+)?", output, flags=re.IGNORECASE)),
-                "exhibit-99-1.txt:1",
-            )
-        return (
-            "Insight: The source-bounded operating evidence "
-            f"({citation}) suggests that competitive durability should be tested against the next filing "
-            "rather than inferred from the earnings headline."
-        )
-    calculations = context["calculations"]
-    growth = float(calculations["revenue_growth"]["result"]) * 100
-    margin = float(calculations["operating_margin"]["result"]) * 100
-    statement_citations = re.findall(
-        r"10-k\.txt:\d+(?:-\d+)?",
-        str(context.get("annual_statement_source_lines") or ""),
-        flags=re.IGNORECASE,
-    )
-    revenue_citation = statement_citations[0] if statement_citations else "10-k.txt:1"
-    operating_citation = statement_citations[1] if len(statement_citations) > 1 else revenue_citation
-    if role == "Financial Analyst":
-        relationship = "above" if margin > growth else "below"
-        return (
-            f"Insight: Latest-fiscal-year revenue growth was {growth:.4f}% "
-            f"(calculations.json:revenue_growth) using the reported revenue row ({revenue_citation}), while operating margin was "
-            f"{margin:.4f}% (calculations.json:operating_margin) using the operating-income row ({operating_citation}); "
-            f"the margin was {relationship} growth, "
-            "which shows how reported growth translated into profitability."
-        )
-    return (
-        f"Insight: The {margin:.4f}% operating margin (calculations.json:operating_margin) from the operating-income row "
-        f"({operating_citation}) is the deciding "
-        "number because it links reported growth to profitability; a decline would weaken the recommendation."
-    )
-
-
 def make_llm() -> LLM:
     api_key, base_url, model = load_model_config()
     return LLM(
@@ -1267,9 +1166,7 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         _save_node_record(self.state, "Strategy Manager", json.loads(handoff), manager_review)
         context = _context(Path(self.state.run_folder), self.state)
         retried_roles: set[str] = set()
-        financial_changed = False
         analyst_inputs_changed = False
-        fail_closed_omissions: list[dict[str, str]] = []
         if missing:
             sections_by_role: dict[str, list[str]] = {}
             for section in missing:
@@ -1294,7 +1191,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 if role in {"Research Analyst", "Financial Analyst"}:
                     retry_output = _normalize_analyst_output(role, retry_output, context)
                 if role == "Financial Analyst":
-                    financial_changed = True
                     analyst_inputs_changed = True
                 elif role == "Research Analyst":
                     analyst_inputs_changed = True
@@ -1386,7 +1282,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 retry_output,
             )
             retried_roles.add("Financial Analyst")
-            financial_changed = True
             analyst_inputs_changed = True
             outputs = desk_app.normalize_role_outputs(outputs)
             report, missing = desk_app.assemble_report(
@@ -1419,7 +1314,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             retry_output = _normalize_analyst_output("Financial Analyst", retry_output, context)
             outputs["Financial Analyst"] = retry_output
             retried_roles.add("Financial Analyst")
-            financial_changed = True
             analyst_inputs_changed = True
             _save_node_record(
                 self.state,
@@ -1447,18 +1341,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 for mark in core_marks
                 if mark.mark not in {"Correct", "Not in filings"}
             ]
-        for analyst_role in ("Research Analyst", "Financial Analyst"):
-            cleaned_output, omissions = _fail_closed_numeric_lines(
-                analyst_role,
-                outputs[analyst_role],
-                Path(self.state.run_folder),
-            )
-            if cleaned_output != outputs[analyst_role]:
-                outputs[analyst_role] = cleaned_output
-                analyst_inputs_changed = True
-                if analyst_role == "Financial Analyst":
-                    financial_changed = True
-            fail_closed_omissions.extend(omissions)
         if analyst_inputs_changed:
             _print_node("Investment Advisor refresh")
             advisor_handoff = _advisor_handoff(outputs["Research Analyst"], outputs["Financial Analyst"])
@@ -1482,7 +1364,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 raise RuntimeError("The Investment Advisor refresh did not preserve the five-part template.")
         persona_mode = lab05_personas_ready()
         unresolved_insights: list[dict[str, str]] = []
-        fail_closed_insight_fallbacks: list[dict[str, str]] = []
         if persona_mode:
             financial_insight_changed = False
             source_context = {
@@ -1542,29 +1423,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             if report is None or missing:
                 raise RuntimeError("An Insight retry did not preserve the five-part template.")
             unresolved_insights = insight_issues(outputs, Path(self.state.run_folder))
-            if unresolved_insights:
-                roles_with_issues = {issue["role"] for issue in unresolved_insights}
-                for role in ANALYST_ROLES:
-                    if role not in roles_with_issues:
-                        continue
-                    replacement = _fallback_insight(role, outputs[role], context)
-                    outputs[role] = _replace_insight(outputs[role], replacement)
-                    fail_closed_insight_fallbacks.append(
-                        {
-                            "role": role,
-                            "action": "replaced unresolved Insight after one model retry",
-                            "replacement": replacement,
-                        }
-                    )
-                outputs = desk_app.normalize_role_outputs(outputs)
-                report, missing = desk_app.assemble_report(
-                    outputs["Research Analyst"],
-                    outputs["Financial Analyst"],
-                    outputs["Investment Advisor"],
-                )
-                if report is None or missing:
-                    raise RuntimeError("The fail-closed Insight fallback did not preserve the five-part template.")
-                unresolved_insights = insight_issues(outputs, Path(self.state.run_folder))
             core_marks = verify_core_claims(Path(self.state.run_folder), report)
             core_issues = [
                 {
@@ -1585,8 +1443,8 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             if mark.mark != "Correct"
         ]
         manager_review["unresolved_other_numbers_after_one_retry"] = final_number_issues
-        manager_review["fail_closed_numeric_omissions"] = fail_closed_omissions
-        manager_review["fail_closed_insight_fallbacks"] = fail_closed_insight_fallbacks
+        manager_review["post_generation_report_edits"] = []
+        manager_review["code_written_insight_fallbacks"] = []
         manager_review["lab05_persona_checks_enabled"] = persona_mode
         manager_review["unresolved_insight_issues_after_one_retry"] = unresolved_insights
         if methodology_path.exists():
@@ -1744,131 +1602,53 @@ def verify_only(run_folder: Path) -> Path:
 
 
 def reconcile_saved_run(source_run: Path) -> Path:
-    """Create a new, deterministic fail-closed copy of a successful saved run."""
+    """Create a verifier-only diagnostic copy without editing desk output.
+
+    This compatibility command preserves report.md and role_outputs.json
+    byte-for-byte. It never deletes model text or writes an Insight.
+    """
     source_run = source_run.resolve()
     for required in ("manifest.json", "role_outputs.json", "report.md"):
         if not (source_run / required).exists():
             raise FileNotFoundError(f"Missing {required} in saved run: {source_run}")
     stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
-    destination = source_run.with_name(f"{source_run.name}_RECONCILED_{stamp}")
+    destination = source_run.with_name(f"{source_run.name}_VERIFIER_DIAGNOSTIC_{stamp}")
     shutil.copytree(source_run, destination)
-    shutil.copy2(source_run / "role_outputs.json", destination / "role_outputs_before_reconciliation.json")
-    shutil.copy2(source_run / "report.md", destination / "report_before_reconciliation.md")
-
-    excluded_optional_sidecars: list[str] = []
-    for filename in ("tavily_research.json", "tavily_research.md"):
-        path = destination / filename
-        if path.exists():
-            path.unlink()
-            excluded_optional_sidecars.append(filename)
-
     manifest = desk_app.load_json(destination / "manifest.json")
-    metrics_path = destination / "faskills_metrics.json"
-    if metrics_path.exists():
-        metrics = desk_app.load_json(metrics_path)
-        boundary = metrics.setdefault("course_boundary", {})
-        boundary["report_use_allowed"] = False
-        boundary["report_use_reason"] = (
-            "Only revenue, operating income, net income, and diluted EPS were cross-checked to SEC facts. "
-            "The remaining score inputs are vendor-derived, so no metric may enter the graded report."
-        )
-        metrics_path.write_text(
-            json.dumps(metrics, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-    arguments = manifest.get("arguments", {})
-    ticker = str(manifest.get("main_ticker") or arguments.get("ticker") or "").upper()
-    state = TeamState(
-        ticker=ticker,
-        peers=parse_peers(str(arguments.get("peers") or "")),
-        price=float(arguments["price"]) if arguments.get("price") is not None else None,
-        price_date=str(arguments.get("price_date") or ""),
-        price_source=str(arguments.get("price_source") or ""),
-        run_folder=str(destination),
-    )
-    context = _context(destination, state)
-    outputs = desk_app.load_json(destination / "role_outputs.json")
-    omissions: list[dict[str, str]] = []
-    for role in ("Research Analyst", "Financial Analyst"):
-        outputs[role] = _normalize_analyst_output(role, outputs[role], context)
-        outputs[role], role_omissions = _fail_closed_numeric_lines(role, outputs[role], destination)
-        omissions.extend(role_omissions)
-    outputs["Investment Advisor"] = _normalize_advisor_output(outputs["Investment Advisor"])
-
-    insight_fallbacks: list[dict[str, str]] = []
-    for issue in insight_issues(outputs, destination):
-        role = issue["role"]
-        replacement = _fallback_insight(role, outputs[role], context)
-        outputs[role] = _replace_insight(outputs[role], replacement)
-        insight_fallbacks.append(
-            {"role": role, "reason": issue["reason"], "replacement": replacement}
-        )
-    outputs = desk_app.normalize_role_outputs(outputs)
-    report, missing = desk_app.assemble_report(
-        outputs["Research Analyst"],
-        outputs["Financial Analyst"],
-        outputs["Investment Advisor"],
-    )
-    if report is None or missing:
-        raise RuntimeError("Deterministic reconciliation did not preserve the five-part template.")
-    header = desk_app.report_header(destination, context)
-    report_text = desk_app.render_report_text(header, report)
-    (destination / "role_outputs.json").write_text(
-        json.dumps(outputs, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
-    (destination / "report.md").write_text(report_text, encoding="utf-8")
-
-    core_marks = verify_core_claims(destination, report_text)
-    insight_marks = verify_insight_claims(destination, report_text)
-    other_marks = verify_all_other_numbers(destination, report_text)
-    reconciliation = {
+    diagnostic = {
         "source_run": source_run.name,
         "created_at": datetime.now().astimezone().isoformat(),
-        "method": "deterministic fail-closed reconciliation; no model, Tavily, or vendor request",
-        "raw_outputs_preserved_as": "role_outputs_before_reconciliation.json",
-        "raw_report_preserved_as": "report_before_reconciliation.md",
-        "numeric_omissions": omissions,
-        "insight_fallbacks": insight_fallbacks,
-        "unresolved_core": [mark.__dict__ for mark in core_marks if mark.mark != "Correct"],
-        "unresolved_insights": [mark.__dict__ for mark in insight_marks if mark.mark != "Correct"],
-        "unresolved_other_numbers": [mark.__dict__ for mark in other_marks if mark.mark != "Correct"],
-    }
-    (destination / "reconciliation.json").write_text(
-        json.dumps(reconciliation, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
-    manifest["derived_reconciliation"] = {
-        "source_run": source_run.name,
-        "reconciliation_file": "reconciliation.json",
+        "artifact_class": "optional verifier diagnostic; not graph output",
+        "report_edits": 0,
+        "role_output_edits": 0,
+        "code_written_insights": 0,
         "model_calls": 0,
         "tavily_calls": 0,
         "vendor_calls": 0,
-        "excluded_optional_sidecars": excluded_optional_sidecars,
+    }
+    (destination / "reconciliation.json").write_text(
+        json.dumps(diagnostic, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    manifest["derived_verifier_diagnostic"] = {
+        "source_run": source_run.name,
+        "metadata_file": "reconciliation.json",
+        "report_and_role_outputs_unchanged": True,
+        "not_graph_output": True,
     }
     manifest["output_filenames"] = sorted(
-        (set(manifest.get("output_filenames", [])) - set(excluded_optional_sidecars))
-        | {
-            "reconciliation.json",
-            "role_outputs_before_reconciliation.json",
-            "report_before_reconciliation.md",
-        }
+        set(manifest.get("output_filenames", [])) | {"reconciliation.json"}
     )
-    manifest["tavily_research"] = {
-        "enabled": False,
-        "reason": "Excluded from the graded reconciled run; the historical source run preserves the sidecar.",
-    }
-    if isinstance(manifest.get("faskills_extension"), dict):
-        manifest["faskills_extension"]["report_use_allowed"] = False
-        manifest["faskills_extension"]["report_use_reason"] = (
-            "Vendor-derived score inputs are not fully reproduced from SEC XBRL."
-        )
     (destination / "manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
     verify_saved_run(destination)
-    print(f"Reconciled run saved: {destination}")
+    if (destination / "report.md").read_bytes() != (source_run / "report.md").read_bytes():
+        raise RuntimeError("Verifier-only diagnostic changed report.md.")
+    if (destination / "role_outputs.json").read_bytes() != (source_run / "role_outputs.json").read_bytes():
+        raise RuntimeError("Verifier-only diagnostic changed role_outputs.json.")
+    print(f"Verifier-only diagnostic saved: {destination}")
     return destination
 
 
@@ -1905,7 +1685,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--reconcile-only",
         type=Path,
-        help="Create a new fail-closed copy of a saved run without a model, Tavily, or vendor call",
+        help="Deprecated: copy a run unchanged and rerun only the verifier",
     )
     return parser
 

@@ -1,4 +1,8 @@
-"""Create the four Lab 04 verifier proof folders from the reviewed saved run."""
+"""Create four purpose-built Lab 04 verifier fixtures.
+
+These folders test known answers. They are not graph-produced reports and are
+not submission artifacts.
+"""
 
 from __future__ import annotations
 

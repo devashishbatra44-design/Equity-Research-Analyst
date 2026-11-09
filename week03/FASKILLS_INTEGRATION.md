@@ -94,10 +94,10 @@ An Insight must use SEC filing evidence or a deterministic calculation built fro
 
 ## Final validation
 
-The original controlled Costco run is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
-Its corrected derivative is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
-The derivative preserves the original output, removes unsupported numerical lines fail-closed, strips blocked vendor citations, and makes no model, Tavily, or vendor request.
-The final deterministic Verifier produced 41 Correct marks, with no Wrong, Unsupported, or Missing mark.
+The controlled Costco graph run is `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+Its report remains the model output produced inside the graph.
+The current Verifier marks filing-supported values and simple rounded arithmetic Correct, while it marks web numbers and unreproduced vendor metrics Unsupported.
+Historical folders containing `RECONCILED` are retained only as post-processing diagnostics and are not presented as graph output.
 
 This is a learning exercise, not financial advice.
 

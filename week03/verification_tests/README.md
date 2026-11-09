@@ -1,7 +1,8 @@
 # Lab 04 verifier proofs
 
-These folders are copies of the same reviewed saved run.
+These folders are purpose-built deterministic test fixtures copied from the same reviewed base fixture.
 Each folder preserves the filing texts, saved facts, calculations, report, verifier input, verifier output, and verified report.
+They test known answers. They are not graph-produced reports and are not submission artifacts.
 
 ## Clean report
 

@@ -207,3 +207,37 @@ The Advisor thesis uses 47.79x and is outside this deterministic check.
     assert {mark.report_said for mark in marks} >= {"9.6%", "35.4 million", "7.5%"}
     assert {mark.mark for mark in marks} == {"Unsupported"}
     assert not any(mark.report_said == "47.79x" for mark in marks)
+
+
+def test_correctly_rounded_growth_from_cited_inputs_is_correct(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "rounded_growth")
+    filing_path = run / "10-k.txt"
+    filing_path.write_text(
+        filing_path.read_text(encoding="utf-8")
+        + "\nMembership fee revenue | 5,907 | 5,323\n"
+        + "Net income | 9,226 | 8,099\n",
+        encoding="utf-8",
+    )
+    lines = filing_path.read_text(encoding="utf-8").splitlines()
+    membership_line = len(lines) - 1
+    net_income_line = len(lines)
+    report = f"""# Test report
+# Overview
+Membership fee revenue increased 11% (10-k.txt:{membership_line}).
+Net income increased 14% (10-k.txt:{net_income_line}).
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(run, report)
+    assert [mark.mark for mark in marks] == ["Correct", "Correct"]
+    assert all("report rounding holds" in mark.evidence for mark in marks)
+
+
+def test_number_inside_factor_label_is_not_a_claim() -> None:
+    report = """# Test report
+# Overview
+The DuPont 5-factor framework is used as an analytical label.
+# Investment Recommendation
+No number is checked here.
+"""
+    assert verify_all_other_numbers(CLEAN_RUN, report) == []

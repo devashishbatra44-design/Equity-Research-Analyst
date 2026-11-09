@@ -70,7 +70,7 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [ ] Have Shivani check two core claims and one Insight citation in that new report.
 - [x] Record the three student names.
 - [x] Record the team name.
-- [ ] Push the final Week 3 artifacts.
+- [x] Push the Week 3 artifacts completed to date.
 - [ ] Submit a commit permalink to Brightspace Checkpoint 2.
 
 ## Repeatability proof
@@ -85,29 +85,28 @@ The second run used the one permitted Financial Analyst retry slot between the M
 Each run has 11 of 11 deterministic core claims marked Correct.
 Each model definition review has no non-correct finding.
 
-## Current reconciled proof runs
+## Current graph-produced reports
 
-- Costco: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
-- Netflix: `runs/NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520`.
+- Costco: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+- Netflix: `runs/NETFLIX_INC_NFLX_20261109_131548`.
 
-The Costco report has 41 of 41 deterministic marks Correct.
-The Netflix report has 43 of 43 deterministic marks Correct.
+The Costco report has 67 Correct and 144 Unsupported deterministic marks. The Unsupported marks expose web, unreproduced vendor, and uncited numerical claims instead of deleting them.
+The Netflix report has 42 Correct and one Unsupported deterministic mark. The failed Insight remains visible.
 The fresh Netflix facts use the 10-K short-term-debt line, so debt-to-equity is calculated instead of marked unavailable.
-Each reconciliation preserved the original role outputs and report, removed unresolved numerical lines fail-closed, and made zero model, Tavily, or vendor calls.
+Neither report was edited after the graph. The Verifier marks and filing corrections are appended to `verified_report.md`.
+The old folders containing `RECONCILED` are historical post-processing diagnostics. They are not graph output and are not current proof runs.
 Netflix remains Shivani Rathi's Week 2 partner pick; it does not satisfy the separate Lab 05 requirement for a company that reported in November.
 
 ## FAskills and Tavily boundary
 
 - Original controlled run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
-- Current corrected artifact: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
 - Fixed node order: Steps; Research Analyst; Financial Analyst; Investment Advisor; Strategy Manager; Verifier.
 - FAskills methodology labels remain optional, but vendor-derived metric values are blocked from the graded report until every input is reproduced from SEC XBRL.
 - Tavily results are saved as sidecars and excluded from graded role hand-offs.
-- Code marks on the corrected artifact: 41 Correct; 0 Wrong; 0 Unsupported; 0 Missing.
-- The corrected artifact made no model, Tavily, or vendor request.
-- Full repository result after the final remediation run: 69 tests passed; dependency check passed.
+- Current code marks on the unedited graph report: 67 Correct; 0 Wrong; 144 Unsupported; 0 Missing.
+- Full repository result after the verifier correction: 71 tests passed.
 
-The current verified artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446/verified_report.md).
+The current verified graph artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md).
 
 ## Team formation
 

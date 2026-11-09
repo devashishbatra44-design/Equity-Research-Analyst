@@ -124,8 +124,6 @@
     "reconciliation.json",
     "report_before_reconciliation.md",
     "role_outputs_before_reconciliation.json",
-    "tavily_research.json",
-    "tavily_research.md",
     "verified_report.md",
     "verifier_input.json",
     "verifier_output.json"
@@ -182,15 +180,8 @@
   "week03_parent_run": "week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020113",
   "week03_replay_time": "2026-11-09T02:05:25.698437-05:00",
   "tavily_research": {
-    "enabled": true,
-    "provider": "Tavily Search API",
-    "auth_mode": "api_key",
-    "query_count": 1,
-    "search_depth": "basic",
-    "result_count": 5,
-    "json": "tavily_research.json",
-    "markdown": "tavily_research.md",
-    "supplementary_only": true
+    "enabled": false,
+    "reason": "Excluded from the graded reconciled run; the historical source run preserves the sidecar."
   },
   "faskills_extension": {
     "enabled": true,
@@ -198,7 +189,9 @@
     "source": "CinderZhang/FAskills v2.0.0",
     "provider": "financialdatasets.ai",
     "metrics_file": "faskills_metrics.json",
-    "local_raw_file": "faskills_financialdatasets.json"
+    "local_raw_file": "faskills_financialdatasets.json",
+    "report_use_allowed": false,
+    "report_use_reason": "Vendor-derived score inputs are not fully reproduced from SEC XBRL."
   },
   "week03_agent_team": {
     "framework": "CrewAI Flow",
@@ -226,6 +219,10 @@
     "reconciliation_file": "reconciliation.json",
     "model_calls": 0,
     "tavily_calls": 0,
-    "vendor_calls": 0
+    "vendor_calls": 0,
+    "excluded_optional_sidecars": [
+      "tavily_research.json",
+      "tavily_research.md"
+    ]
   }
 }

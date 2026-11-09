@@ -40,7 +40,7 @@ Do not mark a row until the named person opens the cited filing evidence.
 - Check date: November 9, 2026.
 
 These marks apply only to the named `NETFLIX_INC_NFLX_20261105_090924` report.
-They are not transferred to the reconciled Netflix report.
+They are not transferred to another Netflix run or any historical post-processed diagnostic.
 Netflix reported in October and was Shivani's Week 2 company, so this check does not replace the separate Lab 05 check on a November-reporting company.
 
 ## Lab 05 November partner-pick check — pending

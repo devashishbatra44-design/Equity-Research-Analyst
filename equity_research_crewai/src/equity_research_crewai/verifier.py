@@ -85,6 +85,96 @@ def _numeric_equivalent(report_value: float, source_value: float) -> bool:
     return False
 
 
+def _reported_precision(mention: str) -> int:
+    """Return the decimal precision used for the first number in a report mention."""
+    match = re.search(r"-?\d[\d,]*(?:\.(\d+))?", mention)
+    return len(match.group(1) or "") if match else 0
+
+
+def _usable_arithmetic_inputs(values: list[float]) -> list[float]:
+    """Remove dates and duplicate values before trying simple filing arithmetic."""
+    usable: list[float] = []
+    for value in values:
+        if not math.isfinite(value) or value == 0:
+            continue
+        if value.is_integer() and 1900 <= value <= 2100:
+            continue
+        if not any(_numeric_equivalent(value, existing) for existing in usable):
+            usable.append(value)
+    return usable
+
+
+def _rounded_match(reported: float, calculated: float, mention: str) -> bool:
+    """Compare a derived result at the precision printed in the report."""
+    precision = _reported_precision(mention)
+    tolerance = (0.5 * (10 ** -precision)) + 1e-9
+    return math.isclose(reported, calculated, rel_tol=0.0, abs_tol=tolerance)
+
+
+def _derived_arithmetic_match(
+    line: str,
+    mention: str,
+    reported_value: float,
+    source_values: list[float],
+) -> str | None:
+    """Validate simple growth, ratio, or difference arithmetic from cited inputs.
+
+    This is intentionally narrow. It supports the course definition of Correct:
+    the filing supplies the inputs and the report's rounded arithmetic holds.
+    """
+    values = _usable_arithmetic_inputs(source_values)
+    if len(values) < 2:
+        return None
+
+    lower_line = line.lower()
+    is_percent = "%" in mention or "basis point" in mention.lower()
+    is_multiple = bool(re.search(r"\bx\b", mention, flags=re.IGNORECASE))
+    growth_language = bool(
+        re.search(
+            r"\b(?:grew|growth|increase[ds]?|decrease[ds]?|decline[ds]?|rose|fell|up|down|year.over.year|yoy)\b",
+            lower_line,
+        )
+    )
+    ratio_language = bool(
+        re.search(
+            r"\b(?:margin|ratio|return|conversion|rate|yield|share|as a percent|percentage)\b",
+            lower_line,
+        )
+    )
+
+    for left in values:
+        for right in values:
+            if left == right or right == 0:
+                continue
+            if is_percent and growth_language:
+                growth = ((left - right) / abs(right)) * 100
+                if _rounded_match(reported_value, growth, mention):
+                    return f"({left:g} - {right:g}) / {right:g} = {growth:.8g}%"
+            if is_percent and ratio_language:
+                ratio_percent = (left / right) * 100
+                if _rounded_match(reported_value, ratio_percent, mention):
+                    return f"{left:g} / {right:g} = {ratio_percent:.8g}%"
+            if is_multiple and ratio_language:
+                ratio = left / right
+                if _rounded_match(reported_value, ratio, mention):
+                    return f"{left:g} / {right:g} = {ratio:.8g}x"
+            if growth_language and not is_percent and not is_multiple:
+                difference = left - right
+                if _rounded_match(reported_value, difference, mention):
+                    return f"{left:g} - {right:g} = {difference:.8g}"
+    return None
+
+
+def _mask_numeric_labels(text: str) -> str:
+    """Ignore structural numerals such as the 5 in 'DuPont 5-factor'."""
+    return re.sub(
+        r"(?<![A-Za-z0-9_])\d+(?=\s*[- ]\s*(?:factor|step|stage|part|point)\b)",
+        lambda match: " " * (match.end() - match.start()),
+        text,
+        flags=re.IGNORECASE,
+    )
+
+
 def _scaled_amount(match: re.Match[str]) -> float:
     value = float(match.group(1).replace(",", "").rstrip("."))
     scale = (match.group(2) or "").lower()
@@ -778,6 +868,7 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
             masked,
             flags=re.IGNORECASE,
         )
+        masked = _mask_numeric_labels(masked)
         masked = re.sub(r"^\s*(?:[-*]\s+|\d+[.)]\s+)", lambda match: " " * (match.end() - match.start()), masked)
         mention_matches = list(NUMBER_MENTION_RE.finditer(masked))
         if not mention_matches:
@@ -841,12 +932,22 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
                 evidence = " | ".join(evidence_parts)
                 filing_says = "Matched cited filing or deterministic calculation"
             else:
-                mark = "Wrong"
-                evidence = (
-                    f"The cited evidence does not contain the report number {mention}. "
-                    + " | ".join(evidence_parts)
-                )
-                filing_says = "Number not found in cited evidence"
+                arithmetic = _derived_arithmetic_match(line, mention, value, source_numbers)
+                if arithmetic:
+                    mark = "Correct"
+                    evidence = (
+                        f"The cited filing supplies the inputs and the report rounding holds: {arithmetic}. "
+                        + " | ".join(evidence_parts)
+                    )
+                    filing_says = "Matched simple arithmetic from cited filing inputs"
+                else:
+                    mark = "Unsupported"
+                    evidence = (
+                        f"The cited evidence does not state {mention}, and simple arithmetic from the cited inputs "
+                        "does not establish it at the report's rounding. "
+                        + " | ".join(evidence_parts)
+                    )
+                    filing_says = "Arithmetic not shown or established from cited inputs"
             marks.append(VerificationMark(claim, mention, filing_says, mark, evidence))
     return marks
 

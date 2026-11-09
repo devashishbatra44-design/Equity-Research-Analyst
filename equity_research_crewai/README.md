@@ -119,16 +119,11 @@ To correct or reproduce a saved run without spending another Tavily credit, use:
 
 `--reuse-tavily` requires `--saved-run` and an existing `tavily_research.json` file.
 
-The original FAskills/Tavily run is:
+The original FAskills/Tavily graph run is:
 
 `week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`
 
-Its saved sidecars remain available for methodology review.
-Its corrected course-safe derivative is:
-
-`week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`
-
-The derivative made zero model, Tavily, or vendor calls, preserves the raw role outputs and report, excludes blocked vendor citations, and has 41 of 41 deterministic marks Correct.
+Its report remains exactly what the graph produced. Its saved sidecars remain available for methodology review, and the Verifier visibly marks blocked web and vendor-derived numbers Unsupported. Historical `RECONCILED` folders are optional post-processing diagnostics, not desk output and not submission proof.
 
 To reuse an existing successful data folder while testing the graph:
 
@@ -148,16 +143,16 @@ This command runs the Verifier and no other role:
 
 If the model endpoint is unavailable, the command still writes the deterministic marks to a new timestamped file and leaves the prior verified report unchanged.
 
-## Reconcile a saved run without external calls
+## Create a verifier-only diagnostic copy
 
-Use the fail-closed reconciliation when a successful saved run contains unsupported model prose:
+The legacy option name remains for compatibility:
 
 ```bash
 .venv/bin/python -m equity_research_crewai.main \
   --reconcile-only week03/runs/SAVED_RUN_FOLDER
 ```
 
-The command creates a new derived folder. It preserves the original report and role outputs, removes or replaces unresolved numerical lines, runs the mandatory deterministic checks, and makes no model, Tavily, or vendor request.
+The command creates a clearly labeled `VERIFIER_DIAGNOSTIC` folder. It preserves `report.md` and `role_outputs.json` byte-for-byte, reruns the deterministic Verifier, and makes no model, Tavily, or vendor request. It does not delete a line, repair model prose, or write an Insight. A diagnostic copy is not graph output and is not submission proof.
 
 ## Start the page
 

@@ -34,9 +34,3 @@ I state the direction of change that would strengthen or weaken my conclusion.
 I write the `Overview`, `Market Positioning and Growth Outlook`, and `Future Developments and Strategic Recommendations` sections.
 I include the criterion scores and their filing evidence.
 I connect one non-headline operating KPI with a strategic consequence in the final Insight.
-
-This is a learning exercise, not financial advice.
-
-AI assistance: Devashish Batra wrote the original persona design in `week03/persona_original_draft.md`. OpenAI Codex separated the course's operating rules into `operating_rules.md`. I verified the sources myself; the judgments are mine.
-
-Any remaining errors are my own.

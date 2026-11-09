@@ -33,9 +33,3 @@ I connect that result to the deciding number or principal risk.
 I write only the `Investment Recommendation` section.
 I state Buy, Hold, or Sell, one deciding number, one principal catalyst, one principal risk, one valuation limitation, and one result in the next filing that would change the recommendation.
 I state why one deciding number changes the risk-reward conclusion in the final Insight.
-
-This is a learning exercise, not financial advice.
-
-AI assistance: Devashish Batra wrote the original persona design in `week03/persona_original_draft.md`. OpenAI Codex separated the course's operating rules into `operating_rules.md`. I verified the sources myself; the judgments are mine.
-
-Any remaining errors are my own.

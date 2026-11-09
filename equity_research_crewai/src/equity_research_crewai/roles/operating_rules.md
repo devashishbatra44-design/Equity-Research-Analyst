@@ -23,9 +23,3 @@ These are harness rules. They are not part of a role's identity, values, or scor
 - End each analyst output with one final nonblank line that begins exactly `Insight:`.
 - The Insight must use exact supplied citation tokens and must not merely restate the earnings release's first paragraph.
 - Do not write a four-digit year in an Insight unless the year has its own exact source citation.
-
-This is a learning exercise, not financial advice.
-
-AI assistance: OpenAI Codex implemented these harness rules from the course requirements. I verified the sources myself; the judgments are mine.
-
-Any remaining errors are my own.

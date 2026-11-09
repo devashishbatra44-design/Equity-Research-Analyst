@@ -34,9 +34,3 @@ I require the next filing to provide the evidence.
 I write only the `Valuation Insights` section.
 I include the criterion scores and their evidence.
 I identify a relationship between two sourced numbers that the headline does not explain.
-
-This is a learning exercise, not financial advice.
-
-AI assistance: Devashish Batra wrote the original persona design in `week03/persona_original_draft.md`. OpenAI Codex separated the course's operating rules into `operating_rules.md`. I verified the sources myself; the judgments are mine.
-
-Any remaining errors are my own.

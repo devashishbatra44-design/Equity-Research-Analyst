@@ -29,7 +29,6 @@ def test_full_flow_has_fixed_order_and_required_verifier(monkeypatch, tmp_path: 
     monkeypatch.setattr(main, "create_week03_run", lambda source: run)
     monkeypatch.setattr(main, "lab05_personas_ready", lambda: False)
     monkeypatch.setattr(main, "_number_issues", lambda run_folder, output: [])
-    monkeypatch.setattr(main, "_fail_closed_numeric_lines", lambda role, output, run_folder: (output, []))
     monkeypatch.setattr(main, "verify_core_claims", lambda run_folder, report: [])
     flow = main.EquityResearchTeamFlow()
     flow.kickoff(
@@ -169,7 +168,7 @@ def test_required_claim_block_names_net_sales_peer_definition() -> None:
     assert "peers.json:TGT:operating_margin" in block
 
 
-def test_reconciliation_excludes_tavily_and_blocks_vendor_metrics(tmp_path: Path) -> None:
+def test_verifier_diagnostic_preserves_desk_output_byte_for_byte(tmp_path: Path) -> None:
     source = tmp_path / "saved_run"
     shutil.copytree(CLEAN_RUN, source)
     (source / "tavily_research.json").write_text("{}\n", encoding="utf-8")
@@ -187,17 +186,21 @@ def test_reconciliation_excludes_tavily_and_blocks_vendor_metrics(tmp_path: Path
     ]
     manifest["faskills_extension"] = {"enabled": True}
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    original_report = (source / "report.md").read_bytes()
+    original_outputs = (source / "role_outputs.json").read_bytes()
 
     destination = main.reconcile_saved_run(source)
 
-    assert not (destination / "tavily_research.json").exists()
-    assert not (destination / "tavily_research.md").exists()
-    metrics = json.loads((destination / "faskills_metrics.json").read_text(encoding="utf-8"))
-    assert metrics["course_boundary"]["report_use_allowed"] is False
+    assert (destination / "report.md").read_bytes() == original_report
+    assert (destination / "role_outputs.json").read_bytes() == original_outputs
+    assert (destination / "tavily_research.json").exists()
+    assert (destination / "tavily_research.md").exists()
     saved_manifest = json.loads((destination / "manifest.json").read_text(encoding="utf-8"))
-    assert saved_manifest["tavily_research"]["enabled"] is False
-    assert saved_manifest["faskills_extension"]["report_use_allowed"] is False
-    assert saved_manifest["derived_reconciliation"]["source_run"] == source.name
+    diagnostic = saved_manifest["derived_verifier_diagnostic"]
+    assert diagnostic["source_run"] == source.name
+    assert diagnostic["report_and_role_outputs_unchanged"] is True
+    metadata = json.loads((destination / "reconciliation.json").read_text(encoding="utf-8"))
+    assert metadata["code_written_insights"] == 0
 
 
 def test_replay_saves_deterministic_quarter_revenue_growth(tmp_path: Path) -> None:

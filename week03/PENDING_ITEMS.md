@@ -2,16 +2,16 @@
 
 Status recorded: November 9, 2026.
 
-The technical remediation is complete in the working tree.
-The current Costco reconciliation has 41 of 41 deterministic marks Correct.
-The current Netflix reconciliation has 43 of 43 deterministic marks Correct and uses the 10-K short-term-debt line.
-The verifier proofs now cover a clean report, seeded diluted-EPS error, invented growth error, and a report containing web-sourced and uncited numbers.
+The arithmetic-aware verifier and graph-output integrity remediation are complete in the working tree.
+The current Costco graph output has 67 Correct and 144 Unsupported deterministic marks.
+The current Netflix graph output has 42 Correct and one Unsupported mark and uses the 10-K short-term-debt line.
+The verifier tests cover a clean report, seeded diluted-EPS error, invented growth error, web-sourced and uncited numbers, correctly rounded growth, and numeric labels.
 Vendor-derived FAskills values and Tavily results are excluded from graded role hand-offs.
 
 Current technical artifacts:
 
-- Costco: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446`.
-- Netflix: `runs/NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520`.
+- Costco graph output: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`.
+- Netflix graph output: `runs/NETFLIX_INC_NFLX_20261109_131548`.
 - Verifier proofs: `verification_tests/`.
 
 Do not mark the items below complete without the stated evidence.
@@ -20,9 +20,9 @@ Do not mark the items below complete without the stated evidence.
 
 - [ ] Obtain written confirmation if the instructor requires proof that AI could edit persona wording after Devashish wrote the design. The repository preserves Devashish's exact original draft in `persona_original_draft.md`; it does not claim that written permission already exists.
 - [ ] Shivani Rathi chooses and confirms a U.S. company that reported in November 2026 for the separate Lab 05 partner-pick run. Netflix was her Week 2 choice and reported in October.
-- [ ] Run the graph on that November company.
+- [ ] Run the complete graph on that November company with the final 1–5 scoring personas.
 - [ ] Shivani checks two core claims and one Insight citation in that new report and records the course marks in `HUMAN_SIGNOFF.md`.
-- [ ] If either reconciled Costco or Netflix artifact will be submitted as a human-signed report, repeat the manual sign-off on that exact artifact. Do not transfer marks from an older report.
+- [ ] Use the fresh November run as the Lab 05 proof. Do not transfer marks from an older report.
 
 Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, or `Not in filings`.
 
@@ -35,10 +35,10 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 
 ## Final repository and submission steps
 
-- [x] Run the final full test suite and record the result: 69 tests passed; dependency check passed.
+- [x] Run the current full test suite and record the result: 71 tests passed.
 - [x] Run the final secret-safety and tracked-file audit: no key pattern, `.env`, raw vendor response, or licensed binary is Git-eligible.
-- [x] Commit and push the remediation: commit `278bbe2cdc0daeb787ede1157bbbeba624009e3f`.
-- [x] Verify the remediation permalink through authenticated GitHub access and an unauthenticated request: both checks passed; the repository is public.
+- [ ] Commit and push this verifier correction, then record its commit permalink.
+- [ ] Verify the new permalink through authenticated GitHub access and an unauthenticated request.
 - [ ] Submit the new commit permalink in Brightspace Checkpoint 2.
 - [ ] Save the Brightspace submission receipt.
 

@@ -12,15 +12,16 @@ No role ran more than twice.
 The Verifier ran last in both runs.
 The first run folder remained unchanged when the second run was created.
 
-## Current remediated reports
+## Honest graph-output review
 
-| Run folder | Company | Deterministic result | External calls during reconciliation |
+| Run folder | Company | Deterministic result | Report edited after graph? |
 |---|---|---|---|
-| `COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446` | Costco | 41 Correct; 0 non-correct | None |
-| `NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520` | Netflix, Shivani Rathi's Week 2 partner pick | 43 Correct; 0 non-correct | None |
+| `COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525` | Costco | 67 Correct; 144 Unsupported | No |
+| `NETFLIX_INC_NFLX_20261109_131548` | Netflix, Shivani Rathi's Week 2 partner pick | 42 Correct; 1 Unsupported | No |
 
 The fresh Netflix data run reads the 10-K short-term-debt line and calculates debt-to-equity.
-Each derived folder preserves the original report and role outputs before reconciliation.
+The verifier output shows unresolved claims instead of deleting them. Code never writes an Insight.
+The old `RECONCILED` folders are historical post-processing diagnostics and are not the desk's output.
 Netflix reported in October, so it does not satisfy the separate Lab 05 requirement for a November-reporting partner pick.
 
 ## Browser page check

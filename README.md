@@ -84,15 +84,15 @@ Start the browser page with:
 .venv/bin/python -m streamlit run equity_research_crewai/src/equity_research_crewai/ui.py
 ```
 
-Final Week 3 generated proofs:
+Week 3 verification artifacts:
 
-- [Current Costco reconciled report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525_RECONCILED_20261109_151446/verified_report.md): fixed graph output reconciled without model, Tavily, or vendor calls; all 41 code-checked claims are Correct.
-- [Current Netflix reconciled report](week03/runs/NETFLIX_INC_NFLX_20261109_131548_RECONCILED_20261109_150520/verified_report.md): fresh SEC facts include short-term debt; all 43 code-checked claims are Correct.
+- [Costco graph-produced report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md): the report is unchanged after the graph. The current Verifier shows 67 Correct and 144 Unsupported marks, including blocked web and vendor-derived numbers.
+- [Netflix graph-produced report](week03/runs/NETFLIX_INC_NFLX_20261109_131548/verified_report.md): the report is unchanged after the graph. The current Verifier shows 42 Correct and one Unsupported Insight.
 - [Clean all-number Verifier proof](week03/verification_tests/clean_report/verified_report.md): all 41 report numbers outside the Advisor thesis are checked and Correct.
 - [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.
 - [Web-and-unsourced-number proof](week03/verification_tests/web_and_unsourced_numbers/verified_report.md): three added web or uncited values are marked Unsupported.
 
-The reconciliation preserves the original model output beside the corrected artifact. It made no model, Tavily, or Financial Datasets request.
+The old folders containing `RECONCILED` are retained only as historical post-processing diagnostics. They are not graph output and are not presented as proof. The current code never deletes a failed model line or writes a replacement Insight.
 
 ## Company runs
 
