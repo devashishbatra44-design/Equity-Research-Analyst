@@ -37,8 +37,8 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 
 - [x] Run the current full test suite and record the result: 71 tests passed.
 - [x] Run the final secret-safety and tracked-file audit: no key pattern, `.env`, raw vendor response, or licensed binary is Git-eligible.
-- [ ] Commit and push this verifier correction, then record its commit permalink.
-- [ ] Verify the new permalink through authenticated GitHub access and an unauthenticated request.
+- [x] Commit and push the verifier correction: commit `7c17d66`.
+- [x] Verify the correction through authenticated GitHub access and an unauthenticated request: repository `PUBLIC`; permalink returned HTTP 200.
 - [ ] Submit the new commit permalink in Brightspace Checkpoint 2.
 - [ ] Save the Brightspace submission receipt.
 
