@@ -70,3 +70,6 @@ week02/runs/**/*.txt
 # OS and editor state
 .DS_Store
 .vscode/
+
+# Personal Brightspace submission receipts; retain locally, not in the public repository.
+/submission_receipts/
