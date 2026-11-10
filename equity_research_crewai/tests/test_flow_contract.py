@@ -9,6 +9,7 @@ import equity_research_crewai.main as main
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 CLEAN_RUN = REPOSITORY_ROOT / "week02" / "runs" / "COSTCO_WHOLESALE_CORP_NEW_COST_20261102_234708"
+NETFLIX_RUN = REPOSITORY_ROOT / "week02" / "runs" / "NETFLIX_INC_NFLX_20261102_202506"
 
 
 def test_full_flow_has_fixed_order_and_required_verifier(monkeypatch, tmp_path: Path) -> None:
@@ -230,3 +231,26 @@ def test_manager_requires_code_citation_for_derived_basis_point_gap(tmp_path: Pa
         issue["role"] == "Financial Analyst" and "calculations.json" in issue["reason"]
         for issue in issues
     )
+
+
+def test_netflix_margin_gap_is_computed_in_code_and_manager_accepts_its_citation(tmp_path: Path) -> None:
+    run = tmp_path / "netflix"
+    shutil.copytree(NETFLIX_RUN, run)
+    main._save_insight_calculations(run)
+    calculations = json.loads((run / "calculations.json").read_text(encoding="utf-8"))["calculations"]
+    gap = calculations["quarter_vs_annual_operating_margin_gap_basis_points"]
+    assert gap["validation_status"] == "available"
+    assert round(gap["result"]) == 511
+    assert gap["fiscal_periods"]["quarter_source"] == "exhibit-99-1.txt:14"
+
+    outputs = {
+        "Research Analyst": "Section\n\nInsight: Filing-supported conclusion. (10-k.txt:1721)",
+        "Financial Analyst": (
+            "Section\n\nInsight: The quarter operating margin of 34.6% (exhibit-99-1.txt:14) "
+            "exceeded the annual operating margin of 29.49% (calculations.json:operating_margin) "
+            "by 511 basis points (calculations.json:quarter_vs_annual_operating_margin_gap_basis_points)."
+        ),
+        "Investment Advisor": "Section\n\nInsight: Filing-supported conclusion. (10-k.txt:1721)",
+    }
+    issues = main.insight_issues(outputs, run)
+    assert not any(issue["role"] == "Financial Analyst" for issue in issues)

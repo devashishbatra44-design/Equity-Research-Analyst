@@ -62,7 +62,7 @@ PYTHONPATH=.:week01 python -m pytest -q
 python week03/create_verifier_proofs.py
 ```
 
-Repository result at preparation: **81 tests passed**.
+Repository result at preparation: **82 tests passed**.
 The proof generator asserts the required known answers and exits with an error if any proof fails.
 
 ## Submission status

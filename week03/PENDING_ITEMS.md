@@ -39,7 +39,7 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 
 ## Final repository and submission steps
 
-- [x] Run the current full test suite and record the result: 81 tests passed.
+- [x] Run the current full test suite and record the result: 82 tests passed.
 - [x] Run the final secret-safety and tracked-file audit: no key pattern, `.env`, raw vendor response, or licensed binary is Git-eligible.
 - [x] Commit and push the verifier correction: commit `7c17d66`.
 - [x] Verify the correction through authenticated GitHub access and an unauthenticated request: repository `PUBLIC`; permalink returned HTTP 200.
