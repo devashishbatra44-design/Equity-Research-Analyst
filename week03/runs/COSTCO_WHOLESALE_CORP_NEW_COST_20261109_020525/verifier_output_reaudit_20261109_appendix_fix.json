@@ -1,0 +1,861 @@
+{
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $303,154,000,000 (10-k.txt:1240).",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 10.14% (calculations.json:revenue_growth).",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $11,685,000,000 (10-k.txt:1285). Annual operating margin was 3.85% (calculations.json:operating_margin).",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $9,226,000,000 (10-k.txt:1291).",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $20.76 (10-k.txt:1294).",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30; 10-k.txt:1294: Diluted | $ | 20.76 | $ | 18.21 | $ | 16.56"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 28.40% (calculations.json:return_on_average_equity).",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.17 (calculations.json:debt_to_equity).",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9,382,000,000 (calculations.json:free_cash_flow).",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $95,723,000,000 (exhibit-99-1.txt:39).",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.10% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $6.75 (exhibit-99-1.txt:20).",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The current quarter revenue growth of 11.10% (calculations.json:quarter_revenue_growth) is higher than the latest fiscal year revenue growth of 10.14% (calculations.json:revenue_growth), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter (exhibit-99-1.txt:10) and 10.1% for the fiscal year (exhibit-99-1.txt:10).",
+      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
+      "mark": "Correct",
+      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The 8.4% (exhibit-99-1.txt:17) growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point (10-k.txt:1040) decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
+      "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;",
+      "mark": "Correct",
+      "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The 47.79x (calculations.json:price_to_earnings) multiple is supported by a 3.85% (calculations.json:operating_margin) operating margin, which is calculated using an operating income of $11,685,000,000 (10-k.txt:1285); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
+      "filing_says": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
+      "mark": "Correct",
+      "evidence": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L6.1",
+      "report_said": "10.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.2",
+      "report_said": "$297.2 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.3",
+      "report_said": "8.4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.4",
+      "report_said": "4,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L6.5",
+      "report_said": "84.1 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:763-763: Paid members 1 | 84,100 | 81,000 | 76,200"
+    },
+    {
+      "claim": "Other number L8.1",
+      "report_said": "11%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (5907 - 5323) / 5323 = 10.971257%. 10-k.txt:724-724: We operate membership warehouses and e-commerce sites based on the concept that offering low prices on a limited selection of nationally-branded and private-label products in a wide range of categories will produce high sales volumes and rapid inventory turnover. When combined with the operating efficiencies achieved by volume purchasing, efficient distribution and reduced handling of merchandise in no-frills, self-service warehouse facilities, these volumes and turnover enable us to operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers. We often sell inventory before we are required to pay for it, even while taking advantage of early payment discounts. | exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026. | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L8.2",
+      "report_said": "$5.907 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:724-724: We operate membership warehouses and e-commerce sites based on the concept that offering low prices on a limited selection of nationally-branded and private-label products in a wide range of categories will produce high sales volumes and rapid inventory turnover. When combined with the operating efficiencies achieved by volume purchasing, efficient distribution and reduced handling of merchandise in no-frills, self-service warehouse facilities, these volumes and turnover enable us to operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers. We often sell inventory before we are required to pay for it, even while taking advantage of early payment discounts. | exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026. | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L8.3",
+      "report_said": "42.3 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:724-724: We operate membership warehouses and e-commerce sites based on the concept that offering low prices on a limited selection of nationally-branded and private-label products in a wide range of categories will produce high sales volumes and rapid inventory turnover. When combined with the operating efficiencies achieved by volume purchasing, efficient distribution and reduced handling of merchandise in no-frills, self-service warehouse facilities, these volumes and turnover enable us to operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers. We often sell inventory before we are required to pay for it, even while taking advantage of early payment discounts. | exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026. | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L8.4",
+      "report_said": "89.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:724-724: We operate membership warehouses and e-commerce sites based on the concept that offering low prices on a limited selection of nationally-branded and private-label products in a wide range of categories will produce high sales volumes and rapid inventory turnover. When combined with the operating efficiencies achieved by volume purchasing, efficient distribution and reduced handling of merchandise in no-frills, self-service warehouse facilities, these volumes and turnover enable us to operate profitably at significantly lower gross margins (net sales less merchandise costs) than most other retailers. We often sell inventory before we are required to pay for it, even while taking advantage of early payment discounts. | exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026. | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L12.1",
+      "report_said": "89.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L12.2",
+      "report_said": "$15.825 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L12.3",
+      "report_said": "$6.435 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335 | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498) | 10-k.txt:1011-1011: Our philosophy is to provide our members with quality goods and services at competitive prices. We do not focus in the short-term on maximizing prices charged, but instead seek to maintain what we believe is a perception among our members of our “pricing authority” – consistently providing the most competitive values. Our net sales and gross margin are influenced in part by our merchandising and pricing strategies in response to cost increases. Those strategies can include, but are not limited to, working with our suppliers to share in absorbing cost increases, earlier-than-usual purchasing and in greater volumes, sourcing in the countries and regions where items are sold, as well as passing cost increases on to our members. Our investments in merchandise pricing may include reducing prices on merchandise to drive sales or meet competition and holding prices steady despite cost increases instead of passing the increases on to our members, negatively impacting gross margin and gross margin as a percentage of"
+    },
+    {
+      "claim": "Other number L14.1",
+      "report_said": "14%",
+      "filing_says": "Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 14%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China."
+    },
+    {
+      "claim": "Other number L14.2",
+      "report_said": "$9.226 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L14.3",
+      "report_said": "10.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L14.4",
+      "report_said": "11.2%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L14.5",
+      "report_said": "$18.21",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L14.6",
+      "report_said": "$20.76",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L16.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | 10-k.txt:754-754: Our other businesses sell products and services that largely complement our warehouse operations. Our business centers carry items tailored for food services, convenience stores, and offices, and offer walk-in shopping and deliveries. Business centers are included in our total warehouse count. Our e-commerce operations give members convenience and a broader selection of goods and services. Costco Travel offers vacation packages, car rentals, cruises and other travel products exclusively for Costco members in varying degrees in the U.S., Canada, the U.K., and Australia. Digitally-enabled sales, which represents sales that are initiated through a digital device, whether fulfilled through a warehouse or distribution center, as well as Costco Travel, represented 11% of total net sales in 2026."
+    },
+    {
+      "claim": "Other number L16.2",
+      "report_said": "11%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7% | 10-k.txt:754-754: Our other businesses sell products and services that largely complement our warehouse operations. Our business centers carry items tailored for food services, convenience stores, and offices, and offer walk-in shopping and deliveries. Business centers are included in our total warehouse count. Our e-commerce operations give members convenience and a broader selection of goods and services. Costco Travel offers vacation packages, car rentals, cruises and other travel products exclusively for Costco members in varying degrees in the U.S., Canada, the U.K., and Australia. Digitally-enabled sales, which represents sales that are initiated through a digital device, whether fulfilled through a warehouse or distribution center, as well as Costco Travel, represented 11% of total net sales in 2026."
+    },
+    {
+      "claim": "Other number L18.1",
+      "report_said": "8.4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L18.2",
+      "report_said": "10 basis points",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L18.3",
+      "report_said": "89.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:17-17: Total Company | 9.4% | 6.7% | 8.4% | 6.6% | 10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation; | 10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity."
+    },
+    {
+      "claim": "Other number L22.1",
+      "report_said": "939 warehouses",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L22.2",
+      "report_said": "28",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L22.3",
+      "report_said": "25",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:721-721: Costco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K.), Korea, Australia, Taiwan, China, Spain, France, Sweden, Iceland, and New Zealand. Costco operated 939, 914, and 890 warehouses worldwide at August 30, 2026, August 31, 2025, and September 1, 2024. The Company operates e-commerce sites in the U.S., Canada, Mexico, the U.K., Korea, Taiwan, Japan, Australia, and China. Our common stock trades on the NASDAQ Global Select Market, under the symbol “COST.” | 10-k.txt:1030-1030: We opened 28 new warehouses, including three relocations, for a total of 25 net new warehouses: 18 in the U.S., five in our Canadian segment, and two in our Other International segment, compared to 27 new warehouses, including three relocations, in 2025; | 10-k.txt:1017-1017: We also achieve net sales growth by opening new warehouses. As our warehouse base grows and available and desirable sites become more difficult to secure, square footage growth becomes a comparatively less substantial component of growth. Negative aspects of such growth include lower initial operating profitability relative to existing warehouses and cannibalization of sales at existing warehouses when openings occur in existing markets. Our rate of square footage growth is generally higher in many of our international markets, due to the smaller base in those markets, and we expect that to continue."
+    },
+    {
+      "claim": "Other number L24.1",
+      "report_said": "11%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | 10-k.txt:1010-1010: We believe that the most important driver of our profitability is increasing net sales, particularly comparable sales. Net sales includes our core merchandise categories (foods and sundries, non-foods, and fresh foods), warehouse ancillary (gasoline, pharmacy, food court, optical, hearing aids, and tire installation), and other businesses (e-commerce, business centers, travel, and other). E-commerce and business center sales are allocated to the appropriate merchandise categories in the Net Sales discussion. The Executive reward earned by our Executive members reduces net sales and is allocated to the category in which the reward is generated (core merchandise categories, warehouse ancillary, and other businesses). Comparable sales is defined as net sales from warehouses operating for more than one year, including remodels, relocations, and expansions. Digitally-enabled comparable sales is defined as sales initiated through a digital device, whether fulfilled through a warehouse, distribution center, or Costco Travel, operating for more than one year. Comparable sales metrics are intended as supplemental information and are not a substitute for net sales presented in accordance with U.S. generally accepted accounting principles (U.S. GAAP) and should be reviewed in conjunction with results reported in accordance with U.S. GAAP. Comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket). Sales comparisons can also be particularly influenced by certain factors that are beyond our control: fluctuations in currency exchange rates (with respect to our international operations) and inflation or deflation in the cost of gasoline and associated competitive conditions. The higher our comparable sales exclusive of these items, the more we can leverage our selling, general and administrative (SG&A) expenses, reducing them as a percentage of sales and enhancing profitability. Generating comparable sales growth is foremost a question of making available the right merchandise at the right prices, a skill that we believe we have repeatedly demonstrated over the long-term. Another substantial factor in net sales growth is the health of the economies in which we do business, including the effects of inflation or deflation, especially the United States. Net sales growth and gross margins are also impacted by competition, which is vigorous and widespread, across a wide range of global, national, and regional wholesalers and retailers, including those with e-commerce operations. While we cannot control or reliably predict general economic health or changes in competition, we believe that we have been successful, historically, in adapting our business to these changes, such as through adjustments to our pricing and merchandise mix, including increasing the penetration of our private-label items, and through online offerings. | 10-k.txt:751-751: Warehouse ancillary operate primarily within, next to or near our warehouses, encouraging more frequent shopping. The number of warehouses with gas stations varies significantly by country. We operated 774 gas stations at the end of 2026. Our gasoline business represented 11% of total net sales in 2026. | 10-k.txt:1016-1016: We believe our gasoline business enhances traffic in our warehouses; it generally has a lower gross margin percentage and lower SG&A expense relative to our non-gasoline businesses. A higher penetration of gasoline sales will generally lower our gross margin percentage. Generally, rising gasoline prices benefit net sales growth which, given the higher sales base, negatively impacts our gross margin percentage but decreases our SG&A expenses as a percentage of net sales. A decline in gasoline prices has the inverse effect."
+    },
+    {
+      "claim": "Other number L29.1",
+      "report_said": "9.6%",
+      "filing_says": "Found at 10-k.txt:798: Our U.S. website is www.costco.com. We make available through the Investor Relations section of that site, free of charge, our Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K, Proxy Statements and Forms 3, 4 and 5, and any amendments to those reports, as soon as reasonably practicable after filing such materials with or furnishing such documents to the Securities and Exchange Commission (SEC). The information found on our website is not part of this or any other report filed with or furnished to the SEC. The SEC maintains a site that contains reports, proxy and information statements, and other information regarding issuers, such as the Company, that file electronically with the SEC at www.sec.gov.",
+      "mark": "Unsupported",
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:798: Our U.S. website is www.costco.com. We make available through the Investor Relations section of that site, free of charge, our Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K, Proxy Statements and Forms 3, 4 and 5, and any amendments to those reports, as soon as reasonably practicable after filing such materials with or furnishing such documents to the Securities and Exchange Commission (SEC). The information found on our website is not part of this or any other report filed with or furnished to the SEC. The SEC maintains a site that contains reports, proxy and information statements, and other information regarding issuers, such as the Company, that file electronically with the SEC at www.sec.gov."
+    },
+    {
+      "claim": "Other number L29.2",
+      "report_said": "35.4 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
+    },
+    {
+      "claim": "Other number L29.3",
+      "report_said": "46.5%",
+      "filing_says": "Found at 10-k.txt:1442: 47",
+      "mark": "Unsupported",
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:1442: 47"
+    },
+    {
+      "claim": "Other number L29.4",
+      "report_said": "42.3 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
+    },
+    {
+      "claim": "Other number L33.1",
+      "report_said": "92.3%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498)"
+    },
+    {
+      "claim": "Other number L33.2",
+      "report_said": "$6.435 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:770-770: Our member renewal rate was 92.3% in the U.S. and Canada and 89.8% worldwide at the end of 2026. This rate is a trailing calculation that captures renewals during the period seven to eighteen months prior to the reporting date. Memberships that have an expiration date in the six months prior to the end of our reporting period are excluded from this calculation, regardless of whether or not they have been renewed. Although most members renew prior to expiration, the vast majority of those who renew late do so within six months of expiration. The timing of renewal after expiration is impacted by a variety of factors, such as warehouse openings and promotional activity. | exhibit-99-1.txt:115-115: Additions to property and equipment | (6,435) | (5,498)"
+    },
+    {
+      "claim": "Other number L35.1",
+      "report_said": "11%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year."
+    },
+    {
+      "claim": "Other number L35.2",
+      "report_said": "10.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year."
+    },
+    {
+      "claim": "Other number L37.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%"
+    },
+    {
+      "claim": "Other number L39.1",
+      "report_said": "10 basis point",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    },
+    {
+      "claim": "Other number L58.1",
+      "report_said": "6/9",
+      "filing_says": "Found at 10-k.txt:1261: We also have audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated balance sheets of the Company as of August 30, 2026 and August 31, 2025, the related consolidated statements of income, comprehensive income, equity, and cash flows for each of the fiscal years in the three-year period ended August 30, 2026, and the related notes (collectively, the consolidated financial statements), and our report dated October 6, 2026 expressed an unqualified opinion on those consolidated financial statements.",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1261: We also have audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated balance sheets of the Company as of August 30, 2026 and August 31, 2025, the related consolidated statements of income, comprehensive income, equity, and cash flows for each of the fiscal years in the three-year period ended August 30, 2026, and the related notes (collectively, the consolidated financial statements), and our report dated October 6, 2026 expressed an unqualified opinion on those consolidated financial statements."
+    },
+    {
+      "claim": "Other number L58.2",
+      "report_said": "10.79",
+      "filing_says": "Found at 10-k.txt:1092: Gross margin percentage decreased three basis points. Excluding the impact of gasoline price inflation on net sales, gross margin percentage was 11.22%, an increase of 10 basis points. This increase was positively impacted by 19 basis points in warehouse ancillary and other businesses, primarily gasoline and pharmacy, offset by an 11 basis point decrease in core merchandise categories. The majority of the increase in warehouse ancillary and other businesses and the decrease in core merchandise categories was due to the change in sales mix as warehouse ancillary and other businesses sales grew at a faster rate than core merchandise categories. Core merchandise categories were also negatively impacted by our co-branded credit card program as a result of reward costs associated with higher gasoline sales. IEEPA tariff refunds, net of investment in price reductions for members, positively impacted gross margin by three basis points.",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1092: Gross margin percentage decreased three basis points. Excluding the impact of gasoline price inflation on net sales, gross margin percentage was 11.22%, an increase of 10 basis points. This increase was positively impacted by 19 basis points in warehouse ancillary and other businesses, primarily gasoline and pharmacy, offset by an 11 basis point decrease in core merchandise categories. The majority of the increase in warehouse ancillary and other businesses and the decrease in core merchandise categories was due to the change in sales mix as warehouse ancillary and other businesses sales grew at a faster rate than core merchandise categories. Core merchandise categories were also negatively impacted by our co-branded credit card program as a result of reward costs associated with higher gasoline sales. IEEPA tariff refunds, net of investment in price reductions for members, positively impacted gross margin by three basis points."
+    },
+    {
+      "claim": "Other number L58.3",
+      "report_said": "47.79x",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L58.4",
+      "report_said": "3.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L60.1",
+      "report_said": "0.17",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+    },
+    {
+      "claim": "Other number L60.2",
+      "report_said": "2.49",
+      "filing_says": "Found at 10-k.txt:1381: BALANCE AT AUGUST 30, 2026 | 443,266 | $ | 2 | $ | 8,830 | $ | ( 1,620 ) | $ | 28,591 | $ | 35,803",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1381: BALANCE AT AUGUST 30, 2026 | 443,266 | $ | 2 | $ | 8,830 | $ | ( 1,620 ) | $ | 28,591 | $ | 35,803"
+    },
+    {
+      "claim": "Other number L60.3",
+      "report_said": "$9,382,000,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+    },
+    {
+      "claim": "Other number L60.4",
+      "report_said": "0.65",
+      "filing_says": "Found at 10-k.txt:1389: August 30, 2026 | August 31, 2025 | September 1, 2024",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1389: August 30, 2026 | August 31, 2025 | September 1, 2024"
+    },
+    {
+      "claim": "Other number L60.5",
+      "report_said": "$6,435,000,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+    },
+    {
+      "claim": "Other number L62.1",
+      "report_said": "-2.65",
+      "filing_says": "Not stated in the saved filings",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Not stated in the saved filings"
+    },
+    {
+      "claim": "Other number L62.2",
+      "report_said": "-0.08",
+      "filing_says": "Found at 10-k.txt:2046: The following table shows the amounts used in computing net income per share and the weighted average number of shares of basic and of potentially dilutive common shares outstanding (shares in 000’s):",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2046: The following table shows the amounts used in computing net income per share and the weighted average number of shares of basic and of potentially dilutive common shares outstanding (shares in 000’s):"
+    },
+    {
+      "claim": "Other number L62.3",
+      "report_said": "3.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448 | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Other number L62.4",
+      "report_said": "10.14%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448 | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Other number L64.1",
+      "report_said": "0.44",
+      "filing_says": "Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration.",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration."
+    },
+    {
+      "claim": "Other number L64.2",
+      "report_said": "0.26",
+      "filing_says": "Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration.",
+      "mark": "Unsupported",
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration."
+    },
+    {
+      "claim": "Other number L66.1",
+      "report_said": "47.79x",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L66.2",
+      "report_said": "3.85%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L70.1",
+      "report_said": "$303,154 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:total_revenue:current: 303154000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093 | facts.json:total_revenue:prior: 275235000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L70.2",
+      "report_said": "$275,235 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:total_revenue:current: 303154000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093 | facts.json:total_revenue:prior: 275235000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L71.1",
+      "report_said": "$11,685 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:operating_income:current: 11685000000; tag us-gaap:OperatingIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:operating_income:prior: 10383000000; tag us-gaap:OperatingIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L71.2",
+      "report_said": "$10,383 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:operating_income:current: 11685000000; tag us-gaap:OperatingIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:operating_income:prior: 10383000000; tag us-gaap:OperatingIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L72.1",
+      "report_said": "$9,226 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:net_income:current: 9226000000; tag us-gaap:NetIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:net_income:prior: 8099000000; tag us-gaap:NetIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L72.2",
+      "report_said": "$8,099 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:net_income:current: 9226000000; tag us-gaap:NetIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:net_income:prior: 8099000000; tag us-gaap:NetIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L73.1",
+      "report_said": "$20.76",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:diluted_eps:current: 20.76; tag us-gaap:EarningsPerShareDiluted; period 2026-08-30; accession 0000909832-26-000093 | facts.json:diluted_eps:prior: 18.21; tag us-gaap:EarningsPerShareDiluted; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L73.2",
+      "report_said": "$18.21",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:diluted_eps:current: 20.76; tag us-gaap:EarningsPerShareDiluted; period 2026-08-30; accession 0000909832-26-000093 | facts.json:diluted_eps:prior: 18.21; tag us-gaap:EarningsPerShareDiluted; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L74.1",
+      "report_said": "$35,803 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:stockholders_equity:current: 35803000000; tag us-gaap:StockholdersEquity; period 2026-08-30; accession 0000909832-26-000093 | facts.json:stockholders_equity:prior: 29164000000; tag us-gaap:StockholdersEquity; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L74.2",
+      "report_said": "$29,164 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:stockholders_equity:current: 35803000000; tag us-gaap:StockholdersEquity; period 2026-08-30; accession 0000909832-26-000093 | facts.json:stockholders_equity:prior: 29164000000; tag us-gaap:StockholdersEquity; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L75.1",
+      "report_said": "$3,914 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:long_term_debt:prior: 5713000000; tag us-gaap:LongTermDebtNoncurrent; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L75.2",
+      "report_said": "$5,713 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:long_term_debt:prior: 5713000000; tag us-gaap:LongTermDebtNoncurrent; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L76.1",
+      "report_said": "$2,248 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:current_long_term_debt:current: 2248000000; tag us-gaap:LongTermDebtCurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:current_long_term_debt:prior: 75000000; tag us-gaap:LongTermDebtCurrent; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L76.2",
+      "report_said": "$75 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:current_long_term_debt:current: 2248000000; tag us-gaap:LongTermDebtCurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:current_long_term_debt:prior: 75000000; tag us-gaap:LongTermDebtCurrent; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L77.1",
+      "report_said": "$15,817 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:cash_from_operations:current: 15817000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2026-08-30; accession 0000909832-26-000093 | facts.json:cash_from_operations:prior: 13335000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L77.2",
+      "report_said": "$13,335 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:cash_from_operations:current: 15817000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2026-08-30; accession 0000909832-26-000093 | facts.json:cash_from_operations:prior: 13335000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L78.1",
+      "report_said": "$6,435 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:property_equipment_additions:current: 6435000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2026-08-30; accession 0000909832-26-000093 | facts.json:property_equipment_additions:prior: 5498000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L78.2",
+      "report_said": "$5,498 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:property_equipment_additions:current: 6435000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2026-08-30; accession 0000909832-26-000093 | facts.json:property_equipment_additions:prior: 5498000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2025-08-31; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "Other number L82.1",
+      "report_said": "47.7905x",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905"
+    },
+    {
+      "claim": "Other number L82.2",
+      "report_said": "992.13",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905"
+    },
+    {
+      "claim": "Other number L82.3",
+      "report_said": "20.76",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905"
+    },
+    {
+      "claim": "Other number L83.1",
+      "report_said": "4.1821%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L83.2",
+      "report_said": "29,825",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L83.3",
+      "report_said": "713,163 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L84.1",
+      "report_said": "4.8836%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
+    },
+    {
+      "claim": "Other number L84.2",
+      "report_said": "5,117",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
+    },
+    {
+      "claim": "Other number L84.3",
+      "report_said": "104,780 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
+    },
+    {
+      "claim": "Other number L85.1",
+      "report_said": "3.8057%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L85.2",
+      "report_said": "817",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L85.3",
+      "report_said": "21,457 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
+    },
+    {
+      "claim": "Other number L89.1",
+      "report_said": "303154000000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Other number L89.2",
+      "report_said": "275235000000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Other number L89.3",
+      "report_said": "275235000000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+    },
+    {
+      "claim": "Other number L90.1",
+      "report_said": "11685000000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L90.2",
+      "report_said": "303154000000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+    },
+    {
+      "claim": "Other number L97.1",
+      "report_said": "95,723",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "Other number L97.2",
+      "report_said": "86,156",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "Other number L97.3",
+      "report_said": "303,154",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "Other number L97.4",
+      "report_said": "275,235",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "Other number L98.1",
+      "report_said": "$2.998 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.2",
+      "report_said": "$6.75",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.3",
+      "report_said": "$2.610 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.4",
+      "report_said": "$5.87",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.5",
+      "report_said": "$0.15",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.6",
+      "report_said": "$9.226 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.7",
+      "report_said": "$20.76",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.8",
+      "report_said": "$8.099 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L98.9",
+      "report_said": "$18.21",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L106.1",
+      "report_said": "75.2%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:731-731: Our strategy is to provide our members with a broad range of high-quality merchandise at prices we believe are consistently lower than elsewhere. We seek to limit most items to fast-selling models, sizes, and colors. We carry less than 4,000 active stock keeping units (SKUs) per warehouse in our core warehouse business, significantly less than other broadline retailers. We average from 9,000 to 11,000 SKUs online, some of which are available in our warehouses. Many consumable products are offered for sale in case, carton, or multiple-pack quantities only. | 10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
+    },
+    {
+      "claim": "Other number L110.1",
+      "report_said": "$15.825 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:113-113: Net cash provided by operating activities | 15,825 | 13,335"
+    },
+    {
+      "claim": "Other number L112.1",
+      "report_said": "11.2%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    },
+    {
+      "claim": "Other number L112.2",
+      "report_said": "14%",
+      "filing_says": "Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 14%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China."
+    },
+    {
+      "claim": "Other number L114.1",
+      "report_said": "20.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:18-18: Digitally-Enabled | 19.5% | 19.8% | 20.9% | 20.7%"
+    },
+    {
+      "claim": "Other number L116.1",
+      "report_said": "10 basis point",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
+    }
+  ],
+  "semantic_review": null,
+  "semantic_raw": "",
+  "semantic_error": ""
+}

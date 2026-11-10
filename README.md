@@ -87,7 +87,8 @@ Start the browser page with:
 
 Week 3 verification artifacts:
 
-- [Costco graph-produced report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report.md): the report is unchanged after the graph. The current Verifier shows 67 Correct and 144 Unsupported marks, including blocked web and vendor-derived numbers.
+- [Fresh final-persona Costco graph report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_204310/verified_report.md): the report is unchanged after the graph. The mandatory Verifier shows 71 Correct, 0 Wrong, 11 Unsupported, and 0 Missing marks. The Manager records `failed_after_one_retry` because the model retained unsupported analytical numbers; the harness does not hide or delete them.
+- [Nov. 9 re-audit of the earlier Costco report](week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report_reaudit_20261109_appendix_fix.md): the improved parser recognizes the source appendix, metadata, peer rows, and release excerpts. It shows 110 Correct and 12 Unsupported instead of the misleading earlier 67 Correct and 144 Unsupported. The earlier marks remain available in commit `6f133ee`.
 - [Final-persona Netflix graph report](week03/runs/NETFLIX_INC_NFLX_20261109_180226/verified_report.md): the report is unchanged after the graph. The current Verifier shows 92 Correct, 9 Unsupported, and 0 Wrong marks.
 - [Clean all-number Verifier proof](week03/verification_tests/clean_report/verified_report.md): all 41 report numbers outside the Advisor thesis are checked and Correct.
 - [Seeded-EPS Verifier proof](week03/verification_tests/seeded_eps_error/verified_report.md): seeded `$21.76` marked Wrong and corrected to `$20.76`.

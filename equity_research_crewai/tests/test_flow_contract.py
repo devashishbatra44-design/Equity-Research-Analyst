@@ -144,10 +144,21 @@ def test_financial_source_notes_keep_existing_insight_as_final_line() -> None:
     assert "**Annual XBRL source details**" not in result
 
 
-def test_insight_normalization_removes_narrative_year_but_preserves_citation_line() -> None:
+def test_score_heading_is_joined_to_its_cited_evidence_paragraph() -> None:
+    output = (
+        "**Business-Model Durability: 5**\n"
+        "The filing supports the assessment (10-k.txt:729)."
+    )
+    normalized = main._join_score_evidence_lines(output)
+    assert normalized.splitlines() == [
+        "**Business-Model Durability: 5** The filing supports the assessment (10-k.txt:729)."
+    ]
+
+
+def test_insight_normalization_preserves_source_supported_period_year_and_citation() -> None:
     output = "Insight: In 2026, the filing line supports the claim. (10-k.txt:2025)"
     normalized = main._normalize_insight_prefix(output)
-    assert "In 2026" not in normalized
+    assert "In 2026" in normalized
     assert "10-k.txt:2025" in normalized
 
 
@@ -170,39 +181,19 @@ def test_required_claim_block_names_net_sales_peer_definition() -> None:
     assert "peers.json:TGT:operating_margin" in block
 
 
-def test_verifier_diagnostic_preserves_desk_output_byte_for_byte(tmp_path: Path) -> None:
-    source = tmp_path / "saved_run"
-    shutil.copytree(CLEAN_RUN, source)
-    (source / "tavily_research.json").write_text("{}\n", encoding="utf-8")
-    (source / "tavily_research.md").write_text("historical sidecar\n", encoding="utf-8")
-    (source / "faskills_metrics.json").write_text(
-        json.dumps({"course_boundary": {"report_use_allowed": True}}) + "\n",
-        encoding="utf-8",
-    )
-    manifest_path = source / "manifest.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["output_filenames"] = list(manifest.get("output_filenames", [])) + [
-        "tavily_research.json",
-        "tavily_research.md",
-        "faskills_metrics.json",
-    ]
-    manifest["faskills_extension"] = {"enabled": True}
-    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
-    original_report = (source / "report.md").read_bytes()
-    original_outputs = (source / "role_outputs.json").read_bytes()
+def test_reconcile_only_command_is_removed() -> None:
+    destinations = {action.dest for action in main.build_parser()._actions}
+    assert "reconcile_only" not in destinations
 
-    destination = main.reconcile_saved_run(source)
 
-    assert (destination / "report.md").read_bytes() == original_report
-    assert (destination / "role_outputs.json").read_bytes() == original_outputs
-    assert (destination / "tavily_research.json").exists()
-    assert (destination / "tavily_research.md").exists()
-    saved_manifest = json.loads((destination / "manifest.json").read_text(encoding="utf-8"))
-    diagnostic = saved_manifest["derived_verifier_diagnostic"]
-    assert diagnostic["source_run"] == source.name
-    assert diagnostic["report_and_role_outputs_unchanged"] is True
-    metadata = json.loads((destination / "reconciliation.json").read_text(encoding="utf-8"))
-    assert metadata["code_written_insights"] == 0
+def test_node_record_saves_role_and_operating_rule_hashes(tmp_path: Path) -> None:
+    state = main.TeamState(run_folder=str(tmp_path))
+    main._save_node_record(state, "Research Analyst", {"task": "test"}, "output")
+    record = json.loads((tmp_path / "node_records.json").read_text(encoding="utf-8"))
+    provenance = record["Research Analyst"][0]["instruction_provenance"]
+    assert provenance["role"] == "Research Analyst"
+    assert len(provenance["role_file_sha256"]) == 64
+    assert len(provenance["operating_rules_sha256"]) == 64
 
 
 def test_replay_saves_deterministic_quarter_revenue_growth(tmp_path: Path) -> None:
@@ -222,3 +213,20 @@ def test_replay_saves_deterministic_quarter_revenue_growth(tmp_path: Path) -> No
         "current_quarter_revenue_thousands": 95723,
         "prior_year_same_quarter_revenue_thousands": 86156,
     }
+
+
+def test_manager_requires_code_citation_for_derived_basis_point_gap(tmp_path: Path) -> None:
+    shutil.copytree(CLEAN_RUN, tmp_path / "run")
+    run = tmp_path / "run"
+    outputs = {
+        role: "Section\n\nInsight: Supported filing statement. (10-k.txt:1)"
+        for role in main.ANALYST_ROLES
+    }
+    outputs["Financial Analyst"] = (
+        "Section\n\nInsight: Margin expanded by 511 basis points (10-k.txt:1)."
+    )
+    issues = main.insight_issues(outputs, run)
+    assert any(
+        issue["role"] == "Financial Analyst" and "calculations.json" in issue["reason"]
+        for issue in issues
+    )

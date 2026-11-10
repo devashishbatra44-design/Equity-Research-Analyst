@@ -1,0 +1,12 @@
+Subject: FIN 67110 Lab 05 partner-company filing month
+
+Hi Prof. Zhang,
+
+My partner, Shivani Rathi, selected Netflix for my Lab 05 partner-company run. Netflix reported on October 20, 2026. The Lab 05 page asks for a company that reported "this month," which would be November for our session.
+
+May I use the completed Netflix run and partner checks for Lab 05, or should Shivani select an additional company that reported in November?
+
+I have kept the October filing date explicit in my repository. I have not relabeled Netflix as a November reporter.
+
+Best regards,
+Devashish Batra

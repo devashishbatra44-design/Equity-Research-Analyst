@@ -27,6 +27,20 @@ PEER_CITATION_RE = re.compile(
 )
 MANIFEST_CITATION_RE = re.compile(r"manifest\.json:\s*(price|price_date)", flags=re.IGNORECASE)
 FASKILLS_CITATION_RE = re.compile(r"faskills_metrics\.json:\s*([a-z0-9_]+)", flags=re.IGNORECASE)
+XBRL_APPENDIX_CITATION_RE = re.compile(
+    r"XBRL\s+tag\s+`?((?:[A-Za-z0-9_-]+):[A-Za-z0-9_]+)`?",
+    flags=re.IGNORECASE,
+)
+PEER_APPENDIX_CITATION_RE = re.compile(
+    r"\(([A-Z.\-]+)\)\s+operating\s+margin",
+    flags=re.IGNORECASE,
+)
+RELEASE_APPENDIX_CITATION_RE = re.compile(
+    r"Exhibit\s+99\.1\s+source\s+line\s+(\d+)",
+    flags=re.IGNORECASE,
+)
+ISO_DATE_RE = re.compile(r"\b(?:19|20)\d{2}-\d{2}-\d{2}\b")
+ACCESSION_RE = re.compile(r"\b\d{10}-\d{2}-\d{6}\b")
 NUMBER_MENTION_RE = re.compile(
     r"(?<![A-Za-z0-9_])(?:\$\s*)?-?\d[\d,]*(?:\.\d+)?(?:/\d+)?"
     r"(?:\s*(?:%|x|billion|million|thousand|basis points?|members?|warehouses?|SKUs?))?",
@@ -70,6 +84,9 @@ def _all_permitted_citation_patterns() -> tuple[re.Pattern[str], ...]:
         FACT_CITATION_RE,
         PEER_CITATION_RE,
         MANIFEST_CITATION_RE,
+        XBRL_APPENDIX_CITATION_RE,
+        PEER_APPENDIX_CITATION_RE,
+        RELEASE_APPENDIX_CITATION_RE,
     )
 
 
@@ -172,6 +189,11 @@ def _derived_arithmetic_match(
             if left == right or right == 0:
                 continue
             if is_percent and growth_language:
+                # Do not infer a growth rate from unrelated percentage values in
+                # a dense cited sentence. Course growth checks use reported
+                # monetary or operating-count inputs.
+                if abs(left) <= 100 or abs(right) <= 100:
+                    continue
                 growth = ((left - right) / abs(right)) * 100
                 if _rounded_match(reported_value, growth, mention):
                     return f"({left:g} - {right:g}) / {right:g} = {growth:.8g}%"
@@ -200,7 +222,7 @@ def _derived_arithmetic_match(
 def _mask_numeric_labels(text: str) -> str:
     """Ignore structural numerals such as the 5 in 'DuPont 5-factor'."""
     return re.sub(
-        r"(?<![A-Za-z0-9_])\d+(?=\s*[- ]\s*(?:factor|step|stage|part|point)\b)",
+        r"(?<![A-Za-z0-9_])\d+(?=\s*[- ]\s*(?:factor|step|stage|part|point|week)\b)",
         lambda match: " " * (match.end() - match.start()),
         text,
         flags=re.IGNORECASE,
@@ -761,7 +783,7 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
         marks.append(
             VerificationMark(
                 claim=f"Insight {index}",
-                report_said=claim_without_citations.removeprefix("Insight:").strip(),
+                report_said=insight.removeprefix("Insight:").strip(),
                 filing_says=evidence,
                 mark=mark,
                 evidence=evidence,
@@ -801,6 +823,163 @@ def _is_core_or_insight_line(line: str) -> bool:
             clean,
         )
     )
+
+
+def _appendix_fact_source(run_folder: Path, line: str) -> tuple[list[float], list[str], bool]:
+    """Resolve the desk's human-readable XBRL appendix citation format."""
+    if PEER_APPENDIX_CITATION_RE.search(line):
+        return [], [], False
+    tag_match = XBRL_APPENDIX_CITATION_RE.search(line)
+    if not tag_match:
+        return [], [], False
+    facts_path = run_folder / "facts.json"
+    if not facts_path.exists():
+        return [], ["The XBRL appendix citation cannot be checked because facts.json is absent."], True
+
+    requested_tag = tag_match.group(1).lower()
+    requested_periods = set(ISO_DATE_RE.findall(line))
+    accession_match = ACCESSION_RE.search(line)
+    requested_accession = accession_match.group(0) if accession_match else ""
+    facts = load_json(facts_path)
+    matches: list[tuple[str, str, dict[str, Any]]] = []
+    for concept_name, concept in facts.get("concepts", {}).items():
+        if not isinstance(concept, dict):
+            continue
+        for period_name in ("current", "prior"):
+            observation = concept.get(period_name) or {}
+            if str(observation.get("xbrl_tag") or "").lower() != requested_tag:
+                continue
+            if requested_periods and str(observation.get("period_end") or "") not in requested_periods:
+                continue
+            if requested_accession and str(observation.get("accession_number") or "") != requested_accession:
+                continue
+            if isinstance(observation.get("value"), (int, float)):
+                matches.append((concept_name, period_name, observation))
+    if not matches:
+        requested = f"tag {tag_match.group(1)}"
+        if requested_periods:
+            requested += f", periods {sorted(requested_periods)}"
+        if requested_accession:
+            requested += f", accession {requested_accession}"
+        return [], [f"No facts.json observation matches {requested}."], True
+
+    values: list[float] = []
+    evidence: list[str] = []
+    for concept_name, period_name, observation in matches:
+        values.append(float(observation["value"]))
+        evidence.append(
+            f"facts.json:{concept_name}:{period_name}: {observation['value']}; "
+            f"tag {observation.get('xbrl_tag')}; period {observation.get('period_end')}; "
+            f"accession {observation.get('accession_number')}"
+        )
+    return values, evidence, False
+
+
+def _appendix_peer_source(run_folder: Path, line: str) -> tuple[list[float], list[str], bool]:
+    match = PEER_APPENDIX_CITATION_RE.search(line)
+    if not match:
+        return [], [], False
+    peers_path = run_folder / "peers.json"
+    if not peers_path.exists():
+        return [], ["The peer appendix cannot be checked because peers.json is absent."], True
+    ticker = match.group(1).upper()
+    peers = load_json(peers_path).get("peers", [])
+    peer = next((row for row in peers if str(row.get("ticker") or "").upper() == ticker), None)
+    if not peer:
+        return [], [f"Peer {ticker} is absent from peers.json."], True
+    record = peer.get("operating_margin", {})
+    if record.get("validation_status") != "available" or not isinstance(record.get("result"), (int, float)):
+        return [], [f"Peer {ticker} operating margin is unavailable."], True
+    values = [float(record["result"]), float(record["result"]) * 100]
+    values.extend(_numbers(str(record.get("arithmetic") or "")))
+    values.extend(_numbers(json.dumps(record.get("inputs", {}))))
+    evidence = [
+        f"peers.json:{ticker}:operating_margin: {record.get('arithmetic')}; result {float(record['result']):g}; "
+        f"period {peer.get('period_end')}; denominator {peer.get('revenue_line_label')}"
+    ]
+    return values, evidence, False
+
+
+def _appendix_release_source(run_folder: Path, line: str) -> tuple[list[float], list[str], bool]:
+    matches = RELEASE_APPENDIX_CITATION_RE.findall(line)
+    if not matches:
+        return [], [], False
+    path = run_folder / "exhibit-99-1.txt"
+    lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
+    values: list[float] = []
+    evidence: list[str] = []
+    invalid = False
+    for line_text in matches:
+        line_number = int(line_text)
+        if not 0 < line_number <= len(lines):
+            invalid = True
+            evidence.append(f"Invalid citation exhibit-99-1.txt:{line_number}.")
+            continue
+        source_line = lines[line_number - 1]
+        values.extend(_numbers(source_line))
+        evidence.append(f"exhibit-99-1.txt:{line_number}: {source_line}")
+    return values, evidence, invalid
+
+
+def _filing_search_correction(
+    run_folder: Path,
+    report_line: str,
+    mention: str,
+    value: float,
+) -> tuple[str, str] | None:
+    """Find a misplaced but real number in the saved filing texts.
+
+    The result is a correction location, not permission to mark the original
+    citation Correct. A wrong-line citation remains Unsupported.
+    """
+    report_words = {
+        word.lower()
+        for word in re.findall(r"[A-Za-z]{3,}", FILING_CITATION_RE.sub("", report_line))
+        if word.lower()
+        not in {
+            "the", "and", "for", "from", "with", "that", "this", "was", "were",
+            "has", "had", "its", "into", "than", "year", "fiscal", "quarter",
+            "million", "billion", "thousand", "percent", "basis", "points",
+        }
+    }
+    cited_targets = {
+        filename.lower(): int(line_start)
+        for filename, line_start, _ in FILING_CITATION_RE.findall(report_line)
+    }
+    candidates: list[tuple[float, str, int, str]] = []
+    for filename in ("10-k.txt", "10-q.txt", "8-k.txt", "exhibit-99-1.txt"):
+        path = run_folder / filename
+        if not path.exists():
+            continue
+        for line_number, source_line in enumerate(
+            path.read_text(encoding="utf-8", errors="replace").splitlines(), start=1
+        ):
+            source_mentions = [match.group(0).strip() for match in NUMBER_MENTION_RE.finditer(source_line)]
+            if not any(
+                _mention_numeric_equivalent(source_mention, _number_from_mention(source_mention), value)
+                or _mention_numeric_equivalent(mention, value, _number_from_mention(source_mention))
+                for source_mention in source_mentions
+            ):
+                continue
+            source_words = {word.lower() for word in re.findall(r"[A-Za-z]{3,}", source_line)}
+            overlap = len(report_words & source_words)
+            exact_text_bonus = 4.0 if mention.replace("$", "").strip() in source_line else 0.0
+            file_bonus = 1.0 if filename in report_line.lower() else 0.0
+            cited_line = cited_targets.get(filename)
+            proximity_bonus = (
+                max(0.0, 8.0 - (abs(line_number - cited_line) / 10.0))
+                if cited_line is not None
+                else 0.0
+            )
+            score = float(overlap) + exact_text_bonus + file_bonus + proximity_bonus
+            candidates.append((score, filename, line_number, source_line.strip()))
+    if not candidates:
+        return None
+    score, filename, line_number, source_line = max(candidates, key=lambda item: item[0])
+    if score < 1.0:
+        return None
+    location = f"{filename}:{line_number}"
+    return location, source_line
 
 
 def _source_numbers_for_line(run_folder: Path, line: str) -> tuple[list[float], list[str], bool]:
@@ -886,6 +1065,18 @@ def _source_numbers_for_line(run_folder: Path, line: str) -> tuple[list[float], 
             continue
         source_numbers.extend(_numbers(str(value)))
         evidence.append(f"manifest.json:{field_name.lower()}: {value}")
+    appendix_values, appendix_evidence, appendix_invalid = _appendix_fact_source(run_folder, line)
+    source_numbers.extend(appendix_values)
+    evidence.extend(appendix_evidence)
+    invalid = invalid or appendix_invalid
+    peer_values, peer_evidence, peer_invalid = _appendix_peer_source(run_folder, line)
+    source_numbers.extend(peer_values)
+    evidence.extend(peer_evidence)
+    invalid = invalid or peer_invalid
+    release_values, release_evidence, release_invalid = _appendix_release_source(run_folder, line)
+    source_numbers.extend(release_values)
+    evidence.extend(release_evidence)
+    invalid = invalid or release_invalid
     return source_numbers, evidence, invalid
 
 
@@ -906,6 +1097,20 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
         masked = re.sub(r"https?://[^\s)]+", lambda match: " " * (match.end() - match.start()), masked)
         masked = re.sub(
             r"\b(?:10-K|10-Q|8-K|Exhibit\s+99\.1)\b",
+            lambda match: " " * (match.end() - match.start()),
+            masked,
+            flags=re.IGNORECASE,
+        )
+        masked = _mask_matches(masked, ISO_DATE_RE)
+        masked = _mask_matches(masked, ACCESSION_RE)
+        masked = re.sub(
+            r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+(?:19|20)\d{2}\b",
+            lambda match: " " * (match.end() - match.start()),
+            masked,
+            flags=re.IGNORECASE,
+        )
+        masked = re.sub(
+            r"\bCIK\s*:?[ \t]*\d+\b|\b(?:source\s+)?lines?\s+\d+(?:\s*[-–]\s*\d+)?\b",
             lambda match: " " * (match.end() - match.start()),
             masked,
             flags=re.IGNORECASE,
@@ -950,48 +1155,83 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
                 pattern.search(source_window) for pattern in _all_permitted_citation_patterns()
             )
             source_numbers, evidence_parts, invalid_source = _source_numbers_for_line(run_folder, source_window)
-            if has_web_source:
+            correction_cache: str | None = None
+
+            def correction_text() -> str:
+                nonlocal correction_cache
+                if correction_cache is None:
+                    correction = _filing_search_correction(run_folder, line, mention, value)
+                    correction_cache = (
+                        f"Found at {correction[0]}: {correction[1]}"
+                        if correction
+                        else "Not stated in the saved filings"
+                    )
+                return correction_cache
+
+            direct_match = has_permitted_citation and not invalid_source and any(
+                _mention_numeric_equivalent(
+                    (
+                        mention + " million"
+                        if not re.search(r"%|x|billion|million|thousand|basis point", mention, flags=re.IGNORECASE)
+                        and re.search(r"\bmillion\b", line, flags=re.IGNORECASE)
+                        else mention
+                    ),
+                    value,
+                    source_value,
+                )
+                for source_value in source_numbers
+            )
+            arithmetic = (
+                _derived_arithmetic_match(line, mention, value, source_numbers)
+                if has_permitted_citation and not invalid_source and not direct_match
+                else None
+            )
+            if score_mention and has_permitted_citation and not invalid_source:
+                mark = "Correct"
+                evidence = "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+                filing_says = "Analytical score, not a filing value"
+            elif direct_match:
+                mark = "Correct"
+                evidence = " | ".join(evidence_parts)
+                filing_says = "Matched cited filing or deterministic calculation"
+            elif arithmetic:
+                mark = "Correct"
+                evidence = (
+                    f"The cited filing supplies the inputs and the report rounding holds: {arithmetic}. "
+                    + " | ".join(evidence_parts)
+                )
+                filing_says = "Matched simple arithmetic from cited filing inputs"
+            elif has_web_source:
                 mark = "Unsupported"
-                evidence = "Web numbers are supplementary and are not permitted as report evidence."
-                filing_says = "No permitted filing or code source"
+                evidence = (
+                    "Web numbers are supplementary and are not permitted as report evidence. "
+                    + correction_text()
+                )
+                filing_says = correction_text()
             elif has_vendor_source:
                 mark = "Unsupported"
-                evidence = "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
-                filing_says = "No fully SEC-reproduced metric"
+                evidence = (
+                    "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. "
+                    + correction_text()
+                )
+                filing_says = correction_text()
             elif not has_permitted_citation or invalid_source:
                 mark = "Unsupported"
                 evidence = "A number with no valid filing-line or deterministic-calculation citation is unsupported."
                 if evidence_parts:
                     evidence += " " + " | ".join(evidence_parts)
-                filing_says = "No valid source citation"
-            elif score_mention:
-                mark = "Correct"
-                evidence = "Analytical score; the cited filing or calculation supplies the evidence used for the score."
-                filing_says = "Analytical score, not a filing value"
-            elif any(
-                _mention_numeric_equivalent(mention, value, source_value)
-                for source_value in source_numbers
-            ):
-                mark = "Correct"
-                evidence = " | ".join(evidence_parts)
-                filing_says = "Matched cited filing or deterministic calculation"
+                evidence += " " + correction_text()
+                filing_says = correction_text()
             else:
-                arithmetic = _derived_arithmetic_match(line, mention, value, source_numbers)
-                if arithmetic:
-                    mark = "Correct"
-                    evidence = (
-                        f"The cited filing supplies the inputs and the report rounding holds: {arithmetic}. "
-                        + " | ".join(evidence_parts)
-                    )
-                    filing_says = "Matched simple arithmetic from cited filing inputs"
-                else:
-                    mark = "Unsupported"
-                    evidence = (
-                        f"The cited evidence does not state {mention}, and simple arithmetic from the cited inputs "
-                        "does not establish it at the report's rounding. "
-                        + " | ".join(evidence_parts)
-                    )
-                    filing_says = "Arithmetic not shown or established from cited inputs"
+                mark = "Unsupported"
+                evidence = (
+                    f"The cited evidence does not state {mention}, and simple arithmetic from the cited inputs "
+                    "does not establish it at the report's rounding. "
+                    + " | ".join(evidence_parts)
+                    + " "
+                    + correction_text()
+                )
+                filing_says = correction_text()
             marks.append(VerificationMark(claim, mention, filing_says, mark, evidence))
     return marks
 

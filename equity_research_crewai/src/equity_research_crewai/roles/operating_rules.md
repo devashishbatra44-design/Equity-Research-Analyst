@@ -17,9 +17,13 @@ These are harness rules. They are not part of a role's identity, values, or scor
 - Write citation tokens exactly, with no backticks and no space after the colon. Valid examples are `(10-k.txt:1294)`, `(facts.json:total_revenue)`, `(calculations.json:revenue_growth)`, `(peers.json:WMT:operating_margin)`, and `(manifest.json:price)`.
 - Use one citation token for one source. Do not combine two source names inside one pair of parentheses.
 - Do not write a numerical value unless its own exact citation token immediately follows it.
+- Do not put one citation at the end of a sentence to support several numbers. Put the matching citation immediately after each number.
+- Use only a supplied `calculations.json` result for a numerical gap, difference, growth rate, ratio, or basis-point comparison. Never derive it inside a model role.
 - Cite each peer operating margin as `(peers.json:TICKER:operating_margin)`.
 - Cite the supplied share price as `(manifest.json:price)`.
 - Give every numerical criterion score a same-line filing or calculation citation for the evidence used to assign that score.
 - End each analyst output with one final nonblank line that begins exactly `Insight:`.
 - The Insight must use exact supplied citation tokens and must not merely restate the earnings release's first paragraph.
-- Do not write a four-digit year in an Insight unless the year has its own exact source citation.
+- If an Insight uses a `calculations.json` result, include at least one reported input and its exact filing-line citation.
+- A four-digit year may appear as a period label when the associated claim has an exact source citation. Do not remove a source-supported year from a period label.
+- In `What would change my view`, state a direction or condition. Do not invent a numerical threshold unless the supplied evidence or a supplied code calculation states it.

@@ -440,21 +440,21 @@
     },
     {
       "claim": "Insight 1",
-      "report_said": "The current quarter revenue growth of 11.10% () is higher than the latest fiscal year revenue growth of 10.14% (), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter () and 10.1% for the fiscal year ().",
+      "report_said": "The current quarter revenue growth of 11.10% (calculations.json:quarter_revenue_growth) is higher than the latest fiscal year revenue growth of 10.14% (calculations.json:revenue_growth), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter (exhibit-99-1.txt:10) and 10.1% for the fiscal year (exhibit-99-1.txt:10).",
       "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
       "mark": "Correct",
       "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
     },
     {
       "claim": "Insight 2",
-      "report_said": "The 8.4% () growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point () decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
+      "report_said": "The 8.4% (exhibit-99-1.txt:17) growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point (10-k.txt:1040) decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
       "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;",
       "mark": "Correct",
       "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
     },
     {
       "claim": "Insight 3",
-      "report_said": "The 47.79x () multiple is supported by a 3.85% () operating margin, which is calculated using an operating income of $11,685,000,000 (); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
+      "report_said": "The 47.79x (calculations.json:price_to_earnings) multiple is supported by a 3.85% (calculations.json:operating_margin) operating margin, which is calculated using an operating income of $11,685,000,000 (10-k.txt:1285); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
       "filing_says": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
       "mark": "Correct",
       "evidence": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
@@ -651,23 +651,23 @@
     {
       "claim": "Other number L84.1",
       "report_said": "9.6%",
-      "filing_says": "No permitted filing or code source",
+      "filing_says": "Found at 10-k.txt:706: Item 10. | Directors, Executive Officers and Corporate Governance | 66",
       "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:706: Item 10. | Directors, Executive Officers and Corporate Governance | 66"
     },
     {
       "claim": "Other number L84.2",
       "report_said": "35.4 million",
-      "filing_says": "No permitted filing or code source",
+      "filing_says": "Found at 10-k.txt:769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026.",
       "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
     },
     {
       "claim": "Other number L86.1",
       "report_said": "7.5%",
-      "filing_says": "No valid source citation",
+      "filing_says": "Found at 10-k.txt:821: The risks described below could materially and adversely affect our business, financial condition and results of operations. We could also be affected by additional risks that apply to all companies operating in the U.S. and globally, as well as other risks that are not presently known to us or that we currently consider to be immaterial. These Risk Factors should be carefully reviewed in conjunction with Management's Discussion and Analysis of Financial Condition and Results of Operations in Item 7 and our consolidated financial statements and related notes in Item 8 of this Report.",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:821: The risks described below could materially and adversely affect our business, financial condition and results of operations. We could also be affected by additional risks that apply to all companies operating in the U.S. and globally, as well as other risks that are not presently known to us or that we currently consider to be immaterial. These Risk Factors should be carefully reviewed in conjunction with Management's Discussion and Analysis of Financial Condition and Results of Operations in Item 7 and our consolidated financial statements and related notes in Item 8 of this Report."
     }
   ],
   "cited_filing_lines": [

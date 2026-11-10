@@ -48,6 +48,9 @@ The deterministic proof set is documented in [`verification_tests/README.md`](ve
 - Web and uncited numbers: the added values are Unsupported.
 - Correctly rounded growth: accepted as Correct when the cited inputs establish the arithmetic.
 - Numeric labels such as “5-factor”: excluded from financial-claim testing.
+- XBRL appendix rows: accepted from their tag, period, and accession while dates, CIKs, accessions, and source-line numbers are ignored as claims.
+- Wrong-line citations: remain Unsupported, but the Verifier searches the saved filing texts and prints `Found at file:line` with the real line when available.
+- Role provenance: every model-node record stores the SHA-256 hash of its role file and the operating-rules file.
 
 ## Reproduce the result
 
@@ -59,7 +62,7 @@ PYTHONPATH=.:week01 python -m pytest -q
 python week03/create_verifier_proofs.py
 ```
 
-Repository result at preparation: **73 tests passed**.
+Repository result at preparation: **81 tests passed**.
 The proof generator asserts the required known answers and exits with an error if any proof fails.
 
 ## Submission status

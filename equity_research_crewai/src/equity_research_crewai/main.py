@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -164,6 +165,16 @@ def insight_issues(outputs: dict[str, str], run_folder: Path) -> list[dict[str, 
         citations = citation_pattern.findall(line)
         if not citations:
             issues.append({"role": role, "reason": "The Insight line has no filing and line citation."})
+            continue
+        if re.search(r"\b\d[\d,.]*\s+basis\s+points?\b", line, flags=re.IGNORECASE) and not re.search(
+            r"calculations\.json:\s*[a-z_]+", line, flags=re.IGNORECASE
+        ):
+            issues.append(
+                {
+                    "role": role,
+                    "reason": "A derived basis-point gap must cite a supplied calculations.json result; a model role may not calculate it.",
+                }
+            )
             continue
         insight_without_citations = citation_pattern.sub("", line)
         insight_without_citations = re.sub(r"calculations\.json:\s*[a-z_]+", "", insight_without_citations, flags=re.IGNORECASE)
@@ -354,12 +365,16 @@ def _join_score_evidence_lines(output: str) -> str:
     index = 0
     while index < len(lines):
         line = lines[index]
-        if (
-            re.search(r":\s*[1-5]\s*\*{0,2}\s*$", line.strip())
-            and index + 1 < len(lines)
-            and re.search(r"\bevidence\s*:", lines[index + 1], flags=re.IGNORECASE)
+        next_line = lines[index + 1] if index + 1 < len(lines) else ""
+        if re.search(r":\s*[1-5]\s*\*{0,2}\s*$", line.strip()) and (
+            re.search(r"\bevidence\s*:", next_line, flags=re.IGNORECASE)
+            or re.search(
+                r"(?:10-k|10-q|8-k|exhibit-99-1)\.txt:\d+|(?:facts|calculations|peers|manifest)\.json:",
+                next_line,
+                flags=re.IGNORECASE,
+            )
         ):
-            evidence = re.sub(r"^\s*[-*]+\s*", "", lines[index + 1]).strip()
+            evidence = re.sub(r"^\s*[-*]+\s*", "", next_line).strip()
             merged.append(line.rstrip() + " " + evidence)
             index += 2
             continue
@@ -407,26 +422,11 @@ def _normalize_analyst_output(role: str, output: str, context: dict[str, Any]) -
 
 
 def _normalize_insight_prefix(output: str) -> str:
-    citation_pattern = re.compile(
-        r"(?:10-k|10-q|8-k|exhibit-99-1)\.txt:\d+(?:-\d+)?"
-        r"|(?:facts|calculations|peers|manifest)\.json:[A-Za-z0-9_.-]+",
-        flags=re.IGNORECASE,
-    )
     lines = output.splitlines()
     for index, line in enumerate(lines):
         match = re.match(r"^(\s*)\*{0,2}Insight:\*{0,2}\s*(.*)$", line, flags=re.IGNORECASE)
         if match:
-            citations: list[str] = []
-
-            def stash_citation(citation_match: re.Match[str]) -> str:
-                citations.append(citation_match.group(0))
-                return f"__CITATION_{len(citations) - 1}__"
-
-            insight_text = citation_pattern.sub(stash_citation, match.group(2))
-            insight_text = re.sub(r"\b(?:19|20)\d{2}\b\s*", "", insight_text)
-            for citation_index, citation in enumerate(citations):
-                insight_text = insight_text.replace(f"__CITATION_{citation_index}__", citation)
-            insight_text = re.sub(r"\s{2,}", " ", insight_text).strip()
+            insight_text = re.sub(r"\s{2,}", " ", match.group(2)).strip()
             lines[index] = f"{match.group(1)}Insight: {insight_text}".rstrip()
     return "\n".join(lines)
 
@@ -530,8 +530,23 @@ def run_role(
 
 
 def _save_node_record(state: TeamState, node: str, handoff: Any, output: Any) -> None:
+    base_role = next((role for role in ROLE_FILES if node == role or node.startswith(role + " ")), None)
+    provenance: dict[str, Any] = {}
+    if base_role:
+        role_path = ROLES_ROOT / ROLE_FILES[base_role]
+        role_bytes = role_path.read_bytes()
+        rules_path = ROLES_ROOT / "operating_rules.md"
+        provenance = {
+            "role": base_role,
+            "role_file": str(role_path.relative_to(REPOSITORY_ROOT)),
+            "role_file_sha256": hashlib.sha256(role_bytes).hexdigest(),
+            "operating_rules_file": str(rules_path.relative_to(REPOSITORY_ROOT)),
+            "operating_rules_sha256": hashlib.sha256(rules_path.read_bytes()).hexdigest(),
+        }
     state.node_order.append(node)
-    state.node_records.setdefault(node, []).append({"input": handoff, "output": output})
+    state.node_records.setdefault(node, []).append(
+        {"input": handoff, "output": output, "instruction_provenance": provenance}
+    )
     if state.run_folder:
         run_folder = Path(state.run_folder)
         (run_folder / "node_records.json").write_text(
@@ -585,6 +600,7 @@ def create_week03_run(source: Path) -> Path:
         if source_path.exists():
             shutil.copy2(source_path, destination / filename)
     _save_quarter_revenue_growth_calculation(destination)
+    _save_insight_calculations(destination)
     trace_path = destination / "faskills_driver_trace.json"
     if trace_path.exists():
         trace_path.write_text(
@@ -638,6 +654,54 @@ def _save_quarter_revenue_growth_calculation(run_folder: Path) -> None:
         "validation_status": "available",
         "unavailable_reason": None,
         "note": growth.get("source_line"),
+    }
+    calculations_path.write_text(
+        json.dumps(calculations, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _save_insight_calculations(run_folder: Path) -> None:
+    """Persist deterministic cross-period comparisons that an Insight may cite."""
+    calculations_path = run_folder / "calculations.json"
+    release_path = run_folder / "exhibit-99-1.txt"
+    if not calculations_path.exists() or not release_path.exists():
+        return
+    calculations = desk_app.load_json(calculations_path)
+    entries = calculations.setdefault("calculations", {})
+    annual = entries.get("operating_margin", {})
+    annual_ratio = annual.get("result")
+    if not isinstance(annual_ratio, (int, float)):
+        return
+    release_lines = release_path.read_text(encoding="utf-8", errors="replace").splitlines()
+    quarter_margin: float | None = None
+    source_line: int | None = None
+    for index, line in enumerate(release_lines, start=1):
+        if not re.search(r"\bQ[1-4]\b|quarter", line, flags=re.IGNORECASE):
+            continue
+        match = re.search(r"operating\s+margin\s+(?:was|of|reached)?\s*([\d.]+)%", line, flags=re.IGNORECASE)
+        if match:
+            quarter_margin = float(match.group(1))
+            source_line = index
+            break
+    if quarter_margin is None or source_line is None:
+        return
+    annual_percent = float(annual_ratio) * 100
+    gap_basis_points = (quarter_margin - annual_percent) * 100
+    entries["quarter_vs_annual_operating_margin_gap_basis_points"] = {
+        "measure": "Quarter operating margin minus annual operating margin",
+        "formula": "(Quarter operating margin percent - Annual operating margin percent) * 100",
+        "inputs": {
+            "quarter_operating_margin_percent": quarter_margin,
+            "annual_operating_margin_percent": annual_percent,
+        },
+        "fiscal_periods": {"quarter_source": f"exhibit-99-1.txt:{source_line}"},
+        "unit": "basis_points",
+        "arithmetic": f"({quarter_margin:g} - {annual_percent:.8g}) * 100 = {gap_basis_points:.8g}",
+        "result": gap_basis_points,
+        "validation_status": "available",
+        "unavailable_reason": None,
+        "note": f"Quarter margin source: exhibit-99-1.txt:{source_line}; annual margin source: calculations.json:operating_margin",
     }
     calculations_path.write_text(
         json.dumps(calculations, indent=2, ensure_ascii=False) + "\n",
@@ -868,7 +932,8 @@ def _retry_role_numbers(
             "Rewrite the complete role output once. Repair every listed numerical-source issue. "
             "Put the exact source token immediately after each number. Remove a number when the supplied context has no exact source. "
             "Do not use a web number or a vendor-derived score. Put the evidence citation on the same line as every numerical criterion score. "
-            "Preserve the required report headings and final Insight line."
+            "Preserve the required report headings and final Insight line. "
+            "If the final Insight uses a calculations.json result, include at least one reported input and its exact filing-line citation."
         ),
         {
             "number_issues": issues[:100],
@@ -891,8 +956,7 @@ def _retry_role_insight(
             "Rewrite the complete role output once. Preserve every required report section. "
             "End with one line that begins Insight:. "
             "Place an exact supplied citation token immediately after every numeric value in the Insight. "
-            "Treat a calendar year or fiscal year as a numeric value that also needs an exact citation; otherwise omit the year. "
-            "Do not include a four-digit calendar or fiscal year in the Insight line; use current quarter or latest fiscal year. "
+            "A four-digit year may appear as a period label only when the same claim has an exact supplied citation. "
             "If two numbers come from different sources, cite each number separately. "
             "Do not place one citation at the end of a sentence to support several numbers from different lines. "
             "Remove every number that has no exact supplied citation. "
@@ -1447,6 +1511,8 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         manager_review["code_written_insight_fallbacks"] = []
         manager_review["lab05_persona_checks_enabled"] = persona_mode
         manager_review["unresolved_insight_issues_after_one_retry"] = unresolved_insights
+        if core_issues or final_number_issues or unresolved_insights:
+            manager_review["status"] = "failed_after_one_retry"
         if methodology_path.exists():
             assert methodology_plan is not None
             manager_review["faskills_lens_coverage"] = lens_coverage(outputs, methodology_plan)
@@ -1601,57 +1667,6 @@ def verify_only(run_folder: Path) -> Path:
     return path
 
 
-def reconcile_saved_run(source_run: Path) -> Path:
-    """Create a verifier-only diagnostic copy without editing desk output.
-
-    This compatibility command preserves report.md and role_outputs.json
-    byte-for-byte. It never deletes model text or writes an Insight.
-    """
-    source_run = source_run.resolve()
-    for required in ("manifest.json", "role_outputs.json", "report.md"):
-        if not (source_run / required).exists():
-            raise FileNotFoundError(f"Missing {required} in saved run: {source_run}")
-    stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
-    destination = source_run.with_name(f"{source_run.name}_VERIFIER_DIAGNOSTIC_{stamp}")
-    shutil.copytree(source_run, destination)
-    manifest = desk_app.load_json(destination / "manifest.json")
-    diagnostic = {
-        "source_run": source_run.name,
-        "created_at": datetime.now().astimezone().isoformat(),
-        "artifact_class": "optional verifier diagnostic; not graph output",
-        "report_edits": 0,
-        "role_output_edits": 0,
-        "code_written_insights": 0,
-        "model_calls": 0,
-        "tavily_calls": 0,
-        "vendor_calls": 0,
-    }
-    (destination / "reconciliation.json").write_text(
-        json.dumps(diagnostic, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
-    manifest["derived_verifier_diagnostic"] = {
-        "source_run": source_run.name,
-        "metadata_file": "reconciliation.json",
-        "report_and_role_outputs_unchanged": True,
-        "not_graph_output": True,
-    }
-    manifest["output_filenames"] = sorted(
-        set(manifest.get("output_filenames", [])) | {"reconciliation.json"}
-    )
-    (destination / "manifest.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
-    verify_saved_run(destination)
-    if (destination / "report.md").read_bytes() != (source_run / "report.md").read_bytes():
-        raise RuntimeError("Verifier-only diagnostic changed report.md.")
-    if (destination / "role_outputs.json").read_bytes() != (source_run / "role_outputs.json").read_bytes():
-        raise RuntimeError("Verifier-only diagnostic changed role_outputs.json.")
-    print(f"Verifier-only diagnostic saved: {destination}")
-    return destination
-
-
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run the fixed-order equity-research agent team.")
     parser.add_argument("ticker", nargs="?", help="Main U.S. company ticker")
@@ -1682,11 +1697,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="Reuse tavily_research.json from --saved-run without making a Tavily API request",
     )
     parser.add_argument("--verify-only", type=Path, help="Run only the mandatory Verifier on a saved run")
-    parser.add_argument(
-        "--reconcile-only",
-        type=Path,
-        help="Deprecated: copy a run unchanged and rerun only the verifier",
-    )
     return parser
 
 
@@ -1694,9 +1704,6 @@ def kickoff() -> None:
     args = build_parser().parse_args()
     if args.verify_only:
         verify_only(args.verify_only)
-        return
-    if args.reconcile_only:
-        reconcile_saved_run(args.reconcile_only)
         return
     if not args.ticker:
         raise SystemExit("Ticker is required unless --verify-only is used.")

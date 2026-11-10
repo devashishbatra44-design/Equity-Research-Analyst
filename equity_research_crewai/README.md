@@ -123,7 +123,7 @@ The original FAskills/Tavily graph run is:
 
 `week03/runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525`
 
-Its report remains exactly what the graph produced. Its saved sidecars remain available for methodology review, and the Verifier visibly marks blocked web and vendor-derived numbers Unsupported. Historical `RECONCILED` folders are optional post-processing diagnostics, not desk output and not submission proof.
+Its report remains exactly what the graph produced. Its saved sidecars remain available for methodology review, and the Verifier visibly marks blocked web and vendor-derived numbers Unsupported. Historical `RECONCILED` folders are not desk output and are not submission proof.
 
 To reuse an existing successful data folder while testing the graph:
 
@@ -142,17 +142,6 @@ This command runs the Verifier and no other role:
 ```
 
 If the model endpoint is unavailable, the command still writes the deterministic marks to a new timestamped file and leaves the prior verified report unchanged.
-
-## Create a verifier-only diagnostic copy
-
-The legacy option name remains for compatibility:
-
-```bash
-.venv/bin/python -m equity_research_crewai.main \
-  --reconcile-only week03/runs/SAVED_RUN_FOLDER
-```
-
-The command creates a clearly labeled `VERIFIER_DIAGNOSTIC` folder. It preserves `report.md` and `role_outputs.json` byte-for-byte, reruns the deterministic Verifier, and makes no model, Tavily, or vendor request. It does not delete a line, repair model prose, or write an Insight. A diagnostic copy is not graph output and is not submission proof.
 
 ## Start the page
 

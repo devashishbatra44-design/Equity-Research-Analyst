@@ -233,6 +233,25 @@ No number is checked here.
     assert all("report rounding holds" in mark.evidence for mark in marks)
 
 
+def test_growth_is_not_inferred_from_unrelated_percentages(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "unrelated_percentages")
+    filing_path = run / "10-k.txt"
+    filing_path.write_text(
+        filing_path.read_text(encoding="utf-8")
+        + "\nOperating margin was 34.6%, up from 28.2%.\n",
+        encoding="utf-8",
+    )
+    source_line = len(filing_path.read_text(encoding="utf-8").splitlines())
+    report = f"""# Test report
+# Overview
+Revenue grew 23% (10-k.txt:{source_line}).
+# Investment Recommendation
+No number is checked here.
+"""
+    mark = verify_all_other_numbers(run, report)[0]
+    assert mark.mark == "Unsupported"
+
+
 def test_number_inside_factor_label_is_not_a_claim() -> None:
     report = """# Test report
 # Overview
@@ -266,3 +285,56 @@ No number is checked here.
     score = next(mark for mark in marks if mark.report_said == "5")
     assert score.mark == "Correct"
     assert "Analytical score" in score.filing_says
+
+
+def test_xbrl_appendix_format_is_a_valid_source_and_metadata_is_not_a_claim() -> None:
+    report = """# Test report
+# Overview
+Appendix total revenue: $303,154 million at 2026-08-30; XBRL tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; 10-K accession 0000909832-26-000093; CIK 909832; source line 39.
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(CLEAN_RUN, report)
+    assert len(marks) == 1
+    assert marks[0].report_said == "$303,154 million"
+    assert marks[0].mark == "Correct"
+    assert "facts.json:total_revenue:current" in marks[0].evidence
+
+
+def test_peer_appendix_accepts_rounded_million_inputs() -> None:
+    report = """# Test report
+# Overview
+- BJ'S WHOLESALE CLUB HOLDINGS, INC. (BJ) operating margin: 3.8057% = 817 / 21,457 million; period end 2026-01-31; denominator line label `Total revenues`.
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(CLEAN_RUN, report)
+    assert marks
+    assert {mark.mark for mark in marks} == {"Correct"}
+
+
+def test_wrong_line_citation_prints_the_real_filing_location(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "source_search")
+    filing = run / "10-k.txt"
+    filing.write_text(
+        filing.read_text(encoding="utf-8")
+        + "\nAPAC revenue increased 21% to $5,353,717 thousand.\n",
+        encoding="utf-8",
+    )
+    correct_line = len(filing.read_text(encoding="utf-8").splitlines())
+    report = """# Test report
+# Overview
+APAC revenue increased 21% (10-k.txt:1).
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(run, report)
+    assert marks[0].mark == "Unsupported"
+    assert f"Found at 10-k.txt:{correct_line}" in marks[0].filing_says
+
+
+def test_insight_report_said_retains_its_citation() -> None:
+    insight = "Insight: Annual GAAP diluted EPS was $20.76 (10-k.txt:1294)."
+    mark = verify_insight_claims(CLEAN_RUN, insight)[0]
+    assert "(10-k.txt:1294)" in mark.report_said
+    assert "()" not in mark.report_said
