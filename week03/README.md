@@ -72,7 +72,7 @@ It cannot decide whether a true sourced number answers the client's intended que
 - [x] Record the three student names.
 - [x] Record the team name.
 - [x] Push the Week 3 artifacts completed to date.
-- [ ] Submit a commit permalink to Brightspace Checkpoint 2.
+- [x] Submit a commit permalink to Brightspace Checkpoint 2.
 
 ## Repeatability proof
 
@@ -88,33 +88,33 @@ Each model definition review has no non-correct finding.
 
 ## Current graph-produced reports
 
-- Fresh final-persona Costco proof: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_204310`.
+- Fresh final-instruction Costco proof: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261112_004037`.
 - Earlier Costco run re-audited with the appendix-aware Verifier: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525/verified_report_reaudit_20261109_appendix_fix.md`.
 - Final-persona Netflix run: `runs/NETFLIX_INC_NFLX_20261109_180226`.
 
-The fresh Costco report has 71 Correct, 0 Wrong, 11 Unsupported, and 0 Missing deterministic marks. The Manager records `failed_after_one_retry`; the graph preserves the analyst text and shows the unresolved marks instead of deleting or replacing claims.
+The fresh Costco report has 67 Correct, 0 Wrong, 2 Unsupported, and 0 Missing deterministic marks. Every saved role-file and operating-rules hash matches the current files. All numerical criterion scores are source-bound, the three Insights are distinct, and no unresolved model-derived growth rate remains. The Manager records `failed_after_one_retry` because two wrong-line or missing citations remain; the graph preserves the analyst text and prints the filing corrections instead of deleting or replacing claims.
 The Nov. 9 re-audit of the earlier Costco report has 110 Correct and 12 Unsupported marks. The earlier 67/144 marks are preserved in commit `6f133ee`; the re-audit was written to a new file and did not overwrite the graph artifact.
 The final-persona Netflix re-audit has 91 Correct, 10 Unsupported, and 0 Wrong deterministic marks. Unsupported claims remain visible and now show the real filing line when the number exists elsewhere in the saved filings.
 The fresh Netflix facts use the 10-K short-term-debt line, so debt-to-equity is calculated instead of marked unavailable.
 Neither report was edited after the graph. The Verifier marks and filing corrections are appended to `verified_report.md`.
 The old folders containing `RECONCILED` are historical post-processing diagnostics. They are not graph output and are not current proof runs. The deprecated `--reconcile-only` command has been removed.
-Netflix is Shivani Rathi's confirmed partner company. It reported in October 2026; the repository discloses that timing mismatch instead of claiming a November filing.
-The completed checks tied to the final-persona run are recorded in [`partner_marks.md`](runs/NETFLIX_INC_NFLX_20261109_180226/partner_marks.md). The instructor timing question is ready in [`NETFLIX_LAB05_TIMING_REQUEST.txt`](NETFLIX_LAB05_TIMING_REQUEST.txt).
+Netflix is Shivani Rathi's confirmed partner company. It reported in October 2026, which satisfies the professor's use of “this month” for the course-start month.
+The completed checks tied to the final-persona run are recorded in [`partner_marks.md`](runs/NETFLIX_INC_NFLX_20261109_180226/partner_marks.md). No timing exception is needed.
 
 ## FAskills and Tavily boundary
 
-- Current final-persona proof run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_204310`.
+- Current final-instruction proof run: `runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261112_004037`.
 - Fixed node order: Steps; Research Analyst; Financial Analyst; Investment Advisor; Strategy Manager; Verifier.
 - FAskills methodology labels remain optional, but vendor-derived metric values are blocked from the graded report until every input is reproduced from SEC XBRL.
 - Tavily results are saved as sidecars and excluded from graded role hand-offs.
-- Current code marks on the unedited graph report: 71 Correct; 0 Wrong; 11 Unsupported; 0 Missing.
+- Current code marks on the unedited graph report: 67 Correct; 0 Wrong; 2 Unsupported; 0 Missing.
 - The Verifier recognizes XBRL appendix citations and ignores dates, accessions, CIKs, source-line numbers, and numeric labels as standalone claims.
 - Each unsupported number now says either `Found at file:line` with the real filing text or `Not stated in the saved filings`.
 
 The exact request for written confirmation of the permitted persona-wording workflow is saved in `PERSONA_PERMISSION_REQUEST.txt`.
 The request is ready to send, but this repository does not claim that the instructor has replied.
 
-The current verified graph artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261109_204310/verified_report.md).
+The current verified graph artifact is [verified_report.md](runs/COSTCO_WHOLESALE_CORP_NEW_COST_20261112_004037/verified_report.md).
 
 ## Team formation
 

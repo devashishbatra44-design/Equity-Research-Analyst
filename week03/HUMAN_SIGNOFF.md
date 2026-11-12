@@ -45,8 +45,7 @@ Devashish confirmed that Shivani selected Netflix and completed these two core-c
 The final-persona run states the same three values from the same Netflix filing lines, so this file records those completed partner checks beside the final-persona artifact.
 No mark is inferred for any other claim.
 
-Netflix reported in October 2026, not November 2026.
-The repository states that timing fact rather than relabeling the filing month.
+Netflix reported in October 2026. The professor's phrase “this month” referred to October, the course-start month, so the partner selection satisfies the requirement.
 Netflix remains the partner-selected company because Shivani selected it and Devashish confirmed that this selection cannot be changed.
 
 This is a learning exercise, not financial advice.

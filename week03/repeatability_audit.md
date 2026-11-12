@@ -17,12 +17,14 @@ The first run folder remained unchanged when the second run was created.
 | Run folder | Company | Deterministic result | Report edited after graph? |
 |---|---|---|---|
 | `COSTCO_WHOLESALE_CORP_NEW_COST_20261109_020525` | Costco | 67 Correct; 144 Unsupported | No |
-| `NETFLIX_INC_NFLX_20261109_180226` | Netflix, selected by Shivani Rathi; final personas | 92 Correct; 9 Unsupported; 0 Wrong | No |
+| `COSTCO_WHOLESALE_CORP_NEW_COST_20261112_004037` | Costco, final instructions and matching hashes | 67 Correct; 2 Unsupported; 0 Wrong | No |
+| `NETFLIX_INC_NFLX_20261109_180226` | Netflix, selected by Shivani Rathi; final personas | 91 Correct; 10 Unsupported; 0 Wrong | No |
 
 The fresh Netflix data run reads the 10-K short-term-debt line and calculates debt-to-equity.
 The verifier output shows unresolved claims instead of deleting them. Code never writes an Insight.
+The final Costco run uses distinct Insights, blocks model-derived growth rates without a code calculation, and preserves the two remaining wrong-line citation failures with their filing corrections.
 The old `RECONCILED` folders are historical post-processing diagnostics and are not the desk's output.
-Netflix reported in October 2026. Shivani selected Netflix, and the repository discloses the timing mismatch rather than relabeling the filing month.
+Netflix reported in October 2026. Shivani selected Netflix, and October is the course-start month referenced by the professor's phrase “this month”; no timing exception is required.
 
 ## Browser page check
 

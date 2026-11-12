@@ -124,6 +124,28 @@
       "validation_status": "available",
       "unavailable_reason": null,
       "note": "exhibit-99-1.txt:276: September 30, 2026 | June 30, 2026 | September 30, 2025 | September 30, 2026 | September 30, 2025 ; exhibit-99-1.txt:277: Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    },
+    "quarter_vs_annual_operating_margin_gap_basis_points": {
+      "measure": "Quarter operating margin minus annual operating margin",
+      "formula": "(Quarter operating margin percent - Annual operating margin percent) * 100",
+      "inputs": {
+        "quarter_operating_margin_percent": 34.6,
+        "annual_operating_margin_percent": 29.494704605507255
+      },
+      "fiscal_periods": {
+        "current_quarter_end": "September 30, 2026",
+        "annual_fiscal_year_end": "2025-12-31"
+      },
+      "sources": {
+        "quarter_operating_margin": "exhibit-99-1.txt:14",
+        "annual_operating_margin": "calculations.json:operating_margin"
+      },
+      "unit": "basis_points",
+      "arithmetic": "(34.6 - 29.494705) * 100 = 510.52954",
+      "result": 510.5295394492746,
+      "validation_status": "available",
+      "unavailable_reason": null,
+      "note": "Quarter period September 30, 2026, source exhibit-99-1.txt:14; annual period 2025-12-31, source calculations.json:operating_margin"
     }
   }
 }

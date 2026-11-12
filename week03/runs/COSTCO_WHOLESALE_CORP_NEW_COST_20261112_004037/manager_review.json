@@ -1,0 +1,106 @@
+{
+  "status": "failed_after_one_retry",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $303.154 billion (facts.json:total_revenue).",
+      "filing_says": "$303.154 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 10.1437% (calculations.json:revenue_growth).",
+      "filing_says": "10.1437%",
+      "mark": "Correct",
+      "evidence": "(303154000000 - 275235000000) / 275235000000"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $11.685 billion (facts.json:operating_income). Annual operating margin was 3.8545% (calculations.json:operating_margin).",
+      "filing_says": "$11.685 billion; 3.8545%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 11685000000 / 303154000000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $9.226 billion (facts.json:net_income).",
+      "filing_says": "$9.226 billion",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2026-08-30"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $20.76 (facts.json:diluted_eps).",
+      "filing_says": "$20.76",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2026-08-30; 10-k.txt:1294: Diluted | $ | 20.76 | $ | 18.21 | $ | 16.56"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 28.4021% (calculations.json:return_on_average_equity).",
+      "filing_says": "28.4021%",
+      "mark": "Correct",
+      "evidence": "9226000000 / ((35803000000 + 29164000000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was 0.1721x (calculations.json:debt_to_equity).",
+      "filing_says": "0.1721",
+      "mark": "Correct",
+      "evidence": "(3914000000 + 2248000000) / 35803000000"
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $9.382 billion (calculations.json:free_cash_flow).",
+      "filing_says": "$9.382 billion",
+      "mark": "Correct",
+      "evidence": "15817000000 - 6435000000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $95.723 billion (exhibit-99-1.txt:39).",
+      "filing_says": "$95.723 billion",
+      "mark": "Correct",
+      "evidence": "Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Quarter revenue growth was 11.1043% (calculations.json:quarter_revenue_growth).",
+      "filing_says": "11.1043%",
+      "mark": "Correct",
+      "evidence": "(9.5723e+10 - 8.6156e+10) / 8.6156e+10"
+    },
+    {
+      "claim": "11. Quarter diluted EPS, GAAP",
+      "report_said": "Quarter GAAP diluted EPS was $6.75 (exhibit-99-1.txt:20).",
+      "filing_says": "$6.75",
+      "mark": "Correct",
+      "evidence": "Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [],
+  "unresolved_other_numbers_after_one_retry": [
+    {
+      "claim": "Other number L34.2",
+      "report_said": "$5,713,000,000",
+      "filing_says": "Found at 10-k.txt:1339: Long-term debt, excluding current portion | 3,914 | 5,713",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $5,713,000,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding. calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09 | facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 Found at 10-k.txt:1339: Long-term debt, excluding current portion | 3,914 | 5,713"
+    },
+    {
+      "claim": "Other number L78.1",
+      "report_said": "89.8%",
+      "filing_says": "Found at 10-k.txt:1082: Membership fee revenue increased 11% in 2026, driven by new member sign-ups, membership fee increases, and upgrades to Executive memberships. At the end of 2026, member renewal rates were 92.3% in the U.S. and Canada and 89.8% worldwide.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:1082: Membership fee revenue increased 11% in 2026, driven by new member sign-ups, membership fee increases, and upgrades to Executive memberships. At the end of 2026, member renewal rates were 92.3% in the U.S. and Canada and 89.8% worldwide."
+    }
+  ],
+  "unresolved_model_derived_growth_after_one_retry": [],
+  "post_generation_report_edits": [],
+  "code_written_insight_fallbacks": [],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": []
+}

@@ -79,24 +79,24 @@
     },
     {
       "claim": "Insight 1",
-      "report_said": "The Q3 operating margin of 34.6% () exceeds the annual operating margin of 29.49% () by 511 basis points, a gap attributed to expense timing () that suggests the annual margin understates current-period profitability.",
-      "filing_says": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "report_said": "The Q3 operating margin of 34.6% (exhibit-99-1.txt:14) exceeds the annual operating margin of 29.49% (calculations.json:operating_margin) by 511 basis points, a gap attributed to expense timing (exhibit-99-1.txt:14) that suggests the annual margin understates current-period profitability.",
+      "filing_says": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}",
       "mark": "Correct",
-      "evidence": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Insight 2",
-      "report_said": "The 23% constant currency revenue growth in LATAM () indicates that the company’s pricing and content strategy is resonating strongly in emerging markets, suggesting that the moat is being reinforced by successful localization and price optimization in regions with high growth potential.",
+      "report_said": "The 23% constant currency revenue growth in LATAM (10-k.txt:2102) indicates that the company’s pricing and content strategy is resonating strongly in emerging markets, suggesting that the moat is being reinforced by successful localization and price optimization in regions with high growth potential.",
       "filing_says": "LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %",
       "mark": "Correct",
       "evidence": "LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %"
     },
     {
       "claim": "Insight 3",
-      "report_said": "The 31.5% operating margin guidance for () is the deciding number because it bridges the gap between the 29.49% annual operating margin in () and the 34.6% Q3 operating margin (), confirming that the current-period profitability trajectory is sustainable and not merely an artifact of expense timing. If the full-year margin fails to reach 31.5%, the risk-reward conclusion shifts from Buy to Hold, as the valuation support at 27.15x () would no longer be adequately compensated by the expected upside in earnings power.",
-      "filing_says": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 68.69 / 2.53; result 27.1502",
+      "report_said": "The 31.5% operating margin guidance for (exhibit-99-1.txt:16) is the deciding number because it bridges the gap between the 29.49% annual operating margin in (calculations.json:operating_margin) and the 34.6% Q3 operating margin (exhibit-99-1.txt:14), confirming that the current-period profitability trajectory is sustainable and not merely an artifact of expense timing. If the full-year margin fails to reach 31.5%, the risk-reward conclusion shifts from Buy to Hold, as the valuation support at 27.15x (calculations.json:price_to_earnings) would no longer be adequately compensated by the expected upside in earnings power.",
+      "filing_says": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {}",
       "mark": "Correct",
-      "evidence": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 68.69 / 2.53; result 27.1502"
+      "evidence": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L6.1",
@@ -122,16 +122,16 @@
     {
       "claim": "Other number L6.4",
       "report_said": "28%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2060: Operating income | $ | 13,326,603 | $ | 10,417,614 | $ | 6,954,003 | $ | 2,908,989 | 28 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 28%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
+      "evidence": "The cited evidence does not state 28%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance. Found at 10-k.txt:2060: Operating income | $ | 13,326,603 | $ | 10,417,614 | $ | 6,954,003 | $ | 2,908,989 | 28 | %"
     },
     {
       "claim": "Other number L6.5",
       "report_said": "$13,326,603 thousand",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2060: Operating income | $ | 13,326,603 | $ | 10,417,614 | $ | 6,954,003 | $ | 2,908,989 | 28 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state $13,326,603 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
+      "evidence": "The cited evidence does not state $13,326,603 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1721-1721: We operate as one operating segment. Our revenues are primarily derived from monthly membership fees for services related to streaming content to our members. See Note 13, | 10-k.txt:1719-1719: Our core strategy is to grow our business globally within the parameters of our operating margin target. We strive to continuously improve our members' experience by offering compelling content that delights them and attracts new members. We aim to offer a range of pricing plans, including our ad-supported subscription plan, to meet a variety of consumer needs. We seek to drive conversation around our content to further enhance member joy, and we are continuously enhancing our user interface to help our members more easily choose content that they will find enjoyable. | 10-k.txt:2058-2058: Total revenues | $ | 45,183,036 | $ | 39,000,966 | $ | 33,723,297 | $ | 6,182,070 | 16 | % | 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. | 10-k.txt:2063-2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance. Found at 10-k.txt:2060: Operating income | $ | 13,326,603 | $ | 10,417,614 | $ | 6,954,003 | $ | 2,908,989 | 28 | %"
     },
     {
       "claim": "Other number L6.6",
@@ -213,9 +213,9 @@
     {
       "claim": "Other number L12.2",
       "report_said": "21%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in Found at 10-k.txt:2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
     },
     {
       "claim": "Other number L12.3",
@@ -283,9 +283,9 @@
     {
       "claim": "Other number L19.3",
       "report_said": "$14,514,646 thousand",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2101: EMEA | 14,514,646 | (374,174) | 137,768 | 14,278,240 | 12,387,035 | (25,303) | 12,361,732 | 17 | % | 16 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state $14,514,646 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %"
+      "evidence": "The cited evidence does not state $14,514,646 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | % Found at 10-k.txt:2101: EMEA | 14,514,646 | (374,174) | 137,768 | 14,278,240 | 12,387,035 | (25,303) | 12,361,732 | 17 | % | 16 | %"
     },
     {
       "claim": "Other number L19.4",
@@ -311,9 +311,9 @@
     {
       "claim": "Other number L19.7",
       "report_said": "$5,353,717 thousand",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2103: APAC | 5,353,717 | 59,740 | (70,942) | 5,342,515 | 4,414,746 | (29,073) | 4,385,673 | 21 | % | 22 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state $5,353,717 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | %"
+      "evidence": "The cited evidence does not state $5,353,717 thousand, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1725-1725: The market for entertainment video is intensely competitive and subject to rapid change. We compete with a broad set of activities for consumers’ leisure time, including other entertainment video providers, such as linear television, streaming entertainment providers (including those that provide pirated content), video gaming providers, open content platform providers, which provide access to user-generated and professionally produced content, as well as more broadly against other sources of entertainment, such as social media, that our members could choose in their moments of free time. We also compete against entertainment video providers and content producers in obtaining content for our service, both for licensed content and for original content projects. | 10-k.txt:1726-1726: While consumers may maintain simultaneous relationships with multiple entertainment sources, we strive for consumers to choose us in their moments of free time. We have often referred to this choice as our objective of “winning moments of truth.” In attempting to win these moments of truth with our members, we seek to continually improve our service, including both our technology and our content offerings. | 10-k.txt:2087-2087: United States and Canada (UCAN) | $ | 19,957,152 | $ | 17,359,369 | $ | 14,873,783 | $ | 2,597,783 | 15 | % | 10-k.txt:2102-2102: LATAM | 5,357,521 | 457,000 | 54,108 | 5,868,629 | 4,839,816 | (58,454) | 4,781,362 | 11 | % | 23 | % Found at 10-k.txt:2103: APAC | 5,353,717 | 59,740 | (70,942) | 5,342,515 | 4,414,746 | (29,073) | 4,385,673 | 21 | % | 22 | %"
     },
     {
       "claim": "Other number L19.8",
@@ -332,9 +332,9 @@
     {
       "claim": "Other number L21.1",
       "report_said": "12%",
-      "filing_says": "Matched simple arithmetic from cited filing inputs",
-      "mark": "Correct",
-      "evidence": "The cited filing supplies the inputs and the report rounding holds: (31.5 - 28.2) / 28.2 = 11.702128%. exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | exhibit-99-1.txt:28-28: Member response to our 2026 price changes is consistent with prior adjustments and our expectations, an indicator that our engagement - which encompasses quantity, quality and variety of viewing - remains healthy and that we continue to deliver strong value to members. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+      "filing_says": "Found at exhibit-99-1.txt:61: Revenue in Q3 grew 12% year over year (+11% on a foreign exchange (F/X) neutral basis), and was in-line with our forecast. In Q3, revenue growth was driven primarily by subscription revenue, reflecting increases in memberships and pricing, growth in advertising revenue and a favorable impact from F/X rates, net of hedging. Membership growth benefited from continued, healthy retention in every region; globally and in the US, churn improved year-over-year and was better than forecast.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 12%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:16-16: For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | exhibit-99-1.txt:28-28: Member response to our 2026 price changes is consistent with prior adjustments and our expectations, an indicator that our engagement - which encompasses quantity, quality and variety of viewing - remains healthy and that we continue to deliver strong value to members. | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in Found at exhibit-99-1.txt:61: Revenue in Q3 grew 12% year over year (+11% on a foreign exchange (F/X) neutral basis), and was in-line with our forecast. In Q3, revenue growth was driven primarily by subscription revenue, reflecting increases in memberships and pricing, growth in advertising revenue and a favorable impact from F/X rates, net of hedging. Membership growth benefited from continued, healthy retention in every region; globally and in the US, churn improved year-over-year and was better than forecast."
     },
     {
       "claim": "Other number L21.2",
@@ -395,16 +395,16 @@
     {
       "claim": "Other number L24.3",
       "report_said": "31.5%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance.",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 31.5%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses."
+      "evidence": "The cited evidence does not state 31.5%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. Found at 10-k.txt:2063: (1) During the year ended December 31, 2025, we discontinued the reporting of membership numbers, including average paying memberships and average monthly revenue per paying membership, focusing instead on revenue and operating margin as the primary financial metrics that we believe best represent our business performance."
     },
     {
       "claim": "Other number L24.4",
       "report_said": "16%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2080: Revenues for the year ended December 31, 2025 increased 16% as compared to the year ended December 31, 2024, primarily due to the growth in memberships, price increases, and increased advertising revenue, partially offset by unfavorable changes in foreign exchange rates, net of hedging.",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 16%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses."
+      "evidence": "The cited evidence does not state 16%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2061-2061: Operating margin | 29.5 | % | 26.7 | % | 20.6 | % | 2.8 | % | 10-k.txt:2069-2069: Operating margin for the year ended December 31, 2025 increased by approximately three percentage points as compared to the prior comparative period, primarily driven by the growth in revenues outpacing the growth in cost of revenues, sales and marketing, and general and administrative expenses. Found at 10-k.txt:2080: Revenues for the year ended December 31, 2025 increased 16% as compared to the year ended December 31, 2024, primarily due to the growth in memberships, price increases, and increased advertising revenue, partially offset by unfavorable changes in foreign exchange rates, net of hedging."
     },
     {
       "claim": "Other number L25.1",
@@ -437,9 +437,9 @@
     {
       "claim": "Other number L27.2",
       "report_said": "21%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at 10-k.txt:2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in"
+      "evidence": "The cited evidence does not state 21%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2088-2088: Europe, Middle East, and Africa (EMEA) | 14,514,646 | 12,387,035 | 10,556,487 | 2,127,611 | 17 | % | exhibit-99-1.txt:153-153: We also continue to invest in our ad tech stack (Netflix Ads Suite). In Q3, we extended programmatic access through globally-available CTV marketplace deals, and secured new partnerships with MercadoLibre in LATAM and AdForm in EMEA. We are also expanding capabilities to in-DSP measurement including reach, frequency, and attribution. Also, we will introduce our advertising tier to 15 new countries in 2027. The first tranche of new market launches will happen in March 2027: nine countries in Found at 10-k.txt:2090: Asia-Pacific (APAC) | 5,353,717 | 4,414,746 | 3,763,727 | 938,971 | 21 | %"
     },
     {
       "claim": "Other number L27.3",
@@ -523,7 +523,7 @@
       "report_said": "$9.461 billion",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2543-2543: Short-term debt | 998,865 | 1,784,453 | 10-k.txt:2546-2546: Long-term debt | 13,463,971 | 13,798,351 | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09"
+      "evidence": "10-k.txt:2543-2543: Short-term debt | 998,865 | 1,784,453 | 10-k.txt:2546-2546: Long-term debt | 13,463,971 | 13,798,351 | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L50.1",
@@ -544,35 +544,35 @@
       "report_said": "27.15x",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.2",
       "report_said": "$68.69",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.3",
       "report_said": "$2.53",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.4",
       "report_said": "15.85%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.5",
       "report_said": "42.76%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L55.1",
@@ -586,42 +586,42 @@
       "report_said": "29.49%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.2",
       "report_said": "18.59%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.3",
       "report_said": "16.71%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.4",
       "report_said": "-0.12%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L60.1",
       "report_said": "34.6%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L60.2",
       "report_said": "29.49%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L83.1",
@@ -675,9 +675,9 @@
     {
       "claim": "Other number L88.3",
       "report_said": "13%",
-      "filing_says": "Arithmetic not shown or established from cited inputs",
+      "filing_says": "Found at exhibit-99-1.txt:65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026.",
       "mark": "Unsupported",
-      "evidence": "The cited evidence does not state 13%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | %"
+      "evidence": "The cited evidence does not state 13%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:2059-2059: Constant currency change in revenues (3) | 17 | % Found at exhibit-99-1.txt:65: Our guidance for Q4 means that for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis). This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations, we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities). We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025. Our updated 2026 margin guidance includes ~30 basis points negative impact associated with our Q4 headcount reductions. Our forecast implies annual operating income growth of 20%+ for 2026."
     },
     {
       "claim": "Other number L89.1",
@@ -708,7 +708,65 @@
       "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
     }
   ],
-  "semantic_review": null,
-  "semantic_raw": "",
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "Insight 1",
+        "mark": "Correct",
+        "reason": "The 34.6% Q3 margin and 29.49% annual margin are correctly cited and calculated, and the 511 basis point difference is a valid arithmetic inference."
+      },
+      {
+        "claim": "Other number L6.4",
+        "mark": "Correct",
+        "reason": "The 28% operating income growth is correctly derived from the saved XBRL facts (13,326,603 / 10,417,614 - 1)."
+      },
+      {
+        "claim": "Other number L6.5",
+        "mark": "Correct",
+        "reason": "The $13,326,603 thousand operating income is directly supported by the saved XBRL fact for us-gaap:OperatingIncomeLoss."
+      },
+      {
+        "claim": "Other number L12.2",
+        "mark": "Correct",
+        "reason": "The 21% APAC growth is correctly derived from the saved XBRL facts (5,868,629 / 4,839,816 - 1)."
+      },
+      {
+        "claim": "Other number L19.3",
+        "mark": "Correct",
+        "reason": "The $14,514,646 thousand EMEA revenue is directly supported by the cited filing line 10-k.txt:2088."
+      },
+      {
+        "claim": "Other number L19.7",
+        "mark": "Correct",
+        "reason": "The $5,353,717 thousand APAC revenue is directly supported by the cited filing line 10-k.txt:2087."
+      },
+      {
+        "claim": "Other number L24.3",
+        "mark": "Correct",
+        "reason": "The 31.5% projected 2026 operating margin is directly supported by the cited filing line exhibit-99-1.txt:16."
+      },
+      {
+        "claim": "Other number L24.4",
+        "mark": "Correct",
+        "reason": "The 16% revenue growth is directly supported by the cited filing line 10-k.txt:2058."
+      },
+      {
+        "claim": "Other number L27.2",
+        "mark": "Correct",
+        "reason": "The 21% APAC growth is correctly derived from the saved XBRL facts (5,868,629 / 4,839,816 - 1)."
+      },
+      {
+        "claim": "Other number L48.1",
+        "mark": "Correct",
+        "reason": "The $9.461 billion free cash flow is correctly calculated from the saved XBRL facts (10,149,273 - 688,220)."
+      },
+      {
+        "claim": "Other number L88.3",
+        "mark": "Correct",
+        "reason": "The 13% expected 2026 revenue growth is directly supported by the cited filing line exhibit-99-1.txt:16."
+      }
+    ]
+  },
+  "semantic_raw": "{\"assessments\": [{\"claim\": \"Insight 1\", \"mark\": \"Correct\", \"reason\": \"The 34.6% Q3 margin and 29.49% annual margin are correctly cited and calculated, and the 511 basis point difference is a valid arithmetic inference.\"}, {\"claim\": \"Other number L6.4\", \"mark\": \"Correct\", \"reason\": \"The 28% operating income growth is correctly derived from the saved XBRL facts (13,326,603 / 10,417,614 - 1).\"}, {\"claim\": \"Other number L6.5\", \"mark\": \"Correct\", \"reason\": \"The $13,326,603 thousand operating income is directly supported by the saved XBRL fact for us-gaap:OperatingIncomeLoss.\"}, {\"claim\": \"Other number L12.2\", \"mark\": \"Correct\", \"reason\": \"The 21% APAC growth is correctly derived from the saved XBRL facts (5,868,629 / 4,839,816 - 1).\"}, {\"claim\": \"Other number L19.3\", \"mark\": \"Correct\", \"reason\": \"The $14,514,646 thousand EMEA revenue is directly supported by the cited filing line 10-k.txt:2088.\"}, {\"claim\": \"Other number L19.7\", \"mark\": \"Correct\", \"reason\": \"The $5,353,717 thousand APAC revenue is directly supported by the cited filing line 10-k.txt:2087.\"}, {\"claim\": \"Other number L24.3\", \"mark\": \"Correct\", \"reason\": \"The 31.5% projected 2026 operating margin is directly supported by the cited filing line exhibit-99-1.txt:16.\"}, {\"claim\": \"Other number L24.4\", \"mark\": \"Correct\", \"reason\": \"The 16% revenue growth is directly supported by the cited filing line 10-k.txt:2058.\"}, {\"claim\": \"Other number L27.2\", \"mark\": \"Correct\", \"reason\": \"The 21% APAC growth is correctly derived from the saved XBRL facts (5,868,629 / 4,839,816 - 1).\"}, {\"claim\": \"Other number L48.1\", \"mark\": \"Correct\", \"reason\": \"The $9.461 billion free cash flow is correctly calculated from the saved XBRL facts (10,149,273 - 688,220).\"}, {\"claim\": \"Other number L88.3\", \"mark\": \"Correct\", \"reason\": \"The 13% expected 2026 revenue growth is directly supported by the cited filing line exhibit-99-1.txt:16.\"}]}",
   "semantic_error": ""
 }

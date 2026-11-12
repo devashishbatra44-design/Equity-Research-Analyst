@@ -79,24 +79,24 @@
     },
     {
       "claim": "Insight 1",
-      "report_said": "The current quarter revenue growth of 11.10% () is higher than the latest fiscal year revenue growth of 10.14% (), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter () and 10.1% for the fiscal year ().",
-      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437",
+      "report_said": "The current quarter revenue growth of 11.10% (calculations.json:quarter_revenue_growth) is higher than the latest fiscal year revenue growth of 10.14% (calculations.json:revenue_growth), a relationship not explained in the release's first paragraph which cites net sales growth of 11.2% for the quarter (exhibit-99-1.txt:10) and 10.1% for the fiscal year (exhibit-99-1.txt:10).",
+      "filing_says": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043; periods {\"current_quarter_end\": \"August 30, 2026\"}; sources {} | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}",
       "mark": "Correct",
-      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043 | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | quarter_revenue_growth: (95,723 - 86,156) / 86,156; result 0.111043; periods {\"current_quarter_end\": \"August 30, 2026\"}; sources {} | revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Insight 2",
-      "report_said": "The 8.4% () growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point () decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
+      "report_said": "The 8.4% (exhibit-99-1.txt:17) growth in total company comparable sales for the latest fiscal year, combined with a 10 basis point (10-k.txt:1040) decrease in SG&A as a percentage of net sales, indicates that Costco’s operational leverage is strengthening its moat by converting organic demand into higher operating income without proportional cost increases.",
       "filing_says": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;",
       "mark": "Correct",
       "evidence": "Total Company | 9.4% | 6.7% | 8.4% | 6.6% | SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
     },
     {
       "claim": "Insight 3",
-      "report_said": "The 47.79x () multiple is supported by a 3.85% () operating margin, which is calculated using an operating income of $11,685,000,000 (); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
-      "filing_says": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448",
+      "report_said": "The 47.79x (calculations.json:price_to_earnings) multiple is supported by a 3.85% (calculations.json:operating_margin) operating margin, which is calculated using an operating income of $11,685,000,000 (10-k.txt:1285); if this margin compresses due to the tariff risks noted in the filing, the high multiple offers insufficient downside protection.",
+      "filing_says": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}",
       "mark": "Correct",
-      "evidence": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905 | operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "Operating income | 11,685 | 10,383 | 9,285 | price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L6.1",
@@ -185,9 +185,9 @@
     {
       "claim": "Other number L14.1",
       "report_said": "14%",
-      "filing_says": "Matched simple arithmetic from cited filing inputs",
-      "mark": "Correct",
-      "evidence": "The cited filing supplies the inputs and the report rounding holds: (9.226 - 8.099) / 8.099 = 13.915298%. exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+      "filing_says": "Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 14%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China."
     },
     {
       "claim": "Other number L14.2",
@@ -289,45 +289,31 @@
     },
     {
       "claim": "Other number L29.1",
-      "report_said": "11,",
-      "filing_says": "No permitted filing or code source",
+      "report_said": "9.6%",
+      "filing_says": "Found at 10-k.txt:798: Our U.S. website is www.costco.com. We make available through the Investor Relations section of that site, free of charge, our Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K, Proxy Statements and Forms 3, 4 and 5, and any amendments to those reports, as soon as reasonably practicable after filing such materials with or furnishing such documents to the Securities and Exchange Commission (SEC). The information found on our website is not part of this or any other report filed with or furnished to the SEC. The SEC maintains a site that contains reports, proxy and information statements, and other information regarding issuers, such as the Company, that file electronically with the SEC at www.sec.gov.",
       "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:798: Our U.S. website is www.costco.com. We make available through the Investor Relations section of that site, free of charge, our Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K, Proxy Statements and Forms 3, 4 and 5, and any amendments to those reports, as soon as reasonably practicable after filing such materials with or furnishing such documents to the Securities and Exchange Commission (SEC). The information found on our website is not part of this or any other report filed with or furnished to the SEC. The SEC maintains a site that contains reports, proxy and information statements, and other information regarding issuers, such as the Company, that file electronically with the SEC at www.sec.gov."
     },
     {
       "claim": "Other number L29.2",
-      "report_said": "9.6%",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "report_said": "35.4 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
     },
     {
       "claim": "Other number L29.3",
-      "report_said": "35.4 million",
-      "filing_says": "No permitted filing or code source",
+      "report_said": "46.5%",
+      "filing_says": "Found at 10-k.txt:1442: 47",
       "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "evidence": "Web numbers are supplementary and are not permitted as report evidence. Found at 10-k.txt:1442: 47"
     },
     {
       "claim": "Other number L29.4",
-      "report_said": "46.5%",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L29.5",
       "report_said": "42.3 million",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L29.6",
-      "report_said": "24,",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:769-769: Paid members, in most countries, are eligible to upgrade to an Executive membership for an additional annual fee. These members earn an Executive reward, generally 2% on qualified purchases, subject to an annual maximum value, redeemable at Costco warehouses. Executive members represented 42,300, 38,700, and 35,400 of total paid members in 2026, 2025, and 2024. The penetration of sales to Executive members represented approximately 75.2% of worldwide net sales in 2026."
     },
     {
       "claim": "Other number L33.1",
@@ -346,9 +332,9 @@
     {
       "claim": "Other number L35.1",
       "report_said": "11%",
-      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "The cited filing supplies the inputs and the report rounding holds: (5907 - 5323) / 5323 = 10.971257%. exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year."
+      "evidence": "exhibit-99-1.txt:38-38: Membership fees | 1,850 | 1,724 | 5,907 | 5,323 | exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year."
     },
     {
       "claim": "Other number L35.2",
@@ -374,1066 +360,457 @@
     {
       "claim": "Other number L58.1",
       "report_said": "6/9",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:1261: We also have audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated balance sheets of the Company as of August 30, 2026 and August 31, 2025, the related consolidated statements of income, comprehensive income, equity, and cash flows for each of the fiscal years in the three-year period ended August 30, 2026, and the related notes (collectively, the consolidated financial statements), and our report dated October 6, 2026 expressed an unqualified opinion on those consolidated financial statements.",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1261: We also have audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated balance sheets of the Company as of August 30, 2026 and August 31, 2025, the related consolidated statements of income, comprehensive income, equity, and cash flows for each of the fiscal years in the three-year period ended August 30, 2026, and the related notes (collectively, the consolidated financial statements), and our report dated October 6, 2026 expressed an unqualified opinion on those consolidated financial statements."
     },
     {
       "claim": "Other number L58.2",
       "report_said": "10.79",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:1092: Gross margin percentage decreased three basis points. Excluding the impact of gasoline price inflation on net sales, gross margin percentage was 11.22%, an increase of 10 basis points. This increase was positively impacted by 19 basis points in warehouse ancillary and other businesses, primarily gasoline and pharmacy, offset by an 11 basis point decrease in core merchandise categories. The majority of the increase in warehouse ancillary and other businesses and the decrease in core merchandise categories was due to the change in sales mix as warehouse ancillary and other businesses sales grew at a faster rate than core merchandise categories. Core merchandise categories were also negatively impacted by our co-branded credit card program as a result of reward costs associated with higher gasoline sales. IEEPA tariff refunds, net of investment in price reductions for members, positively impacted gross margin by three basis points.",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1092: Gross margin percentage decreased three basis points. Excluding the impact of gasoline price inflation on net sales, gross margin percentage was 11.22%, an increase of 10 basis points. This increase was positively impacted by 19 basis points in warehouse ancillary and other businesses, primarily gasoline and pharmacy, offset by an 11 basis point decrease in core merchandise categories. The majority of the increase in warehouse ancillary and other businesses and the decrease in core merchandise categories was due to the change in sales mix as warehouse ancillary and other businesses sales grew at a faster rate than core merchandise categories. Core merchandise categories were also negatively impacted by our co-branded credit card program as a result of reward costs associated with higher gasoline sales. IEEPA tariff refunds, net of investment in price reductions for members, positively impacted gross margin by three basis points."
     },
     {
       "claim": "Other number L58.3",
       "report_said": "47.79x",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L58.4",
       "report_said": "3.85%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L60.1",
       "report_said": "0.17",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108; periods {\"period_end\": \"2026-08-30\"}; sources {} | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L60.2",
       "report_said": "2.49",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:1381: BALANCE AT AUGUST 30, 2026 | 443,266 | $ | 2 | $ | 8,830 | $ | ( 1,620 ) | $ | 28,591 | $ | 35,803",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1381: BALANCE AT AUGUST 30, 2026 | 443,266 | $ | 2 | $ | 8,830 | $ | ( 1,620 ) | $ | 28,591 | $ | 35,803"
     },
     {
       "claim": "Other number L60.3",
       "report_said": "$9,382,000,000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108; periods {\"period_end\": \"2026-08-30\"}; sources {} | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L60.4",
       "report_said": "0.65",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:1389: August 30, 2026 | August 31, 2025 | September 1, 2024",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:1389: August 30, 2026 | August 31, 2025 | September 1, 2024"
     },
     {
       "claim": "Other number L60.5",
       "report_said": "$6,435,000,000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108 | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09"
+      "evidence": "10-k.txt:1404-1404: Additions to property and equipment | ( 6,435 ) | ( 5,498 ) | ( 4,710 ) | calculations.json:debt_to_equity: (3914000000 + 2248000000) / 35803000000; result 0.172108; periods {\"period_end\": \"2026-08-30\"}; sources {} | calculations.json:free_cash_flow: 15817000000 - 6435000000; result 9.382e+09; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L62.1",
       "report_said": "-2.65",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Not stated in the saved filings"
     },
     {
       "claim": "Other number L62.2",
       "report_said": "-0.08",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:2046: The following table shows the amounts used in computing net income per share and the weighted average number of shares of basic and of potentially dilutive common shares outstanding (shares in 000’s):",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2046: The following table shows the amounts used in computing net income per share and the weighted average number of shares of basic and of potentially dilutive common shares outstanding (shares in 000’s):"
     },
     {
       "claim": "Other number L62.3",
       "report_said": "3.85%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448 | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {} | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Other number L62.4",
       "report_said": "10.14%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448 | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {} | calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Other number L64.1",
       "report_said": "0.44",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration.",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration."
     },
     {
       "claim": "Other number L64.2",
       "report_said": "0.26",
-      "filing_says": "No fully SEC-reproduced metric",
+      "filing_says": "Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration.",
       "mark": "Unsupported",
-      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers."
+      "evidence": "Vendor-derived FAskills inputs are not fully reproduced from SEC XBRL and cannot support report numbers. Found at 10-k.txt:2132: (Case No. 25-1-16392-0; King County Superior Court). The complaint alleges the emails include “misleading subject lines that encourage recipients to open e-mails on misleading pretenses” and that the subject lines advertised promotional sales with specific time limitations that were misleading, in violation of the Washington Commercial Electronic Mail Act. The Company filed a motion to dismiss the case in August 2025, which was granted in part and denied in part in October 2025. The Company subsequently agreed to a class-wide settlement for an immaterial amount, which is currently in the process of administration."
     },
     {
       "claim": "Other number L66.1",
       "report_said": "47.79x",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L66.2",
       "report_said": "3.85%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905 | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {} | calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L70.1",
       "report_said": "$303,154 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:total_revenue:current: 303154000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093 | facts.json:total_revenue:prior: 275235000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L70.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.4",
       "report_said": "$275,235 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L70.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:total_revenue:current: 303154000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2026-08-30; accession 0000909832-26-000093 | facts.json:total_revenue:prior: 275235000000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L71.1",
       "report_said": "$11,685 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:operating_income:current: 11685000000; tag us-gaap:OperatingIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:operating_income:prior: 10383000000; tag us-gaap:OperatingIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L71.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.4",
       "report_said": "$10,383 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L71.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:operating_income:current: 11685000000; tag us-gaap:OperatingIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:operating_income:prior: 10383000000; tag us-gaap:OperatingIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L72.1",
       "report_said": "$9,226 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:net_income:current: 9226000000; tag us-gaap:NetIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:net_income:prior: 8099000000; tag us-gaap:NetIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L72.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.4",
       "report_said": "$8,099 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L72.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:net_income:current: 9226000000; tag us-gaap:NetIncomeLoss; period 2026-08-30; accession 0000909832-26-000093 | facts.json:net_income:prior: 8099000000; tag us-gaap:NetIncomeLoss; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L73.1",
       "report_said": "$20.76",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:diluted_eps:current: 20.76; tag us-gaap:EarningsPerShareDiluted; period 2026-08-30; accession 0000909832-26-000093 | facts.json:diluted_eps:prior: 18.21; tag us-gaap:EarningsPerShareDiluted; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L73.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.4",
       "report_said": "$18.21",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L73.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:diluted_eps:current: 20.76; tag us-gaap:EarningsPerShareDiluted; period 2026-08-30; accession 0000909832-26-000093 | facts.json:diluted_eps:prior: 18.21; tag us-gaap:EarningsPerShareDiluted; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L74.1",
       "report_said": "$35,803 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:stockholders_equity:current: 35803000000; tag us-gaap:StockholdersEquity; period 2026-08-30; accession 0000909832-26-000093 | facts.json:stockholders_equity:prior: 29164000000; tag us-gaap:StockholdersEquity; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L74.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.4",
       "report_said": "$29,164 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L74.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:stockholders_equity:current: 35803000000; tag us-gaap:StockholdersEquity; period 2026-08-30; accession 0000909832-26-000093 | facts.json:stockholders_equity:prior: 29164000000; tag us-gaap:StockholdersEquity; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L75.1",
       "report_said": "$3,914 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:long_term_debt:prior: 5713000000; tag us-gaap:LongTermDebtNoncurrent; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L75.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.4",
       "report_said": "$5,713 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L75.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:long_term_debt:current: 3914000000; tag us-gaap:LongTermDebtNoncurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:long_term_debt:prior: 5713000000; tag us-gaap:LongTermDebtNoncurrent; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L76.1",
       "report_said": "$2,248 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:current_long_term_debt:current: 2248000000; tag us-gaap:LongTermDebtCurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:current_long_term_debt:prior: 75000000; tag us-gaap:LongTermDebtCurrent; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L76.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.4",
       "report_said": "$75 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L76.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:current_long_term_debt:current: 2248000000; tag us-gaap:LongTermDebtCurrent; period 2026-08-30; accession 0000909832-26-000093 | facts.json:current_long_term_debt:prior: 75000000; tag us-gaap:LongTermDebtCurrent; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L77.1",
       "report_said": "$15,817 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:cash_from_operations:current: 15817000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2026-08-30; accession 0000909832-26-000093 | facts.json:cash_from_operations:prior: 13335000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L77.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.4",
       "report_said": "$13,335 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L77.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:cash_from_operations:current: 15817000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2026-08-30; accession 0000909832-26-000093 | facts.json:cash_from_operations:prior: 13335000000; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L78.1",
       "report_said": "$6,435 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:property_equipment_additions:current: 6435000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2026-08-30; accession 0000909832-26-000093 | facts.json:property_equipment_additions:prior: 5498000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L78.2",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.3",
-      "report_said": "30",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.4",
       "report_said": "$5,498 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.5",
-      "report_said": "-08",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.6",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.7",
-      "report_said": "0000909832",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.8",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L78.9",
-      "report_said": "000093",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "facts.json:property_equipment_additions:current: 6435000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2026-08-30; accession 0000909832-26-000093 | facts.json:property_equipment_additions:prior: 5498000000; tag us-gaap:PaymentsToAcquirePropertyPlantAndEquipment; period 2025-08-31; accession 0000909832-26-000093"
     },
     {
       "claim": "Other number L82.1",
       "report_said": "47.7905x",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L82.2",
       "report_said": "992.13",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L82.3",
       "report_said": "20.76",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.4",
-      "report_said": "-10",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.5",
-      "report_said": "27",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.6",
-      "report_said": "-08",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.7",
-      "report_said": "30",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.8",
-      "report_said": "0000909832",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.9",
-      "report_said": "26",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
-    },
-    {
-      "claim": "Other number L82.10",
-      "report_said": "000093",
-      "filing_says": "No permitted filing or code source",
-      "mark": "Unsupported",
-      "evidence": "Web numbers are supplementary and are not permitted as report evidence."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:price_to_earnings: 992.13 / 20.76; result 47.7905; periods {\"diluted_eps_period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L83.1",
       "report_said": "4.1821%",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L83.2",
       "report_said": "29,825",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L83.3",
       "report_said": "713,163 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L83.4",
-      "report_said": "-01",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L83.5",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L83.6",
-      "report_said": "0000104169",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L83.7",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L83.8",
-      "report_said": "000055",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:WMT:operating_margin: 29825000000 / 713163000000; result 0.0418207; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L84.1",
       "report_said": "4.8836%",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
     },
     {
       "claim": "Other number L84.2",
       "report_said": "5,117",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
     },
     {
       "claim": "Other number L84.3",
       "report_said": "104,780 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L84.4",
-      "report_said": "-01",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L84.5",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L84.6",
-      "report_said": "0000027419",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L84.7",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L84.8",
-      "report_said": "000016",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:TGT:operating_margin: 5117000000 / 104780000000; result 0.0488357; period None; denominator Net sales"
     },
     {
       "claim": "Other number L85.1",
       "report_said": "3.8057%",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L85.2",
       "report_said": "817",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L85.3",
       "report_said": "21,457 million",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L85.4",
-      "report_said": "-01",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L85.5",
-      "report_said": "31",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L85.6",
-      "report_said": "0001531152",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L85.7",
-      "report_said": "26",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L85.8",
-      "report_said": "000007",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "peers.json:BJ:operating_margin: 816604000 / 21457274000; result 0.0380572; period None; denominator Total revenues"
     },
     {
       "claim": "Other number L89.1",
       "report_said": "303154000000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Other number L89.2",
       "report_said": "275235000000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Other number L89.3",
       "report_said": "275235000000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437"
+      "evidence": "calculations.json:revenue_growth: (303154000000 - 275235000000) / 275235000000; result 0.101437; periods {\"current\": \"2026-08-30\", \"prior\": \"2025-08-31\"}; sources {}"
     },
     {
       "claim": "Other number L90.1",
       "report_said": "11685000000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L90.2",
       "report_said": "303154000000",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448"
+      "evidence": "calculations.json:operating_margin: 11685000000 / 303154000000; result 0.0385448; periods {\"period_end\": \"2026-08-30\"}; sources {}"
     },
     {
       "claim": "Other number L97.1",
-      "report_said": "39",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "95,723",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
     },
     {
       "claim": "Other number L97.2",
-      "report_said": "95,723",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "86,156",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
     },
     {
       "claim": "Other number L97.3",
-      "report_said": "86,156",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "303,154",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
     },
     {
       "claim": "Other number L97.4",
-      "report_said": "303,154",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L97.5",
       "report_said": "275,235",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:39: Total revenue | 95,723 | 86,156 | 303,154 | 275,235"
     },
     {
       "claim": "Other number L98.1",
-      "report_said": "20",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$2.998 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.2",
-      "report_said": "$2.998 billion",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$6.75",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.3",
-      "report_said": "$6.75",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$2.610 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.4",
-      "report_said": "$2.610 billion",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$5.87",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.5",
-      "report_said": "$5.87",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$0.15",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.6",
-      "report_said": "$0.15",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$9.226 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.7",
-      "report_said": "$9.226 billion",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$20.76",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.8",
-      "report_said": "$20.76",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "report_said": "$8.099 billion",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L98.9",
-      "report_said": "$8.099 billion",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-    },
-    {
-      "claim": "Other number L98.10",
       "report_said": "$18.21",
-      "filing_says": "No valid source citation",
-      "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
     },
     {
       "claim": "Other number L106.1",
@@ -1459,9 +836,9 @@
     {
       "claim": "Other number L112.2",
       "report_said": "14%",
-      "filing_says": "Matched simple arithmetic from cited filing inputs",
-      "mark": "Correct",
-      "evidence": "The cited filing supplies the inputs and the report rounding holds: (9.226 - 8.099) / 8.099 = 13.915298%. exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year."
+      "filing_says": "Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 14%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:10-10: Net sales for the quarter increased 11.2 percent, to $93.9 billion, from $84.4 billion last year. Net sales for the fiscal year increased 10.1 percent, to $297.2 billion, from $269.9 billion last year. | exhibit-99-1.txt:20-20: Net income for the fourth quarter was $2.998 billion, $6.75 per diluted share, compared to $2.610 billion, $5.87 per diluted share, last year. This year's fourth quarter was positively impacted by a non-recurring benefit of $0.15 per diluted share from IEEPA tariff refunds received in the quarter, less partial reinvestment of those refunds in increased member values. Net income for the fiscal year was $9.226 billion, $20.76 per diluted share, compared to $8.099 billion, $18.21 per diluted share, last year. Found at exhibit-99-1.txt:21: Costco currently operates 939 warehouses, including 647 in the United States and Puerto Rico, 115 in Canada, 43 in Mexico, 37 in Japan, 29 in the United Kingdom, 20 in Korea, 15 in Australia, 14 in Taiwan, seven in China, five in Spain, three in France, two in Sweden, and one each in Iceland, and New Zealand. Costco also operates e-commerce sites in the U.S., Canada, the U.K., Mexico, Korea, Taiwan, Japan, Australia, and China."
     },
     {
       "claim": "Other number L114.1",
@@ -1478,7 +855,80 @@
       "evidence": "10-k.txt:1040-1040: SG&A expenses as a percentage of net sales decreased 10 basis points; it increased one basis point excluding the impact of gasoline price inflation;"
     }
   ],
-  "semantic_review": null,
-  "semantic_raw": "",
+  "semantic_review": {
+    "assessments": [
+      {
+        "claim": "1. Total revenue, latest fiscal year",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm total revenue of $303,154 million for the fiscal year ended 2026-08-30."
+      },
+      {
+        "claim": "2. Revenue growth versus prior year",
+        "mark": "Correct",
+        "reason": "The calculated growth of 10.14% is supported by the current and prior year revenue figures in the XBRL facts."
+      },
+      {
+        "claim": "3. Operating income and operating margin",
+        "mark": "Correct",
+        "reason": "The XBRL facts confirm operating income of $11,685 million, and the calculated margin of 3.85% matches the arithmetic."
+      },
+      {
+        "claim": "4. Net income attributable to the company",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm net income of $9,226 million for the fiscal year ended 2026-08-30."
+      },
+      {
+        "claim": "5. Diluted earnings per share, GAAP",
+        "mark": "Correct",
+        "reason": "The XBRL fact and cited 10-K line confirm diluted EPS of $20.76 for the fiscal year ended 2026-08-30."
+      },
+      {
+        "claim": "6. Return on average equity",
+        "mark": "Correct",
+        "reason": "The calculated ROE of 28.40% is supported by the net income and average stockholders' equity figures in the XBRL facts."
+      },
+      {
+        "claim": "7. Debt to equity, including current debt",
+        "mark": "Correct",
+        "reason": "The calculated debt-to-equity ratio of 0.17 is supported by the long-term debt, current portion of long-term debt, and stockholders' equity figures in the XBRL facts."
+      },
+      {
+        "claim": "8. Free cash flow",
+        "mark": "Correct",
+        "reason": "The calculated free cash flow of $9,382 million is supported by the net cash from operations and property/equipment additions in the XBRL facts."
+      },
+      {
+        "claim": "9. Latest-quarter revenue",
+        "mark": "Correct",
+        "reason": "The cited exhibit-99-1.txt line confirms quarterly total revenue of $95,723 million."
+      },
+      {
+        "claim": "10. Quarter revenue growth versus the same quarter last year",
+        "mark": "Correct",
+        "reason": "The calculated growth of 11.10% is supported by the current and prior quarter revenue figures in the cited exhibit-99-1.txt line."
+      },
+      {
+        "claim": "11. Quarter diluted EPS, GAAP",
+        "mark": "Correct",
+        "reason": "The cited exhibit-99-1.txt line confirms quarterly diluted EPS of $6.75."
+      },
+      {
+        "claim": "Insight 1",
+        "mark": "Correct",
+        "reason": "The numbers and citations for the quarter and fiscal year revenue growth are correct, and the analytical relationship is a valid inference."
+      },
+      {
+        "claim": "Insight 2",
+        "mark": "Correct",
+        "reason": "The numbers and citations for comparable sales growth and SG&A leverage are correct, and the analytical relationship is a valid inference."
+      },
+      {
+        "claim": "Insight 3",
+        "mark": "Correct",
+        "reason": "The numbers and citations for the P/E multiple, operating margin, and operating income are correct, and the analytical relationship is a valid inference."
+      }
+    ]
+  },
+  "semantic_raw": "{\"assessments\": [{\"claim\": \"1. Total revenue, latest fiscal year\", \"mark\": \"Correct\", \"reason\": \"The XBRL fact and cited 10-K line confirm total revenue of $303,154 million for the fiscal year ended 2026-08-30.\"}, {\"claim\": \"2. Revenue growth versus prior year\", \"mark\": \"Correct\", \"reason\": \"The calculated growth of 10.14% is supported by the current and prior year revenue figures in the XBRL facts.\"}, {\"claim\": \"3. Operating income and operating margin\", \"mark\": \"Correct\", \"reason\": \"The XBRL facts confirm operating income of $11,685 million, and the calculated margin of 3.85% matches the arithmetic.\"}, {\"claim\": \"4. Net income attributable to the company\", \"mark\": \"Correct\", \"reason\": \"The XBRL fact and cited 10-K line confirm net income of $9,226 million for the fiscal year ended 2026-08-30.\"}, {\"claim\": \"5. Diluted earnings per share, GAAP\", \"mark\": \"Correct\", \"reason\": \"The XBRL fact and cited 10-K line confirm diluted EPS of $20.76 for the fiscal year ended 2026-08-30.\"}, {\"claim\": \"6. Return on average equity\", \"mark\": \"Correct\", \"reason\": \"The calculated ROE of 28.40% is supported by the net income and average stockholders' equity figures in the XBRL facts.\"}, {\"claim\": \"7. Debt to equity, including current debt\", \"mark\": \"Correct\", \"reason\": \"The calculated debt-to-equity ratio of 0.17 is supported by the long-term debt, current portion of long-term debt, and stockholders' equity figures in the XBRL facts.\"}, {\"claim\": \"8. Free cash flow\", \"mark\": \"Correct\", \"reason\": \"The calculated free cash flow of $9,382 million is supported by the net cash from operations and property/equipment additions in the XBRL facts.\"}, {\"claim\": \"9. Latest-quarter revenue\", \"mark\": \"Correct\", \"reason\": \"The cited exhibit-99-1.txt line confirms quarterly total revenue of $95,723 million.\"}, {\"claim\": \"10. Quarter revenue growth versus the same quarter last year\", \"mark\": \"Correct\", \"reason\": \"The calculated growth of 11.10% is supported by the current and prior quarter revenue figures in the cited exhibit-99-1.txt line.\"}, {\"claim\": \"11. Quarter diluted EPS, GAAP\", \"mark\": \"Correct\", \"reason\": \"The cited exhibit-99-1.txt line confirms quarterly diluted EPS of $6.75.\"}, {\"claim\": \"Insight 1\", \"mark\": \"Correct\", \"reason\": \"The numbers and citations for the quarter and fiscal year revenue growth are correct, and the analytical relationship is a valid inference.\"}, {\"claim\": \"Insight 2\", \"mark\": \"Correct\", \"reason\": \"The numbers and citations for comparable sales growth and SG&A leverage are correct, and the analytical relationship is a valid inference.\"}, {\"claim\": \"Insight 3\", \"mark\": \"Correct\", \"reason\": \"The numbers and citations for the P/E multiple, operating margin, and operating income are correct, and the analytical relationship is a valid inference.\"}]}",
   "semantic_error": ""
 }

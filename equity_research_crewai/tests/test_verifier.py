@@ -87,6 +87,49 @@ def test_verified_report_keeps_filings_line_first(tmp_path: Path) -> None:
     assert "## Verifier marks" in verified
 
 
+def test_deterministic_reaudit_does_not_call_model_review_unavailable(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "deterministic_reaudit")
+    verified_path, _, _, _ = verify_saved_run(run)
+    verified = verified_path.read_text(encoding="utf-8")
+    assert "did not request a new model definition review" in verified
+    assert "does not imply that the graph's original model review was unavailable" in verified
+
+
+def test_attempted_model_review_failure_is_disclosed(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "failed_model_review")
+
+    def fail_review(_: str) -> str:
+        raise RuntimeError("provider unavailable")
+
+    verified_path, _, semantic_review, _ = verify_saved_run(run, fail_review)
+    verified = verified_path.read_text(encoding="utf-8")
+    assert semantic_review is None
+    assert "was requested but did not produce a parsed review" in verified
+    assert "RuntimeError: provider unavailable" in verified
+
+
+def test_completed_model_review_is_rendered(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "completed_model_review")
+
+    def completed_review(_: str) -> str:
+        return json.dumps(
+            {
+                "assessments": [
+                    {
+                        "claim": "Definition check",
+                        "mark": "Correct",
+                        "reason": "The period and definition match.",
+                    }
+                ]
+            }
+        )
+
+    verified_path, _, semantic_review, _ = verify_saved_run(run, completed_review)
+    verified = verified_path.read_text(encoding="utf-8")
+    assert semantic_review is not None
+    assert "**Correct — Definition check:** The period and definition match." in verified
+
+
 def test_sentence_period_after_eps_is_not_parsed_as_part_of_number() -> None:
     report = (CLEAN_RUN / "report.md").read_text(encoding="utf-8")
     report = report.replace(
@@ -256,6 +299,16 @@ def test_number_inside_factor_label_is_not_a_claim() -> None:
     report = """# Test report
 # Overview
 The DuPont 5-factor framework is used as an analytical label.
+# Investment Recommendation
+No number is checked here.
+"""
+    assert verify_all_other_numbers(CLEAN_RUN, report) == []
+
+
+def test_week_count_in_period_label_is_not_a_financial_claim() -> None:
+    report = """# Test report
+# Overview
+The company reported results for the 52 weeks ended August 30, 2026 (exhibit-99-1.txt:9).
 # Investment Recommendation
 No number is checked here.
 """

@@ -441,9 +441,9 @@
     {
       "claim": "Insight 1",
       "report_said": "The Q3 operating margin of 34.6% (exhibit-99-1.txt:14) exceeds the annual operating margin of 29.49% (calculations.json:operating_margin) by 511 basis points, a gap attributed to expense timing (exhibit-99-1.txt:14) that suggests the annual margin understates current-period profitability.",
-      "filing_says": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947",
+      "filing_says": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}",
       "mark": "Correct",
-      "evidence": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "Simple arithmetic from cited inputs: (34.6 percentage points - 29.4947 percentage points) = 510.52954 basis points. ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Insight 2",
@@ -455,9 +455,9 @@
     {
       "claim": "Insight 3",
       "report_said": "The 31.5% operating margin guidance for (exhibit-99-1.txt:16) is the deciding number because it bridges the gap between the 29.49% annual operating margin in (calculations.json:operating_margin) and the 34.6% Q3 operating margin (exhibit-99-1.txt:14), confirming that the current-period profitability trajectory is sustainable and not merely an artifact of expense timing. If the full-year margin fails to reach 31.5%, the risk-reward conclusion shifts from Buy to Hold, as the valuation support at 27.15x (calculations.json:price_to_earnings) would no longer be adequately compensated by the expected upside in earnings power.",
-      "filing_says": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 68.69 / 2.53; result 27.1502",
+      "filing_says": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {}",
       "mark": "Correct",
-      "evidence": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947 | price_to_earnings: 68.69 / 2.53; result 27.1502"
+      "evidence": "For 2026, we expect revenue of $51.1B (+13% year over year) and an operating margin of 31.5%. | ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L6.1",
@@ -884,7 +884,7 @@
       "report_said": "$9.461 billion",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2543-2543: Short-term debt | 998,865 | 1,784,453 | 10-k.txt:2546-2546: Long-term debt | 13,463,971 | 13,798,351 | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09"
+      "evidence": "10-k.txt:2543-2543: Short-term debt | 998,865 | 1,784,453 | 10-k.txt:2546-2546: Long-term debt | 13,463,971 | 13,798,351 | calculations.json:free_cash_flow: 10149273000 - 688220000; result 9.46105e+09; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L50.1",
@@ -905,35 +905,35 @@
       "report_said": "27.15x",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.2",
       "report_said": "$68.69",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.3",
       "report_said": "$2.53",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.4",
       "report_said": "15.85%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L53.5",
       "report_said": "42.76%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502 | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511 | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625 | manifest.json:price: 68.69"
+      "evidence": "10-k.txt:2449-2449: Diluted | $ | 2.53 | $ | 1.98 | $ | 1.20 | calculations.json:price_to_earnings: 68.69 / 2.53; result 27.1502; periods {\"diluted_eps_period_end\": \"2025-12-31\"}; sources {} | calculations.json:revenue_growth: (45183036000 - 39000966000) / 39000966000; result 0.158511; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | calculations.json:return_on_average_equity: 10981201000 / ((26615488000 + 24743567000) / 2); result 0.427625; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | manifest.json:price: 68.69"
     },
     {
       "claim": "Other number L55.1",
@@ -947,42 +947,42 @@
       "report_said": "29.49%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.2",
       "report_said": "18.59%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.3",
       "report_said": "16.71%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L56.4",
       "report_said": "-0.12%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947 | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
+      "evidence": "calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {} | peers.json:DIS:operating_margin: 17551000000 / 94425000000; result 0.185872; denominator Total revenues | peers.json:CMCSA:operating_margin: 20672000000 / 123707000000; result 0.167105; denominator Revenue | peers.json:ROKU:operating_margin: -5624000 / 4737251000; result -0.00118719; denominator Total net revenue"
     },
     {
       "claim": "Other number L60.1",
       "report_said": "34.6%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L60.2",
       "report_said": "29.49%",
       "filing_says": "Matched cited filing or deterministic calculation",
       "mark": "Correct",
-      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947"
+      "evidence": "exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | exhibit-99-1.txt:14-14: ) to $12.9B, consistent with our forecast. Operating margin was 34.6%, up from 28.2% in Q3’25 and ahead of our forecast primarily due to the timing of expenses. | calculations.json:operating_margin: 13326603000 / 45183036000; result 0.294947; periods {\"period_end\": \"2025-12-31\"}; sources {}"
     },
     {
       "claim": "Other number L83.1",

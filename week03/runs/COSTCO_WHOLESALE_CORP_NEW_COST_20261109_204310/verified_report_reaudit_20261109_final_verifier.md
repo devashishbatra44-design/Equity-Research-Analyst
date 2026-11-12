@@ -91,7 +91,7 @@ Code-checked claims: 82. Wrong: 0. Unsupported: 11. Missing: 0. Not in filings: 
 
 ### Model definition review
 
-The optional model definition review was not run for this offline proof. The deterministic code marks above are the Checkpoint 2 evidence for exact values and arithmetic.
+This deterministic verifier pass did not request a new model definition review. This does not imply that the graph's original model review was unavailable; the applicable graph-run review is preserved in node_records.json and verifier_output.json.
 
 # Run time: 2026-11-09T20:46:55.852205-05:00
 

@@ -80,8 +80,9 @@ def test_verify_only_survives_model_failure_and_writes_new_artifact(monkeypatch,
     assert output.name.startswith("verified_report_rerun_")
     assert output.exists()
     rendered = output.read_text(encoding="utf-8").lower()
-    assert "optional model definition review was not run" in rendered
-    assert "checkpoint 2 evidence" in rendered
+    assert "model definition review was requested but did not produce a parsed review" in rendered
+    assert "runtimeerror: model unavailable" in rendered
+    assert "code marks remain authoritative" in rendered
     assert (run / "verified_report.md").read_text(encoding="utf-8") == original
 
 
@@ -233,6 +234,70 @@ def test_manager_requires_code_citation_for_derived_basis_point_gap(tmp_path: Pa
     )
 
 
+def test_manager_rejects_duplicate_sourced_insights_across_roles(tmp_path: Path) -> None:
+    shutil.copytree(CLEAN_RUN, tmp_path / "run")
+    run = tmp_path / "run"
+    duplicate = (
+        "Insight: Digitally-enabled comparable sales grew 20.9% "
+        "(exhibit-99-1.txt:18)."
+    )
+    outputs = {
+        "Research Analyst": duplicate,
+        "Financial Analyst": (
+            "Insight: Annual revenue growth was 10.14% "
+            "(calculations.json:revenue_growth)."
+        ),
+        "Investment Advisor": (
+            "Insight: Digitally-enabled comparable sales grew 20.9% "
+            "(exhibit-99-1.txt:18), while the P/E was 47.79x "
+            "(calculations.json:price_to_earnings)."
+        ),
+    }
+    issues = main.insight_issues(outputs, run)
+    assert any(
+        issue["role"] == "Investment Advisor"
+        and "repeats the same sourced numerical claim" in issue["reason"]
+        for issue in issues
+    )
+
+
+def test_manager_rejects_model_derived_growth_without_code_calculation(tmp_path: Path) -> None:
+    run = tmp_path / "run"
+    shutil.copytree(CLEAN_RUN, run)
+    filing = run / "10-k.txt"
+    filing.write_text(
+        filing.read_text(encoding="utf-8")
+        + "\nOperating income | 11,685 | 10,387\n",
+        encoding="utf-8",
+    )
+    source_line = len(filing.read_text(encoding="utf-8").splitlines())
+    output = (
+        "Operating income growth was 12.5% "
+        f"(10-k.txt:{source_line})."
+    )
+    issues = main._model_derived_growth_issues("Financial Analyst", output, run)
+    assert len(issues) == 1
+    assert issues[0]["mark"] == "Unsupported"
+    assert "calculations.json" in issues[0]["reason"]
+
+
+def test_manager_accepts_filing_reported_or_code_supplied_growth(tmp_path: Path) -> None:
+    run = tmp_path / "run"
+    shutil.copytree(CLEAN_RUN, run)
+    filing = run / "10-k.txt"
+    filing.write_text(
+        filing.read_text(encoding="utf-8")
+        + "\nMembership fee revenue increased 11%.\n",
+        encoding="utf-8",
+    )
+    source_line = len(filing.read_text(encoding="utf-8").splitlines())
+    output = (
+        f"Membership fee revenue increased 11% (10-k.txt:{source_line}).\n"
+        "Annual revenue growth was 10.1437% (calculations.json:revenue_growth)."
+    )
+    assert main._model_derived_growth_issues("Financial Analyst", output, run) == []
+
+
 def test_netflix_margin_gap_is_computed_in_code_and_manager_accepts_its_citation(tmp_path: Path) -> None:
     run = tmp_path / "netflix"
     shutil.copytree(NETFLIX_RUN, run)
@@ -241,13 +306,20 @@ def test_netflix_margin_gap_is_computed_in_code_and_manager_accepts_its_citation
     gap = calculations["quarter_vs_annual_operating_margin_gap_basis_points"]
     assert gap["validation_status"] == "available"
     assert round(gap["result"]) == 511
-    assert gap["fiscal_periods"]["quarter_source"] == "exhibit-99-1.txt:14"
+    assert gap["fiscal_periods"] == {
+        "current_quarter_end": "September 30, 2026",
+        "annual_fiscal_year_end": "2025-12-31",
+    }
+    assert gap["sources"] == {
+        "quarter_operating_margin": "exhibit-99-1.txt:14",
+        "annual_operating_margin": "calculations.json:operating_margin",
+    }
 
     outputs = {
         "Research Analyst": "Section\n\nInsight: Filing-supported conclusion. (10-k.txt:1721)",
         "Financial Analyst": (
-            "Section\n\nInsight: The quarter operating margin of 34.6% (exhibit-99-1.txt:14) "
-            "exceeded the annual operating margin of 29.49% (calculations.json:operating_margin) "
+            "Section\n\nInsight: The Q3 2026 operating margin of 34.6% (exhibit-99-1.txt:14) "
+            "exceeded the FY2025 annual operating margin of 29.49% (calculations.json:operating_margin) "
             "by 511 basis points (calculations.json:quarter_vs_annual_operating_margin_gap_basis_points)."
         ),
         "Investment Advisor": "Section\n\nInsight: Filing-supported conclusion. (10-k.txt:1721)",

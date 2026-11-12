@@ -62,7 +62,7 @@ PYTHONPATH=.:week01 python -m pytest -q
 python week03/create_verifier_proofs.py
 ```
 
-Repository result at preparation: **82 tests passed**.
+Repository result at submission: **82 tests passed**. Post-submission hardening result: **89 tests passed**, including deterministic tests for duplicate Insights, model-derived growth, comparison-period provenance, duration labels, and model-review status.
 The proof generator asserts the required known answers and exits with an error if any proof fails.
 
 ## Submission status
@@ -70,8 +70,9 @@ The proof generator asserts the required known answers and exits with an error i
 - Repository and proof artifacts: complete.
 - Secret-safety check: complete; `.env` and API keys are excluded.
 - Public logged-out repository check: complete before submission.
-- Brightspace Checkpoint 2 permalink: pending student submission.
-- Brightspace receipt: pending student submission.
+- Brightspace Checkpoint 2 permalink: submitted for commit `b23f9f69022f409415274fc30319e428c752c429`.
+- Release tag on the submitted commit: `v0.3-checkpoint2`.
+- Brightspace receipt: successful; latest submission ID `23775091`, received November 9, 2026 at 9:16 PM EST.
 
 This is a learning exercise, not financial advice.
 

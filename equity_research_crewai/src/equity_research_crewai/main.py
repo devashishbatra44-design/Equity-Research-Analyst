@@ -224,6 +224,100 @@ def insight_issues(outputs: dict[str, str], run_folder: Path) -> list[dict[str, 
                     ),
                 }
             )
+    seen_signatures: list[tuple[str, tuple[tuple[str, str], ...]]] = []
+    numeric_citation_pattern = re.compile(
+        r"(-?\d[\d,]*(?:\.\d+)?\s*(?:%|x|basis\s+points?)?)\s*"
+        r"\(((?:(?:10-k|10-q|8-k|exhibit-99-1)\.txt:\d+(?:-\d+)?|"
+        r"calculations\.json:[a-z_]+|facts\.json:[a-z_]+))\)",
+        flags=re.IGNORECASE,
+    )
+    for role in ANALYST_ROLES:
+        line = _last_nonblank_line(outputs.get(role, ""))
+        if not line.startswith("Insight:"):
+            continue
+        ordered_pairs: list[tuple[str, str]] = []
+        for number, citation in numeric_citation_pattern.findall(line):
+            pair = (
+                re.sub(r"\s+", " ", number.lower().replace(",", "")).strip(),
+                citation.lower(),
+            )
+            if pair not in ordered_pairs:
+                ordered_pairs.append(pair)
+        signature = tuple(ordered_pairs)
+        if not signature:
+            continue
+        duplicate_role = ""
+        current_pairs = set(signature)
+        for prior_role, prior_signature in seen_signatures:
+            prior_pairs = set(prior_signature)
+            shared_pairs = current_pairs & prior_pairs
+            if (
+                signature == prior_signature
+                or (signature and prior_signature and signature[0] == prior_signature[0])
+                or len(shared_pairs) >= 2
+            ):
+                duplicate_role = prior_role
+                break
+        if duplicate_role:
+            issues.append(
+                {
+                    "role": role,
+                    "reason": (
+                        f"The Insight repeats the same sourced numerical claim as the {duplicate_role}. "
+                        "Each analyst role must contribute a distinct Insight."
+                    ),
+                }
+            )
+        else:
+            seen_signatures.append((role, signature))
+    return issues
+
+
+def _model_derived_growth_issues(
+    role: str,
+    output: str,
+    run_folder: Path,
+) -> list[dict[str, str]]:
+    """Reject model-derived growth rates that are not supplied by code or stated by a filing."""
+    filing_citation = re.compile(
+        r"(-?\d[\d,]*(?:\.\d+)?)%\s*\(((10-k|10-q|8-k|exhibit-99-1)\.txt):(\d+)(?:-(\d+))?\)",
+        flags=re.IGNORECASE,
+    )
+    growth_language = re.compile(
+        r"\b(?:growth|grew|increase[ds]?|decrease[ds]?|decline[ds]?|rose|fell|up|down|yoy|year.over.year)\b",
+        flags=re.IGNORECASE,
+    )
+    issues: list[dict[str, str]] = []
+    for line_number, line in enumerate(output.splitlines(), start=1):
+        if not growth_language.search(line):
+            continue
+        for match in filing_citation.finditer(line):
+            reported = float(match.group(1).replace(",", ""))
+            filename = match.group(2).lower()
+            start = int(match.group(4))
+            end = int(match.group(5) or start)
+            path = run_folder / filename
+            cited_text = ""
+            if path.exists():
+                source_lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+                cited_text = " ".join(source_lines[start - 1 : end])
+            source_percentages = [
+                float(value.replace(",", ""))
+                for value in re.findall(r"(-?\d[\d,]*(?:\.\d+)?)\s*%", cited_text)
+            ]
+            if any(math.isclose(reported, source, abs_tol=0.005) for source in source_percentages):
+                continue
+            issues.append(
+                {
+                    "claim": f"{role} line {line_number}",
+                    "report_said": match.group(0),
+                    "mark": "Unsupported",
+                    "reason": (
+                        "The line states a growth rate that the cited filing line does not state. "
+                        "A model role may use a derived growth rate only when supplied by calculations.json."
+                    ),
+                }
+            )
     return issues
 
 
@@ -688,6 +782,9 @@ def _save_insight_calculations(run_folder: Path) -> None:
         return
     annual_percent = float(annual_ratio) * 100
     gap_basis_points = (quarter_margin - annual_percent) * 100
+    context = desk_app.read_run_context(run_folder)
+    quarter_period_end = context.get("quarter_period_end") or "not stated"
+    annual_period_end = annual.get("fiscal_periods", {}).get("period_end") or "not stated"
     entries["quarter_vs_annual_operating_margin_gap_basis_points"] = {
         "measure": "Quarter operating margin minus annual operating margin",
         "formula": "(Quarter operating margin percent - Annual operating margin percent) * 100",
@@ -695,13 +792,23 @@ def _save_insight_calculations(run_folder: Path) -> None:
             "quarter_operating_margin_percent": quarter_margin,
             "annual_operating_margin_percent": annual_percent,
         },
-        "fiscal_periods": {"quarter_source": f"exhibit-99-1.txt:{source_line}"},
+        "fiscal_periods": {
+            "current_quarter_end": quarter_period_end,
+            "annual_fiscal_year_end": annual_period_end,
+        },
+        "sources": {
+            "quarter_operating_margin": f"exhibit-99-1.txt:{source_line}",
+            "annual_operating_margin": "calculations.json:operating_margin",
+        },
         "unit": "basis_points",
         "arithmetic": f"({quarter_margin:g} - {annual_percent:.8g}) * 100 = {gap_basis_points:.8g}",
         "result": gap_basis_points,
         "validation_status": "available",
         "unavailable_reason": None,
-        "note": f"Quarter margin source: exhibit-99-1.txt:{source_line}; annual margin source: calculations.json:operating_margin",
+        "note": (
+            f"Quarter period {quarter_period_end}, source exhibit-99-1.txt:{source_line}; "
+            f"annual period {annual_period_end}, source calculations.json:operating_margin"
+        ),
     }
     calculations_path.write_text(
         json.dumps(calculations, indent=2, ensure_ascii=False) + "\n",
@@ -1296,8 +1403,22 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         research_number_issues = _number_issues(
             Path(self.state.run_folder), outputs["Research Analyst"]
         )
+        research_number_issues.extend(
+            _model_derived_growth_issues(
+                "Research Analyst",
+                outputs["Research Analyst"],
+                Path(self.state.run_folder),
+            )
+        )
         financial_number_issues = _number_issues(
             Path(self.state.run_folder), outputs["Financial Analyst"]
+        )
+        financial_number_issues.extend(
+            _model_derived_growth_issues(
+                "Financial Analyst",
+                outputs["Financial Analyst"],
+                Path(self.state.run_folder),
+            )
         )
         if research_number_issues and "Research Analyst" not in retried_roles:
             _print_node("Research Analyst retry")
@@ -1507,11 +1628,28 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             if mark.mark != "Correct"
         ]
         manager_review["unresolved_other_numbers_after_one_retry"] = final_number_issues
+        unresolved_model_derived_growth = [
+            issue
+            for role in ANALYST_ROLES
+            for issue in _model_derived_growth_issues(
+                role,
+                outputs[role],
+                Path(self.state.run_folder),
+            )
+        ]
+        manager_review["unresolved_model_derived_growth_after_one_retry"] = (
+            unresolved_model_derived_growth
+        )
         manager_review["post_generation_report_edits"] = []
         manager_review["code_written_insight_fallbacks"] = []
         manager_review["lab05_persona_checks_enabled"] = persona_mode
         manager_review["unresolved_insight_issues_after_one_retry"] = unresolved_insights
-        if core_issues or final_number_issues or unresolved_insights:
+        if (
+            core_issues
+            or final_number_issues
+            or unresolved_insights
+            or unresolved_model_derived_growth
+        ):
             manager_review["status"] = "failed_after_one_retry"
         if methodology_path.exists():
             assert methodology_plan is not None

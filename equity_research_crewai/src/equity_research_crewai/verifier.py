@@ -712,8 +712,11 @@ def verify_insight_claims(run_folder: Path, report: str) -> list[VerificationMar
             result = float(calculation.get("result"))
             calculation_numbers.extend([result, result * 100])
             calculation_numbers.extend(_numbers(str(calculation.get("arithmetic") or "")))
+            calculation_numbers.extend(_numbers(json.dumps(calculation.get("fiscal_periods", {}))))
             calculation_evidence.append(
-                f"{calculation_name}: {calculation.get('arithmetic')}; result {result:g}"
+                f"{calculation_name}: {calculation.get('arithmetic')}; result {result:g}; "
+                f"periods {json.dumps(calculation.get('fiscal_periods', {}), ensure_ascii=False)}; "
+                f"sources {json.dumps(calculation.get('sources', {}), ensure_ascii=False)}"
             )
         # Vendor-only inputs do not meet the course's SEC reproducibility rule.
         faskills_allowed = False
@@ -1009,8 +1012,11 @@ def _source_numbers_for_line(run_folder: Path, line: str) -> tuple[list[float], 
         source_numbers.extend([result, result * 100])
         source_numbers.extend(_numbers(str(calculation.get("arithmetic") or "")))
         source_numbers.extend(_numbers(json.dumps(calculation.get("inputs", {}))))
+        source_numbers.extend(_numbers(json.dumps(calculation.get("fiscal_periods", {}))))
         evidence.append(
-            f"calculations.json:{calculation_name}: {calculation.get('arithmetic')}; result {result:g}"
+            f"calculations.json:{calculation_name}: {calculation.get('arithmetic')}; result {result:g}; "
+            f"periods {json.dumps(calculation.get('fiscal_periods', {}), ensure_ascii=False)}; "
+            f"sources {json.dumps(calculation.get('sources', {}), ensure_ascii=False)}"
         )
     facts = load_json(run_folder / "facts.json") if (run_folder / "facts.json").exists() else {}
     for concept_name, period_name in FACT_CITATION_RE.findall(line):
@@ -1117,6 +1123,12 @@ def verify_all_other_numbers(run_folder: Path, report: str) -> list[Verification
         )
         masked = re.sub(
             r"\bQ[1-4]\b|\b(?:19|20)\d{2}\b",
+            lambda match: " " * (match.end() - match.start()),
+            masked,
+            flags=re.IGNORECASE,
+        )
+        masked = re.sub(
+            r"\b\d+(?:\s*-\s*|\s+)weeks?\b",
             lambda match: " " * (match.end() - match.start()),
             masked,
             flags=re.IGNORECASE,
@@ -1358,6 +1370,9 @@ def render_verified_report(
     report: str,
     marks: list[VerificationMark],
     semantic_review: dict[str, Any] | None,
+    *,
+    semantic_review_requested: bool = False,
+    semantic_error: str = "",
 ) -> str:
     lines = report.splitlines()
     first_line = lines[0] if lines else "# Verified equity-research report"
@@ -1382,10 +1397,19 @@ def render_verified_report(
         table.append("| " + " | ".join(str(cell).replace("|", "\\|").replace("\n", " ") for cell in cells) + " |")
     table.extend(["", "### Model definition review", ""])
     if semantic_review is None:
-        table.append(
-            "The optional model definition review was not run for this offline proof. "
-            "The deterministic code marks above are the Checkpoint 2 evidence for exact values and arithmetic."
-        )
+        if semantic_review_requested:
+            detail = f" Error recorded: {semantic_error}" if semantic_error else ""
+            table.append(
+                "The model definition review was requested but did not produce a parsed review."
+                + detail
+                + " The deterministic code marks remain authoritative for exact values and arithmetic."
+            )
+        else:
+            table.append(
+                "This deterministic verifier pass did not request a new model definition review. "
+                "This does not imply that the graph's original model review was unavailable; "
+                "the applicable graph-run review is preserved in node_records.json and verifier_output.json."
+            )
     else:
         assessments = semantic_review.get("assessments", [])
         if not assessments:
@@ -1421,7 +1445,13 @@ def verify_saved_run(
             semantic_review = parse_semantic_review(semantic_raw)
         except Exception as exc:
             semantic_error = f"{type(exc).__name__}: {exc}"
-    verified_text = render_verified_report(report, marks, semantic_review)
+    verified_text = render_verified_report(
+        report,
+        marks,
+        semantic_review,
+        semantic_review_requested=semantic_check is not None,
+        semantic_error=semantic_error,
+    )
     verified_path = run_folder / output_name
     verified_path.write_text(verified_text, encoding="utf-8")
     suffix = ""
