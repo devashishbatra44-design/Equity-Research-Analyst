@@ -208,6 +208,15 @@ class DeskStepsTests(unittest.TestCase):
         self.assertEqual(find_item_heading(lines, "7", r"management.?s discussion and analysis"), 6)
         self.assertEqual(find_item_heading(lines, "7A", r"quantitative and qualitative disclosures"), 8)
 
+    def test_item_heading_matches_split_item_number(self):
+        lines = [
+            "ITEM 7. | MANAGEMENT’S DISCUSSION AND ANALYSIS | 21",
+            "ITEM",
+            "7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION",
+            "RESULTS OF OPERATIONS",
+        ]
+        self.assertEqual(find_item_heading(lines, "7", r"management.?s discussion and analysis"), 1)
+
     def test_quarter_growth_matches_prior_year_period_not_prior_quarter(self):
         lines = [
             "Three Months Ended | Nine Months Ended",

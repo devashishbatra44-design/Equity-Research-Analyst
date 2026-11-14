@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import json
 import shutil
+import sys
+from datetime import date
+from decimal import Decimal
 from pathlib import Path
 
 import equity_research_crewai.main as main
+from equity_research_crewai.closes_reader import CloseReaderResult, CloseRecord
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -64,6 +68,49 @@ def test_course_run_command_accepts_optional_price_provenance_and_no_price() -> 
     assert with_price.price_date == ""
     assert with_price.price_source == ""
     assert without_price.price is None
+
+
+def test_cli_accepts_week4_filed_override_and_licensed_export() -> None:
+    args = main.build_parser().parse_args(
+        [
+            "TEST",
+            "--filed",
+            "2026-11-10T16:05:00-05:00",
+            "--price-instrument",
+            "TEST.O",
+            "--closes-export",
+            "/tmp/licensed-closes.csv",
+        ]
+    )
+    assert args.filed == "2026-11-10T16:05:00-05:00"
+    assert args.price_instrument == "TEST.O"
+    assert args.closes_export == Path("/tmp/licensed-closes.csv")
+
+
+def test_filed_close_replaces_manual_price_before_flow(monkeypatch) -> None:
+    captured: dict[str, object] = {}
+
+    class FakeFlow:
+        def kickoff(self, *, inputs: dict[str, object]) -> None:
+            captured.update(inputs)
+
+    result = CloseReaderResult(
+        "available",
+        (CloseRecord(date(2026, 11, 10), "TEST.O", Decimal("101.25"), "USD", "LSEG Workspace export"),),
+        "",
+    )
+    monkeypatch.setattr(main, "EquityResearchTeamFlow", FakeFlow)
+    monkeypatch.setattr(main, "last_close_before", lambda *args, **kwargs: result)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["main", "TEST", "--price", "999", "--filed", "2026-11-10T16:05:00-05:00", "--price-instrument", "TEST.O"],
+    )
+    main.kickoff()
+    assert captured["price"] == 101.25
+    assert captured["price_date"] == "2026-11-10"
+    assert captured["price_source"] == "LSEG Workspace export"
+    assert captured["filed_at"] == "2026-11-10T16:05:00-05:00"
 
 
 def test_verify_only_survives_model_failure_and_writes_new_artifact(monkeypatch, tmp_path: Path) -> None:

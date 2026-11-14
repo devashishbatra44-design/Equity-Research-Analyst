@@ -102,20 +102,26 @@ def find_heading_line(lines: list[str], patterns: list[str], start_at: int = 0) 
 def find_item_heading(lines: list[str], item: str, title_pattern: str, start_at: int = 0) -> int | None:
     item_rx = re.compile(rf"^item\s+{re.escape(item)}\b", flags=re.IGNORECASE)
     title_rx = re.compile(title_pattern, flags=re.IGNORECASE)
-    candidates = []
+    candidates: list[tuple[int, bool]] = []
     for index in range(start_at, len(lines)):
         heading = lines[index].strip()
-        if not item_rx.search(heading) or re.search(r"\|\s*\d+\s*$", heading):
+        if re.search(r"\|\s*\d+\s*$", heading):
             continue
-        # SEC text conversion may put the Item number and its title on
-        # separate lines. Check the heading line and the next two lines.
-        wrapped_heading = " ".join(line.strip() for line in lines[index:index + 3])
+        # Some EDGAR HTML conversions split ``ITEM`` from ``7. Title``.
+        # Join two lines only for the item marker, then inspect four lines for
+        # the wrapped title. A table-of-contents row ending in ``| <page>`` is
+        # still excluded.
+        item_marker = " ".join(line.strip() for line in lines[index:index + 2])
+        if not item_rx.search(item_marker):
+            continue
+        wrapped_heading = " ".join(line.strip() for line in lines[index:index + 4])
         if title_rx.search(wrapped_heading):
-            candidates.append(index)
+            candidates.append((index, heading.startswith("ITEM")))
     # EDGAR text may contain a table of contents and prose references. A
     # standalone all-caps Item heading is the strongest heading signal.
-    uppercase = [index for index in candidates if re.match(rf"^ITEM\s+{re.escape(item)}\b", lines[index].strip())]
-    return (uppercase or candidates or [None])[0]
+    uppercase = [index for index, is_uppercase in candidates if is_uppercase]
+    all_candidates = [index for index, _ in candidates]
+    return (uppercase or all_candidates or [None])[0]
 
 
 def extract_filing_sections(run_folder: Path) -> dict[str, str]:

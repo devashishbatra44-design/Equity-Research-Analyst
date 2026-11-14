@@ -1,7 +1,8 @@
 # FIN 67110 Link Audit
 
-Checked: October 27, 2026  
-Scope: every link on the grading page, every internal course page reachable from the course navigation, the published Week 1–2 lab pages, and the external setup and data links needed for the current work.
+Checked: November 14, 2026
+
+Scope: every link on the grading page, every internal course page reachable from the course navigation, the published Week 1-4 lab pages, and the external setup and data links needed for the current work.
 
 ## Published course pages reviewed in detail
 
@@ -22,16 +23,21 @@ Scope: every link on the grading page, every internal course page reachable from
 | [Week 2](https://cinderzhang.github.io/FIN67110-Fall2026/week-02/index.html) | Desk design, numeric rules, tag traps, fallback, prework | Published and reviewed |
 | [Lab 02](https://cinderzhang.github.io/FIN67110-Fall2026/week-02/lab-02-desk-on-one-page.html) | Exact seven-step build request and validation | Published and reviewed |
 | [Lab 03](https://cinderzhang.github.io/FIN67110-Fall2026/week-02/lab-03-make-it-yours.html) | Exact four-role build request, human audit, partner pick, Checkpoint 1 | Published and reviewed |
+| [Week 3](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/index.html) | Fixed agent team, deterministic verifier, personas, and Checkpoint 2 | Published and reviewed |
+| [Lab 04](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-04-the-team.html) | Fixed agent-team graph and verifier | Published and reviewed |
+| [Lab 05](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-05-make-the-team-yours.html) | Human personas and desk controls | Published and reviewed |
+| [Week 4](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/index.html) | Spinoff seeker, filing-sourced worksheet, numeric hook, and first live report | Published and reviewed in full on November 14 |
+| [Lab 06](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-06-investor-skill.html) | Seeker registry, closes, human factors, ranking, tests, and known answers | Published and reviewed in full on November 14 |
+| [Lab 07](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-07-your-investor.html) | Worksheet, investor persona, numeric hook, hit rate, and live report | Published and reviewed in full on November 14 |
+| [Week 4 request samples](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/requests.html) | ASD-STE100 requests for the seeker, worksheet, hook, and closes reader | Published and reviewed in full on November 14 |
 | [Session 1 deck](https://cinderzhang.github.io/FIN67110-Fall2026/decks/session-01.html) | Screen version of Lab 01 | Published; consistent with lab page |
 | [Session 2 deck](https://cinderzhang.github.io/FIN67110-Fall2026/decks/session-02.html) | Screen version of Lab 02 and Week 2 teaching | Published; consistent with lab page |
 | [Session 3 deck](https://cinderzhang.github.io/FIN67110-Fall2026/decks/session-03.html) | Screen version of Lab 03 | Published; consistent with lab page |
 
-## Pages that are not yet published
+## Future-week pages to recheck
 
-The following URLs load, but each currently says that the page will be published after that week is rebuilt and signed off:
+The following future-week URLs must be rechecked before work starts:
 
-- [Week 3](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/index.html), [Lab 04](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-04-verifier.html), and [Lab 05](https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-05-desk-hands.html).
-- [Week 4](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/index.html), [Lab 06](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-06-investor-desk.html), and [Lab 07](https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-07-your-investor-view.html).
 - [Week 5](https://cinderzhang.github.io/FIN67110-Fall2026/week-05/index.html), [Lab 08](https://cinderzhang.github.io/FIN67110-Fall2026/week-05/lab-08-institution-desk.html), and [Lab 09](https://cinderzhang.github.io/FIN67110-Fall2026/week-05/lab-09-portfolio-under-mandate.html).
 - [Week 6](https://cinderzhang.github.io/FIN67110-Fall2026/week-06/index.html) and [Lab 10](https://cinderzhang.github.io/FIN67110-Fall2026/week-06/lab-10-break-your-desk.html).
 - [Week 7](https://cinderzhang.github.io/FIN67110-Fall2026/week-07/index.html), [Lab 11](https://cinderzhang.github.io/FIN67110-Fall2026/week-07/lab-11-write-for-your-client.html), and [Lab 12](https://cinderzhang.github.io/FIN67110-Fall2026/week-07/lab-12-consulting.html).
@@ -52,6 +58,8 @@ The schedule, project page, process page, grading page, and readings page descri
 | [Google AI Studio](https://aistudio.google.com/apikey) | Google developer-key console. | Not the selected provider. |
 
 The current model provider is Purdue GenAI Studio through an OpenAI-compatible endpoint. The key remains only in `.env`.
+
+Professor Zhang supplied a direct clarification for the weekly live record on November 14, 2026. The team must commit and push each weekly report to GitHub within 24 hours of EDGAR Accepted time. The commit timestamp is the record. There is no separate weekly Brightspace upload. Starting with Checkpoint 3, the checkpoint upload lists the live record completed so far.
 
 ## Data links
 
@@ -92,7 +100,7 @@ The complete list, including optional further reading, is on the [course reading
 ### Weeks 3–8 index
 
 - Week 3: course data page; LSEG and WRDS resources; `ai-hedge-fund` README; optional verifier research.
-- Week 4: Graham, Buffett, and Marks are required. The other value-investing and AI-capex sources are further reading unless the new week page says otherwise.
+- Week 4: Greenblatt (1997), Chapter 3; Klarman (1991), Chapter 10 spinoff pages when available; and the current Claude, Codex, and Antigravity skill and hook documentation. FAskills, `ai-hedge-fund`, spinoff studies, filing references, Graham, and other value-investing sources are optional or reference material unless the lab page says otherwise.
 - Week 5: a mutual fund summary prospectus, Sharpe's active-management arithmetic, the BIS 2026 annual report chapter, and Wang, Zhang, and Zhang (2020).
 - Week 6: OWASP Top 10 for Agentic Applications for 2026 and the agent/tool section of Anthropic's article.
 - Week 7: ASD-STE100, the writing skill, Karpathy's post, and Zhang's course-method essay.
@@ -105,7 +113,7 @@ Recheck each published week page before treating an item as required. The readin
 - The full Francis and Zhang article is paywalled and requires Purdue Libraries authentication. The user has opened and read it. Public abstracts and course-provided summaries do not replace the assigned sections.
 - Brightspace content cannot be treated as verified without an active Purdue session. This includes the official syllabus statements, submission receipts, team list, and presentation order.
 - The Purdue LSEG and WRDS guide landing pages expose limited public text. Account-specific instructions may appear after Purdue authentication.
-- Future lab pages are placeholders. Their exact requests, known answers, and checkout wording must be reviewed after publication.
+- Week 5 and later pages must be rechecked before work starts. Week 4 is published and has a dedicated audit in `week04/LINK_AUDIT.md`.
 
 ## Re-audit cadence
 

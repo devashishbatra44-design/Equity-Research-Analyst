@@ -1,0 +1,1265 @@
+{
+  "task": "Check whether each cited line or XBRL fact states the report's number for the stated period and definition. Use the mark Not in filings when the code mark says Not in filings and the report does not invent a value. Do not assess the Investment Advisor's thesis. For an Insight line, check its numbers, periods, definitions, and cited evidence only; do not grade whether its analytical inference is persuasive. Mark an Insight Correct when its numbers, periods, definitions, and citations are correct, even when the relationship or implication is the analyst's inference rather than a sentence stated verbatim in a filing. Every code mark represents one numerical statement outside the Investment Advisor thesis. Web numbers, vendor-derived metrics, and uncited numbers are Unsupported. Never override those fail-closed marks. For a qualitative supplementary web claim, check only the saved Tavily excerpt cited by the exact URL. Never accept Tavily as a replacement for filing evidence. Return JSON only.",
+  "compiled_report": "# Where Food Comes From, Inc. (WFCF) — filings read: 10-K accession 0001493152-26-008155; 10-Q accession 0001493152-26-051355; 8-K accession 0001493152-26-051832\n# Run time: 2026-11-14T14:50:11.918033-05:00\n\n# Overview\n\nWhere Food Comes From, Inc. (WFCF) operates as a third-party verification provider for food production practices in North America, supporting approximately 17,500 customers including farmers, ranchers, processors, and retailers (10-k.txt:553). The company’s primary business involves conducting on-site and desk audits to verify claims regarding livestock, aquaculture, crops, and other food products, supplemented by professional consulting services and a retail labeling program (10-k.txt:556). For the fiscal year ended December 31, 2025, total revenues were $24,892,000, a decrease from $25,746,000 in 2024 (10-k.txt:1369). This decline was driven by a 2.2% decrease in verification and certification service revenue to $20,102,000 (10-k.txt:1366) and a 4.9% decrease in product sales to $3,616,000 (10-k.txt:1367), primarily due to supply-side dynamics in the cattle industry and smaller beef cow herd sizes (10-k.txt:1398). Gross margin for 2025 decreased to 38.8% from 41.9% in 2024, attributed to inflationary price increases from cattle ear tag manufacturers and competitive market conditions (10-k.txt:1431). Segment operating income declined to $1,206,000 in 2025 from $2,207,000 in 2024 (10-k.txt:1387).\n\nIn the third quarter of 2026, the company reported a reversal in trend, with total revenue increasing 4% to $7,326,000 from $7,015,000 in the same quarter of 2025 (exhibit-99-1.txt:158). Verification and certification service revenue grew 6% to $5,897,000 (exhibit-99-1.txt:155), while product sales remained flat at $1,211,000 (exhibit-99-1.txt:156). Gross margin improved by 380 basis points to 42.1% from 38.3%, reflecting operational efficiencies and cost-down initiatives (exhibit-99-1.txt:59). Operating income increased 68% to $966,000 from $575,000 (exhibit-99-1.txt:166). Management attributes this improvement to resurgent demand for beef-related services and growing momentum in new service offerings such as CARE and RaiseWell® Certified (exhibit-99-1.txt:37).\n\n# Market Positioning and Growth Outlook\n\n**Business-Model Durability: 3** The company’s business model relies on recurring verification audits and ancillary product sales. While the core verification service provides recurring revenue, the 2025 decline in total revenues to $24,892,000 (10-k.txt:1369) and the 2.2% drop in verification revenue to $20,102,000 (10-k.txt:1366) indicate vulnerability to cyclical agricultural trends. The 2026 Q3 recovery in verification revenue to $5,897,000 (exhibit-99-1.txt:155) suggests some durability, but the reliance on cattle herd sizes for product sales (flat at $1,211,000 in Q3 2026) (exhibit-99-1.txt:156) limits diversification.\n\n**Customer Retention / Primary Operating KPI: 3** The company states it supports more than 17,500 customers (10-k.txt:553). Management notes \"high retention rates\" and \"new customer growth\" in 2025, but these were offset by supply-side dynamics in the cattle industry (10-k.txt:1399). In Q3 2026, management reported \"adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications\" (exhibit-99-1.txt:47). However, the flat product sales in Q3 2026 ($1,211,000 vs. $1,202,000) (exhibit-99-1.txt:156) suggest that customer engagement in the beef sector remains constrained by herd size.\n\n**Organic Growth: 3** The company cites a 19-year CAGR of approximately 17.87% from 2006 to 2025 (10-k.txt:609). However, 2025 total revenue declined to $24,892,000 from $25,746,000 in 2024 (10-k.txt:1369). In Q3 2026, organic growth in verification services was 6% to $5,897,000 (exhibit-99-1.txt:155), driven by \"resurgent demand for beef-related services\" (exhibit-99-1.txt:37). The nine-month 2026 verification revenue of $15,710,000 represents a 4% increase over the prior year period (exhibit-99-1.txt:155).\n\n**Expansion-Driven Growth: Not scored**\nThe filings mention growth through \"merger and acquisition opportunities\" (10-k.txt:615) and a past divestiture of Progressive Beef interest (exhibit-99-1.txt:69). However, no specific recent acquisitions or expansion-driven revenue figures are provided in the supplied 2025 10-K or Q3 2026 earnings release to score this criterion.\n\n**Competitive Advantage: 4** The company positions itself as \"one of the nation’s largest independent, third-party traceability and verification providers\" (10-k.txt:577). It claims to offer \"the most comprehensive verification solutions in the industry\" by covering more food groups than any other provider (10-k.txt:612). The ability to bundle services to reduce \"audit fatigue\" for customers is cited as a unique advantage (exhibit-99-1.txt:48). The $100-per-head premium captured by cattle producers using WFCF services, even in a high-price environment, indicates strong value proposition (exhibit-99-1.txt:46).\n\n**Catalyst Evidence: 4** Management highlights the \"recent launch of our Raisewell Certified Standard\" to meet growing demand for responsibly raised proteins (10-k.txt:1410). In Q3 2026, management noted that \"newly developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating\" for headwinds in the beef business (exhibit-99-1.txt:45). The improvement in gross margin to 42.1% in Q3 2026 from 38.3% in Q3 2025 (exhibit-99-1.txt:59) is attributed to \"ongoing cost down initiatives\" (exhibit-99-1.txt:40).\n\n**Moat Risk: 3** The primary risk is the cyclical nature of the cattle industry. The 10-K notes that \"the beef side of our business has been impacted the most significantly\" due to tight cattle supply and high cattle prices, which reduce packer willingness to pay for verification (10-k.txt:1400). The decline in beef cow inventories from 28.9 million head in 2023 to less than 28 million head in 2024 negatively impacts product sales (10-k.txt:1416). Additionally, \"rapidly changing trade and tariff uncertainties\" are cited as a risk (10-k.txt:1403).\n\n# Valuation Insights\n\n**Criterion Scores**\n\n*   **Revenue-growth quality: 1** Annual revenue declined from $25,746,000 in 2024 to $24,892,000 in 2025 (facts.json:total_revenue). The code-calculated growth rate is -3.3170% (calculations.json:revenue_growth).\n*   **Operating-margin direction: 1** Annual operating income decreased from $2,207,000 in 2024 to $1,206,000 in 2025 (facts.json:operating_income). The code-calculated operating margin for 2025 is 4.8449% (calculations.json:operating_margin).\n*   **Debt capacity: Not scored** Long-term debt and current portion of long-term debt are unavailable in the supplied facts (facts.json:long_term_debt). The debt-to-equity ratio calculation is unavailable (calculations.json:debt_to_equity).\n*   **Valuation support: Not scored** No share price was supplied (manifest.json:price). The price-to-earnings ratio calculation is unavailable (calculations.json:price_to_earnings).\n*   **Peer-definition consistency: Not scored** No peer data was supplied (peers.json:peers).\n\n**Relationship Between Sourced Numbers**\n\nThe Q3 2026 earnings release states that total revenue was up 4% to $7.3M from $7.0M (exhibit-99-1.txt:13). However, the annual 10-K data shows that total revenue declined from $25,746,000 in 2024 to $24,892,000 in 2025 (facts.json:total_revenue). The quarterly release indicates a return to positive growth in Q3 2026, which contrasts with the negative annual growth rate of -3.3170% reported for fiscal year 2025 (calculations.json:revenue_growth).\n\n**What would change my view**\n\nA measurable improvement in full-year operating income to exceed the 2024 level of $2,207,000 (facts.json:operating_income) would be required to confirm that the recent quarterly margin expansion is sustainable and not a one-time anomaly.\n\n### Required Course Claims — Code-Built Audit Block\n\nAnnual total revenue was $24.892 million (facts.json:total_revenue).\nAnnual revenue growth was -3.3170% (calculations.json:revenue_growth).\nAnnual operating income was $1.206 million (facts.json:operating_income).\nAnnual operating margin was 4.8449% (calculations.json:operating_margin).\nAnnual net income attributable to the company was $1.536 million (facts.json:net_income).\nAnnual GAAP diluted EPS was $0.30 (facts.json:diluted_eps).\nReturn on average equity was 15.9684% (calculations.json:return_on_average_equity).\nDebt to equity was not stated in the supplied filings because the required inputs were unavailable.\nFree cash flow was $1.452 million (calculations.json:free_cash_flow).\nQuarter total revenue was $7.326 million (exhibit-99-1.txt:158).\n\nInsight: The supplied current-quarter revenue-growth result of 4.4334% (calculations.json:quarter_revenue_growth) is higher than the supplied latest-fiscal-year revenue-growth result of -3.3170% (calculations.json:revenue_growth).\n\n# Future Developments and Strategic Recommendations\n\nThe company’s strategic focus is on expanding its portfolio of auditing standards and leveraging bundling capabilities to pursue new customers (10-k.txt:614). The launch of the RaiseWell Certified Standard and CARE services represents a strategic pivot toward sustainability and animal welfare verification, which management believes will drive future growth (10-k.txt:1410). The improvement in operating income in Q3 2026 to $966,000, up 68% year-over-year (exhibit-99-1.txt:166), suggests that cost management initiatives are effective.\n\n**What would change my view:**\nA measurable operating result in the next filing that would strengthen my conclusion is a year-over-year increase in total verification and certification service revenue for the full year 2026 that exceeds the 4% growth seen in the nine-month period (exhibit-99-1.txt:22), specifically driven by non-beef categories. A direction of change that would weaken my conclusion is a continued decline in product sales revenue in Q4 2026, which would indicate that the cattle herd contraction is not offsetting by new service adoption.\n\nInsight: The non-headline operating KPI of gross margin, which improved to 42.1% in Q3 2026 from 38.3% in Q3 2025 (exhibit-99-1.txt:59), has a strategic consequence of enabling the company to sustain its stock buyback program, as evidenced by the $268,000 in value returned to stockholders in Q3 2026 (exhibit-99-1.txt:18), despite the cyclical headwinds in the beef sector.\n\n# Investment Recommendation\n\n**Recommendation:** Hold\n\n**Deciding Number:** Full-year 2026 operating income of $2,207,000 (facts.json:operating_income)\n\n**Principal Catalyst:** The launch and rapid growth of new service offerings, specifically CARE and RaiseWell® Certified, which management states are \"more than compensating\" for headwinds in the beef business (exhibit-99-1.txt:45).\n\n**Principal Risk:** Cyclical vulnerability to the cattle industry, where tight cattle supply and high cattle prices reduce packer willingness to pay for verification, as evidenced by the 2025 decline in total revenues to $24,892,000 (10-k.txt:1369) and the impact on product sales (10-k.txt:1400).\n\n**Valuation Limitation:** Valuation support is not scored because no share price was supplied (manifest.json:price), making the price-to-earnings ratio calculation unavailable (calculations.json:price_to_earnings).\n\n**Result in Next Filing That Would Change Recommendation:** A full-year 2026 operating income that exceeds the 2024 level of $2,207,000 (facts.json:operating_income) would change the recommendation to Buy, confirming that the Q3 2026 operating income increase to $966,000 (exhibit-99-1.txt:166) is sustainable and not a one-time anomaly.\n\n**Criterion Scores**\n\n*   **Business Quality: 3** The company holds a competitive advantage as one of the nation’s largest independent verification providers (10-k.txt:577), but faces moat risk from cyclical cattle industry trends (10-k.txt:1400) and a 2025 revenue decline to $24,892,000 (10-k.txt:1369).\n*   **Earnings Quality: 1** Annual operating income decreased from $2,207,000 in 2024 to $1,206,000 in 2025 (facts.json:operating_income), and annual revenue growth was -3.3170% (calculations.json:revenue_growth).\n*   **Catalyst Strength and Timing: 4** Management highlights the \"recent launch of our Raisewell Certified Standard\" (10-k.txt:1410) and notes that new offerings are \"growing rapidly\" in Q3 2026 (exhibit-99-1.txt:45).\n*   **Valuation Support: Not scored** No share price was supplied (manifest.json:price).\n*   **Downside Risk: 3** The business is exposed to \"rapidly changing trade and tariff uncertainties\" (10-k.txt:1403) and beef cow inventory declines (10-k.txt:1416), though Q3 2026 gross margin improved to 42.1% (exhibit-99-1.txt:59).\n*   **Evidence Confidence: 3** The Q3 2026 revenue growth of 4.4334% (calculations.json:quarter_revenue_growth) contrasts with the annual revenue growth of -3.3170% (calculations.json:revenue_growth), creating uncertainty about the sustainability of the turnaround.\n\nInsight: The deciding number of full-year 2026 operating income exceeding $2,207,000 (facts.json:operating_income) changes the risk-reward conclusion because it would validate that the Q3 2026 operating income of $966,000 (exhibit-99-1.txt:166) and the gross margin improvement to 42.1% (exhibit-99-1.txt:59) represent a durable structural shift rather than a temporary cyclical rebound, thereby justifying the upside potential from new service offerings against the downside risk of cattle industry cyclicality.\n\n---\n\nThis is a learning exercise, not financial advice.\n\nAI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. I verified the sources myself; the judgments are mine.\n\nAny remaining errors are my own.\n",
+  "saved_facts": {
+    "reference_fiscal_year": {
+      "fiscal_year": 2025,
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "selected_revenue_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "concepts": {
+      "total_revenue": {
+        "label": "Total revenue",
+        "selected_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "current": {
+          "value": 24892000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 25746000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "operating_income": {
+        "label": "Operating income",
+        "selected_tag": "us-gaap:OperatingIncomeLoss",
+        "current": {
+          "value": 1206000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 2207000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "net_income": {
+        "label": "Net income",
+        "selected_tag": "us-gaap:NetIncomeLoss",
+        "current": {
+          "value": 1536000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 2120000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "diluted_eps": {
+        "label": "Diluted earnings per share",
+        "selected_tag": "us-gaap:EarningsPerShareDiluted",
+        "current": {
+          "value": 0.3,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 0.4,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "stockholders_equity": {
+        "label": "Stockholders' equity",
+        "selected_tag": "us-gaap:StockholdersEquity",
+        "current": {
+          "value": 9305000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 9933000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "long_term_debt": {
+        "label": "Long-term debt",
+        "selected_tag": null,
+        "current": null,
+        "prior": null
+      },
+      "current_long_term_debt": {
+        "label": "Current portion of long-term debt",
+        "selected_tag": null,
+        "current": null,
+        "prior": null
+      },
+      "cash_from_operations": {
+        "label": "Net cash provided by operating activities",
+        "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "current": {
+          "value": 1607000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 2730000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      },
+      "property_equipment_additions": {
+        "label": "Additions to property and equipment",
+        "selected_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "current": {
+          "value": 155000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        },
+        "prior": {
+          "value": 159000,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-02-26",
+          "accession_number": "0001493152-26-008155",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+        }
+      }
+    },
+    "earnings_release_extraction": {
+      "source_filename": "exhibit-99-1.txt",
+      "claims": {
+        "total_revenue": {
+          "label": "Quarterly total revenue",
+          "status": "found",
+          "quoted_source_text": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+          "source_line_start": 158,
+          "source_line_end": 158,
+          "candidates": [
+            {
+              "line_start": 158,
+              "line_end": 158,
+              "text": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+              "score": 6
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        },
+        "diluted_eps": {
+          "label": "Quarterly diluted EPS",
+          "status": "candidate_ambiguity",
+          "quoted_source_text": null,
+          "source_line_start": null,
+          "source_line_end": null,
+          "candidates": [
+            {
+              "line_start": 67,
+              "line_end": 67,
+              "text": "income in the third quarter was $825,000, or $0.17 per diluted share, compared to net income of $1,146,000, or $0.22 per diluted share,",
+              "score": 5
+            },
+            {
+              "line_start": 89,
+              "line_end": 89,
+              "text": "income through nine months was $1.3 million, or $0.27 per diluted share, compared to net income of $1.7 million, or $0.34 per diluted",
+              "score": 5
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        }
+      }
+    }
+  },
+  "supplemental_faskills_metrics": {
+    "status": "not present"
+  },
+  "supplemental_tavily_research": {
+    "status": "not present"
+  },
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $24.892 million (facts.json:total_revenue).",
+      "filing_says": "$24.892 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was -3.3170% (calculations.json:revenue_growth).",
+      "filing_says": "-3.3170%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $1.206 million (facts.json:operating_income). Annual operating margin was 4.8449% (calculations.json:operating_margin).",
+      "filing_says": "$1.206 million; 4.8449%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 1206000 / 24892000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $1.536 million (facts.json:net_income).",
+      "filing_says": "$1.536 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $0.30 (facts.json:diluted_eps).",
+      "filing_says": "$0.30",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31; 10-k.txt:1946: Diluted | $ | 0.30 | $ | 0.40"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 15.9684% (calculations.json:return_on_average_equity).",
+      "filing_says": "15.9684%",
+      "mark": "Correct",
+      "evidence": "1536000 / ((9305000 + 9933000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the supplied filings because the required inputs were unavailable.",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $1.452 million (calculations.json:free_cash_flow).",
+      "filing_says": "$1.452 million",
+      "mark": "Correct",
+      "evidence": "1607000 - 155000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $7.326 million (exhibit-99-1.txt:158).",
+      "filing_says": "$7.326 million",
+      "mark": "Correct",
+      "evidence": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Not stated",
+      "filing_says": "4.4334%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The supplied current-quarter revenue-growth result of 4.4334% (calculations.json:quarter_revenue_growth) is higher than the supplied latest-fiscal-year revenue-growth result of -3.3170% (calculations.json:revenue_growth).",
+      "filing_says": "revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {}",
+      "mark": "Unsupported",
+      "evidence": "revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {}"
+    },
+    {
+      "claim": "Insight 2",
+      "report_said": "The non-headline operating KPI of gross margin, which improved to 42.1% in Q3 2026 from 38.3% in Q3 2025 (exhibit-99-1.txt:59), has a strategic consequence of enabling the company to sustain its stock buyback program, as evidenced by the $268,000 in value returned to stockholders in Q3 2026 (exhibit-99-1.txt:18), despite the cyclical headwinds in the beef sector.",
+      "filing_says": "The cited line does not contain or establish: 2026, 2025, 2026. margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | ● | Company returns $268,000 in value to stockholders through buyback of 21,170 shares",
+      "mark": "Wrong",
+      "evidence": "The cited line does not contain or establish: 2026, 2025, 2026. margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | ● | Company returns $268,000 in value to stockholders through buyback of 21,170 shares"
+    },
+    {
+      "claim": "Insight 3",
+      "report_said": "The deciding number of full-year 2026 operating income exceeding $2,207,000 (facts.json:operating_income) changes the risk-reward conclusion because it would validate that the Q3 2026 operating income of $966,000 (exhibit-99-1.txt:166) and the gross margin improvement to 42.1% (exhibit-99-1.txt:59) represent a durable structural shift rather than a temporary cyclical rebound, thereby justifying the upside potential from new service offerings against the downside risk of cattle industry cyclicality.",
+      "filing_says": "The cited line does not contain or establish: 2026, $2,207,000, 2026. Income from operations | 966 | 575 | 1,929 | 1,266 | margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "mark": "Wrong",
+      "evidence": "The cited line does not contain or establish: 2026, $2,207,000, 2026. Income from operations | 966 | 575 | 1,929 | 1,266 | margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies"
+    },
+    {
+      "claim": "Other number L6.1",
+      "report_said": "17,500",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.2",
+      "report_said": "$24,892,000,",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.3",
+      "report_said": "$25,746,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.4",
+      "report_said": "2.2%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.5",
+      "report_said": "$20,102,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.6",
+      "report_said": "4.9%",
+      "filing_says": "Found at 10-k.txt:1414: Product sales for the year ended December 31, 2025 decreased approximately $0.2 million or 4.9% compared to 2024. We continue to see",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4.9%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207 Found at 10-k.txt:1414: Product sales for the year ended December 31, 2025 decreased approximately $0.2 million or 4.9% compared to 2024. We continue to see"
+    },
+    {
+      "claim": "Other number L6.7",
+      "report_said": "$3,616,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.8",
+      "report_said": "38.8%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.9",
+      "report_said": "41.9%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.10",
+      "report_said": "$1,206,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L6.11",
+      "report_said": "$2,207,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L8.1",
+      "report_said": "4%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (7326 - 7015) / 7015 = 4.4333571%. exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.2",
+      "report_said": "$7,326,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.3",
+      "report_said": "$7,015,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.4",
+      "report_said": "6%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.5",
+      "report_said": "$5,897,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.6",
+      "report_said": "$1,211,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.7",
+      "report_said": "380 basis points",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.8",
+      "report_said": "42.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.9",
+      "report_said": "38.3%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.10",
+      "report_said": "68%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (966 - 575) / 575 = 68%. exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.11",
+      "report_said": "$966,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L8.12",
+      "report_said": "$575,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:158-158: Total revenues | 7,326 | 7,015 | 19,302 | 18,850 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868 | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business"
+    },
+    {
+      "claim": "Other number L12.1",
+      "report_said": "3",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L12.2",
+      "report_said": "$24,892,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L12.3",
+      "report_said": "2.2%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (20552 - 20102) / 20102 = 2.2385832%. 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L12.4",
+      "report_said": "$20,102,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L12.5",
+      "report_said": "$5,897,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L12.6",
+      "report_said": "$1,211,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L14.1",
+      "report_said": "3",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L14.2",
+      "report_said": "17,500",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:1399-1399: experience new customer growth and bundling opportunities, but offsetting this growth are supply-side dynamics within the cattle | exhibit-99-1.txt:47-47: are adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications, and we are benefitting from our | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L14.3",
+      "report_said": "$1,211,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:1399-1399: experience new customer growth and bundling opportunities, but offsetting this growth are supply-side dynamics within the cattle | exhibit-99-1.txt:47-47: are adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications, and we are benefitting from our | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L14.4",
+      "report_said": "$1,202,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:1399-1399: experience new customer growth and bundling opportunities, but offsetting this growth are supply-side dynamics within the cattle | exhibit-99-1.txt:47-47: are adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications, and we are benefitting from our | exhibit-99-1.txt:156-156: Product sales | 1,211 | 1,202 | 2,861 | 2,868"
+    },
+    {
+      "claim": "Other number L16.1",
+      "report_said": "3",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L16.2",
+      "report_said": "19",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.3",
+      "report_said": "17.87%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.4",
+      "report_said": "$24,892,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.5",
+      "report_said": "$25,746,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.6",
+      "report_said": "6%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.7",
+      "report_said": "$5,897,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.8",
+      "report_said": "$15,710,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L16.9",
+      "report_said": "4%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (15710 - 15070) / 15070 = 4.246848%. 10-k.txt:609-609: in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%. | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070 | exhibit-99-1.txt:37-37: are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business | exhibit-99-1.txt:155-155: Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070"
+    },
+    {
+      "claim": "Other number L21.1",
+      "report_said": "4",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L21.2",
+      "report_said": "$100",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:577-577: Company is one of the nation’s largest independent, third-party traceability and verification providers. We use rigorous verification | 10-k.txt:612-612: ● | To cover more food groups than any other verification provider. Currently we verify to hundreds of claims, programs and markets focusing on beef, lamb, pork, poultry, fish, dairy, eggs, fresh produce, nuts and grains, wine and finished products. We continue to expand our scope within beverages, seafood and other produce. We believe we offer the most comprehensive verification solutions in the industry. | exhibit-99-1.txt:48-48: unique ability to offer service bundling that reduces costs and audit fatigue for our customers. With market research indicating that | exhibit-99-1.txt:46-46: high beef prices, cattle producers are still capturing $100-per-head premiums when they use our value-add services. Additionally, we"
+    },
+    {
+      "claim": "Other number L23.1",
+      "report_said": "4",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L23.2",
+      "report_said": "42.1%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1410-1410: and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing | exhibit-99-1.txt:45-45: developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating. And, despite record | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:40-40: 42.1% and operating income growing 68% to $1.0 million from $600,000 a year ago – both reflecting the positive impact of our ongoing"
+    },
+    {
+      "claim": "Other number L23.3",
+      "report_said": "38.3%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1410-1410: and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing | exhibit-99-1.txt:45-45: developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating. And, despite record | exhibit-99-1.txt:59-59: margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | exhibit-99-1.txt:40-40: 42.1% and operating income growing 68% to $1.0 million from $600,000 a year ago – both reflecting the positive impact of our ongoing"
+    },
+    {
+      "claim": "Other number L25.1",
+      "report_said": "3",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L25.2",
+      "report_said": "28.9 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1400-1400: industry. The beef side of our business has been impacted the most significantly resulting in total verification revenues declining | 10-k.txt:1416-1416: overall beef cow inventories have declined from 28.9 million head on January 1, 2023 to 28.2 million head on January 1, 2024 and is now | 10-k.txt:1403-1403: further contraction in the cattle industry in early 2026. We are also facing rapidly changing trade and tariff uncertainties."
+    },
+    {
+      "claim": "Other number L25.3",
+      "report_said": "28 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1400-1400: industry. The beef side of our business has been impacted the most significantly resulting in total verification revenues declining | 10-k.txt:1416-1416: overall beef cow inventories have declined from 28.9 million head on January 1, 2023 to 28.2 million head on January 1, 2024 and is now | 10-k.txt:1403-1403: further contraction in the cattle industry in early 2026. We are also facing rapidly changing trade and tariff uncertainties."
+    },
+    {
+      "claim": "Other number L31.1",
+      "report_said": "1",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L31.2",
+      "report_said": "$25,746,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L31.3",
+      "report_said": "$24,892,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L31.4",
+      "report_said": "-3.3170%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L32.1",
+      "report_said": "1",
+      "filing_says": "Analytical score, not a filing value",
+      "mark": "Correct",
+      "evidence": "Analytical score; the cited filing or calculation supplies the evidence used for the score."
+    },
+    {
+      "claim": "Other number L32.2",
+      "report_said": "$2,207,000",
+      "filing_says": "Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $2,207,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding. calculations.json:operating_margin: 1206000 / 24892000; result 0.0484493; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155 Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L32.3",
+      "report_said": "$1,206,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 1206000 / 24892000; result 0.0484493; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L32.4",
+      "report_said": "4.8449%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:operating_margin: 1206000 / 24892000; result 0.0484493; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.1",
+      "report_said": "4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.2",
+      "report_said": "$7.3",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.3",
+      "report_said": "$7.0",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.4",
+      "report_said": "$25,746,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.5",
+      "report_said": "$24,892,000",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L39.6",
+      "report_said": "-3.3170%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:13-13: ● | Total revenue up 4% to $7.3M from $7.0M | calculations.json:revenue_growth: (24892000 - 25746000) / 25746000; result -0.0331702; periods {\"current\": \"2025-12-31\", \"prior\": \"2024-12-31\"}; sources {} | facts.json:total_revenue:current: 24892000; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "Other number L43.1",
+      "report_said": "$2,207,000",
+      "filing_says": "Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $2,207,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding. facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155 Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L62.1",
+      "report_said": "$966,000,",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:614-614: ● | To continue organic growth. We leverage our bundling capability to aggressively pursue new customers, while sustaining our recurring revenue model and high retention rates. We help new and existing customers create a program specific to their brand. As long as their process or claim can be standardized, we can create an audit platform to measure it accurately and authentically. | 10-k.txt:1410-1410: and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266"
+    },
+    {
+      "claim": "Other number L62.2",
+      "report_said": "68%",
+      "filing_says": "Matched simple arithmetic from cited filing inputs",
+      "mark": "Correct",
+      "evidence": "The cited filing supplies the inputs and the report rounding holds: (966 - 575) / 575 = 68%. 10-k.txt:614-614: ● | To continue organic growth. We leverage our bundling capability to aggressively pursue new customers, while sustaining our recurring revenue model and high retention rates. We help new and existing customers create a program specific to their brand. As long as their process or claim can be standardized, we can create an audit platform to measure it accurately and authentically. | 10-k.txt:1410-1410: and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing | exhibit-99-1.txt:166-166: Income from operations | 966 | 575 | 1,929 | 1,266"
+    },
+    {
+      "claim": "Other number L65.1",
+      "report_said": "4%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:22-22: ● | Verification and certification revenue up 4% to $15.7M from $15.1M"
+    }
+  ],
+  "cited_filing_lines": [
+    {
+      "citation": "10-k.txt:553",
+      "report_sentence": "(WFCF) operates as a third-party verification provider for food production practices in North America, supporting approximately 17,500 customers including farmers, ranchers, processors, and retailers (",
+      "source_line": "it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations,",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:556",
+      "report_sentence": "The company’s primary business involves conducting on-site and desk audits to verify claims regarding livestock, aquaculture, crops, and other food products, supplemented by professional consulting services and a retail labeling program (",
+      "source_line": "by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1369",
+      "report_sentence": "For the fiscal year ended December 31, 2025, total revenues were $24,892,000, a decrease from $25,746,000 in 2024 (",
+      "source_line": "Total revenues | $ | 24,892 | $ | 25,746",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1366",
+      "report_sentence": "This decline was driven by a 2.2% decrease in verification and certification service revenue to $20,102,000 (",
+      "source_line": "Verification and certification service revenue | $ | 20,102 | $ | 20,552",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1367",
+      "report_sentence": "This decline was driven by a 2.2% decrease in verification and certification service revenue to $20,102,000 (10-k.txt:1366) and a 4.9% decrease in product sales to $3,616,000 (",
+      "source_line": "Product sales | 3,616 | 3,803",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1398",
+      "report_sentence": "This decline was driven by a 2.2% decrease in verification and certification service revenue to $20,102,000 (10-k.txt:1366) and a 4.9% decrease in product sales to $3,616,000 (10-k.txt:1367), primarily due to supply-side dynamics in the cattle industry and smaller beef cow herd sizes (",
+      "source_line": "service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1431",
+      "report_sentence": "Gross margin for 2025 decreased to 38.8% from 41.9% in 2024, attributed to inflationary price increases from cattle ear tag manufacturers and competitive market conditions (",
+      "source_line": "year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1387",
+      "report_sentence": "Segment operating income declined to $1,206,000 in 2025 from $2,207,000 in 2024 (",
+      "source_line": "Segment operating income/(loss) | $ | 1,206 | $ | 2,207",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:158",
+      "report_sentence": "In the third quarter of 2026, the company reported a reversal in trend, with total revenue increasing 4% to $7,326,000 from $7,015,000 in the same quarter of 2025 (",
+      "source_line": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:155",
+      "report_sentence": "Verification and certification service revenue grew 6% to $5,897,000 (",
+      "source_line": "Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:156",
+      "report_sentence": "Verification and certification service revenue grew 6% to $5,897,000 (exhibit-99-1.txt:155), while product sales remained flat at $1,211,000 (",
+      "source_line": "Product sales | 1,211 | 1,202 | 2,861 | 2,868",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "Gross margin improved by 380 basis points to 42.1% from 38.3%, reflecting operational efficiencies and cost-down initiatives (",
+      "source_line": "margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:166",
+      "report_sentence": "Operating income increased 68% to $966,000 from $575,000 (",
+      "source_line": "Income from operations | 966 | 575 | 1,929 | 1,266",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:37",
+      "report_sentence": "Management attributes this improvement to resurgent demand for beef-related services and growing momentum in new service offerings such as CARE and RaiseWell® Certified (",
+      "source_line": "are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1369",
+      "report_sentence": "While the core verification service provides recurring revenue, the 2025 decline in total revenues to $24,892,000 (",
+      "source_line": "Total revenues | $ | 24,892 | $ | 25,746",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1366",
+      "report_sentence": "While the core verification service provides recurring revenue, the 2025 decline in total revenues to $24,892,000 (10-k.txt:1369) and the 2.2% drop in verification revenue to $20,102,000 (",
+      "source_line": "Verification and certification service revenue | $ | 20,102 | $ | 20,552",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:155",
+      "report_sentence": "The 2026 Q3 recovery in verification revenue to $5,897,000 (",
+      "source_line": "Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:156",
+      "report_sentence": "The 2026 Q3 recovery in verification revenue to $5,897,000 (exhibit-99-1.txt:155) suggests some durability, but the reliance on cattle herd sizes for product sales (flat at $1,211,000 in Q3 2026) (",
+      "source_line": "Product sales | 1,211 | 1,202 | 2,861 | 2,868",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:553",
+      "report_sentence": "**Customer Retention / Primary Operating KPI: 3** The company states it supports more than 17,500 customers (",
+      "source_line": "it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations,",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1399",
+      "report_sentence": "Management notes \"high retention rates\" and \"new customer growth\" in 2025, but these were offset by supply-side dynamics in the cattle industry (",
+      "source_line": "experience new customer growth and bundling opportunities, but offsetting this growth are supply-side dynamics within the cattle",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:47",
+      "report_sentence": "In Q3 2026, management reported \"adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications\" (",
+      "source_line": "are adding hundreds of new customers for our Organic, non-GMO, Gluten Free and Upcycled certifications, and we are benefitting from our",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:156",
+      "report_sentence": "$1,202,000) (",
+      "source_line": "Product sales | 1,211 | 1,202 | 2,861 | 2,868",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:609",
+      "report_sentence": "**Organic Growth: 3** The company cites a 19-year CAGR of approximately 17.87% from 2006 to 2025 (",
+      "source_line": "in 2006 to $24.9 million in 2025, a 19-year compounded annual growth rate (“CAGR”) of approximately 17.87%.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1369",
+      "report_sentence": "However, 2025 total revenue declined to $24,892,000 from $25,746,000 in 2024 (",
+      "source_line": "Total revenues | $ | 24,892 | $ | 25,746",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:155",
+      "report_sentence": "In Q3 2026, organic growth in verification services was 6% to $5,897,000 (",
+      "source_line": "Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:37",
+      "report_sentence": "In Q3 2026, organic growth in verification services was 6% to $5,897,000 (exhibit-99-1.txt:155), driven by \"resurgent demand for beef-related services\" (",
+      "source_line": "are pleased to report strong third quarter financial results highlighted by 6% growth in our core verification and certification business",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:155",
+      "report_sentence": "The nine-month 2026 verification revenue of $15,710,000 represents a 4% increase over the prior year period (",
+      "source_line": "Verification and certification service revenue | $ | 5,897 | $ | 5,556 | $ | 15,710 | $ | 15,070",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:615",
+      "report_sentence": "**Expansion-Driven Growth: Not scored**\nThe filings mention growth through \"merger and acquisition opportunities\" (",
+      "source_line": "● | To continue growth through merger and acquisition opportunities. Through selective acquisitions, we can expand our footprint by adding new customers, services, food groups and revenue streams.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:69",
+      "report_sentence": "**Expansion-Driven Growth: Not scored**\nThe filings mention growth through \"merger and acquisition opportunities\" (10-k.txt:615) and a past divestiture of Progressive Beef interest (",
+      "source_line": "related to the Company’s divestiture of its Progressive Beef interest.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:577",
+      "report_sentence": "**Competitive Advantage: 4** The company positions itself as \"one of the nation’s largest independent, third-party traceability and verification providers\" (",
+      "source_line": "Company is one of the nation’s largest independent, third-party traceability and verification providers. We use rigorous verification",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:612",
+      "report_sentence": "It claims to offer \"the most comprehensive verification solutions in the industry\" by covering more food groups than any other provider (",
+      "source_line": "● | To cover more food groups than any other verification provider. Currently we verify to hundreds of claims, programs and markets focusing on beef, lamb, pork, poultry, fish, dairy, eggs, fresh produce, nuts and grains, wine and finished products. We continue to expand our scope within beverages, seafood and other produce. We believe we offer the most comprehensive verification solutions in the industry.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:48",
+      "report_sentence": "The ability to bundle services to reduce \"audit fatigue\" for customers is cited as a unique advantage (",
+      "source_line": "unique ability to offer service bundling that reduces costs and audit fatigue for our customers. With market research indicating that",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:46",
+      "report_sentence": "The $100-per-head premium captured by cattle producers using WFCF services, even in a high-price environment, indicates strong value proposition (",
+      "source_line": "high beef prices, cattle producers are still capturing $100-per-head premiums when they use our value-add services. Additionally, we",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1410",
+      "report_sentence": "**Catalyst Evidence: 4** Management highlights the \"recent launch of our Raisewell Certified Standard\" to meet growing demand for responsibly raised proteins (",
+      "source_line": "and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:45",
+      "report_sentence": "In Q3 2026, management noted that \"newly developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating\" for headwinds in the beef business (",
+      "source_line": "developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating. And, despite record",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "The improvement in gross margin to 42.1% in Q3 2026 from 38.3% in Q3 2025 (",
+      "source_line": "margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:40",
+      "report_sentence": "The improvement in gross margin to 42.1% in Q3 2026 from 38.3% in Q3 2025 (exhibit-99-1.txt:59) is attributed to \"ongoing cost down initiatives\" (",
+      "source_line": "42.1% and operating income growing 68% to $1.0 million from $600,000 a year ago – both reflecting the positive impact of our ongoing",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1400",
+      "report_sentence": "The 10-K notes that \"the beef side of our business has been impacted the most significantly\" due to tight cattle supply and high cattle prices, which reduce packer willingness to pay for verification (",
+      "source_line": "industry. The beef side of our business has been impacted the most significantly resulting in total verification revenues declining",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1416",
+      "report_sentence": "The decline in beef cow inventories from 28.9 million head in 2023 to less than 28 million head in 2024 negatively impacts product sales (",
+      "source_line": "overall beef cow inventories have declined from 28.9 million head on January 1, 2023 to 28.2 million head on January 1, 2024 and is now",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1403",
+      "report_sentence": "Additionally, \"rapidly changing trade and tariff uncertainties\" are cited as a risk (",
+      "source_line": "further contraction in the cattle industry in early 2026. We are also facing rapidly changing trade and tariff uncertainties.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:13",
+      "report_sentence": "**Relationship Between Sourced Numbers**\n\nThe Q3 2026 earnings release states that total revenue was up 4% to $7.3M from $7.0M (",
+      "source_line": "● | Total revenue up 4% to $7.3M from $7.0M",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:158",
+      "report_sentence": "Quarter total revenue was $7.326 million (",
+      "source_line": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:614",
+      "report_sentence": "# Future Developments and Strategic Recommendations\n\nThe company’s strategic focus is on expanding its portfolio of auditing standards and leveraging bundling capabilities to pursue new customers (",
+      "source_line": "● | To continue organic growth. We leverage our bundling capability to aggressively pursue new customers, while sustaining our recurring revenue model and high retention rates. We help new and existing customers create a program specific to their brand. As long as their process or claim can be standardized, we can create an audit platform to measure it accurately and authentically.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1410",
+      "report_sentence": "The launch of the RaiseWell Certified Standard and CARE services represents a strategic pivot toward sustainability and animal welfare verification, which management believes will drive future growth (",
+      "source_line": "and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:166",
+      "report_sentence": "The improvement in operating income in Q3 2026 to $966,000, up 68% year-over-year (",
+      "source_line": "Income from operations | 966 | 575 | 1,929 | 1,266",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:22",
+      "report_sentence": "**What would change my view:**\nA measurable operating result in the next filing that would strengthen my conclusion is a year-over-year increase in total verification and certification service revenue for the full year 2026 that exceeds the 4% growth seen in the nine-month period (",
+      "source_line": "● | Verification and certification revenue up 4% to $15.7M from $15.1M",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "Insight: The non-headline operating KPI of gross margin, which improved to 42.1% in Q3 2026 from 38.3% in Q3 2025 (",
+      "source_line": "margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:18",
+      "report_sentence": "Insight: The non-headline operating KPI of gross margin, which improved to 42.1% in Q3 2026 from 38.3% in Q3 2025 (exhibit-99-1.txt:59), has a strategic consequence of enabling the company to sustain its stock buyback program, as evidenced by the $268,000 in value returned to stockholders in Q3 2026 (",
+      "source_line": "● | Company returns $268,000 in value to stockholders through buyback of 21,170 shares",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:45",
+      "report_sentence": "# Investment Recommendation\n\n**Recommendation:** Hold\n\n**Deciding Number:** Full-year 2026 operating income of $2,207,000 (facts.json:operating_income)\n\n**Principal Catalyst:** The launch and rapid growth of new service offerings, specifically CARE and RaiseWell® Certified, which management states are \"more than compensating\" for headwinds in the beef business (",
+      "source_line": "developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating. And, despite record",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1369",
+      "report_sentence": "**Principal Risk:** Cyclical vulnerability to the cattle industry, where tight cattle supply and high cattle prices reduce packer willingness to pay for verification, as evidenced by the 2025 decline in total revenues to $24,892,000 (",
+      "source_line": "Total revenues | $ | 24,892 | $ | 25,746",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1400",
+      "report_sentence": "**Principal Risk:** Cyclical vulnerability to the cattle industry, where tight cattle supply and high cattle prices reduce packer willingness to pay for verification, as evidenced by the 2025 decline in total revenues to $24,892,000 (10-k.txt:1369) and the impact on product sales (",
+      "source_line": "industry. The beef side of our business has been impacted the most significantly resulting in total verification revenues declining",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:166",
+      "report_sentence": "**Result in Next Filing That Would Change Recommendation:** A full-year 2026 operating income that exceeds the 2024 level of $2,207,000 (facts.json:operating_income) would change the recommendation to Buy, confirming that the Q3 2026 operating income increase to $966,000 (",
+      "source_line": "Income from operations | 966 | 575 | 1,929 | 1,266",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:577",
+      "report_sentence": "**Criterion Scores**\n\n*   **Business Quality: 3** The company holds a competitive advantage as one of the nation’s largest independent verification providers (",
+      "source_line": "Company is one of the nation’s largest independent, third-party traceability and verification providers. We use rigorous verification",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1400",
+      "report_sentence": "**Criterion Scores**\n\n*   **Business Quality: 3** The company holds a competitive advantage as one of the nation’s largest independent verification providers (10-k.txt:577), but faces moat risk from cyclical cattle industry trends (",
+      "source_line": "industry. The beef side of our business has been impacted the most significantly resulting in total verification revenues declining",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1369",
+      "report_sentence": "**Criterion Scores**\n\n*   **Business Quality: 3** The company holds a competitive advantage as one of the nation’s largest independent verification providers (10-k.txt:577), but faces moat risk from cyclical cattle industry trends (10-k.txt:1400) and a 2025 revenue decline to $24,892,000 (",
+      "source_line": "Total revenues | $ | 24,892 | $ | 25,746",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1410",
+      "report_sentence": "*   **Catalyst Strength and Timing: 4** Management highlights the \"recent launch of our Raisewell Certified Standard\" (",
+      "source_line": "and our programs allow supply chains to meet this growing customer demand. We are also optimistic about the recent launch of our Raisewell Certified Standard, which was developed to meet growing",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:45",
+      "report_sentence": "*   **Catalyst Strength and Timing: 4** Management highlights the \"recent launch of our Raisewell Certified Standard\" (10-k.txt:1410) and notes that new offerings are \"growing rapidly\" in Q3 2026 (",
+      "source_line": "developed service offerings such as CARE and RaiseWell® Certified are growing rapidly and more than compensating. And, despite record",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1403",
+      "report_sentence": "*   **Downside Risk: 3** The business is exposed to \"rapidly changing trade and tariff uncertainties\" (",
+      "source_line": "further contraction in the cattle industry in early 2026. We are also facing rapidly changing trade and tariff uncertainties.",
+      "line_found": true
+    },
+    {
+      "citation": "10-k.txt:1416",
+      "report_sentence": "*   **Downside Risk: 3** The business is exposed to \"rapidly changing trade and tariff uncertainties\" (10-k.txt:1403) and beef cow inventory declines (",
+      "source_line": "overall beef cow inventories have declined from 28.9 million head on January 1, 2023 to 28.2 million head on January 1, 2024 and is now",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "*   **Downside Risk: 3** The business is exposed to \"rapidly changing trade and tariff uncertainties\" (10-k.txt:1403) and beef cow inventory declines (10-k.txt:1416), though Q3 2026 gross margin improved to 42.1% (",
+      "source_line": "margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:166",
+      "report_sentence": "Insight: The deciding number of full-year 2026 operating income exceeding $2,207,000 (facts.json:operating_income) changes the risk-reward conclusion because it would validate that the Q3 2026 operating income of $966,000 (",
+      "source_line": "Income from operations | 966 | 575 | 1,929 | 1,266",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "Insight: The deciding number of full-year 2026 operating income exceeding $2,207,000 (facts.json:operating_income) changes the risk-reward conclusion because it would validate that the Q3 2026 operating income of $966,000 (exhibit-99-1.txt:166) and the gross margin improvement to 42.1% (",
+      "source_line": "margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies",
+      "line_found": true
+    }
+  ],
+  "expected_output": {
+    "assessments": [
+      {
+        "claim": "claim name",
+        "mark": "Correct, Wrong, Unsupported, or Not in filings",
+        "reason": "short reason"
+      }
+    ]
+  }
+}

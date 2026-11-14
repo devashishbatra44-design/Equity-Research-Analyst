@@ -17,6 +17,8 @@ plot = "equity_research_crewai.main:plot"
 run_with_trigger = "equity_research_crewai.main:run_with_trigger"
 ui = "equity_research_crewai.ui:main"
 faskills_metrics = "equity_research_crewai.faskills_extension:main"
+closes_reader = "equity_research_crewai.closes_reader:main"
+numeric_hook = "equity_research_crewai.numeric_hook:main"
 
 [build-system]
 requires = ["hatchling"]

@@ -1,0 +1,80 @@
+false
+0001360565
+2026-11-12
+iso4217:USD
+xbrli:shares
+iso4217:USD
+xbrli:shares
+UNITED
+STATES
+SECURITIES
+AND EXCHANGE COMMISSION
+WASHINGTON,
+D.C. 20549
+FORM
+8-K
+CURRENT
+REPORT
+Pursuant
+to Section 13 or 15(d) of the Securities Exchange Act of 1934
+Date
+of Report (Date of earliest event reported):
+November 12, 2026
+WHERE
+FOOD COMES FROM, INC.
+(Exact
+Name of Registrant as Specified in its Charter)
+Colorado | 001-40314 | 43-1802805
+(State or Other Jurisdiction of Incorporation) | (Commission File Number) | (I.R.S. Employer Identification No.)
+202 6th Street , Suite 400
+Castle Rock , Colorado | 80104
+(Address of Principal Executive Offices) | (Zip Code)
+(303)
+895-3002
+(Registrant’s
+Telephone Number, Including Area Code)
+Not
+applicable
+(Former
+name or former address, if changed since last report.)
+Check
+the appropriate box below if the Form 8-K filing is intended to simultaneously satisfy the filing obligation of the registrant under
+any of the following provisions:
+☐ | Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+☐ | Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240.14a-12)
+☐ | Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+☐ | Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+Securities
+registered pursuant to Section 12(b) of the Act:
+Title of each class | Trading Symbol(s) | Name of each exchange on which registered
+Common Stock, $0.001 par value | WFCF | The NASDAQ Stock Market LLC
+Indicate
+by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405
+of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+Emerging
+growth company
+☐
+If
+an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying
+with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐
+Item 2.02 | Results of Operations and Financial Condition
+Reference
+is made to the Where Food Comes From, Inc. (the “Company”) press release on November 12, 2026 and conference call transcript,
+attached hereto as Exhibits 99.1 and 99.2, respectively, and incorporated by reference herein (including, without limitation, the information
+set forth in the cautionary statement contained in the press release and conference call transcript), relating to the Company’s
+financial results for the three and nine months ended September 30, 2026.
+Item 9.01 | Financial Statements and Exhibits
+(d) | Exhibits
+Exhibit No. | Description
+99.1 | Press Release issued and dated November 12, 2026
+99.2 | Transcript for November 12, 2026 conference call
+104 | Cover Page Interactive Data File (embedded within the Inline XBRL document)
+SIGNATURE
+Pursuant
+to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by
+the undersigned hereunto duly authorized.
+WHERE FOOD COMES FROM, INC.
+(Registrant)
+By: | /s/ Dannette Henning
+Date: November 13, 2026 | Dannette Henning
+Chief Financial Officer

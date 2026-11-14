@@ -34,6 +34,7 @@ Use only these course mark names: `Correct`, `Wrong`, `Unsupported`, `Missing`, 
 - [x] Student 1: Devashish Batra.
 - [x] Student 2: Kuan-Jie Liao (Jason).
 - [x] Student 3: Shivani Rathi.
+- [x] Student 4: Jeenay Vipul Dedhia.
 - [x] Team name: DJS Signal & Source Capital.
 
 ## Final repository and submission steps

@@ -1,0 +1,371 @@
+{
+  "company": {
+    "ticker": "WFCF",
+    "legal_name": "Where Food Comes From, Inc.",
+    "cik": 1360565,
+    "cik_10_digit": "0001360565"
+  },
+  "company_facts_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001360565.json",
+  "reference_fiscal_year": {
+    "fiscal_year": 2025,
+    "period_start": "2025-01-01",
+    "period_end": "2025-12-31",
+    "selected_revenue_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+  },
+  "prior_fiscal_year": {
+    "fiscal_year": 2024,
+    "period_start": "2024-01-01",
+    "period_end": "2024-12-31"
+  },
+  "concepts": {
+    "total_revenue": {
+      "concept": "total_revenue",
+      "label": "Total revenue",
+      "status": "available",
+      "selected_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "selection_reason": "Selected the candidate with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is newest (2025-12-31); when candidate years tied, selected the larger total-revenue value, with tag priority as the final tie-breaker.",
+      "current": {
+        "value": 24892000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 25746000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {
+        "SalesRevenueNet": "tag absent from us-gaap company facts",
+        "Revenues": "not selected; latest valid annual end 2019-12-31; current-and-prior coverage=True",
+        "RevenueFromContractWithCustomerIncludingAssessedTax": "not selected; latest valid annual end 2021-12-31; current-and-prior coverage=True",
+        "SalesRevenueGoodsNet": "not selected; latest valid annual end 2017-12-31; current-and-prior coverage=True"
+      }
+    },
+    "operating_income": {
+      "concept": "operating_income",
+      "label": "Operating income",
+      "status": "available",
+      "selected_tag": "us-gaap:OperatingIncomeLoss",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 1206000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 2207000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "net_income": {
+      "concept": "net_income",
+      "label": "Net income",
+      "status": "available",
+      "selected_tag": "us-gaap:NetIncomeLoss",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 1536000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:NetIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 2120000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:NetIncomeLoss",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "diluted_eps": {
+      "concept": "diluted_eps",
+      "label": "Diluted earnings per share",
+      "status": "available",
+      "selected_tag": "us-gaap:EarningsPerShareDiluted",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 0.3,
+        "unit": "USD/share",
+        "source_unit_key": "USD/shares",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 0.4,
+        "unit": "USD/share",
+        "source_unit_key": "USD/shares",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "stockholders_equity": {
+      "concept": "stockholders_equity",
+      "label": "Stockholders' equity",
+      "status": "available",
+      "selected_tag": "us-gaap:StockholdersEquity",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 9305000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": null,
+        "xbrl_tag": "us-gaap:StockholdersEquity",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 9933000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": null,
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": null,
+        "xbrl_tag": "us-gaap:StockholdersEquity",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "long_term_debt": {
+      "concept": "long_term_debt",
+      "label": "Long-term debt",
+      "status": "unavailable",
+      "reason": "No candidate tag aligns to the reference fiscal year ending 2025-12-31.",
+      "selected_tag": null,
+      "selection_reason": null,
+      "current": null,
+      "prior": null,
+      "rejected_candidate_tags": {
+        "LongTermDebtNoncurrent": "no observation aligned to reference period ending 2025-12-31",
+        "LongTermDebtAndFinanceLeaseObligationsNoncurrent": "tag absent from us-gaap company facts",
+        "LongTermDebt": "no observation aligned to reference period ending 2025-12-31"
+      }
+    },
+    "current_long_term_debt": {
+      "concept": "current_long_term_debt",
+      "label": "Current portion of long-term debt",
+      "status": "unavailable",
+      "reason": "No candidate tag aligns to the reference fiscal year ending 2025-12-31.",
+      "selected_tag": null,
+      "selection_reason": null,
+      "current": null,
+      "prior": null,
+      "rejected_candidate_tags": {
+        "DebtCurrent": "no observation aligned to reference period ending 2025-12-31",
+        "ShortTermBorrowings": "tag absent from us-gaap company facts",
+        "LongTermDebtCurrent": "no observation aligned to reference period ending 2025-12-31",
+        "LongTermDebtAndFinanceLeaseObligationsCurrent": "tag absent from us-gaap company facts",
+        "CurrentPortionOfLongTermDebt": "tag absent from us-gaap company facts"
+      }
+    },
+    "cash_from_operations": {
+      "concept": "cash_from_operations",
+      "label": "Net cash provided by operating activities",
+      "status": "available",
+      "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 1607000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 2730000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {}
+    },
+    "property_equipment_additions": {
+      "concept": "property_equipment_additions",
+      "label": "Additions to property and equipment",
+      "status": "available",
+      "selected_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "selection_reason": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+      "current": {
+        "value": 155000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2025,
+        "fiscal_period": "FY",
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2025",
+        "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "prior": {
+        "value": 159000,
+        "unit": "USD",
+        "source_unit_key": "USD",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_start": "2024-01-01",
+        "period_end": "2024-12-31",
+        "filing_form": "10-K",
+        "filing_date": "2026-02-26",
+        "accession_number": "0001493152-26-008155",
+        "frame": "CY2024",
+        "xbrl_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1360565/000149315226008155/0001493152-26-008155-index.html"
+      },
+      "rejected_candidate_tags": {
+        "PaymentsForAdditionsToPropertyPlantAndEquipment": "tag absent from us-gaap company facts",
+        "PaymentsToAcquireProductiveAssets": "tag absent from us-gaap company facts"
+      }
+    }
+  },
+  "earnings_release_extraction": {
+    "source_filename": "exhibit-99-1.txt",
+    "claims": {
+      "total_revenue": {
+        "label": "Quarterly total revenue",
+        "status": "found",
+        "quoted_source_text": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+        "source_line_start": 158,
+        "source_line_end": 158,
+        "candidates": [
+          {
+            "line_start": 158,
+            "line_end": 158,
+            "text": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850",
+            "score": 6
+          }
+        ],
+        "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+      },
+      "diluted_eps": {
+        "label": "Quarterly diluted EPS",
+        "status": "candidate_ambiguity",
+        "quoted_source_text": null,
+        "source_line_start": null,
+        "source_line_end": null,
+        "candidates": [
+          {
+            "line_start": 67,
+            "line_end": 67,
+            "text": "income in the third quarter was $825,000, or $0.17 per diluted share, compared to net income of $1,146,000, or $0.22 per diluted share,",
+            "score": 5
+          },
+          {
+            "line_start": 89,
+            "line_end": 89,
+            "text": "income through nine months was $1.3 million, or $0.27 per diluted share, compared to net income of $1.7 million, or $0.34 per diluted",
+            "score": 5
+          }
+        ],
+        "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+      }
+    }
+  }
+}

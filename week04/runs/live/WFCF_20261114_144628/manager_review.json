@@ -1,0 +1,134 @@
+{
+  "status": "failed_after_one_retry",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $24.892 million (facts.json:total_revenue).",
+      "filing_says": "$24.892 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0001493152-26-008155"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was -3.3170% (calculations.json:revenue_growth).",
+      "filing_says": "-3.3170%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $1.206 million (facts.json:operating_income). Annual operating margin was 4.8449% (calculations.json:operating_margin).",
+      "filing_says": "$1.206 million; 4.8449%",
+      "mark": "Correct",
+      "evidence": "us-gaap:OperatingIncomeLoss; 1206000 / 24892000"
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $1.536 million (facts.json:net_income).",
+      "filing_says": "$1.536 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:NetIncomeLoss; period 2025-12-31"
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $0.30 (facts.json:diluted_eps).",
+      "filing_says": "$0.30",
+      "mark": "Correct",
+      "evidence": "us-gaap:EarningsPerShareDiluted; period 2025-12-31; 10-k.txt:1946: Diluted | $ | 0.30 | $ | 0.40"
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was 15.9684% (calculations.json:return_on_average_equity).",
+      "filing_says": "15.9684%",
+      "mark": "Correct",
+      "evidence": "1536000 / ((9305000 + 9933000) / 2)"
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the supplied filings because the required inputs were unavailable.",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $1.452 million (calculations.json:free_cash_flow).",
+      "filing_says": "$1.452 million",
+      "mark": "Correct",
+      "evidence": "1607000 - 155000"
+    },
+    {
+      "claim": "9. Latest-quarter revenue",
+      "report_said": "Quarter total revenue was $7.326 million (exhibit-99-1.txt:158).",
+      "filing_says": "$7.326 million",
+      "mark": "Correct",
+      "evidence": "Total revenues | 7,326 | 7,015 | 19,302 | 18,850"
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "report_said": "Not stated",
+      "filing_says": "4.4334%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "mark": "Unsupported",
+      "report_said": "Annual revenue growth was -3.3170% (calculations.json:revenue_growth).",
+      "filing_says": "-3.3170%",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "10. Quarter revenue growth versus the same quarter last year",
+      "mark": "Unsupported",
+      "report_said": "Not stated",
+      "filing_says": "4.4334%",
+      "reason": "The report does not state this required claim."
+    }
+  ],
+  "unresolved_other_numbers_after_one_retry": [
+    {
+      "claim": "Other number L3.6",
+      "report_said": "4.9%",
+      "filing_says": "Found at 10-k.txt:1414: Product sales for the year ended December 31, 2025 decreased approximately $0.2 million or 4.9% compared to 2024. We continue to see",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 4.9%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:553-553: it supports more than approximately 17,500 farmers, ranchers, vineyards, wineries, processors, retailers, distributors, trade associations, | 10-k.txt:556-556: by an independent third-party such as WFCF. The Company’s principal business is conducting both on-site and desk audits to verify | 10-k.txt:1369-1369: Total revenues | $ | 24,892 | $ | 25,746 | 10-k.txt:1366-1366: Verification and certification service revenue | $ | 20,102 | $ | 20,552 | 10-k.txt:1367-1367: Product sales | 3,616 | 3,803 | 10-k.txt:1398-1398: service revenue for the year ended December 31, 2025 decreased approximately $0.5 million, or 2.2% compared to 2024. We continue to | 10-k.txt:1431-1431: year ended December 31, 2025 decreased to 38.8% compared to 41.9% in 2024. Our margins are generally impacted by various costs such | 10-k.txt:1387-1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207 Found at 10-k.txt:1414: Product sales for the year ended December 31, 2025 decreased approximately $0.2 million or 4.9% compared to 2024. We continue to see"
+    },
+    {
+      "claim": "Other number L29.2",
+      "report_said": "$2,207,000",
+      "filing_says": "Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $2,207,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding. calculations.json:operating_margin: 1206000 / 24892000; result 0.0484493; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155 Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    },
+    {
+      "claim": "Other number L40.1",
+      "report_said": "$2,207,000",
+      "filing_says": "Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $2,207,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding. facts.json:operating_income:current: 1206000; tag us-gaap:OperatingIncomeLoss; period 2025-12-31; accession 0001493152-26-008155 Found at 10-k.txt:1387: Segment operating income/(loss) | $ | 1,206 | $ | 2,207"
+    }
+  ],
+  "unresolved_model_derived_growth_after_one_retry": [],
+  "post_generation_report_edits": [],
+  "code_written_insight_fallbacks": [],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": [
+    {
+      "role": "Research Analyst",
+      "reason": "The Insight line failed source verification: Wrong; The cited line does not contain or establish: 2026, 2025, 2026. margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies | ● | Company returns $268,000 in value to stockholders through buyback of 21,170 shares"
+    },
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line has no filing and line citation."
+    },
+    {
+      "role": "Investment Advisor",
+      "reason": "The Insight line failed source verification: Wrong; The cited line does not contain or establish: 2026, $2,207,000, 2026. Income from operations | 966 | 575 | 1,929 | 1,266 | margins in the third quarter improved by 380 basis points to 42.1% from 38.3% in the same quarter last year, reflecting operational efficiencies"
+    }
+  ]
+}

@@ -6,7 +6,11 @@
 # Local Python environments and caches
 .venv/
 venv/
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/fin67110-spinoff-seeker/
+!.agents/skills/fin67110-investor-worksheet/
 .claude/
 agent/
 skills-lock.json

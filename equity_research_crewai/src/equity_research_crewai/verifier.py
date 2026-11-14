@@ -504,7 +504,7 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
         ),
         _mark_values(
             "2. Revenue growth versus prior year",
-            _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+revenue\s+growth\s+(?:was|of)\s+([\d,.]+)%"),
+            _percents(core_analysis, r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bannual\s+revenue\s+growth\s+(?:was|of)\s+(-?[\d,.]+)%"),
             [float(revenue_growth.get("result")) * 100],
             f"{float(revenue_growth.get('result')) * 100:.4f}%",
             str(revenue_growth.get("arithmetic")),

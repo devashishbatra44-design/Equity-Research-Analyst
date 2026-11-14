@@ -1,22 +1,25 @@
 # FIN 67110 Course Playbook
 
-Last audited: October 27, 2026  
-Time zone for deadlines: Eastern Time  
-Student: Devashish Batra  
+Last audited: November 14, 2026
 
-This is a living control document for FIN 67110, Fall 2026. It records published course requirements, current evidence, open risks, and the checks to run before each submission. The official course site and Brightspace remain authoritative.
+Time zone for deadlines: Eastern Time
+
+Student: Devashish Batra
+
+This is a living control document for FIN 67110, Fall 2026. It records published course requirements, current evidence, open risks, and the checks to run before each submission. The official course site, direct written instructor clarifications, and Brightspace remain authoritative.
 
 ## Source hierarchy
 
 Use these sources in this order when requirements differ:
 
 1. The current lab page governs the work performed in that lab.
-2. The [schedule](https://cinderzhang.github.io/FIN67110-Fall2026/schedule.html) governs dates.
-3. The [grading page](https://cinderzhang.github.io/FIN67110-Fall2026/grading.html) governs points and policies.
-4. The [project page](https://cinderzhang.github.io/FIN67110-Fall2026/project.html) governs the five project parts, the live record, and project ranking.
-5. The [data page](https://cinderzhang.github.io/FIN67110-Fall2026/reference/data.html) governs the data reader and licensed-data handling.
-6. The [report audit](https://cinderzhang.github.io/FIN67110-Fall2026/reference/audit-checklist.html) governs financial claim definitions and audit marks.
-7. Brightspace holds submissions, timestamps, the official Purdue syllabus, the team list, and the presentation order.
+2. A direct written instructor clarification governs the specific rule it clarifies.
+3. The [schedule](https://cinderzhang.github.io/FIN67110-Fall2026/schedule.html) governs dates.
+4. The [grading page](https://cinderzhang.github.io/FIN67110-Fall2026/grading.html) governs points and policies.
+5. The [project page](https://cinderzhang.github.io/FIN67110-Fall2026/project.html) governs the five project parts, the live record, and project ranking.
+6. The [data page](https://cinderzhang.github.io/FIN67110-Fall2026/reference/data.html) governs the data reader and licensed-data handling.
+7. The [report audit](https://cinderzhang.github.io/FIN67110-Fall2026/reference/audit-checklist.html) governs financial claim definitions and audit marks.
+8. Brightspace holds checkpoint submissions, the official Purdue syllabus, the team list, and the presentation order.
 
 The public syllabus page says that the course pages govern. The session decks also say that the lab page governs.
 
@@ -28,13 +31,14 @@ The public syllabus page says that the course pages govern. The session decks al
 | Checkpoint 2 | 17.5% | By 11:59 PM Eastern on Session 5: submit a permanent commit link to the verifier and its marks on the seeded-error test. |
 | Checkpoint 3 | 17.5% | By 11:59 PM Eastern on Session 9: submit one team Markdown page naming the team, client, client-layer design, and live record so far. |
 | Checkpoint 4 | 17.5% | By 11:59 PM Eastern on Session 12: submit the team draft paper with the live-record table, audit table, and client paragraph. |
-| Project | 30% | Submit all five project parts. The project is ranked once. |
+| Project | 20% | Submit all five project parts. The project is ranked once. |
+| Peer evaluation | 10% | Complete the individual evaluation after Session 14. |
 
 Each checkpoint is 100 or 0. There is no partial credit. Checkpoints 1 and 2 are individual. Checkpoints 3 and 4 are team submissions.
 
-The project scores are 95 for the top tier, 85 for the standard tier, and 0 for a failed project. A course grade of A starts at 93. With all four checkpoints complete, the published totals are 98.5 for a top-tier project and 95.5 for a standard-tier project. Each missed checkpoint costs 17.5 course points.
+The project scores are 95 for the top tier, 85 for the standard tier, 70 for the submitted tier, and 0 for a failed project. A course grade of A starts at 93. With all four checkpoints and the peer evaluation complete at 100, the published totals are 99 for a top-tier project, 97 for a standard-tier project, and 94 for a submitted-tier project. Each missed checkpoint costs 17.5 course points.
 
-The fail rule is checked first. The project fails if no live-record note ever reaches Brightspace or if the team submits no paper.
+The fail rule is checked first. The project fails if the repository contains no live report or if the team submits no product manual. This does not require a separate weekly Brightspace upload.
 
 ## Calendar and hard deadlines
 
@@ -45,8 +49,8 @@ The fail rule is checked first. The project fails if no live-record note ever re
 | 3 | Thu Oct 29 | Lab 03: The App | Checkpoint 1 |
 | 4 | Tue Nov 3 | Lab 04: The Verifier | No checkpoint |
 | 5 | Thu Nov 5 | Lab 05: The Desk's Hands | Checkpoint 2; teams formed |
-| 6 | Tue Nov 10 | Lab 06: The Investor's Desk | No checkpoint |
-| 7 | Thu Nov 12 | Lab 07: Your Investor View | No checkpoint |
+| 6 | Tue Nov 10 | Lab 06: The seeker | No checkpoint |
+| 7 | Thu Nov 12 | Lab 07: Your investor | No checkpoint |
 | 8 | Tue Nov 17 | Lab 08: The Institution's Desk | No checkpoint |
 | 9 | Thu Nov 19 | Lab 09: Your Portfolio Under a Mandate | Checkpoint 3 |
 | 10 | Tue Nov 24 | Lab 10: Break Your Desk | No checkpoint |
@@ -64,7 +68,9 @@ Live-record windows run Monday through Sunday:
 - Week 6: November 23–29. A report is welcome, but this is the intended optional week.
 - Week 7: November 30–December 6.
 
-To remain eligible for the top project tier, the team needs an in-window report in at least three of the four weeks. Each report must use a release filed that week and reach Brightspace within 24 hours of the EDGAR Accepted time.
+To remain eligible for the top project tier, the team needs an in-window report in at least three of the four weeks. Each report must use an earnings release or another SEC report filed that week. The team must commit and push the report to its GitHub repository within 24 hours of the EDGAR Accepted time. The pushed commit timestamp is the record. There is no separate weekly Brightspace upload.
+
+The weekly reports are not separately graded. Missing 1 week has no cost. Missing 2 weeks prevents the top project tier. Starting with Checkpoint 3, the checkpoint upload lists the live record completed so far.
 
 ## The desk architecture
 
@@ -150,7 +156,7 @@ Licensed raw data must stay out of the repository. If provider terms prohibit mo
 One Markdown file in Brightspace must contain permanent GitHub links for parts 1, 3, and 4 and identify the presentation session:
 
 1. Desk tree at a fixed commit.
-2. Live record already held in Brightspace.
+2. GitHub live record, listed in Brightspace checkpoint submissions from Checkpoint 3 onward.
 3. `audits.md` at a fixed commit.
 4. `paper.md` at a fixed commit.
 5. Presentation session.
@@ -264,10 +270,10 @@ Anything made public must end with these exact three lines. Replace the brackete
 
 If the desk or model provider fails before Checkpoint 1 or a live record, use the [Week 2 fallback](https://cinderzhang.github.io/FIN67110-Fall2026/week-02/index.html#the-fallback). Paste the latest 10-K statements and earnings release into a model, send the four role tasks in one message, save a Markdown report whose first line names the company and filings, and put `fallback` on the second line. A fallback counts but is audited like any other report.
 
-If Brightspace or GitHub is down at a checkpoint deadline, email the instructor before the deadline with everything the upload would contain. If Brightspace is down during a live-record window, email the report before the window closes. A personal setup failure is not an outage.
+If Brightspace or GitHub is down at a checkpoint deadline, email the instructor before the deadline with everything the upload would contain. If GitHub is down during a live-record deadline, email the report before the 24-hour deadline. A personal setup failure is not an outage.
 
 ## Maintenance rule
 
-Weeks 3–8 and Labs 04–14 were placeholders when checked on October 27. Recheck the relevant week and lab pages before starting each session. Update this file when a page is published. Never infer a missing requirement from the course sequence.
+Weeks 3–8 and Labs 04–14 were placeholders when checked on October 27. Weeks 3 and 4 and Labs 04–07 are now published and reviewed. Recheck Week 5 and later pages before starting each session. Update this file when a page is published. Never infer a missing requirement from the course sequence.
 
 This playbook supports careful work. It cannot guarantee a grade. The grade depends on complete submissions, correct audits, live timing, team performance, and the instructor's published criteria.

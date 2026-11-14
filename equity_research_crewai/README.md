@@ -35,6 +35,68 @@ From the repository root:
 Keep the model key, base URL, model name, and SEC User-Agent in the repository `.env`.
 Never commit `.env`.
 
+## Week 4 closes reader
+
+The Week 4 reader returns licensed official daily closes. It does not use a public price website as a fallback.
+
+Use a local LSEG or Workspace CSV export:
+
+```bash
+.venv/bin/python -m equity_research_crewai.closes_reader TEST.O \
+  --start 2026-11-09 \
+  --end 2026-11-10 \
+  --export /absolute/path/outside-this-repository/closes.csv
+```
+
+Return the last regular 4:00 PM Eastern close before an EDGAR Accepted time:
+
+```bash
+.venv/bin/python -m equity_research_crewai.closes_reader TEST.O \
+  --filed 2026-11-10T16:05:00-05:00 \
+  --export /absolute/path/outside-this-repository/closes.csv
+```
+
+The export must contain a date column and an official close column. It may also contain `Instrument` and `Currency` columns.
+
+Run the complete desk with the same EDGAR Accepted time. `--filed` replaces any manual `--price` with the prior official close. The desk continues without a price when the licensed close is unavailable.
+
+```bash
+.venv/bin/python -m equity_research_crewai.main TICKER \
+  --peers AAA,BBB \
+  --filed 2026-11-10T16:05:00-05:00 \
+  --price-instrument TICKER.N \
+  --closes-export /absolute/path/outside-this-repository/closes.csv
+```
+
+The run manifest saves the EDGAR Accepted time, the one closing price, its date, and its source. It does not save or copy the licensed export path.
+
+As an alternative, install the optional `lseg-data` package and keep LSEG Workspace open. Put `LSEG_APP_KEY` only in the repository `.env`. The code opens `desktop.workspace` and requests `TR.PriceClose`.
+
+If the export, package, session, or requested close is unavailable, the command prints `not available` and exits normally. Confirm 1 returned close against the exchange before using the reader in Week 4 work.
+
+## Week 4 seeker and worksheet controls
+
+The repository loads two Week 4 skills from `.agents/skills/`:
+
+- `fin67110-spinoff-seeker` controls the SEC registry, stages, frozen-factor screen, and exact report ending.
+- `fin67110-investor-worksheet` controls the cited fact worksheet, one bounded persona call, numeric verification, hit-rate row, and live-report path.
+
+The deterministic implementation is in these modules:
+
+- `sec_spinoff_discovery.py`
+- `spinoff_seeker.py`
+- `investor_worksheet.py`
+- `numeric_hook.py`
+- `hit_rate.py`
+
+Run the numeric verifier on a saved structured worksheet:
+
+```bash
+.venv/bin/python -m equity_research_crewai.numeric_hook /absolute/path/to/worksheet.json
+```
+
+A clean worksheet prints nothing. A failure prints the refusal and exits with status 2. The hook is not enabled as a Codex, Claude, or Antigravity Stop hook until the student reviews it.
+
 ## Run the full graph
 
 ```bash

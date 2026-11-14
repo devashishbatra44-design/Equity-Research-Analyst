@@ -50,6 +50,7 @@ from equity_research_crewai.faskills_methodology import (  # noqa: E402
     save_methodology_plan,
 )
 from equity_research_crewai.tavily_research import research_run_folder  # noqa: E402
+from equity_research_crewai.closes_reader import last_close_before, parse_filed_datetime  # noqa: E402
 
 
 ROLE_FILES = {
@@ -77,6 +78,7 @@ class TeamState(BaseModel):
     price: float | None = None
     price_date: str = ""
     price_source: str = ""
+    filed_at: str = ""
     saved_run: str = ""
     faskills: bool = False
     tavily: bool = False
@@ -1233,6 +1235,17 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             }
         self.state.run_folder = str(run_folder)
         manifest = desk_app.load_json(run_folder / "manifest.json")
+        if self.state.filed_at:
+            manifest["week04_live_price"] = {
+                "edgar_accepted_time_eastern": self.state.filed_at,
+                "price": self.state.price,
+                "price_date": self.state.price_date or None,
+                "price_source": self.state.price_source or "not available",
+            }
+            (run_folder / "manifest.json").write_text(
+                json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
         arguments = manifest.get("arguments", {})
         self.state.price = float(arguments.get("price")) if arguments.get("price") is not None else self.state.price
         self.state.price_date = str(arguments.get("price_date") or self.state.price_date)
@@ -1812,6 +1825,21 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--price", type=float, help="Closing price used for FY-EPS P/E")
     parser.add_argument("--price-date", default="", help="Closing-price date in YYYY-MM-DD")
     parser.add_argument("--price-source", default="", help="Exchange or LSEG source for the closing price")
+    parser.add_argument(
+        "--filed",
+        default="",
+        help="EDGAR Accepted time in ISO 8601 Eastern time; its prior official close replaces --price",
+    )
+    parser.add_argument(
+        "--price-instrument",
+        default="",
+        help="LSEG RIC or export instrument label; defaults to the ticker",
+    )
+    parser.add_argument(
+        "--closes-export",
+        type=Path,
+        help="Licensed local closes export outside the repository; never copied into the run",
+    )
     parser.add_argument("--saved-run", type=Path, help="Reuse a successful saved data run")
     parser.add_argument(
         "--faskills",
@@ -1847,18 +1875,45 @@ def kickoff() -> None:
         raise SystemExit("Ticker is required unless --verify-only is used.")
     if args.price_date and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.price_date):
         raise SystemExit("--price-date must use YYYY-MM-DD format when supplied.")
+    if args.filed and args.saved_run:
+        raise SystemExit("--filed cannot be combined with --saved-run because the saved calculations may use another price.")
     if args.reuse_tavily and not args.saved_run:
         raise SystemExit("--reuse-tavily requires --saved-run.")
     if args.reuse_tavily and not args.tavily:
         raise SystemExit("--reuse-tavily also requires --tavily.")
+    price = args.price
+    price_date = args.price_date
+    price_source = args.price_source
+    filed_at = ""
+    if args.filed:
+        try:
+            filed_at = parse_filed_datetime(args.filed).isoformat()
+            result = last_close_before(
+                args.price_instrument or args.ticker,
+                filed_at,
+                export_path=args.closes_export,
+            )
+        except ValueError as exc:
+            raise SystemExit(str(exc)) from exc
+        if result.status == "available":
+            record = result.records[0]
+            price = float(record.close)
+            price_date = record.pricing_date.isoformat()
+            price_source = record.source
+        else:
+            price = None
+            price_date = ""
+            price_source = f"not available: {result.message}"
+            print(f"Week 4 close not available; the desk will continue without a price: {result.message}")
     flow = EquityResearchTeamFlow()
     flow.kickoff(
         inputs={
             "ticker": args.ticker.upper(),
             "peers": parse_peers(args.peers),
-            "price": args.price,
-            "price_date": args.price_date,
-            "price_source": args.price_source,
+            "price": price,
+            "price_date": price_date,
+            "price_source": price_source,
+            "filed_at": filed_at,
             "saved_run": str(args.saved_run.resolve()) if args.saved_run else "",
             "faskills": args.faskills,
             "tavily": args.tavily,
