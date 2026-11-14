@@ -28,9 +28,9 @@ Members:
 - Push authorization: user-authorized on November 14, 2026.
 - Report deadline, Eastern: November 14, 2026 at 5:14:42 PM
 - Saved report path: `week04/runs/live/WFCF_20261114_144628/report.md`
-- Permanent GitHub commit link: pending first live commit
-- Git commit timestamp: pending first live commit
-- Pushed within 24 hours: pending push
+- Permanent GitHub commit link: <https://github.com/devashishbatra44-design/Equity-Research-Analyst/blob/0cce0fe26fbf217a7f56dd5c74c85cc8f7ea31cb/week04/runs/live/WFCF_20261114_144628/report.md>
+- Git commit timestamp: November 14, 2026 at 3:01:03 PM Eastern
+- Pushed within 24 hours: yes
 - Verification: 81 code-checked claims; 0 wrong, 0 unsupported, 0 missing, and 1 not in filings.
 - Price evidence: LSEG close was unavailable. The report does not invent a price.
 
@@ -73,5 +73,5 @@ Members:
 - [ ] Each member can reproduce the deciding number from printed inputs.
 - [ ] Each member can explain why the screen is not a recommendation.
 - [ ] The report contains no raw licensed data.
-- [ ] The report commit is pushed within 24 hours of EDGAR Accepted time.
-- [ ] `LIVE_RECORD.md` contains the permanent commit link and timestamp.
+- [x] The report commit is pushed within 24 hours of EDGAR Accepted time.
+- [x] `LIVE_RECORD.md` contains the permanent commit link and timestamp.
