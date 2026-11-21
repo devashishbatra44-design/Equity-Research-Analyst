@@ -1,0 +1,9 @@
+{
+  "ticker": "WFCF",
+  "filing_time": "2026-11-13T17:14:42-05:00",
+  "view_time": "2026-11-14T14:50:11.918033-05:00",
+  "direction": "not computed",
+  "reason": "The committed report gave a Hold recommendation but had no price or more-versus-less value view. The later hit-rate audit does not infer or rewrite the original view.",
+  "source_report": "report.md",
+  "source_report_sha256": "bd980331293bf469618afbadb47c438480b298a9be2bf715beaa5f07fd8718d3"
+}

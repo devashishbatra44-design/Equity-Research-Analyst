@@ -4,7 +4,17 @@ from datetime import date
 from decimal import Decimal
 
 from equity_research_crewai.closes_reader import CloseRecord
-from equity_research_crewai.hit_rate import HitRateRow, first_close_after_filing, reaction_percent, summarize
+import json
+
+from equity_research_crewai.hit_rate import (
+    HitRateRow,
+    first_close_after_filing,
+    last_close_before_filing,
+    reaction_percent,
+    render_table,
+    row_from_saved_run,
+    summarize,
+)
 
 
 def close(day: int, value: str) -> CloseRecord:
@@ -23,6 +33,46 @@ def test_first_close_after_pre_market_filing_is_same_day_close() -> None:
 def test_first_close_after_after_market_filing_is_next_day_close() -> None:
     result = first_close_after_filing("2026-11-10T16:05:00-05:00", [close(10, "100"), close(11, "105")])
     assert result == close(11, "105")
+
+
+def test_last_close_before_after_market_filing_is_same_day_close() -> None:
+    result = last_close_before_filing("2026-11-10T16:05:00-05:00", [close(10, "100"), close(11, "105")])
+    assert result == close(10, "100")
+
+
+def test_saved_run_table_preserves_not_computed_view(tmp_path) -> None:
+    run = tmp_path / "TEST_run"
+    run.mkdir()
+    (run / "hit_rate_view.json").write_text(
+        json.dumps(
+            {
+                "ticker": "TEST",
+                "filing_time": "2026-11-10T16:05:00-05:00",
+                "view_time": "2026-11-10T18:00:00-05:00",
+                "direction": "not computed",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (run / "hit_rate_closes.json").write_text(
+        json.dumps(
+            {
+                "records": [
+                    close(10, "100").to_dict(),
+                    close(11, "105").to_dict(),
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    row = row_from_saved_run(run)
+
+    assert row.reaction == Decimal("5.00")
+    assert row.direction == "not computed"
+    assert row.agreement == "not computed"
+    assert row.after is False
+    assert "hit rate: not computed" in render_table([row])
 
 
 def test_summary_excludes_after_and_not_computed_rows() -> None:

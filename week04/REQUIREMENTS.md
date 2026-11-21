@@ -1,6 +1,6 @@
 # Week 4 Requirement Trace
 
-Checked: November 19, 2026
+Checked: November 21, 2026
 
 ## Lab 06: seeker
 
@@ -22,7 +22,7 @@ Checked: November 19, 2026
 | S14 | Report ranked, watch, dropped, and data-limit sections. | Report fixture | Verified |
 | S15 | End with `screens, not recommendations` exactly. | Exact-line test | Verified |
 | S16 | Save a dated run. | Filesystem test | Verified with `runs/seeker_20261119/` and `runs/seeker_20261119_full/` |
-| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified; 122 tests passed on November 19, 2026 |
+| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified; 150 tests passed on November 21, 2026 |
 | S18 | Code and skill names contain no company name. | Path/name review | Verified |
 
 ## Lab 07: worksheet
@@ -31,7 +31,7 @@ Checked: November 19, 2026
 |---|---|---|---|
 | W01 | Run on a saved team seeker result and saved filings. | CLI contract test | Verified with the saved FDXF seeker evidence and filing set |
 | W02 | Save Form 10 and the information statement by accession when the name is in the registry. | Filing fixture test | Verified in `runs/worksheet_FDXF_20261120_023851/filings/` |
-| W03 | Use `not applicable` for spin sections when the name is outside the registry. | Branch test | Pending |
+| W03 | Use `not applicable` for spin sections when the name is outside the registry. | Branch test | Verified by the generic registry and non-registry branch tests |
 | W04 | Emit one line per fact with an amount or `not known`. | Renderer test | Verified |
 | W05 | Separate historical, pro forma, and post-spin facts. | Schema test | Verified |
 | W06 | Record parent, ratio, dates, debt/cash destination, liabilities, restrictions, Form 4 code P, and liquidity. | Fact checklist test | Verified in the FDXF facts and worksheet |
@@ -64,14 +64,14 @@ Checked: November 19, 2026
 
 | ID | Requirement | Planned evidence | State |
 |---|---|---|---|
-| L01 | Select at least one release or SEC report filed in each selected live week. | Team decision record | Pending |
-| L02 | Commit and push the report within 24 hours of EDGAR Accepted time. | Accepted time, permanent commit link, and Git commit timestamp | Pending |
-| L03 | A report begins with the filings used. Include the release when the event is an earnings release. | Report contract test | Pending |
-| L04 | Save Week 4 live work under `week04/runs/live/` and record the pushed commit in `LIVE_RECORD.md`. | Dated folder and live-record row | Pending |
-| L05 | Record ticker, filing time, view time, direction, reaction, agree/disagree, and after flag. | Hit-rate schema | Verified |
+| L01 | Select at least one release or SEC report filed in each selected live week. | Team decision record | Verified for Week 4: WFCF 8-K accession 0001493152-26-051832 |
+| L02 | Commit and push the report within 24 hours of EDGAR Accepted time. | Accepted time, permanent commit link, and Git commit timestamp | Verified: accepted Nov. 13 at 5:14:42 PM EST; pushed Nov. 14 at 3:01:03 PM EST |
+| L03 | A report begins with the filings used. Include the release when the event is an earnings release. | Report contract test | Verified in the committed WFCF report |
+| L04 | Save Week 4 live work under `week04/runs/live/` and record the pushed commit in `LIVE_RECORD.md`. | Dated folder and live-record row | Verified |
+| L05 | Record ticker, filing time, view time, direction, reaction, agree/disagree, and after flag. | Hit-rate schema | Verified in `HIT_RATE.md`; WFCF direction remains `not computed` because the original report had no price view |
 | L06 | Measure reaction from last close before filing to first close after filing. | Price test | Verified |
 | L07 | Exclude `after` and `not computed` rows from the scored count. | Summary test | Verified |
-| L08 | Do not upload a separate weekly report to Brightspace. Starting with Checkpoint 3, list the live record completed so far. | Checkpoint submission record | Pending |
+| L08 | Do not upload a separate weekly report to Brightspace. Starting with Checkpoint 3, list the live record completed so far. | Checkpoint submission record | Rule recorded; the Checkpoint 3 submission remains a later action |
 
 ## Human-only controls
 

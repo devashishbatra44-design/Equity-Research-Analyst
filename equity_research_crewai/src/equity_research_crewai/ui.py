@@ -11,12 +11,36 @@ import streamlit as st
 
 PACKAGE_ROOT = Path(__file__).resolve().parent
 REPOSITORY_ROOT = PACKAGE_ROOT.parents[2]
+WEEK4_SEEKER = REPOSITORY_ROOT / "week04/runs/seeker_20261119_full/report.md"
+WEEK4_WORKSHEET = REPOSITORY_ROOT / "week04/runs/worksheet_FDXF_20261120_023851/worksheet.md"
+WEEK4_FACTOR_BASELINE = REPOSITORY_ROOT / "week04/OWNED_FACTOR_CHECK_BASELINE.md"
 
 
 def main() -> None:
     st.set_page_config(page_title="Verified Equity-Research Desk", layout="wide")
     st.title("Verified Equity-Research Desk")
     st.caption("The fixed graph always runs the Steps, three analyst roles, Strategy Manager, and Verifier.")
+
+    with st.expander("Week 4 seeker and investor worksheet"):
+        seeker_column, worksheet_column, factor_column = st.columns(3)
+        with seeker_column:
+            st.subheader("Spinoff seeker")
+            if WEEK4_SEEKER.exists():
+                st.markdown(WEEK4_SEEKER.read_text(encoding="utf-8"))
+            else:
+                st.warning("The saved Week 4 seeker report is not available.")
+        with worksheet_column:
+            st.subheader("FDXF investor worksheet")
+            if WEEK4_WORKSHEET.exists():
+                st.markdown(WEEK4_WORKSHEET.read_text(encoding="utf-8"))
+            else:
+                st.warning("The saved Week 4 worksheet is not available.")
+        with factor_column:
+            st.subheader("Owned factor check")
+            if WEEK4_FACTOR_BASELINE.exists():
+                st.markdown(WEEK4_FACTOR_BASELINE.read_text(encoding="utf-8"))
+            else:
+                st.warning("The frozen factor-check baseline is not available.")
 
     ticker = st.text_input("Ticker").strip().upper()
     peers = st.text_input("Peers (comma-separated)").strip().upper()

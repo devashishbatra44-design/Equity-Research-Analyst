@@ -61,17 +61,29 @@ Members:
 
 ## Owned product line
 
-- Product or feature:
-- Human owner:
-- User problem:
-- Week 4 deliverable:
-- README line:
+- Product or feature: Pre-registered spinoff factor-validation check.
+- Human owner: Devashish Batra.
+- User problem: A screen user cannot tell whether F1, F2, and F3 identify stronger later price outcomes or only create an unvalidated ranking.
+- Week 4 deliverable: A dated test-design draft that fixes the universe, entry date, horizon, comparisons, missing-data rule, and output before the test return is observed.
+- README line: `We own a pre-registered spinoff factor-validation check that freezes F1-F3 before the test return and reports every comparison and missing observation.`
+- Team selection: The four teammates selected this direction together. Devashish Batra confirmed his ownership on November 21, 2026.
+- Method status: Approved and frozen in `OWNED_FACTOR_CHECK_FROZEN.json` on November 21, 2026.
+- Start evidence: `OWNED_FACTOR_CHECK_BASELINE.md` shows the 10-name universe and 4 planned comparisons. It reads 0 future returns.
+
+## FDXF worksheet selection
+
+- Selection method: Devashish Batra, Kuan-Jie Liao (Jason), Shivani Rathi, and Jeenay Vipul Dedhia met physically, reviewed the seeker results together, and selected FDXF as a team.
+- Confirmation source: Devashish Batra directly confirmed the in-person team process on November 21, 2026.
+- Meeting date: Not separately stated.
+- Course interpretation: The name was selected by the team, not by Devashish acting alone.
 
 ## Team review
 
-- [ ] Each member can open the saved filing.
-- [ ] Each member can reproduce the deciding number from printed inputs.
-- [ ] Each member can explain why the screen is not a recommendation.
-- [ ] The report contains no raw licensed data.
+- [x] Each member can open the saved filing.
+- [x] Each member can reproduce the deciding number from printed inputs.
+- [x] Each member can explain why the screen is not a recommendation.
+- [x] The report contains no raw licensed data.
 - [x] The report commit is pushed within 24 hours of EDGAR Accepted time.
 - [x] `LIVE_RECORD.md` contains the permanent commit link and timestamp.
+
+Team-review confirmation: Devashish Batra stated on November 21, 2026 that the four teammates sat together and checked each item.

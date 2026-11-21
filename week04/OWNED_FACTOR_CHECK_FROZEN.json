@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "feature": "Pre-registered spinoff factor-validation check",
+  "human_owner": "Devashish Batra",
+  "team": "DJS Signal & Source Capital",
+  "approved_on": "2026-11-21",
+  "approval_statement": "approved the above",
+  "universe_source": "week04/runs/seeker_20261119_full/report.md",
+  "expected_ranked_names": 10,
+  "signal_date": "2026-11-19",
+  "entry_price_rule": "Use the official regular close on 2026-11-19. If unavailable, use the first official regular close after 2026-11-19 and disclose the substitution.",
+  "horizon_calendar_days": 90,
+  "outcome_date_on_or_after": "2027-02-17",
+  "price_source": "Nasdaq official historical data when available",
+  "return_definition": "Price return only; do not label it total return.",
+  "comparisons": [
+    {
+      "id": "F1",
+      "groups": "F1 true versus F1 false",
+      "statistics": ["mean", "median"],
+      "expected_direction": "true group higher"
+    },
+    {
+      "id": "F2",
+      "groups": "F2 true versus F2 false",
+      "statistics": ["mean", "median"],
+      "expected_direction": "true group higher"
+    },
+    {
+      "id": "F3",
+      "groups": "F3 true versus F3 false",
+      "statistics": ["mean", "median"],
+      "expected_direction": "true group higher"
+    },
+    {
+      "id": "COMPOSITE",
+      "groups": "score of 1 or more versus score of 0",
+      "statistics": ["mean", "median"],
+      "expected_direction": "higher-score group higher"
+    }
+  ],
+  "missing_data_rule": "Exclude a name only from the affected comparison. Count and print every exclusion.",
+  "statistics_rule": "Report group sizes, means, medians, and direction. Do not claim statistical significance from this small sample.",
+  "change_rule": "Preserve this file. Record a later change in a dated amendment. Do not rewrite the original design."
+}

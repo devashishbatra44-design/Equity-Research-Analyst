@@ -1,7 +1,6 @@
 """Deterministic numeric claim verifier for saved Week 4 worksheets.
 
-This module is intentionally not enabled as an agent hook. The student must
-review it before any Stop-hook configuration is added.
+The student reviewed this module before the project-local Stop hook was enabled.
 """
 
 from __future__ import annotations

@@ -1,6 +1,6 @@
 # Week 4 Control Record
 
-Audited: November 14, 2026
+Audited: November 21, 2026
 
 Course window: November 9-15, 2026
 
@@ -28,11 +28,14 @@ Build two reusable skills.
 
 The numeric hook must block completion when a financial number lacks a permitted source or a printed computation.
 
+Owned feature: We own a pre-registered spinoff factor-validation check that freezes F1-F3 before the test return and reports every comparison and missing observation.
+
 ## Status
 
 | Work item | Status | Evidence or next action |
 |---|---|---|
 | Week 4 page audit | Complete | `LINK_AUDIT.md` |
+| Full re-audit | Complete; no known Week 4 requirement remains open | `FULL_REAUDIT_2026-11-21.md` |
 | Lab 06 contract | Complete | `REQUIREMENTS.md` |
 | Lab 07 contract | Complete | `REQUIREMENTS.md` |
 | Request samples | Complete | `LINK_AUDIT.md` |
@@ -50,7 +53,9 @@ The numeric hook must block completion when a financial number lacks a permitted
 | Numeric hook | Built, seeded-error tested, enabled, and trusted as a project Stop hook | `.codex/hooks.json`, `week04/run_fdxf_numeric_hook.sh`, and `HOOK_REVIEW.md` |
 | First live report | Complete and pushed within the 24-hour deadline for WFCF | `runs/live/WFCF_20261114_144628/` and `LIVE_RECORD.md` |
 | Live-record index | Week 4 permanent commit link recorded | `LIVE_RECORD.md` |
-| Owned product line | Pending team decision | `TEAM_DECISIONS.md` |
+| Hit-rate table | Reproducible; WFCF reaction is available but its original direction is `not computed` | `HIT_RATE.md` and `equity_research_crewai.hit_rate` |
+| Week 4 page evidence | Seeker and worksheet shown side by side | `equity_research_crewai/src/equity_research_crewai/ui.py` |
+| Owned product line | Approved, frozen, and started; Devashish owns the factor-validation check | `OWNED_FACTOR_CHECK_FROZEN.json` and `OWNED_FACTOR_CHECK_BASELINE.md` |
 
 ## Safety boundaries
 
@@ -64,10 +69,35 @@ The numeric hook must block completion when a financial number lacks a permitted
 - Treat a screen as a screen. Do not present it as a recommendation.
 - Show the hook file and its seeded-error test before enabling it.
 
-## Immediate sequence
+## Remaining publication actions
 
-1. Devashish reviews the completed FDXF worksheet.
-2. Commit or push only after Devashish approves publication.
+1. Devashish reviews the completed re-audit changes.
+2. Commit or push only after Devashish gives a separate publication instruction.
+
+## Reproducible owned-factor baseline command
+
+```bash
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.factor_validation \
+  --config week04/OWNED_FACTOR_CHECK_FROZEN.json \
+  --registry week04/runs/seeker_20261119_full/registry.json \
+  --f1 week04/runs/seeker_20261119_full/official_close_f1_audit.json \
+  --f2 week04/runs/seeker_20261119_full/sec_f2_audit.json \
+  --f3 week04/runs/seeker_20261119_full/form4_f3_audit.json \
+  --human-factors week04/HUMAN_FACTORS.md \
+  --output week04/OWNED_FACTOR_CHECK_BASELINE.md
+```
+
+The command reads no return outcome. It freezes and prints the pre-registered 10-name baseline.
+
+## Reproducible hit-rate command
+
+```bash
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.hit_rate \
+  --runs-dir week04/runs/live \
+  --output week04/HIT_RATE.md
+```
+
+This command reads the saved view and close records in each live-run folder. It does not change the saved view or its time.
 
 ## Reproducible seeker commands
 

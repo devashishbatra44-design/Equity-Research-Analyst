@@ -1,6 +1,6 @@
 # Week 4 Link Audit
 
-Checked: November 14, 2026
+Checked: November 21, 2026
 
 Entry point: <https://cinderzhang.github.io/FIN67110-Fall2026/schedule.html>
 
@@ -9,6 +9,15 @@ Entry point: <https://cinderzhang.github.io/FIN67110-Fall2026/schedule.html>
 This audit covers all links on the Week 4 overview, Lab 06, Lab 07, and the Week 4 request page. It also covers each named Week 4 target on the course readings, data, project, and deck pages.
 
 An external target page is a boundary. Unrelated navigation on SEC, LSEG, Purdue, YouTube, GitHub, publisher, and documentation sites is outside the course link graph.
+
+## Fresh recheck on November 21, 2026
+
+- The Schedule, Week 4 overview, Lab 06, Lab 07, request samples, Project, Grading, Syllabus, decks, readings, data, Week 3, Week 5, and audit-checklist pages returned HTTP 200.
+- The primary Week 4 content and requirements did not change from the saved November 20 copies.
+- The Claude, Codex, Antigravity, YouTube, GitHub, DOI, LSEG, WRDS, CRSP, and other method targets were reached, subject to normal publisher or institutional access controls.
+- Automated requests to SEC pages returned HTTP 403 without the required SEC request identity. The saved course work uses a declared SEC User-Agent and already contains the primary filing evidence.
+- The Purdue Capital IQ page and the Purdue-hosted McConnell PDF had a local certificate-chain verification error during this automated recheck. This does not prove that either page is unavailable in a browser.
+- The Week 4 course site contains four broken fragment links on `requests.html`. The page uses double-hyphen IDs, but its links use single-hyphen fragments. The underlying request page returned HTTP 200 and was reviewed in full.
 
 ## Primary pages
 

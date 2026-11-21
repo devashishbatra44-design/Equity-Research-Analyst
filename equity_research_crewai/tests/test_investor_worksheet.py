@@ -10,6 +10,7 @@ from equity_research_crewai.investor_worksheet import (
     owner_cash_flow,
     render_fact,
     render_owner_cash_flow,
+    spin_sections_for_ticker,
     value_range,
 )
 
@@ -57,3 +58,49 @@ def test_liquidity_is_added_by_code() -> None:
     assert result.median_daily_dollar_volume == Decimal("12000")
     assert result.ratio == Decimal("12")
     assert result.status == "passes"
+
+
+def test_non_registry_ticker_marks_only_spin_sections_not_applicable() -> None:
+    registry = {
+        "included_distributions": [
+            {
+                "child_ticker": "SPIN",
+                "parent": "Parent Inc.",
+                "ratio": "1 for 2",
+                "record_date": "2026-01-01",
+                "distribution_date": "2026-01-15",
+                "form10_accession": "0001",
+                "form10_url": "https://example.test/form10",
+                "section": "The Spin-Off",
+            }
+        ]
+    }
+
+    result = spin_sections_for_ticker(registry, "OTHER")
+
+    assert result["applicable"] is False
+    assert set(result.values()) == {False, "not applicable"}
+    assert owner_cash_flow(Decimal("80"), Decimal("15"), Decimal("20")).value == Decimal("75")
+
+
+def test_registry_ticker_returns_filing_provenance() -> None:
+    registry = {
+        "included_distributions": [
+            {
+                "child_ticker": "SPIN",
+                "parent": "Parent Inc.",
+                "ratio": "1 for 2",
+                "record_date": "2026-01-01",
+                "distribution_date": "2026-01-15",
+                "form10_accession": "0001",
+                "form10_url": "https://example.test/form10",
+                "section": "The Spin-Off",
+            }
+        ]
+    }
+
+    result = spin_sections_for_ticker(registry, "spin")
+
+    assert result["applicable"] is True
+    assert result["parent"] == "Parent Inc."
+    assert result["form10_accession"] == "0001"

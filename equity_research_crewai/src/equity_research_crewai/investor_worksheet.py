@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from decimal import Decimal
 from statistics import median
-from typing import Sequence
+from typing import Any, Mapping, Sequence
 
 
 @dataclass(frozen=True)
@@ -51,6 +51,38 @@ class LiquidityResult:
     intended_purchase_size: Decimal
     ratio: Decimal | None
     status: str
+
+
+SPIN_SECTION_FIELDS = (
+    "parent",
+    "ratio",
+    "record_date",
+    "distribution_date",
+    "form10_accession",
+    "form10_url",
+    "section",
+)
+
+
+def spin_sections_for_ticker(registry: Mapping[str, Any], ticker: str) -> dict[str, Any]:
+    """Return registry facts or the exact non-registry marker for spin sections."""
+
+    clean_ticker = ticker.strip().upper()
+    rows = registry.get("included_distributions", [])
+    if not isinstance(rows, list):
+        raise ValueError("Registry included_distributions must be a list.")
+    for row in rows:
+        if not isinstance(row, Mapping):
+            raise ValueError("Each registry distribution must be an object.")
+        if str(row.get("child_ticker", "")).upper() == clean_ticker:
+            return {
+                "applicable": True,
+                **{field: row.get(field) for field in SPIN_SECTION_FIELDS},
+            }
+    return {
+        "applicable": False,
+        **{field: "not applicable" for field in SPIN_SECTION_FIELDS},
+    }
 
 
 def owner_cash_flow(

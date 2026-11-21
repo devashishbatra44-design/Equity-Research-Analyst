@@ -13,6 +13,9 @@ SEC filings remain authoritative for every audited claim.
 - Week 3 fixed graph, Verifier proofs, personas, and run status: [week03/README.md](week03/README.md)
 - Checkpoint 2 submission index: [week03/CHECKPOINT2_SUBMISSION.md](week03/CHECKPOINT2_SUBMISSION.md)
 - Professor-provided FAskills course integration: [week03/FASKILLS_INTEGRATION.md](week03/FASKILLS_INTEGRATION.md)
+- Week 4 seeker, FDXF worksheet, numeric hook, live record, and full re-audit: [week04/README.md](week04/README.md)
+
+Owned feature: We own a pre-registered spinoff factor-validation check that freezes F1-F3 before the test return and reports every comparison and missing observation.
 
 ## Local setup and verification
 
