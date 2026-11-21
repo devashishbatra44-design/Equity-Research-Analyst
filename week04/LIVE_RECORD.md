@@ -5,7 +5,7 @@ This table records pushed GitHub reports. The Git commit timestamp is the weekly
 | Week | Filing window | Company | Filing and accession | EDGAR Accepted, Eastern | 24-hour deadline, Eastern | Report path | Permanent GitHub commit link | Commit timestamp | In window? |
 |---|---|---|---|---|---|---|---|---|---|
 | 4 | Nov 9-15, 2026 | Where Food Comes From, Inc. (WFCF) | 8-K, 0001493152-26-051832 | Nov 13, 2026, 5:14:42 PM | Nov 14, 2026, 5:14:42 PM | `week04/runs/live/WFCF_20261114_144628/report.md` | [0cce0fe report](https://github.com/devashishbatra44-design/Equity-Research-Analyst/blob/0cce0fe26fbf217a7f56dd5c74c85cc8f7ea31cb/week04/runs/live/WFCF_20261114_144628/report.md) | Nov 14, 2026, 3:01:03 PM | Yes |
-| 5 | Nov 16-22, 2026 | Pending | Pending | Pending | Pending | Pending | Pending | Pending | Pending |
+| 5 | Nov 16-22, 2026 | SUNation Energy, Inc. (SUNE) | 8-K, 0001213900-26-122794 | Nov 20, 2026, 5:26:25 PM | Nov 21, 2026, 5:26:25 PM | `week05/runs/live/SUNE_20261121_022515/live_report.md` | Pending push | Pending push | Pending push |
 | 6 | Nov 23-29, 2026 | Optional if 3 other weeks qualify | Pending | Pending | Pending | Pending | Pending | Pending | Pending |
 | 7 | Nov 30-Dec 6, 2026 | Pending | Pending | Pending | Pending | Pending | Pending | Pending | Pending |
 

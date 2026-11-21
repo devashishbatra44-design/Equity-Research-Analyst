@@ -104,16 +104,27 @@ def value_range(
 ) -> ValueRange:
     """Apply human-supplied capitalization rates or multiples."""
 
-    if low_input <= 0 or mid_input <= 0:
-        raise ValueError("Value inputs must be positive.")
-    if method == "capitalization rate":
+    if method == "negative owner-cash-flow floor":
+        if cash_flow >= 0:
+            raise ValueError("The negative owner-cash-flow floor requires negative cash flow.")
+        if low_input != 0 or mid_input != 0:
+            raise ValueError("The approved negative owner-cash-flow floor must use zero inputs.")
+        low_value = Decimal("0")
+        mid_value = Decimal("0")
+    elif method == "capitalization rate":
+        if low_input <= 0 or mid_input <= 0:
+            raise ValueError("Value inputs must be positive.")
         low_value = cash_flow / low_input
         mid_value = cash_flow / mid_input
     elif method == "multiple":
+        if low_input <= 0 or mid_input <= 0:
+            raise ValueError("Value inputs must be positive.")
         low_value = cash_flow * low_input
         mid_value = cash_flow * mid_input
     else:
-        raise ValueError("Method must be capitalization rate or multiple.")
+        raise ValueError(
+            "Method must be capitalization rate, multiple, or negative owner-cash-flow floor."
+        )
     if low_value > mid_value:
         raise ValueError("The human inputs produce a low value above the mid value.")
     comparison = "not computed" if price is None else ("more" if low_value > price else "less")

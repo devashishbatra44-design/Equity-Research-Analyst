@@ -5,9 +5,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/zsh week04/run_fdxf_numeric_hook.sh",
+            "command": "/bin/zsh week04/run_numeric_hook.sh",
             "timeout": 30,
-            "statusMessage": "Verifying the FDXF worksheet numbers"
+            "statusMessage": "Verifying all saved worksheet numbers"
           }
         ]
       }

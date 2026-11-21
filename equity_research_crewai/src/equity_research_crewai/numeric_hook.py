@@ -20,6 +20,7 @@ ALLOWED_KINDS = {
     "filing_fact",
     "arithmetic",
     "human_rate",
+    "human_value",
     "human_weight",
     "licensed_price",
     "official_exchange_price",
@@ -89,7 +90,7 @@ def verify_claim(claim: Mapping[str, Any]) -> list[str]:
                 expected = expected.quantize(Decimal("1").scaleb(-places), rounding=ROUND_HALF_UP)
             if expected is not None and decimal(claim.get("value")) != expected:
                 errors.append(f"{claim_id}: printed arithmetic does not recompute")
-    elif kind in {"human_rate", "human_weight"}:
+    elif kind in {"human_rate", "human_value", "human_weight"}:
         for field in ("config_file", "config_key"):
             if claim.get(field) in (None, ""):
                 errors.append(f"{claim_id}: missing {field}")
@@ -202,11 +203,16 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
         if kind == "filing_fact" and claim.get("source_file") and claim.get("source_line"):
             try:
                 source_line = _line(_within(base, str(claim["source_file"])), int(claim["source_line"]))
-                if token and not _token_in_line(token, source_line):
+                source_token = str(claim.get("source_token") or token)
+                if source_token and not _token_in_line(source_token, source_line):
                     errors.append(f"{claim_id}: value is absent from the cited saved filing line")
+                if claim.get("source_multiplier") not in (None, ""):
+                    transformed = decimal(source_token.replace(",", "")) * decimal(claim["source_multiplier"])
+                    if transformed != decimal(claim.get("value")):
+                        errors.append(f"{claim_id}: scaled filing value does not recompute")
             except (OSError, ValueError) as exc:
                 errors.append(f"{claim_id}: {exc}")
-        elif kind in {"human_rate", "human_weight"} and claim.get("config_file"):
+        elif kind in {"human_rate", "human_value", "human_weight"} and claim.get("config_file"):
             try:
                 config = json.loads(_within(base, str(claim["config_file"])).read_text(encoding="utf-8"))
                 frozen = config[str(claim.get("config_key", ""))]
@@ -224,6 +230,12 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
                     and record.get("pricing_date") == claim.get("price_date")
                     and decimal(record.get("close")) == decimal(claim.get("value"))
                 ]
+                if not matches and reader.get("instrument"):
+                    matches = [reader] if (
+                        str(reader.get("instrument", "")).upper() == str(claim.get("instrument", "")).upper()
+                        and reader.get("end_date") == claim.get("price_date")
+                        and decimal(reader.get("end_date_close")) == decimal(claim.get("value"))
+                    ) else []
                 if not matches:
                     errors.append(f"{claim_id}: price does not match the saved closes-reader record")
             except (OSError, ValueError, json.JSONDecodeError) as exc:
@@ -238,7 +250,14 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
                 ]
                 metric = str(claim.get("metric", ""))
                 expected: Decimal | None = None
-                if metric == "observation_count":
+                if not records and reader.get("instrument"):
+                    if str(reader.get("instrument", "")).upper() != str(claim.get("instrument", "")).upper():
+                        errors.append(f"{claim_id}: market-summary instrument does not match")
+                    elif metric == "observation_count":
+                        expected = decimal(reader.get("observation_count"))
+                    elif metric == "median_daily_dollar_volume":
+                        expected = decimal(reader.get("median_daily_dollar_volume"))
+                elif metric == "observation_count":
                     expected = Decimal(len(records))
                 elif metric == "median_daily_dollar_volume":
                     values = sorted(decimal(record["close"]) * decimal(record["volume"]) for record in records)
@@ -271,7 +290,8 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
             r"\d{10}-\d{2}-\d{6}|\d{4}-\d{2}-\d{2}|(?<![A-Za-z])[-+]?\d[\d,]*(?:\.\d+)?%?(?![A-Za-z])"
         )
         for number, line in enumerate(worksheet_lines, start=1):
-            for match in token_pattern.finditer(line):
+            scan_line = re.sub(r"https?://\S+", "", line)
+            for match in token_pattern.finditer(scan_line):
                 token = match.group(0).replace(",", "")
                 if (number, token) not in covered:
                     errors.append(f"worksheet line {number}: unclassified numeric token {match.group(0)!r}")
@@ -293,9 +313,9 @@ def main() -> None:
     result = verify_file(Path(sys.argv[1]))
     if result.ok:
         return
-    print(REFUSAL)
+    print(REFUSAL, file=sys.stderr)
     for error in result.errors:
-        print(f"- {error}")
+        print(f"- {error}", file=sys.stderr)
     raise SystemExit(2)
 
 

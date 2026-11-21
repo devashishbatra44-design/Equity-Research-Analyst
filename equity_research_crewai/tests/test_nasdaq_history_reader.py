@@ -1,4 +1,4 @@
-from equity_research_crewai.nasdaq_history_reader import normalize
+from equity_research_crewai.nasdaq_history_reader import normalize, summarize
 
 
 def test_normalizes_close_and_volume_in_date_order() -> None:
@@ -28,3 +28,24 @@ def test_missing_volume_is_not_silently_used() -> None:
 
     assert result["status"] == "not available"
     assert result["records"] == []
+
+
+def test_summary_keeps_only_derived_market_metrics() -> None:
+    payload = {
+        "data": {
+            "tradesTable": {
+                "rows": [
+                    {"date": "11/10/2026", "close": "$10", "volume": "10,000"},
+                    {"date": "11/09/2026", "close": "$11", "volume": "10,000"},
+                ]
+            }
+        }
+    }
+
+    summary = summarize(normalize(payload, "test", "https://api.nasdaq.test/history"))
+
+    assert summary["observation_count"] == 2
+    assert summary["start_date"] == "2026-11-09"
+    assert summary["end_date"] == "2026-11-10"
+    assert summary["median_daily_dollar_volume"] == "105000"
+    assert "records" not in summary

@@ -1,0 +1,657 @@
+{
+  "task": "Check whether each cited line or XBRL fact states the report's number for the stated period and definition. Use the mark Not in filings when the code mark says Not in filings and the report does not invent a value. Do not assess the Investment Advisor's thesis. For an Insight line, check its numbers, periods, definitions, and cited evidence only; do not grade whether its analytical inference is persuasive. Mark an Insight Correct when its numbers, periods, definitions, and citations are correct, even when the relationship or implication is the analyst's inference rather than a sentence stated verbatim in a filing. Every code mark represents one numerical statement outside the Investment Advisor thesis. Web numbers, vendor-derived metrics, and uncited numbers are Unsupported. Never override those fail-closed marks. For a qualitative supplementary web claim, check only the saved Tavily excerpt cited by the exact URL. Never accept Tavily as a replacement for filing evidence. Return JSON only.",
+  "compiled_report": "# SUNation Energy, Inc. (SUNE) — filings read: 10-K accession 0000022701-26-000003; 10-Q accession 0000022701-26-000010; 8-K accession 0001213900-26-122794 and Exhibit 99.1\n# Run time: 2026-11-21T02:29:18-05:00\n\n# Overview\n\nSUNation Energy, Inc. operates solar, battery-storage, and grid-services businesses in New York and Hawaii (10-k.txt:1805). The November 20, 2026, earnings release reported Q3 2026 revenue of $11.20 million, compared with $18.99 million in Q3 2025 (exhibit-99-1.txt:112). It reported a Q3 2026 net loss of $11.82 million and $9.82 million of goodwill and intangible-asset impairment charges (exhibit-99-1.txt:114; exhibit-99-1.txt:115).\n\n# Market Positioning and Growth Outlook\n\nResidential contract revenue declined 52% year over year in Q3 2026, while commercial revenue increased 20% (exhibit-99-1.txt:57; exhibit-99-1.txt:58). Commercial and service revenue represented approximately 33% of Q3 2026 consolidated revenue, compared with approximately 18% in Q3 2025 (exhibit-99-1.txt:58; exhibit-99-1.txt:59). Hawaii Energy Connection's battery attachment rate increased 13% year over year during the quarter (exhibit-99-1.txt:71).\n\nThe proposed Suniva merger is the principal event catalyst. Management said that it anticipated completion in Q1 2027, subject to required conditions and approvals (exhibit-99-1.txt:107). The filing does not establish that the transaction will close.\n\n# Valuation Insights\n\nFY 2025 revenue was $71,905,527, and FY 2025 net loss was $10,892,833 (facts.json:total_revenue; facts.json:net_income). FY 2025 operating cash flow was $954,978, and capital expenditures were $48,594, producing code-calculated free cash flow of $906,384 (facts.json:cash_from_operations; facts.json:property_equipment_additions; calculations.json:free_cash_flow).\n\n### Required Course Claims — Code-Built Audit Block\n\nAnnual total revenue was $71.906 million (facts.json:total_revenue).\nAnnual revenue growth was 26.4568% (calculations.json:revenue_growth).\nAnnual operating income was $-1.673 million (facts.json:operating_income).\nAnnual operating margin was -2.3267% (calculations.json:operating_margin).\nAnnual net income attributable to the company was $-10.893 million (facts.json:net_income).\nAnnual GAAP diluted EPS was $-4.38 (facts.json:diluted_eps).\nReturn on average equity was -66.2331% (calculations.json:return_on_average_equity).\nDebt to equity was not stated in the supplied filings because the required inputs were unavailable.\nFree cash flow was $906,384.00 (calculations.json:free_cash_flow).\n\nThe release reported $2.79 million of cash and cash equivalents and a $5.35 million working-capital deficit at September 30, 2026 (exhibit-99-1.txt:124). It also reported $6.54 million of cash used in operating activities for the nine months ended September 30, 2026 (exhibit-99-1.txt:124). These post-FY figures show that the positive FY 2025 free-cash-flow result did not continue through the first nine months of 2026.\n\nThe course owner-cash-flow formula and the price comparison appear in the saved investor worksheet. The worksheet, rather than this agent narrative, controls the live release view.\n\n# Future Developments and Strategic Risks\n\nThe filing states that the company requires additional capital to meet its obligations and operating needs (exhibit-99-1.txt:79). At September 30, 2026, aggregate current and long-term loans payable and related interest were $4.98 million (exhibit-99-1.txt:125). The same release reported total liabilities of $22.78 million and stockholders' equity of $8.69 million (exhibit-99-1.txt:127; exhibit-99-1.txt:129).\n\nThe next filing should be checked for three items: operating cash use, the working-capital deficit, and binding evidence that the Suniva merger conditions were satisfied. The present filing leaves the amount and terms of required additional capital not known.\n\n# Investment Recommendation\n\nThis agent report does not issue a Buy, Hold, or Sell recommendation. The live worksheet supplies a reproducible `more` or `less` view against the official $1.71 per-share close on November 20, 2026 (manifest.json:price; manifest.json:price_date). Its deciding number, liquidity result, and human conviction rule must all agree before publication.\n\nInsight: The deciding risk is liquidity because the release states that SUNation requires additional capital while reporting $2.79 million of cash and a $5.35 million working-capital deficit at September 30, 2026 (exhibit-99-1.txt:79; exhibit-99-1.txt:124).\n\n---\n\nThis is a learning exercise, not financial advice.\n\nAI assistance: OpenAI Codex, CrewAI, and Purdue GenAI Studio. The saved verifier checks the filing and calculation claims.\n",
+  "saved_facts": {
+    "reference_fiscal_year": {
+      "fiscal_year": 2025,
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "selected_revenue_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "concepts": {
+      "total_revenue": {
+        "label": "Total revenue",
+        "selected_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "current": {
+          "value": 71905527,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": 56861753,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "operating_income": {
+        "label": "Operating income",
+        "selected_tag": "us-gaap:OperatingIncomeLoss",
+        "current": {
+          "value": -1673037,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": -12317403,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "net_income": {
+        "label": "Net income",
+        "selected_tag": "us-gaap:NetIncomeLoss",
+        "current": {
+          "value": -10892833,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": -15849805,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:NetIncomeLoss",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "diluted_eps": {
+        "label": "Diluted earnings per share",
+        "selected_tag": "us-gaap:EarningsPerShareDiluted",
+        "current": {
+          "value": -4.38,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": -10110.93,
+          "unit": "USD/share",
+          "source_unit_key": "USD/shares",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:EarningsPerShareDiluted",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "stockholders_equity": {
+        "label": "Stockholders' equity",
+        "selected_tag": "us-gaap:StockholdersEquity",
+        "current": {
+          "value": 24345006,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": 8547416,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": null,
+          "xbrl_tag": "us-gaap:StockholdersEquity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "long_term_debt": {
+        "label": "Long-term debt",
+        "selected_tag": "us-gaap:LongTermDebt",
+        "current": {
+          "value": 6643856,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": null,
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025Q4I",
+          "xbrl_tag": "us-gaap:LongTermDebt",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": null
+      },
+      "current_long_term_debt": {
+        "label": "Current portion of long-term debt",
+        "selected_tag": null,
+        "current": null,
+        "prior": null
+      },
+      "cash_from_operations": {
+        "label": "Net cash provided by operating activities",
+        "selected_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "current": {
+          "value": 954978,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": -6302686,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      },
+      "property_equipment_additions": {
+        "label": "Additions to property and equipment",
+        "selected_tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+        "current": {
+          "value": 48594,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "period_start": "2025-01-01",
+          "period_end": "2025-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2025",
+          "xbrl_tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        },
+        "prior": {
+          "value": 32785,
+          "unit": "USD",
+          "source_unit_key": "USD",
+          "fiscal_year": 2024,
+          "fiscal_period": "FY",
+          "period_start": "2024-01-01",
+          "period_end": "2024-12-31",
+          "filing_form": "10-K",
+          "filing_date": "2026-03-23",
+          "accession_number": "0000022701-26-000003",
+          "frame": "CY2024",
+          "xbrl_tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+        }
+      }
+    },
+    "earnings_release_extraction": {
+      "source_filename": "exhibit-99-1.txt",
+      "claims": {
+        "total_revenue": {
+          "label": "Quarterly total revenue",
+          "status": "candidate_ambiguity",
+          "quoted_source_text": null,
+          "source_line_start": null,
+          "source_line_end": null,
+          "candidates": [
+            {
+              "line_start": 362,
+              "line_end": 362,
+              "text": "Revenue | $ | 8,007 | $ | 13,015",
+              "score": 6
+            },
+            {
+              "line_start": 369,
+              "line_end": 369,
+              "text": "Revenue | $ | 3,193 | $ | 5,979",
+              "score": 6
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        },
+        "diluted_eps": {
+          "label": "Quarterly diluted EPS",
+          "status": "candidate_ambiguity",
+          "quoted_source_text": null,
+          "source_line_start": null,
+          "source_line_end": null,
+          "candidates": [
+            {
+              "line_start": 115,
+              "line_end": 115,
+              "text": "– | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million.",
+              "score": 3
+            },
+            {
+              "line_start": 320,
+              "line_end": 320,
+              "text": "Basic and diluted net loss per share | $ | (1.81 | ) | $ | (0.12 | )",
+              "score": 3
+            }
+          ],
+          "note": "Quoted source text; no value was calculated, inferred, or paraphrased."
+        }
+      }
+    }
+  },
+  "supplemental_faskills_metrics": {
+    "status": "not present"
+  },
+  "supplemental_tavily_research": {
+    "status": "not present"
+  },
+  "code_marks": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $71.906 million (facts.json:total_revenue).",
+      "filing_says": "$71.906 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 26.4568% (calculations.json:revenue_growth).",
+      "filing_says": "26.4568%",
+      "mark": "Correct",
+      "evidence": "(71905527 - 56861753) / 56861753"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $-1.673 million (facts.json:operating_income). Annual operating margin was -2.3267% (calculations.json:operating_margin).",
+      "filing_says": "$-1.673 million; -2.3267%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $-10.893 million (facts.json:net_income).",
+      "filing_says": "$-10.893 million",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $-4.38 (facts.json:diluted_eps).",
+      "filing_says": "$-4.38",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was -66.2331% (calculations.json:return_on_average_equity).",
+      "filing_says": "-66.2331%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the supplied filings because the required inputs were unavailable.",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $906,384.00 (calculations.json:free_cash_flow).",
+      "filing_says": "$906,384.00",
+      "mark": "Correct",
+      "evidence": "954978 - 48594"
+    },
+    {
+      "claim": "Insight 1",
+      "report_said": "The deciding risk is liquidity because the release states that SUNation requires additional capital while reporting $2.79 million of cash and a $5.35 million working-capital deficit at September 30, 2026 (exhibit-99-1.txt:79; exhibit-99-1.txt:124).",
+      "filing_says": "$2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs. | – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities.",
+      "mark": "Correct",
+      "evidence": "$2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs. | – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities."
+    },
+    {
+      "claim": "Other number L6.1",
+      "report_said": "$11.20 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | exhibit-99-1.txt:112-112: – | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue. | exhibit-99-1.txt:114-114: – | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions. | exhibit-99-1.txt:115-115: – | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million."
+    },
+    {
+      "claim": "Other number L6.2",
+      "report_said": "$18.99 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | exhibit-99-1.txt:112-112: – | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue. | exhibit-99-1.txt:114-114: – | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions. | exhibit-99-1.txt:115-115: – | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million."
+    },
+    {
+      "claim": "Other number L6.3",
+      "report_said": "$11.82 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | exhibit-99-1.txt:112-112: – | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue. | exhibit-99-1.txt:114-114: – | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions. | exhibit-99-1.txt:115-115: – | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million."
+    },
+    {
+      "claim": "Other number L6.4",
+      "report_said": "$9.82 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | exhibit-99-1.txt:112-112: – | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue. | exhibit-99-1.txt:114-114: – | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions. | exhibit-99-1.txt:115-115: – | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million."
+    },
+    {
+      "claim": "Other number L10.1",
+      "report_said": "52%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:59-59: revenue, compared with approximately 18% in Q3 2025. | exhibit-99-1.txt:71-71: Connection’s battery attachment rates increased 13% year over year during the quarter."
+    },
+    {
+      "claim": "Other number L10.2",
+      "report_said": "20%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:59-59: revenue, compared with approximately 18% in Q3 2025. | exhibit-99-1.txt:71-71: Connection’s battery attachment rates increased 13% year over year during the quarter."
+    },
+    {
+      "claim": "Other number L10.3",
+      "report_said": "33%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:59-59: revenue, compared with approximately 18% in Q3 2025. | exhibit-99-1.txt:71-71: Connection’s battery attachment rates increased 13% year over year during the quarter."
+    },
+    {
+      "claim": "Other number L10.4",
+      "report_said": "18%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:59-59: revenue, compared with approximately 18% in Q3 2025. | exhibit-99-1.txt:71-71: Connection’s battery attachment rates increased 13% year over year during the quarter."
+    },
+    {
+      "claim": "Other number L10.5",
+      "report_said": "13%",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:59-59: revenue, compared with approximately 18% in Q3 2025. | exhibit-99-1.txt:71-71: Connection’s battery attachment rates increased 13% year over year during the quarter."
+    },
+    {
+      "claim": "Other number L16.1",
+      "report_said": "$71,905,527,",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:total_revenue:current: 71905527; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003 | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 | facts.json:cash_from_operations:current: 954978; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-12-31; accession 0000022701-26-000003 | facts.json:property_equipment_additions:current: 48594; tag us-gaap:PaymentsToAcquireProductiveAssets; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "Other number L16.2",
+      "report_said": "$10,892,833",
+      "filing_says": "Found at 10-k.txt:2437: Consolidated operating loss before income taxes in 2025 was $10,841,693, compared to a consolidated operating loss before income taxes of $15,814,986 in 2024. Net loss in 2025 was $10,892,833, or ($4.38) per diluted share. Net loss attributable to shareholders in 2024 (after taking into effect $11,587,121 in deemed dividends) was $27,436,926, or ($10,110.93) per diluted share from continuing operations.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $10,892,833, and simple arithmetic from the cited inputs does not establish it at the report's rounding. calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:total_revenue:current: 71905527; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003 | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 | facts.json:cash_from_operations:current: 954978; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-12-31; accession 0000022701-26-000003 | facts.json:property_equipment_additions:current: 48594; tag us-gaap:PaymentsToAcquireProductiveAssets; period 2025-12-31; accession 0000022701-26-000003 Found at 10-k.txt:2437: Consolidated operating loss before income taxes in 2025 was $10,841,693, compared to a consolidated operating loss before income taxes of $15,814,986 in 2024. Net loss in 2025 was $10,892,833, or ($4.38) per diluted share. Net loss attributable to shareholders in 2024 (after taking into effect $11,587,121 in deemed dividends) was $27,436,926, or ($10,110.93) per diluted share from continuing operations."
+    },
+    {
+      "claim": "Other number L16.3",
+      "report_said": "$954,978,",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:total_revenue:current: 71905527; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003 | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 | facts.json:cash_from_operations:current: 954978; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-12-31; accession 0000022701-26-000003 | facts.json:property_equipment_additions:current: 48594; tag us-gaap:PaymentsToAcquireProductiveAssets; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "Other number L16.4",
+      "report_said": "$48,594,",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:total_revenue:current: 71905527; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003 | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 | facts.json:cash_from_operations:current: 954978; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-12-31; accession 0000022701-26-000003 | facts.json:property_equipment_additions:current: 48594; tag us-gaap:PaymentsToAcquireProductiveAssets; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "Other number L16.5",
+      "report_said": "$906,384",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:total_revenue:current: 71905527; tag us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003 | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 | facts.json:cash_from_operations:current: 954978; tag us-gaap:NetCashProvidedByUsedInOperatingActivities; period 2025-12-31; accession 0000022701-26-000003 | facts.json:property_equipment_additions:current: 48594; tag us-gaap:PaymentsToAcquireProductiveAssets; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "Other number L30.1",
+      "report_said": "$2.79 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities. | exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities."
+    },
+    {
+      "claim": "Other number L30.2",
+      "report_said": "$5.35 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities. | exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities."
+    },
+    {
+      "claim": "Other number L30.3",
+      "report_said": "$6.54 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities. | exhibit-99-1.txt:124-124: – | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities."
+    },
+    {
+      "claim": "Other number L36.1",
+      "report_said": "$4.98 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:79-79: $2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs. | exhibit-99-1.txt:125-125: – | Payables and loans payable Accounts payable declined 23% to $5.66 million from $7.40 million. The aggregate carrying amount of current and long-term loans payable and related interest, including related-party balances, declined to $4.98 million from $6.60 million, reflecting repayments, the related-party debt conversion completed earlier in 2026 and borrowings under the affiliated revolving credit facility. | exhibit-99-1.txt:127-127: Total liabilities were $22.78 million, compared with $23.90 million | exhibit-99-1.txt:129-129: from $8.49 million. Stockholders’ equity was $8.69 million, compared with $24.35 million at year-end and $20.52 million at June"
+    },
+    {
+      "claim": "Other number L36.2",
+      "report_said": "$22.78 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:79-79: $2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs. | exhibit-99-1.txt:125-125: – | Payables and loans payable Accounts payable declined 23% to $5.66 million from $7.40 million. The aggregate carrying amount of current and long-term loans payable and related interest, including related-party balances, declined to $4.98 million from $6.60 million, reflecting repayments, the related-party debt conversion completed earlier in 2026 and borrowings under the affiliated revolving credit facility. | exhibit-99-1.txt:127-127: Total liabilities were $22.78 million, compared with $23.90 million | exhibit-99-1.txt:129-129: from $8.49 million. Stockholders’ equity was $8.69 million, compared with $24.35 million at year-end and $20.52 million at June"
+    },
+    {
+      "claim": "Other number L36.3",
+      "report_said": "$8.69 million",
+      "filing_says": "Matched cited filing or deterministic calculation",
+      "mark": "Correct",
+      "evidence": "exhibit-99-1.txt:79-79: $2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs. | exhibit-99-1.txt:125-125: – | Payables and loans payable Accounts payable declined 23% to $5.66 million from $7.40 million. The aggregate carrying amount of current and long-term loans payable and related interest, including related-party balances, declined to $4.98 million from $6.60 million, reflecting repayments, the related-party debt conversion completed earlier in 2026 and borrowings under the affiliated revolving credit facility. | exhibit-99-1.txt:127-127: Total liabilities were $22.78 million, compared with $23.90 million | exhibit-99-1.txt:129-129: from $8.49 million. Stockholders’ equity was $8.69 million, compared with $24.35 million at year-end and $20.52 million at June"
+    }
+  ],
+  "cited_filing_lines": [
+    {
+      "citation": "10-k.txt:1805",
+      "report_sentence": "operates solar, battery-storage, and grid-services businesses in New York and Hawaii (",
+      "source_line": "SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:112",
+      "report_sentence": "The November 20, 2026, earnings release reported Q3 2026 revenue of $11.20 million, compared with $18.99 million in Q3 2025 (",
+      "source_line": "– | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:114",
+      "report_sentence": "It reported a Q3 2026 net loss of $11.82 million and $9.82 million of goodwill and intangible-asset impairment charges (",
+      "source_line": "– | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:115",
+      "report_sentence": "It reported a Q3 2026 net loss of $11.82 million and $9.82 million of goodwill and intangible-asset impairment charges (exhibit-99-1.txt:114;",
+      "source_line": "– | Net loss Net loss was $11.82 million, or $1.81 per basic and diluted share, compared with $0.39 million, or $0.12 per basic and diluted share, in Q3 2025. The increase reflected the impairment charges and lower gross profit, partially offset by reduced SG&A expense. Operating loss was $11.71 million, compared with $0.25 million in Q3 2025. Impairment charges comprised $4.92 million of goodwill and $4.90 million of intangible assets. Amortization expense was unchanged year over year at $0.56 million.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:57",
+      "report_sentence": "# Market Positioning and Growth Outlook\n\nResidential contract revenue declined 52% year over year in Q3 2026, while commercial revenue increased 20% (",
+      "source_line": "occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:58",
+      "report_sentence": "# Market Positioning and Growth Outlook\n\nResidential contract revenue declined 52% year over year in Q3 2026, while commercial revenue increased 20% (exhibit-99-1.txt:57;",
+      "source_line": "over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:58",
+      "report_sentence": "Commercial and service revenue represented approximately 33% of Q3 2026 consolidated revenue, compared with approximately 18% in Q3 2025 (",
+      "source_line": "over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:59",
+      "report_sentence": "Commercial and service revenue represented approximately 33% of Q3 2026 consolidated revenue, compared with approximately 18% in Q3 2025 (exhibit-99-1.txt:58;",
+      "source_line": "revenue, compared with approximately 18% in Q3 2025.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:71",
+      "report_sentence": "Hawaii Energy Connection's battery attachment rate increased 13% year over year during the quarter (",
+      "source_line": "Connection’s battery attachment rates increased 13% year over year during the quarter.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:107",
+      "report_sentence": "Management said that it anticipated completion in Q1 2027, subject to required conditions and approvals (",
+      "source_line": "the Suniva merger in the first quarter of 2027, subject to the required conditions and approvals. Our immediate responsibility is to operate",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:124",
+      "report_sentence": "The release reported $2.79 million of cash and cash equivalents and a $5.35 million working-capital deficit at September 30, 2026 (",
+      "source_line": "– | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:124",
+      "report_sentence": "It also reported $6.54 million of cash used in operating activities for the nine months ended September 30, 2026 (",
+      "source_line": "– | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:79",
+      "report_sentence": "# Future Developments and Strategic Risks\n\nThe filing states that the company requires additional capital to meet its obligations and operating needs (",
+      "source_line": "$2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:125",
+      "report_sentence": "At September 30, 2026, aggregate current and long-term loans payable and related interest were $4.98 million (",
+      "source_line": "– | Payables and loans payable Accounts payable declined 23% to $5.66 million from $7.40 million. The aggregate carrying amount of current and long-term loans payable and related interest, including related-party balances, declined to $4.98 million from $6.60 million, reflecting repayments, the related-party debt conversion completed earlier in 2026 and borrowings under the affiliated revolving credit facility.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:127",
+      "report_sentence": "The same release reported total liabilities of $22.78 million and stockholders' equity of $8.69 million (",
+      "source_line": "Total liabilities were $22.78 million, compared with $23.90 million",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:129",
+      "report_sentence": "The same release reported total liabilities of $22.78 million and stockholders' equity of $8.69 million (exhibit-99-1.txt:127;",
+      "source_line": "from $8.49 million. Stockholders’ equity was $8.69 million, compared with $24.35 million at year-end and $20.52 million at June",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:79",
+      "report_sentence": "Insight: The deciding risk is liquidity because the release states that SUNation requires additional capital while reporting $2.79 million of cash and a $5.35 million working-capital deficit at September 30, 2026 (",
+      "source_line": "$2.79 million in cash and cash equivalents and requires additional capital to meet its obligations and operating needs.",
+      "line_found": true
+    },
+    {
+      "citation": "exhibit-99-1.txt:124",
+      "report_sentence": "Insight: The deciding risk is liquidity because the release states that SUNation requires additional capital while reporting $2.79 million of cash and a $5.35 million working-capital deficit at September 30, 2026 (exhibit-99-1.txt:79;",
+      "source_line": "– | Cash and working capital Cash and cash equivalents were $2.79 million at September 30, 2026, compared with $7.18 million at year-end. The Company had a working capital deficit of $5.35 million, compared with positive working capital of $1.07 million. Net cash used in operating activities during the first nine months of 2026 was $6.54 million, partially offset by $2.11 million of net cash provided by financing activities.",
+      "line_found": true
+    }
+  ],
+  "expected_output": {
+    "assessments": [
+      {
+        "claim": "claim name",
+        "mark": "Correct, Wrong, Unsupported, or Not in filings",
+        "reason": "short reason"
+      }
+    ]
+  }
+}

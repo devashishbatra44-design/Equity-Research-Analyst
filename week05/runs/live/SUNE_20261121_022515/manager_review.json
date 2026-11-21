@@ -1,0 +1,210 @@
+{
+  "status": "failed_after_one_retry",
+  "issues": [],
+  "sections_to_retry": [],
+  "deterministic_core_claims": [
+    {
+      "claim": "1. Total revenue, latest fiscal year",
+      "report_said": "Annual total revenue was $71.906 million (facts.json:total_revenue).",
+      "filing_says": "$71.906 million",
+      "mark": "Correct",
+      "evidence": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax; period 2025-12-31; accession 0000022701-26-000003"
+    },
+    {
+      "claim": "2. Revenue growth versus prior year",
+      "report_said": "Annual revenue growth was 26.4568% (calculations.json:revenue_growth).",
+      "filing_says": "26.4568%",
+      "mark": "Correct",
+      "evidence": "(71905527 - 56861753) / 56861753"
+    },
+    {
+      "claim": "3. Operating income and operating margin",
+      "report_said": "Annual operating income was $-1.673 million (facts.json:operating_income). Annual operating margin was -2.3267% (calculations.json:operating_margin).",
+      "filing_says": "$-1.673 million; -2.3267%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "report_said": "Annual net income attributable to the company was $-10.893 million (facts.json:net_income).",
+      "filing_says": "$-10.893 million",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "report_said": "Annual GAAP diluted EPS was $-4.38 (facts.json:diluted_eps).",
+      "filing_says": "$-4.38",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "6. Return on average equity",
+      "report_said": "Return on average equity was -66.2331% (calculations.json:return_on_average_equity).",
+      "filing_says": "-66.2331%",
+      "mark": "Unsupported",
+      "evidence": "The report does not state this required claim."
+    },
+    {
+      "claim": "7. Debt to equity, including current debt",
+      "report_said": "Debt to equity was not stated in the supplied filings because the required inputs were unavailable.",
+      "filing_says": "Not stated in the supplied filings",
+      "mark": "Not in filings",
+      "evidence": "Long-term debt, its current portion, or equity is missing, or equity is zero. Missing debt is not treated as zero."
+    },
+    {
+      "claim": "8. Free cash flow",
+      "report_said": "Free cash flow was $906,384.00 (calculations.json:free_cash_flow).",
+      "filing_says": "$906,384.00",
+      "mark": "Correct",
+      "evidence": "954978 - 48594"
+    }
+  ],
+  "unresolved_core_claims_after_one_retry": [
+    {
+      "claim": "3. Operating income and operating margin",
+      "mark": "Unsupported",
+      "report_said": "Annual operating income was $-1.673 million (facts.json:operating_income). Annual operating margin was -2.3267% (calculations.json:operating_margin).",
+      "filing_says": "$-1.673 million; -2.3267%",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "4. Net income attributable to the company",
+      "mark": "Unsupported",
+      "report_said": "Annual net income attributable to the company was $-10.893 million (facts.json:net_income).",
+      "filing_says": "$-10.893 million",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "5. Diluted earnings per share, GAAP",
+      "mark": "Unsupported",
+      "report_said": "Annual GAAP diluted EPS was $-4.38 (facts.json:diluted_eps).",
+      "filing_says": "$-4.38",
+      "reason": "The report does not state this required claim."
+    },
+    {
+      "claim": "6. Return on average equity",
+      "mark": "Unsupported",
+      "report_said": "Return on average equity was -66.2331% (calculations.json:return_on_average_equity).",
+      "filing_says": "-66.2331%",
+      "reason": "The report does not state this required claim."
+    }
+  ],
+  "unresolved_other_numbers_after_one_retry": [
+    {
+      "claim": "Other number L3.3",
+      "report_said": "25",
+      "filing_says": "Found at exhibit-99-1.txt:33: the expiration of the Section 25D federal residential tax credit at the end of 2025 under the One Big Beautiful Bill Act (“",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 25, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | 10-k.txt:1822-1822: We already have what we believe are premier referral rates, with approximately 35% of installed jobs in 2025 coming from referrals or repeat customers. We believe that our existing HEC and SUNation NY portfolio companies form a foundation to drive improved referral performance across the network of companies we acquire, further increasing our referral rates and lowering our overall customer acquisition cost. | 10-k.txt:1847-1847: The majority of SUNation Energy’s revenue (85% of 2025 consolidated revenue) comes from photovoltaic solar energy systems and batteries for residential homeowners. The size of our residential installations vary by location. In 2025, the average system size installed was 6.8 kilowatts for HEC customers in Hawaii and 127 kilowatts for SUNation NY’s regional customers on Long Island, New York. | exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:47-47: ”). SUNation currently anticipates closing in the first quarter of 2027, subject to satisfaction Found at exhibit-99-1.txt:33: the expiration of the Section 25D federal residential tax credit at the end of 2025 under the One Big Beautiful Bill Act (“"
+    },
+    {
+      "claim": "Other number L3.6",
+      "report_said": "18%",
+      "filing_says": "Found at exhibit-99-1.txt:59: revenue, compared with approximately 18% in Q3 2025.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 18%, and simple arithmetic from the cited inputs does not establish it at the report's rounding. 10-k.txt:1805-1805: SUNation Energy, Inc. (herein referred to as “SUNation Energy,” “SUNE,” “our,” “we” or the “Company”) is focused on growing leading local and regional solar, storage, and energy services companies nationwide. The SUNation Energy vision is the provision of exemplary client service while powering the energy transition through grass-root, community-centric growth of solar electricity paired with battery storage. Our portfolio of brands (SUNation, Hawaii Energy Connection, E-Gear) provide homeowners and businesses of all sizes with an end-to-end product offering spanning solar, battery storage, and grid services. SUNation Energy, Inc.’s markets are New York and Hawaii, and the company operates proudly within two U.S. states. | 10-k.txt:1822-1822: We already have what we believe are premier referral rates, with approximately 35% of installed jobs in 2025 coming from referrals or repeat customers. We believe that our existing HEC and SUNation NY portfolio companies form a foundation to drive improved referral performance across the network of companies we acquire, further increasing our referral rates and lowering our overall customer acquisition cost. | 10-k.txt:1847-1847: The majority of SUNation Energy’s revenue (85% of 2025 consolidated revenue) comes from photovoltaic solar energy systems and batteries for residential homeowners. The size of our residential installations vary by location. In 2025, the average system size installed was 6.8 kilowatts for HEC customers in Hawaii and 127 kilowatts for SUNation NY’s regional customers on Long Island, New York. | exhibit-99-1.txt:57-57: occurred within a residential market that continued to operate below prior-year activity levels. Residential revenue declined 52% year | exhibit-99-1.txt:58-58: over year, while commercial revenue increased 20%. Commercial and service revenue together represented approximately 33% of consolidated | exhibit-99-1.txt:47-47: ”). SUNation currently anticipates closing in the first quarter of 2027, subject to satisfaction Found at exhibit-99-1.txt:59: revenue, compared with approximately 18% in Q3 2025."
+    },
+    {
+      "claim": "Other number L7.1",
+      "report_said": "2/5",
+      "filing_says": "Found at 10-k.txt:1898: For example, as previously reported, the Company had received respective Nasdaq non-compliance letters regarding: (i) a Minimum Bid Price Deficiency notice from the Listing Qualifications Department (the “Staff”) of The Nasdaq Stock Market notifying the Company that, for the 30 consecutive business day period immediately preceding April 11, 2025 deficiency letter, the Company’s common stock had not maintained a minimum closing bid price of $1.00 per share (the “Minimum Bid Price Requirement”) and, as a result, did not comply with Listing Rule 5550(a)(2); and (ii) the Staff’s additional delisting notice pursuant to its discretionary authority under Listing Rule 5101 based on public interest concerns related to the Company’s securities offering announced on February 27, 2025.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:1898: For example, as previously reported, the Company had received respective Nasdaq non-compliance letters regarding: (i) a Minimum Bid Price Deficiency notice from the Listing Qualifications Department (the “Staff”) of The Nasdaq Stock Market notifying the Company that, for the 30 consecutive business day period immediately preceding April 11, 2025 deficiency letter, the Company’s common stock had not maintained a minimum closing bid price of $1.00 per share (the “Minimum Bid Price Requirement”) and, as a result, did not comply with Listing Rule 5550(a)(2); and (ii) the Staff’s additional delisting notice pursuant to its discretionary authority under Listing Rule 5101 based on public interest concerns related to the Company’s securities offering announced on February 27, 2025."
+    },
+    {
+      "claim": "Other number L8.4",
+      "report_said": "$7.53 million",
+      "filing_says": "Found at exhibit-99-1.txt:136: – | Residential revenue Consolidated residential contract revenue was $7.53 million, compared with $15.66 million in Q3 2025, reflecting lower installation activity in New York and.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $7.53 million, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:112-112: – | Revenue Consolidated revenue was $11.20 million, compared with $18.99 million in Q3 2025, a decrease of 41%. Residential contract revenue declined 52%, partially offset by 20% growth in commercial revenue. | exhibit-99-1.txt:114-114: – | Operating expenses and cost reductions Total operating expenses were $15.16 million, compared with $7.46 million in Q3 2025, including $9.82 million of non-cash goodwill and intangible asset impairment charges and $0.46 million of Suniva merger transaction costs. SG&A expense declined 37% to $4.33 million from $6.90 million, reflecting lower selling and marketing expenses and personnel cost reductions. | 10-k.txt:1848-1848: Historically, most residential homeowners have chosen to own their home system rather than pursue a third-party ownership model. The Company believes that it has historically been best for customers to own their own systems, but recognizes that some customers do not want to own their systems. Found at exhibit-99-1.txt:136: – | Residential revenue Consolidated residential contract revenue was $7.53 million, compared with $15.66 million in Q3 2025, reflecting lower installation activity in New York and."
+    },
+    {
+      "claim": "Other number L10.1",
+      "report_said": "3/5",
+      "filing_says": "Found at 10-k.txt:2053: During the fourth quarter of fiscal 2024, we performed an interim quantitative assessment as of December 31, 2024 related to the recoverability of our goodwill for our two reporting units as a result of a material decline in our stock price and forecasted revenues and operating results. We concluded that the fair value of our HEC reporting unit did not exceed its carrying value as of December 31, 2024 and recorded an impairment of $3.1 million in our consolidated statements of operations, reducing our HEC goodwill balance to $6.7 million and our total goodwill balance to $17.4 million. We performed a quantitative analysis as of September 30, 2025 and October 1, 2025 and concluded that the fair values of the SUNation NY and HEC reporting units exceeded its carrying value and no impairment charge was necessary. We may be required to record additional impairment expense on our goodwill in the future.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:2053: During the fourth quarter of fiscal 2024, we performed an interim quantitative assessment as of December 31, 2024 related to the recoverability of our goodwill for our two reporting units as a result of a material decline in our stock price and forecasted revenues and operating results. We concluded that the fair value of our HEC reporting unit did not exceed its carrying value as of December 31, 2024 and recorded an impairment of $3.1 million in our consolidated statements of operations, reducing our HEC goodwill balance to $6.7 million and our total goodwill balance to $17.4 million. We performed a quantitative analysis as of September 30, 2025 and October 1, 2025 and concluded that the fair values of the SUNation NY and HEC reporting units exceeded its carrying value and no impairment charge was necessary. We may be required to record additional impairment expense on our goodwill in the future."
+    },
+    {
+      "claim": "Other number L13.1",
+      "report_said": "2/5",
+      "filing_says": "Found at 10-k.txt:1631: Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “ large accelerated filer,” “accelerated filer,” “smaller reporting company” and “emerging growth company” in Rule 12b-2 of the Exchange Act.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:1631: Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “ large accelerated filer,” “accelerated filer,” “smaller reporting company” and “emerging growth company” in Rule 12b-2 of the Exchange Act."
+    },
+    {
+      "claim": "Other number L14.2",
+      "report_said": "$44.69 million",
+      "filing_says": "Found at exhibit-99-1.txt:118: gross profit was $7.17 million and SG&A expense was $13.87 million, compared with $44.69 million, $16.48 million and $19.38 million,",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $44.69 million, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:117-117: For the nine months ended September 30, 2026, revenue was $26.56 million, | exhibit-99-1.txt:66-66: year-end 2025 under OBBBA continued to affect residential demand, installation volumes and financing economics during Q3 2026, following | exhibit-99-1.txt:113-113: – | Gross profit and margin Gross profit was $3.45 million, compared with $7.21 million in Q3 2025. Gross margin was 30.8%, compared with 38.0% in the prior-year quarter, reflecting lower revenue and fixed labor and overhead costs that declined more slowly than sales volume. Gross profit and margin improved sequentially from approximately $2.1 million and 26.1%, respectively, in Q2 2026. Found at exhibit-99-1.txt:118: gross profit was $7.17 million and SG&A expense was $13.87 million, compared with $44.69 million, $16.48 million and $19.38 million,"
+    },
+    {
+      "claim": "Other number L14.3",
+      "report_said": "25",
+      "filing_says": "Found at 10-k.txt:2157: At the federal level, tax policy and associated regulations have a direct impact on our business. The most notable recent tax legislation affecting our business is the OBBBA that President Trump signed into law on July 4, 2025. The new law adjusts federal energy tax policies that we rely upon, including the Section 48E Clean Electricity Investment Credit and its associated “bonus” credits. For example, the law maintains the Section 48E credit for energy storage through 2033, it shortens the availability of the 48E credit for solar facilities to the end of 2027. The law also applies new “Foreign Entity of Concern” restrictions to the Section 48E credit, which could potentially deny tax credits to projects that use certain components or receive “material assistance” from FEOC entities, thereby potentially increasing costs and potentially reducing demand. The law ends the customer-claimed Section 25D Residential Clean Energy Credit starting in 2026. Changes in the law to the Section 45X Advanced Manufacturing Production Credit could also affect us indirectly, through our suppliers. The implementation of the law through the federal regulatory process could also directly and materially affect our business, revenues, residential installation viability, profitability, margins, among other negative serious implications. If our revenues decline significantly, we may be required to pause, suspend or significantly reduce our operations, lay-off employees and may become no longer be a viable going concern business. While it is too soon to definitively determine the long-term effects of the OBBBA on the solar industry, there are potential significant negative effects that may result therefrom to our business operations.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state 25, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:117-117: For the nine months ended September 30, 2026, revenue was $26.56 million, | exhibit-99-1.txt:66-66: year-end 2025 under OBBBA continued to affect residential demand, installation volumes and financing economics during Q3 2026, following | exhibit-99-1.txt:113-113: – | Gross profit and margin Gross profit was $3.45 million, compared with $7.21 million in Q3 2025. Gross margin was 30.8%, compared with 38.0% in the prior-year quarter, reflecting lower revenue and fixed labor and overhead costs that declined more slowly than sales volume. Gross profit and margin improved sequentially from approximately $2.1 million and 26.1%, respectively, in Q2 2026. Found at 10-k.txt:2157: At the federal level, tax policy and associated regulations have a direct impact on our business. The most notable recent tax legislation affecting our business is the OBBBA that President Trump signed into law on July 4, 2025. The new law adjusts federal energy tax policies that we rely upon, including the Section 48E Clean Electricity Investment Credit and its associated “bonus” credits. For example, the law maintains the Section 48E credit for energy storage through 2033, it shortens the availability of the 48E credit for solar facilities to the end of 2027. The law also applies new “Foreign Entity of Concern” restrictions to the Section 48E credit, which could potentially deny tax credits to projects that use certain components or receive “material assistance” from FEOC entities, thereby potentially increasing costs and potentially reducing demand. The law ends the customer-claimed Section 25D Residential Clean Energy Credit starting in 2026. Changes in the law to the Section 45X Advanced Manufacturing Production Credit could also affect us indirectly, through our suppliers. The implementation of the law through the federal regulatory process could also directly and materially affect our business, revenues, residential installation viability, profitability, margins, among other negative serious implications. If our revenues decline significantly, we may be required to pause, suspend or significantly reduce our operations, lay-off employees and may become no longer be a viable going concern business. While it is too soon to definitively determine the long-term effects of the OBBBA on the solar industry, there are potential significant negative effects that may result therefrom to our business operations."
+    },
+    {
+      "claim": "Other number L16.1",
+      "report_said": "3/5",
+      "filing_says": "Found at exhibit-99-1.txt:51: – | Commercial revenue grew 20% year over year Commercial revenue reached $2.66 million, compared with $2.23 million in Q3 2025, primarily driven by growth in New York.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at exhibit-99-1.txt:51: – | Commercial revenue grew 20% year over year Commercial revenue reached $2.66 million, compared with $2.23 million in Q3 2025, primarily driven by growth in New York."
+    },
+    {
+      "claim": "Other number L19.1",
+      "report_said": "3/5",
+      "filing_says": "Not stated in the saved filings",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
+    },
+    {
+      "claim": "Other number L22.1",
+      "report_said": "4/5",
+      "filing_says": "Not stated in the saved filings",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
+    },
+    {
+      "claim": "Other number L25.1",
+      "report_said": "2/5",
+      "filing_says": "Not stated in the saved filings",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
+    },
+    {
+      "claim": "Other number L40.2",
+      "report_said": "$10,892,833",
+      "filing_says": "Found at 10-k.txt:2437: Consolidated operating loss before income taxes in 2025 was $10,841,693, compared to a consolidated operating loss before income taxes of $15,814,986 in 2024. Net loss in 2025 was $10,892,833, or ($4.38) per diluted share. Net loss attributable to shareholders in 2024 (after taking into effect $11,587,121 in deemed dividends) was $27,436,926, or ($10,110.93) per diluted share from continuing operations.",
+      "mark": "Unsupported",
+      "evidence": "The cited evidence does not state $10,892,833, and simple arithmetic from the cited inputs does not establish it at the report's rounding. exhibit-99-1.txt:13-13: Results included $9.8 million of non-cash goodwill | calculations.json:free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {} | facts.json:net_income:current: -10892833; tag us-gaap:NetIncomeLoss; period 2025-12-31; accession 0000022701-26-000003 Found at 10-k.txt:2437: Consolidated operating loss before income taxes in 2025 was $10,841,693, compared to a consolidated operating loss before income taxes of $15,814,986 in 2024. Net loss in 2025 was $10,892,833, or ($4.38) per diluted share. Net loss attributable to shareholders in 2024 (after taking into effect $11,587,121 in deemed dividends) was $27,436,926, or ($10,110.93) per diluted share from continuing operations."
+    },
+    {
+      "claim": "Other number L65.1",
+      "report_said": "50%",
+      "filing_says": "Found at 10-k.txt:2019: In recent years, we have faced substantial trade policy volatility, marked by escalating tariffs and trade investigations that create substantial uncertainty in our supply chain and cost structure. In April 2025, the Administration implemented broad \"reciprocal\" tariffs, including a 10% baseline tariff on most imports. Following a 90-day pause to allow for bilateral negotiations, country-specific reciprocal tariffs took effect on August 7, 2025, with rates now ranging from 10% to 50% depending on the country of origin. Existing tariffs on steel, copper and aluminum were notably already increased to 50% for most countries, with specific exemptions for the UK. On February 20, 2026, the U.S. Supreme Court held that the International Emergency Economic Powers Act does not authorize the President to impose tariffs, invalidating some but not all of the recently imposed tariffs. The Trump Administration responded by announcing new tariffs pursuant to another statute, but significant uncertainty remains regarding the legality and effect of such tariffs. In response to such U.S. tariffs, some foreign governments have threatened or instituted retaliatory tariffs on certain U.S. goods and have indicated a willingness to impose additional tariffs on U.S. products, which could increase tensions and create greater uncertainty and instability in our business dealings and negatively affect our business operations. The legal standing of some reciprocal tariffs is currently under federal court review, though these rulings are stayed pending appeal, meaning the announced tariffs remain in effect.",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:2019: In recent years, we have faced substantial trade policy volatility, marked by escalating tariffs and trade investigations that create substantial uncertainty in our supply chain and cost structure. In April 2025, the Administration implemented broad \"reciprocal\" tariffs, including a 10% baseline tariff on most imports. Following a 90-day pause to allow for bilateral negotiations, country-specific reciprocal tariffs took effect on August 7, 2025, with rates now ranging from 10% to 50% depending on the country of origin. Existing tariffs on steel, copper and aluminum were notably already increased to 50% for most countries, with specific exemptions for the UK. On February 20, 2026, the U.S. Supreme Court held that the International Emergency Economic Powers Act does not authorize the President to impose tariffs, invalidating some but not all of the recently imposed tariffs. The Trump Administration responded by announcing new tariffs pursuant to another statute, but significant uncertainty remains regarding the legality and effect of such tariffs. In response to such U.S. tariffs, some foreign governments have threatened or instituted retaliatory tariffs on certain U.S. goods and have indicated a willingness to impose additional tariffs on U.S. products, which could increase tensions and create greater uncertainty and instability in our business dealings and negatively affect our business operations. The legal standing of some reciprocal tariffs is currently under federal court review, though these rulings are stayed pending appeal, meaning the announced tariffs remain in effect."
+    },
+    {
+      "claim": "Other number L65.2",
+      "report_said": "25%",
+      "filing_says": "Found at 10-k.txt:1864: In the solar installation market, we compete with companies that offer products like ours. Some of these companies have greater financial resources, operational experience, and technical capabilities than we do. When bidding for solar installation projects, however, our current experience suggests that there is no clear dominant or preferred competitor in the markets in which we compete. We do not believe that any competitor has more than 25% of market share in the regions in which we operate. We compete with other solar installers on pricing, service, warranty, and the ability to arrange financing. We also compete, on a cost basis, with traditional utilities that supply electricity to our potential customers and with companies that are not regulated like traditional utilities but that",
+      "mark": "Unsupported",
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:1864: In the solar installation market, we compete with companies that offer products like ours. Some of these companies have greater financial resources, operational experience, and technical capabilities than we do. When bidding for solar installation projects, however, our current experience suggests that there is no clear dominant or preferred competitor in the markets in which we compete. We do not believe that any competitor has more than 25% of market share in the regions in which we operate. We compete with other solar installers on pricing, service, warranty, and the ability to arrange financing. We also compete, on a cost basis, with traditional utilities that supply electricity to our potential customers and with companies that are not regulated like traditional utilities but that"
+    }
+  ],
+  "unresolved_model_derived_growth_after_one_retry": [],
+  "post_generation_report_edits": [],
+  "code_written_insight_fallbacks": [],
+  "lab05_persona_checks_enabled": true,
+  "unresolved_insight_issues_after_one_retry": [
+    {
+      "role": "Financial Analyst",
+      "reason": "The Insight line failed source verification: Wrong; The cited line does not contain or establish: $10,892,833, 2026. Results included $9.8 million of non-cash goodwill | free_cash_flow: 954978 - 48594; result 906384; periods {\"period_end\": \"2025-12-31\"}; sources {}"
+    }
+  ]
+}

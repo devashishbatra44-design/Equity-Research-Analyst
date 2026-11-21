@@ -1,0 +1,849 @@
+{
+  "worksheet_file": "worksheet.md",
+  "numeric_claims": [
+    {
+      "id": "L001_T01",
+      "worksheet_line": 1,
+      "token": "0000022701-26-000003",
+      "kind": "accession"
+    },
+    {
+      "id": "L001_T02",
+      "worksheet_line": 1,
+      "token": "0000022701-26-000010",
+      "kind": "accession"
+    },
+    {
+      "id": "L001_T03",
+      "worksheet_line": 1,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L005_T01",
+      "worksheet_line": 5,
+      "token": "2026-11-21",
+      "kind": "date"
+    },
+    {
+      "id": "L017_T01",
+      "worksheet_line": 17,
+      "token": "2026-11-22",
+      "kind": "date"
+    },
+    {
+      "id": "L021_T01",
+      "worksheet_line": 21,
+      "token": "1.71",
+      "kind": "official_exchange_price",
+      "value": "1.71",
+      "unit": "USD per share",
+      "period": "2026-11-20",
+      "source": "Nasdaq official historical endpoint",
+      "instrument": "SUNE",
+      "price_date": "2026-11-20",
+      "reader_source": "Nasdaq official historical endpoint",
+      "reader_file": "market_summary.json"
+    },
+    {
+      "id": "L021_T02",
+      "worksheet_line": 21,
+      "token": "2026-11-20",
+      "kind": "date"
+    },
+    {
+      "id": "L022_T01",
+      "worksheet_line": 22,
+      "token": "6.513108",
+      "kind": "filing_fact",
+      "value": "6.513108",
+      "unit": "million shares",
+      "period": "2026-08-05",
+      "source": "quarterly report, accession 0000022701-26-000010, cover page, saved line 1205",
+      "tag": "dei:EntityCommonStockSharesOutstanding",
+      "filing": "quarterly report",
+      "accession": "0000022701-26-000010",
+      "section": "cover page",
+      "saved_line": "1205",
+      "source_file": "10-q.txt",
+      "source_line": 1205,
+      "source_token": "6,513,108",
+      "source_multiplier": "0.000001"
+    },
+    {
+      "id": "L022_T02",
+      "worksheet_line": 22,
+      "token": "0000022701-26-000010",
+      "kind": "accession"
+    },
+    {
+      "id": "L022_T03",
+      "worksheet_line": 22,
+      "token": "1205",
+      "kind": "line_number"
+    },
+    {
+      "id": "L022_T04",
+      "worksheet_line": 22,
+      "token": "2026-08-05",
+      "kind": "date"
+    },
+    {
+      "id": "L023_T01",
+      "worksheet_line": 23,
+      "token": "11.13741468",
+      "kind": "arithmetic",
+      "value": "11.13741468",
+      "unit": "USD millions",
+      "period": "2026-11-20",
+      "source": "worksheet calculation",
+      "operation": "multiply",
+      "inputs": [
+        "1.71",
+        "6.513108"
+      ]
+    },
+    {
+      "id": "L023_T02",
+      "worksheet_line": 23,
+      "token": "2026-11-20",
+      "kind": "date"
+    },
+    {
+      "id": "L024_T01",
+      "worksheet_line": 24,
+      "token": "11.20",
+      "kind": "filing_fact",
+      "value": "11.20",
+      "unit": "USD millions",
+      "period": "quarter ended 2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Financial Results, saved line 112",
+      "tag": "quarterly_revenue",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Financial Results",
+      "saved_line": "112",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 112
+    },
+    {
+      "id": "L024_T02",
+      "worksheet_line": 24,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L024_T03",
+      "worksheet_line": 24,
+      "token": "112",
+      "kind": "line_number"
+    },
+    {
+      "id": "L024_T04",
+      "worksheet_line": 24,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L025_T01",
+      "worksheet_line": 25,
+      "token": "11.82",
+      "kind": "filing_fact",
+      "value": "11.82",
+      "unit": "USD millions",
+      "period": "quarter ended 2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Financial Results, saved line 115",
+      "tag": "quarterly_net_loss",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Financial Results",
+      "saved_line": "115",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 115
+    },
+    {
+      "id": "L025_T02",
+      "worksheet_line": 25,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L025_T03",
+      "worksheet_line": 25,
+      "token": "115",
+      "kind": "line_number"
+    },
+    {
+      "id": "L025_T04",
+      "worksheet_line": 25,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L026_T01",
+      "worksheet_line": 26,
+      "token": "2.79",
+      "kind": "filing_fact",
+      "value": "2.79",
+      "unit": "USD millions",
+      "period": "2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 124",
+      "tag": "cash_and_cash_equivalents",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "124",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 124
+    },
+    {
+      "id": "L026_T02",
+      "worksheet_line": 26,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L026_T03",
+      "worksheet_line": 26,
+      "token": "124",
+      "kind": "line_number"
+    },
+    {
+      "id": "L026_T04",
+      "worksheet_line": 26,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L027_T01",
+      "worksheet_line": 27,
+      "token": "5.35",
+      "kind": "filing_fact",
+      "value": "5.35",
+      "unit": "USD millions",
+      "period": "2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 124",
+      "tag": "working_capital_deficit",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "124",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 124
+    },
+    {
+      "id": "L027_T02",
+      "worksheet_line": 27,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L027_T03",
+      "worksheet_line": 27,
+      "token": "124",
+      "kind": "line_number"
+    },
+    {
+      "id": "L027_T04",
+      "worksheet_line": 27,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L028_T01",
+      "worksheet_line": 28,
+      "token": "6.54",
+      "kind": "filing_fact",
+      "value": "6.54",
+      "unit": "USD millions",
+      "period": "nine months ended 2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 124",
+      "tag": "operating_cash_used",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "124",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 124
+    },
+    {
+      "id": "L028_T02",
+      "worksheet_line": 28,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L028_T03",
+      "worksheet_line": 28,
+      "token": "124",
+      "kind": "line_number"
+    },
+    {
+      "id": "L028_T04",
+      "worksheet_line": 28,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L029_T01",
+      "worksheet_line": 29,
+      "token": "4.98",
+      "kind": "filing_fact",
+      "value": "4.98",
+      "unit": "USD millions",
+      "period": "2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 125",
+      "tag": "loans_payable_and_related_interest",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "125",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 125
+    },
+    {
+      "id": "L029_T02",
+      "worksheet_line": 29,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L029_T03",
+      "worksheet_line": 29,
+      "token": "125",
+      "kind": "line_number"
+    },
+    {
+      "id": "L029_T04",
+      "worksheet_line": 29,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L030_T01",
+      "worksheet_line": 30,
+      "token": "22.78",
+      "kind": "filing_fact",
+      "value": "22.78",
+      "unit": "USD millions",
+      "period": "2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 127",
+      "tag": "total_liabilities",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "127",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 127
+    },
+    {
+      "id": "L030_T02",
+      "worksheet_line": 30,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L030_T03",
+      "worksheet_line": 30,
+      "token": "127",
+      "kind": "line_number"
+    },
+    {
+      "id": "L030_T04",
+      "worksheet_line": 30,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L031_T01",
+      "worksheet_line": 31,
+      "token": "8.69",
+      "kind": "filing_fact",
+      "value": "8.69",
+      "unit": "USD millions",
+      "period": "2026-09-30",
+      "source": "earnings release, accession 0001213900-26-122794, Balance Sheet and Liquidity, saved line 129",
+      "tag": "stockholders_equity",
+      "filing": "earnings release",
+      "accession": "0001213900-26-122794",
+      "section": "Balance Sheet and Liquidity",
+      "saved_line": "129",
+      "source_file": "exhibit-99-1.txt",
+      "source_line": 129
+    },
+    {
+      "id": "L031_T02",
+      "worksheet_line": 31,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L031_T03",
+      "worksheet_line": 31,
+      "token": "129",
+      "kind": "line_number"
+    },
+    {
+      "id": "L031_T04",
+      "worksheet_line": 31,
+      "token": "2026-09-30",
+      "kind": "date"
+    },
+    {
+      "id": "L032_T01",
+      "worksheet_line": 32,
+      "token": "0001213900-26-122794",
+      "kind": "accession"
+    },
+    {
+      "id": "L032_T02",
+      "worksheet_line": 32,
+      "token": "2026-11-20",
+      "kind": "date"
+    },
+    {
+      "id": "L032_T03",
+      "worksheet_line": 32,
+      "token": "79",
+      "kind": "line_number"
+    },
+    {
+      "id": "L033_T01",
+      "worksheet_line": 33,
+      "token": "2026-11-21",
+      "kind": "date"
+    },
+    {
+      "id": "L033_T02",
+      "worksheet_line": 33,
+      "token": "0000022701-26-000003",
+      "kind": "accession"
+    },
+    {
+      "id": "L033_T03",
+      "worksheet_line": 33,
+      "token": "0000022701-26-000010",
+      "kind": "accession"
+    },
+    {
+      "id": "L033_T04",
+      "worksheet_line": 33,
+      "token": "2320",
+      "kind": "line_number"
+    },
+    {
+      "id": "L033_T05",
+      "worksheet_line": 33,
+      "token": "2717",
+      "kind": "line_number"
+    },
+    {
+      "id": "L034_T01",
+      "worksheet_line": 34,
+      "token": "2",
+      "kind": "arithmetic",
+      "value": "2",
+      "unit": "ownership reports",
+      "period": "2026-01-01 through 2026-11-21",
+      "source": "SEC submissions and primary ownership reports in ownership_audit.json",
+      "operation": "identity",
+      "inputs": [
+        "2"
+      ]
+    },
+    {
+      "id": "L034_T02",
+      "worksheet_line": 34,
+      "token": "2026-01-01",
+      "kind": "date"
+    },
+    {
+      "id": "L034_T03",
+      "worksheet_line": 34,
+      "token": "2026-11-21",
+      "kind": "date"
+    },
+    {
+      "id": "L034_T04",
+      "worksheet_line": 34,
+      "token": "0001213900-26-050835",
+      "kind": "accession"
+    },
+    {
+      "id": "L034_T05",
+      "worksheet_line": 34,
+      "token": "0001213900-26-050834",
+      "kind": "accession"
+    },
+    {
+      "id": "L035_T01",
+      "worksheet_line": 35,
+      "token": "2",
+      "kind": "arithmetic",
+      "value": "2",
+      "unit": "transactions",
+      "period": "2026-01-01 through 2026-11-21",
+      "source": "ownership_audit.json",
+      "operation": "identity",
+      "inputs": [
+        "2"
+      ]
+    },
+    {
+      "id": "L035_T02",
+      "worksheet_line": 35,
+      "token": "2026-01-01",
+      "kind": "date"
+    },
+    {
+      "id": "L035_T03",
+      "worksheet_line": 35,
+      "token": "2026-11-21",
+      "kind": "date"
+    },
+    {
+      "id": "L035_T04",
+      "worksheet_line": 35,
+      "token": "0001213900-26-050835",
+      "kind": "accession"
+    },
+    {
+      "id": "L035_T05",
+      "worksheet_line": 35,
+      "token": "0001213900-26-050834",
+      "kind": "accession"
+    },
+    {
+      "id": "L039_T01",
+      "worksheet_line": 39,
+      "token": "-10.892833",
+      "kind": "filing_fact",
+      "value": "-10.892833",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "annual report accession 0000022701-26-000003",
+      "tag": "us-gaap:NetIncomeLoss",
+      "filing": "annual report",
+      "accession": "0000022701-26-000003",
+      "section": "Consolidated Statements of Operations",
+      "saved_line": "2437",
+      "source_file": "10-k.txt",
+      "source_line": 2437,
+      "source_token": "10892833",
+      "source_multiplier": "-0.000001"
+    },
+    {
+      "id": "L039_T02",
+      "worksheet_line": 39,
+      "token": "0000022701-26-000003",
+      "kind": "accession"
+    },
+    {
+      "id": "L039_T03",
+      "worksheet_line": 39,
+      "token": "2025-12-31",
+      "kind": "date"
+    },
+    {
+      "id": "L040_T01",
+      "worksheet_line": 40,
+      "token": "2.503115",
+      "kind": "filing_fact",
+      "value": "2.503115",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "annual report, accession 0000022701-26-000003, Consolidated Statements of Cash Flows, saved line 2909",
+      "tag": "us-gaap:DepreciationDepletionAndAmortization",
+      "filing": "annual report",
+      "accession": "0000022701-26-000003",
+      "section": "Consolidated Statements of Cash Flows",
+      "saved_line": "2909",
+      "source_file": "10-k.txt",
+      "source_line": 2909,
+      "source_token": "2,503,115",
+      "source_multiplier": "0.000001"
+    },
+    {
+      "id": "L040_T02",
+      "worksheet_line": 40,
+      "token": "0000022701-26-000003",
+      "kind": "accession"
+    },
+    {
+      "id": "L040_T03",
+      "worksheet_line": 40,
+      "token": "2909",
+      "kind": "line_number"
+    },
+    {
+      "id": "L040_T04",
+      "worksheet_line": 40,
+      "token": "2025-12-31",
+      "kind": "date"
+    },
+    {
+      "id": "L041_T01",
+      "worksheet_line": 41,
+      "token": "0.048594",
+      "kind": "filing_fact",
+      "value": "0.048594",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "annual report accession 0000022701-26-000003",
+      "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+      "filing": "annual report",
+      "accession": "0000022701-26-000003",
+      "section": "Consolidated Statements of Cash Flows",
+      "saved_line": "2938",
+      "source_file": "10-k.txt",
+      "source_line": 2938,
+      "source_token": "48594",
+      "source_multiplier": "0.000001"
+    },
+    {
+      "id": "L041_T02",
+      "worksheet_line": 41,
+      "token": "0000022701-26-000003",
+      "kind": "accession"
+    },
+    {
+      "id": "L041_T03",
+      "worksheet_line": 41,
+      "token": "2025-12-31",
+      "kind": "date"
+    },
+    {
+      "id": "L042_T01",
+      "worksheet_line": 42,
+      "token": "-10.892833",
+      "kind": "arithmetic",
+      "value": "-10.892833",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "cited owner-cash-flow input",
+      "operation": "identity",
+      "inputs": [
+        "-10.892833"
+      ]
+    },
+    {
+      "id": "L042_T02",
+      "worksheet_line": 42,
+      "token": "2.503115",
+      "kind": "arithmetic",
+      "value": "2.503115",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "cited owner-cash-flow input",
+      "operation": "identity",
+      "inputs": [
+        "2.503115"
+      ]
+    },
+    {
+      "id": "L042_T03",
+      "worksheet_line": 42,
+      "token": "0.048594",
+      "kind": "arithmetic",
+      "value": "0.048594",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "cited owner-cash-flow input",
+      "operation": "identity",
+      "inputs": [
+        "0.048594"
+      ]
+    },
+    {
+      "id": "L042_T04",
+      "worksheet_line": 42,
+      "token": "-8.438312",
+      "kind": "arithmetic",
+      "value": "-8.438312",
+      "unit": "USD millions",
+      "period": "fiscal year ended 2025-12-31",
+      "source": "worksheet calculation",
+      "operation": "a_plus_b_minus_c",
+      "inputs": [
+        "-10.892833",
+        "2.503115",
+        "0.048594"
+      ]
+    },
+    {
+      "id": "L042_T05",
+      "worksheet_line": 42,
+      "token": "2025-12-31",
+      "kind": "date"
+    },
+    {
+      "id": "L046_T01",
+      "worksheet_line": 46,
+      "token": "0",
+      "kind": "human_value",
+      "value": "0",
+      "unit": "USD per share",
+      "period": "current worksheet",
+      "source": "frozen human worksheet configuration",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "low_value_usd_per_share",
+      "frozen_value": "0"
+    },
+    {
+      "id": "L047_T01",
+      "worksheet_line": 47,
+      "token": "0",
+      "kind": "human_value",
+      "value": "0",
+      "unit": "USD per share",
+      "period": "current worksheet",
+      "source": "frozen human worksheet configuration",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "mid_value_usd_per_share",
+      "frozen_value": "0"
+    },
+    {
+      "id": "L048_T01",
+      "worksheet_line": 48,
+      "token": "0",
+      "kind": "arithmetic",
+      "value": "0",
+      "unit": "USD per share",
+      "period": "2026-11-20",
+      "source": "frozen low value",
+      "operation": "identity",
+      "inputs": [
+        "0"
+      ]
+    },
+    {
+      "id": "L048_T02",
+      "worksheet_line": 48,
+      "token": "1.71",
+      "kind": "official_exchange_price",
+      "value": "1.71",
+      "unit": "USD per share",
+      "period": "2026-11-20",
+      "source": "Nasdaq official historical endpoint",
+      "instrument": "SUNE",
+      "price_date": "2026-11-20",
+      "reader_source": "Nasdaq official historical endpoint",
+      "reader_file": "market_summary.json"
+    },
+    {
+      "id": "L048_T03",
+      "worksheet_line": 48,
+      "token": "-1.71",
+      "kind": "arithmetic",
+      "value": "-1.71",
+      "unit": "USD per share",
+      "period": "2026-11-20",
+      "source": "worksheet calculation and market_summary.json",
+      "operation": "sum",
+      "inputs": [
+        "0",
+        "-1.71"
+      ]
+    },
+    {
+      "id": "L048_T04",
+      "worksheet_line": 48,
+      "token": "2026-11-20",
+      "kind": "date"
+    },
+    {
+      "id": "L049_T01",
+      "worksheet_line": 49,
+      "token": "108724.220",
+      "kind": "market_metric",
+      "value": "108724.220",
+      "unit": "USD per day",
+      "period": "2026-10-12 through 2026-11-20",
+      "source": "Nasdaq official historical endpoint",
+      "instrument": "SUNE",
+      "metric": "median_daily_dollar_volume",
+      "reader_source": "Nasdaq official historical endpoint",
+      "reader_file": "market_summary.json"
+    },
+    {
+      "id": "L049_T02",
+      "worksheet_line": 49,
+      "token": "2026-10-12",
+      "kind": "date"
+    },
+    {
+      "id": "L049_T03",
+      "worksheet_line": 49,
+      "token": "2026-11-20",
+      "kind": "date"
+    },
+    {
+      "id": "L050_T01",
+      "worksheet_line": 50,
+      "token": "500000",
+      "kind": "human_rate",
+      "value": "500000",
+      "unit": "USD",
+      "period": "current worksheet",
+      "source": "frozen human worksheet configuration",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "intended_purchase_size_usd",
+      "frozen_value": "500000"
+    },
+    {
+      "id": "L051_T01",
+      "worksheet_line": 51,
+      "token": "5.00%",
+      "kind": "human_rate",
+      "value": "0.05",
+      "unit": "ratio",
+      "period": "current worksheet",
+      "source": "frozen human worksheet configuration",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "maximum_purchase_fraction",
+      "frozen_value": "0.05"
+    },
+    {
+      "id": "L052_T01",
+      "worksheet_line": 52,
+      "token": "459.88%",
+      "kind": "arithmetic",
+      "value": "459.88",
+      "unit": "percent",
+      "period": "2026-10-12 through 2026-11-20",
+      "source": "worksheet calculation",
+      "operation": "percentage",
+      "inputs": [
+        "500000",
+        "108724.220"
+      ],
+      "round_places": 2
+    },
+    {
+      "id": "L063_T01",
+      "worksheet_line": 63,
+      "token": "0",
+      "kind": "human_value",
+      "value": "0",
+      "unit": "USD working-capital threshold",
+      "period": "next relevant filing",
+      "source": "frozen human investor persona",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "view_change_min_working_capital_usd",
+      "frozen_value": "0"
+    },
+    {
+      "id": "L063_T02",
+      "worksheet_line": 63,
+      "token": "12",
+      "kind": "human_value",
+      "value": "12",
+      "unit": "months",
+      "period": "next relevant filing",
+      "source": "frozen human investor persona",
+      "config_file": "frozen_numeric_config.json",
+      "config_key": "view_change_min_runway_months",
+      "frozen_value": "12"
+    }
+  ]
+}

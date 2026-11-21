@@ -1236,7 +1236,7 @@ class EquityResearchTeamFlow(Flow[TeamState]):
         self.state.run_folder = str(run_folder)
         manifest = desk_app.load_json(run_folder / "manifest.json")
         if self.state.filed_at:
-            manifest["week04_live_price"] = {
+            manifest["live_price"] = {
                 "edgar_accepted_time_eastern": self.state.filed_at,
                 "price": self.state.price,
                 "price_date": self.state.price_date or None,
@@ -1840,6 +1840,11 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         help="Licensed local closes export outside the repository; never copied into the run",
     )
+    parser.add_argument(
+        "--closes-source",
+        default="LSEG Workspace export",
+        help="Exact source label for --closes-export",
+    )
     parser.add_argument("--saved-run", type=Path, help="Reuse a successful saved data run")
     parser.add_argument(
         "--faskills",
@@ -1892,6 +1897,7 @@ def kickoff() -> None:
                 args.price_instrument or args.ticker,
                 filed_at,
                 export_path=args.closes_export,
+                export_source=args.closes_source,
             )
         except ValueError as exc:
             raise SystemExit(str(exc)) from exc

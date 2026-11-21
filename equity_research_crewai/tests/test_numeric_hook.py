@@ -112,8 +112,9 @@ def test_only_dates_accessions_and_line_numbers_are_ignored() -> None:
     assert verify_document({"numeric_claims": claims}).ok
 
 
-def test_human_rate_must_match_frozen_config() -> None:
-    claim = {**BASE, "kind": "human_rate", "value": "0.10", "frozen_value": "0.09"}
+@pytest.mark.parametrize("kind", ["human_rate", "human_value", "human_weight"])
+def test_human_input_must_match_frozen_config(kind: str) -> None:
+    claim = {**BASE, "kind": kind, "value": "0.10", "frozen_value": "0.09"}
     result = verify_document({"numeric_claims": [claim]})
     assert not result.ok
     assert any("frozen human configuration" in error for error in result.errors)

@@ -1,0 +1,15 @@
+{
+  "owner_cash_flow_usd_millions": "-8.438312",
+  "low_value_usd_per_share": "0",
+  "mid_value_usd_per_share": "0",
+  "official_close_usd_per_share": "1.71",
+  "valuation_gap_usd_per_share": "-1.71",
+  "shares_outstanding_millions": "6.513108",
+  "market_value_usd_millions": "11.13741468",
+  "median_daily_dollar_volume_usd": "108724.220",
+  "purchase_fraction_of_median_daily_dollar_volume": "4.598791327268202062061240816",
+  "purchase_percent_of_median_daily_dollar_volume": "459.8791327268202062061240816",
+  "liquidity_status": "fails",
+  "price_view": "less",
+  "conviction": "low"
+}

@@ -1,8 +1,8 @@
-"""Deterministic Week 4 closing-price reader.
+"""Deterministic official closing-price reader.
 
-The reader supports two licensed local paths:
+The reader supports an identified local official-close export and an optional licensed desktop path:
 
-1. A CSV export named by ``--export`` or ``LSEG_CLOSES_EXPORT``.
+1. A CSV export named by ``--export`` or ``LSEG_CLOSES_EXPORT``, with its exact source label.
 2. An optional LSEG Workspace desktop session through ``lseg-data``.
 
 It does not use a public price website as a fallback. Missing data is an
@@ -184,7 +184,7 @@ def _records_from_rows(
     return sorted(by_date.values())
 
 
-def _read_export(path: Path, instrument: str) -> list[CloseRecord]:
+def _read_export(path: Path, instrument: str, source: str = SOURCE_LSEG_EXPORT) -> list[CloseRecord]:
     if not path.exists() or not path.is_file():
         raise FileNotFoundError(f"Licensed close export not found: {path}")
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -194,7 +194,7 @@ def _read_export(path: Path, instrument: str) -> list[CloseRecord]:
             dialect = csv.Sniffer().sniff(sample, delimiters=",\t;|")
         except csv.Error:
             dialect = csv.excel
-        return _records_from_rows(csv.DictReader(handle, dialect=dialect), instrument, SOURCE_LSEG_EXPORT)
+        return _records_from_rows(csv.DictReader(handle, dialect=dialect), instrument, source)
 
 
 def _frame_rows(frame: Any) -> list[dict[Any, Any]]:
@@ -247,6 +247,7 @@ def official_daily_closes(
     end_date: date | str,
     *,
     export_path: Path | str | None = None,
+    export_source: str = SOURCE_LSEG_EXPORT,
     app_key: str | None = None,
 ) -> CloseReaderResult:
     """Return official daily closes for an inclusive date range."""
@@ -262,7 +263,10 @@ def official_daily_closes(
     configured_export = export_path or os.getenv("LSEG_CLOSES_EXPORT", "").strip()
     try:
         if configured_export:
-            records = _read_export(Path(configured_export).expanduser(), clean_instrument)
+            clean_source = export_source.strip()
+            if not clean_source:
+                raise ValueError("The export source label must not be blank.")
+            records = _read_export(Path(configured_export).expanduser(), clean_instrument, clean_source)
         else:
             records = _read_lseg_desktop(
                 clean_instrument,
@@ -317,6 +321,7 @@ def last_close_before(
     filed_at: str | datetime,
     *,
     export_path: Path | str | None = None,
+    export_source: str = SOURCE_LSEG_EXPORT,
     app_key: str | None = None,
     lookback_days: int = 14,
 ) -> CloseReaderResult:
@@ -331,6 +336,7 @@ def last_close_before(
         start,
         filed.date(),
         export_path=export_path,
+        export_source=export_source,
         app_key=app_key,
     )
     if daily.status != "available":
@@ -357,6 +363,11 @@ def build_parser() -> argparse.ArgumentParser:
     mode.add_argument("--start", help="Inclusive start date for a daily range, YYYY-MM-DD")
     parser.add_argument("--end", help="Inclusive range end date; required with --start")
     parser.add_argument("--export", type=Path, help="Licensed local CSV export; overrides LSEG_CLOSES_EXPORT")
+    parser.add_argument(
+        "--export-source",
+        default=SOURCE_LSEG_EXPORT,
+        help="Exact source label for a local official-close export",
+    )
     parser.add_argument("--lookback-days", type=int, default=14, help="Calendar-day lookback for --filed")
     return parser
 
@@ -370,6 +381,7 @@ def main() -> None:
                 args.instrument,
                 args.filed,
                 export_path=args.export,
+                export_source=args.export_source,
                 lookback_days=args.lookback_days,
             )
         else:
@@ -380,6 +392,7 @@ def main() -> None:
                 args.start,
                 args.end,
                 export_path=args.export,
+                export_source=args.export_source,
             )
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc

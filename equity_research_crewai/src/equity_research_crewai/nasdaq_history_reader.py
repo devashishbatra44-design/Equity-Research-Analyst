@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from datetime import datetime
 from decimal import Decimal
 from pathlib import Path
+from statistics import median
 from typing import Any, Mapping
 
 
@@ -58,18 +60,64 @@ def normalize(payload: Mapping[str, Any], instrument: str, source_url: str) -> d
     }
 
 
+def summarize(normalized: Mapping[str, Any], *, session_count: int = 30) -> dict[str, Any]:
+    """Return derived market metrics without copying the close list."""
+
+    if session_count < 1:
+        raise ValueError("Session count must be at least 1.")
+    records = normalized.get("records", [])
+    if not isinstance(records, list) or not records:
+        return {
+            "status": "not available",
+            "source": normalized.get("source"),
+            "source_url": normalized.get("source_url"),
+            "observation_count": 0,
+        }
+    selected = records[-session_count:]
+    dollar_volumes = [
+        _decimal(record["close"]) * _decimal(record["volume"])
+        for record in selected
+    ]
+    latest = selected[-1]
+    return {
+        "status": "available",
+        "source": normalized.get("source"),
+        "source_url": normalized.get("source_url"),
+        "source_sha256": normalized.get("source_sha256"),
+        "instrument": latest["instrument"],
+        "currency": latest["currency"],
+        "observation_count": len(selected),
+        "requested_session_count": session_count,
+        "available_session_count": len(records),
+        "start_date": selected[0]["pricing_date"],
+        "end_date": latest["pricing_date"],
+        "end_date_close": latest["close"],
+        "end_date_volume": latest["volume"],
+        "median_daily_dollar_volume": format(Decimal(str(median(dollar_volumes))), "f"),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--instrument", required=True)
     parser.add_argument("--source-url", required=True)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--summary-output", type=Path)
     args = parser.parse_args()
 
-    payload = json.loads(args.input.read_text(encoding="utf-8"))
+    raw_bytes = args.input.read_bytes()
+    payload = json.loads(raw_bytes.decode("utf-8"))
     result = normalize(payload, args.instrument, args.source_url)
+    result["source_sha256"] = hashlib.sha256(raw_bytes).hexdigest()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    if args.summary_output:
+        args.summary_output.parent.mkdir(parents=True, exist_ok=True)
+        args.summary_output.write_text(
+            json.dumps(summarize(result), indent=2) + "\n",
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":

@@ -14,6 +14,7 @@ SEC filings remain authoritative for every audited claim.
 - Checkpoint 2 submission index: [week03/CHECKPOINT2_SUBMISSION.md](week03/CHECKPOINT2_SUBMISSION.md)
 - Professor-provided FAskills course integration: [week03/FASKILLS_INTEGRATION.md](week03/FASKILLS_INTEGRATION.md)
 - Week 4 seeker, FDXF worksheet, numeric hook, live record, and full re-audit: [week04/README.md](week04/README.md)
+- Week 5 SUNE live report, investor worksheet, and pending reaction row: [week05/README.md](week05/README.md)
 
 Owned feature: We own a pre-registered spinoff factor-validation check that freezes F1-F3 before the test return and reports every comparison and missing observation.
 

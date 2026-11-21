@@ -90,7 +90,11 @@ def row_from_saved_run(run_dir: Path) -> HitRateRow:
     closes_path = run_dir / "hit_rate_closes.json"
     view = json.loads(view_path.read_text(encoding="utf-8"))
     ticker = str(view["ticker"]).upper()
-    closes = _parse_records(json.loads(closes_path.read_text(encoding="utf-8")), ticker)
+    closes = (
+        _parse_records(json.loads(closes_path.read_text(encoding="utf-8")), ticker)
+        if closes_path.exists()
+        else ()
+    )
     before = last_close_before_filing(str(view["filing_time"]), closes)
     after_close = first_close_after_filing(str(view["filing_time"]), closes)
     reaction = reaction_percent(before, after_close) if before and after_close else None

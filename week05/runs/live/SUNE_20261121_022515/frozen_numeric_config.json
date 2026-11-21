@@ -1,0 +1,15 @@
+{
+  "owner_cash_flow_method": "after-tax earnings plus depreciation and amortization minus capital expenditures",
+  "valuation_method": "negative owner-cash-flow floor",
+  "low_value_usd_per_share": "0",
+  "mid_value_usd_per_share": "0",
+  "intended_purchase_size_usd": "500000",
+  "maximum_purchase_fraction": "0.05",
+  "high_conviction_requires_valuation_pass": true,
+  "high_conviction_requires_liquidity_pass": true,
+  "missing_required_input_result": "not computed",
+  "view_change_min_working_capital_usd": "0",
+  "view_change_min_runway_months": "12",
+  "human_author": "Devashish Batra",
+  "human_frozen_date": "2026-11-21"
+}

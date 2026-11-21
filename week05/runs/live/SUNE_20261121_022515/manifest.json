@@ -1,0 +1,188 @@
+{
+  "program_version": "1.0.0",
+  "run_status": "success",
+  "steps": {
+    "1": {
+      "name": "Resolve the ticker",
+      "status": "success"
+    },
+    "2": {
+      "name": "Select the filings",
+      "status": "success"
+    },
+    "3": {
+      "name": "Download and convert the documents",
+      "status": "success"
+    },
+    "4": {
+      "name": "Retrieve annual XBRL company facts",
+      "status": "success"
+    },
+    "5": {
+      "name": "Calculate financial measures",
+      "status": "success",
+      "unavailable_calculations": [
+        "debt_to_equity"
+      ]
+    },
+    "6": {
+      "name": "Extract quarterly revenue and diluted EPS",
+      "status": "success",
+      "extraction_statuses": {
+        "total_revenue": "candidate_ambiguity",
+        "diluted_eps": "candidate_ambiguity"
+      }
+    },
+    "7": {
+      "name": "Process the peers",
+      "status": "success",
+      "peer_failures": 0
+    }
+  },
+  "local_run_time": "2026-11-21T02:25:15.385924-05:00",
+  "utc_run_time": "2026-11-21T07:25:15.385924+00:00",
+  "time_zone": "EST",
+  "arguments": {
+    "ticker": "SUNE",
+    "peers": "",
+    "price": 1.71,
+    "price_date": "2026-11-20",
+    "price_source": "Nasdaq official historical endpoint",
+    "step": null
+  },
+  "main_ticker": "SUNE",
+  "peer_tickers": [],
+  "company": {
+    "ticker": "SUNE",
+    "legal_name": "SUNation Energy, Inc.",
+    "cik": 22701,
+    "cik_10_digit": "0000022701"
+  },
+  "source_urls": {
+    "company_tickers": "https://www.sec.gov/files/company_tickers.json",
+    "submissions": "https://data.sec.gov/submissions/CIK0000022701.json",
+    "company_facts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000022701.json"
+  },
+  "filings": {
+    "10-k": {
+      "form": "10-K",
+      "filing_date": "2026-03-23",
+      "reporting_period": "2025-12-31",
+      "accession_number": "0000022701-26-000003",
+      "accepted_timestamp": "2026-03-20 18:03:20",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/0000022701-26-000003-index.html"
+    },
+    "10-q": {
+      "form": "10-Q",
+      "filing_date": "2026-08-12",
+      "reporting_period": "2026-06-30",
+      "accession_number": "0000022701-26-000010",
+      "accepted_timestamp": "2026-08-12 15:52:48",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000010/0000022701-26-000010-index.html"
+    },
+    "8-k": {
+      "form": "8-K",
+      "filing_date": "2026-11-20",
+      "reporting_period": "2026-11-20",
+      "accession_number": "0001213900-26-122794",
+      "accepted_timestamp": "2026-11-20 17:26:25",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026122794/0001213900-26-122794-index.html"
+    }
+  },
+  "selected_xbrl_tags": {
+    "total_revenue": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "operating_income": "us-gaap:OperatingIncomeLoss",
+    "net_income": "us-gaap:NetIncomeLoss",
+    "diluted_eps": "us-gaap:EarningsPerShareDiluted",
+    "stockholders_equity": "us-gaap:StockholdersEquity",
+    "long_term_debt": "us-gaap:LongTermDebt",
+    "current_long_term_debt": null,
+    "cash_from_operations": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "property_equipment_additions": "us-gaap:PaymentsToAcquireProductiveAssets"
+  },
+  "output_filenames": [
+    "10-k.txt",
+    "10-q.txt",
+    "8-k.txt",
+    "calculations.json",
+    "exhibit-99-1.txt",
+    "facts.csv",
+    "facts.json",
+    "filings.json",
+    "manifest.json",
+    "node_order.json",
+    "node_records.json",
+    "peers.csv",
+    "peers.json",
+    "verified_report.md",
+    "verifier_input.json",
+    "verifier_output.json"
+  ],
+  "retrieval_errors": [],
+  "validation_errors": [],
+  "unavailable_values": [
+    "current_long_term_debt",
+    "debt_to_equity"
+  ],
+  "documents": {
+    "10-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000003/sune-20251231x10k.htm",
+      "local_filename": "10-k.txt",
+      "accession_number": "0000022701-26-000003",
+      "retrieval_status": "success"
+    },
+    "10-q": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000002270126000010/sune-20260630x10q.htm",
+      "local_filename": "10-q.txt",
+      "accession_number": "0000022701-26-000010",
+      "retrieval_status": "success"
+    },
+    "8-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026122794/ea0313155-8k425_sunation.htm",
+      "local_filename": "8-k.txt",
+      "accession_number": "0001213900-26-122794",
+      "retrieval_status": "success"
+    },
+    "exhibit-99-1": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026122794/ea031315501ex99-1.htm",
+      "local_filename": "exhibit-99-1.txt",
+      "accession_number": "0001213900-26-122794",
+      "document_type": "EX-99.1",
+      "description": "PRESS RELEASE DATED NOVEMBER 20, 2026",
+      "retrieval_status": "success"
+    }
+  },
+  "tag_selection_reasons": {
+    "total_revenue": "Selected the candidate with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is newest (2025-12-31); when candidate years tied, selected the larger total-revenue value, with tag priority as the final tie-breaker.",
+    "operating_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "net_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "diluted_eps": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "stockholders_equity": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period; prior-period coverage was unavailable.",
+    "current_long_term_debt": null,
+    "cash_from_operations": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "property_equipment_additions": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage."
+  },
+  "live_price": {
+    "edgar_accepted_time_eastern": "2026-11-20T17:26:25-05:00",
+    "price": 1.71,
+    "price_date": "2026-11-20",
+    "price_source": "Nasdaq official historical endpoint"
+  },
+  "week03_agent_team": {
+    "framework": "CrewAI Flow",
+    "node_order": [
+      "Steps",
+      "Research Analyst",
+      "Financial Analyst",
+      "Investment Advisor",
+      "Strategy Manager",
+      "Research Analyst retry",
+      "Financial Analyst retry",
+      "Investment Advisor refresh",
+      "Verifier"
+    ],
+    "verifier_required": true,
+    "verified_report": "verified_report.md"
+  }
+}

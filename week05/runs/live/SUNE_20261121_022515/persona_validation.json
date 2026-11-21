@@ -1,0 +1,10 @@
+{
+  "model_calls": 1,
+  "raw_output_file": "persona_output.md",
+  "favorable_case_status": "rejected",
+  "favorable_case_reason": "The paragraph inverted the low-value comparison and treated a failed valuation test as a possible margin of safety.",
+  "disconfirming_case_status": "accepted",
+  "next_filing_condition_status": "accepted as exact human wording",
+  "liquidity_added_after_model_call": true,
+  "final_conviction_decided_by_code": true
+}

@@ -1,0 +1,57 @@
+{
+  "source": "SEC submissions and primary Form 4/4-A transaction tables",
+  "cik": "0000022701",
+  "start_date": "2026-01-01",
+  "through_date": "2026-11-21",
+  "form4_filings_found": 2,
+  "reviewed_filings": [
+    {
+      "form": "4",
+      "filing_date": "2026-05-01",
+      "accession": "0001213900-26-050835",
+      "url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026050835/ownership.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-04-14",
+          "transaction_code": "P",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-05-01",
+      "accession": "0001213900-26-050834",
+      "url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026050834/ownership.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-04-14",
+          "transaction_code": "P",
+          "is_director": true,
+          "is_officer": true
+        }
+      ]
+    }
+  ],
+  "officer_or_director_code_p_purchases": [
+    {
+      "transaction_date": "2026-04-14",
+      "transaction_code": "P",
+      "is_director": false,
+      "is_officer": true,
+      "accession": "0001213900-26-050835",
+      "url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026050835/ownership.xml"
+    },
+    {
+      "transaction_date": "2026-04-14",
+      "transaction_code": "P",
+      "is_director": true,
+      "is_officer": true,
+      "accession": "0001213900-26-050834",
+      "url": "https://www.sec.gov/Archives/edgar/data/22701/000121390026050834/ownership.xml"
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

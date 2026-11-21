@@ -54,6 +54,19 @@ def test_official_daily_closes_retains_optional_volume(tmp_path: Path) -> None:
     assert result.to_dict()["records"][0]["volume"] == "125000"
 
 
+def test_local_export_preserves_exact_source_label(close_export: Path) -> None:
+    result = official_daily_closes(
+        "TEST.O",
+        "2026-11-09",
+        "2026-11-10",
+        export_path=close_export,
+        export_source="Nasdaq official historical endpoint",
+    )
+
+    assert result.status == "available"
+    assert all(record.source == "Nasdaq official historical endpoint" for record in result.records)
+
+
 def test_last_close_before_pre_market_filing_uses_prior_trading_day(close_export: Path) -> None:
     result = last_close_before("TEST.O", "2026-11-10T08:30:00-05:00", export_path=close_export)
 

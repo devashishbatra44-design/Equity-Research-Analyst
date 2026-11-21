@@ -44,6 +44,20 @@ def test_value_range_without_close_is_not_computed() -> None:
     assert result.price_vs_low == "not computed"
 
 
+def test_negative_owner_cash_flow_uses_human_approved_zero_floor() -> None:
+    result = value_range(
+        Decimal("-8.438312"),
+        method="negative owner-cash-flow floor",
+        low_input=Decimal("0"),
+        mid_input=Decimal("0"),
+        price=Decimal("1.71"),
+    )
+
+    assert result.low_value == Decimal("0")
+    assert result.mid_value == Decimal("0")
+    assert result.price_vs_low == "less"
+
+
 def test_invalid_low_mid_order_is_rejected() -> None:
     with pytest.raises(ValueError, match="low value above"):
         value_range(Decimal("10"), method="capitalization rate", low_input=Decimal("0.05"), mid_input=Decimal("0.10"), price=None)
