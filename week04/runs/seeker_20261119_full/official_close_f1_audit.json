@@ -1,0 +1,268 @@
+{
+  "source": "Nasdaq official historical endpoint; regular ticker only",
+  "currency": "USD",
+  "window_start": "2026-01-01",
+  "index_date": "2026-11-19",
+  "results": [
+    {
+      "child": "Versant Media Group, Inc.",
+      "parent": "Comcast Corporation",
+      "distribution_date": "2026-01-02",
+      "regular_trading_start_date": "2026-01-05",
+      "child_ticker": "VSNT",
+      "parent_ticker": "CMCSA",
+      "child_close": "40.57",
+      "parent_close": "28.13",
+      "pricing_date": "2026-01-05",
+      "market_cap_ratio": "0.05768929968005687877710629221",
+      "f1": true,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/VSNT/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/CMCSA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Augusta SpinCo Corporation",
+      "parent": "Becton, Dickinson and Company",
+      "distribution_date": "2026-02-09",
+      "regular_trading_start_date": null,
+      "child_ticker": null,
+      "parent_ticker": "BDX",
+      "child_close": null,
+      "parent_close": null,
+      "pricing_date": null,
+      "market_cap_ratio": null,
+      "f1": null,
+      "data_limit": "SpinCo merged into a Waters subsidiary immediately after distribution and had no standalone regular close.",
+      "sources": []
+    },
+    {
+      "child": "Atrium Therapeutics, Inc.",
+      "parent": "Avidity Biosciences, Inc.",
+      "distribution_date": "2026-02-26",
+      "regular_trading_start_date": "2026-02-27",
+      "child_ticker": "RNA",
+      "parent_ticker": "RNAM",
+      "child_close": "14.75",
+      "parent_close": null,
+      "pricing_date": "2026-02-27",
+      "market_cap_ratio": null,
+      "f1": null,
+      "data_limit": "No same-date official parent close was returned.",
+      "sources": [
+        "https://api.nasdaq.com/api/quote/RNA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/RNAM/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Versigent PLC",
+      "parent": "Aptiv PLC",
+      "distribution_date": "2026-04-01",
+      "regular_trading_start_date": "2026-04-01",
+      "child_ticker": "VGNT",
+      "parent_ticker": "APTV",
+      "child_close": "27.85",
+      "parent_close": "62.09",
+      "pricing_date": "2026-04-01",
+      "market_cap_ratio": "0.1495141461319589842701454877",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/VGNT/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/APTV/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "First Tracks Biotherapeutics, Inc.",
+      "parent": "AnaptysBio, Inc.",
+      "distribution_date": "2026-04-20",
+      "regular_trading_start_date": "2026-04-20",
+      "child_ticker": "TRAX",
+      "parent_ticker": "ANAB",
+      "child_close": "18.60",
+      "parent_close": "50.95",
+      "pricing_date": "2026-04-20",
+      "market_cap_ratio": "0.3650637880274779195289499509",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/TRAX/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/ANAB/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "FedEx Freight Holding Company, Inc.",
+      "parent": "FedEx Corporation",
+      "distribution_date": "2026-06-01",
+      "regular_trading_start_date": "2026-06-01",
+      "child_ticker": "FDXF",
+      "parent_ticker": "FDX",
+      "child_close": "149.53",
+      "parent_close": "338.49",
+      "pricing_date": "2026-06-01",
+      "market_cap_ratio": "0.2757528303069123653337549753",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/FDXF/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/FDX/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Enviri Corporation (formerly Enviri II Corporation)",
+      "parent": "CE Holdings, Inc. (successor holding company to former Enviri)",
+      "distribution_date": "2026-06-01",
+      "regular_trading_start_date": "2026-06-02",
+      "child_ticker": "NVRI",
+      "parent_ticker": null,
+      "child_close": "19.20",
+      "parent_close": null,
+      "pricing_date": "2026-06-02",
+      "market_cap_ratio": null,
+      "f1": null,
+      "data_limit": "CE Holdings was acquired by Veolia after the distribution and has no post-distribution public close.",
+      "sources": [
+        "https://api.nasdaq.com/api/quote/NVRI/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Honeywell Aerospace Inc.",
+      "parent": "Honeywell Technologies",
+      "distribution_date": "2026-06-29",
+      "regular_trading_start_date": "2026-06-29",
+      "child_ticker": "HONA",
+      "parent_ticker": "HON",
+      "child_close": "220.19",
+      "parent_close": "227.80",
+      "pricing_date": "2026-06-29",
+      "market_cap_ratio": "0.4832967515364354697102721686",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/HONA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/HON/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Mobility Global Inc.",
+      "parent": "S&P Global Inc.",
+      "distribution_date": "2026-07-01",
+      "regular_trading_start_date": "2026-07-01",
+      "child_ticker": "MBGL",
+      "parent_ticker": "SPGI",
+      "child_close": "21.19",
+      "parent_close": "414.97",
+      "pricing_date": "2026-07-01",
+      "market_cap_ratio": "0.05106393233245776803142395836",
+      "f1": true,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/MBGL/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/SPGI/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Midera Food Processing, Inc.",
+      "parent": "The Middleby Corporation",
+      "distribution_date": "2026-07-06",
+      "regular_trading_start_date": "2026-07-07",
+      "child_ticker": "MFP",
+      "parent_ticker": "MIDD",
+      "child_close": "36.60",
+      "parent_close": "139.26",
+      "pricing_date": "2026-07-07",
+      "market_cap_ratio": "0.2628177509694097371822490306",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/MFP/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/MIDD/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "ADI Global Distribution Inc.",
+      "parent": "Resideo Technologies, Inc.",
+      "distribution_date": "2026-08-03",
+      "regular_trading_start_date": "2026-08-04",
+      "child_ticker": "ADIG",
+      "parent_ticker": "REZI",
+      "child_close": "22.00",
+      "parent_close": "26.17",
+      "pricing_date": "2026-08-04",
+      "market_cap_ratio": "0.4203286205578907145586549484",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/ADIG/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/REZI/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "BioKey (Cayman), Inc.",
+      "parent": "ABVC BioPharma, Inc.",
+      "distribution_date": "2026-08-21",
+      "regular_trading_start_date": null,
+      "child_ticker": null,
+      "parent_ticker": "ABVC",
+      "child_close": null,
+      "parent_close": null,
+      "pricing_date": null,
+      "market_cap_ratio": null,
+      "f1": null,
+      "data_limit": "No trading market or ticker existed at distribution; the filing stated an intended later OTC quotation application.",
+      "sources": []
+    },
+    {
+      "child": "Vylor Inc.",
+      "parent": "Corteva, Inc.",
+      "distribution_date": "2026-10-01",
+      "regular_trading_start_date": "2026-10-01",
+      "child_ticker": "VYLR",
+      "parent_ticker": "CTVA",
+      "child_close": "68.26",
+      "parent_close": "12.57",
+      "pricing_date": "2026-10-01",
+      "market_cap_ratio": "5.430389817024661893396976929",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/VYLR/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/CTVA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    },
+    {
+      "child": "Platinum SpinCo, Inc.",
+      "parent": "Modine Manufacturing Company",
+      "distribution_date": "2026-10-01",
+      "regular_trading_start_date": null,
+      "child_ticker": null,
+      "parent_ticker": "MOD",
+      "child_close": null,
+      "parent_close": null,
+      "pricing_date": null,
+      "market_cap_ratio": null,
+      "f1": null,
+      "data_limit": "SpinCo merged into a Gentherm subsidiary immediately after distribution and had no standalone regular close.",
+      "sources": []
+    },
+    {
+      "child": "MSG Rangers Corp. (formerly MSGS Spinco, Inc.)",
+      "parent": "MSG Knickerbockers Corp. (formerly Madison Square Garden Sports Corp.)",
+      "distribution_date": "2026-10-26",
+      "regular_trading_start_date": "2026-10-27",
+      "child_ticker": "MSGR",
+      "parent_ticker": "MSGK",
+      "child_close": "177.61",
+      "parent_close": "305.42",
+      "pricing_date": "2026-10-27",
+      "market_cap_ratio": "0.2907635387335472464147730993",
+      "f1": false,
+      "data_limit": null,
+      "sources": [
+        "https://api.nasdaq.com/api/quote/MSGR/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000",
+        "https://api.nasdaq.com/api/quote/MSGK/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000"
+      ]
+    }
+  ]
+}

@@ -11,9 +11,12 @@ from equity_research_crewai.sec_spinoff_discovery import (
     SecClient,
     filing_folder_documents,
     form10_candidates,
+    form10_candidates_quarterly,
+    iter_quarters,
     master_index_url,
     parent_recent_8ks,
     parse_master_index,
+    quarterly_master_index_url,
 )
 
 
@@ -61,6 +64,20 @@ def test_form10_candidates_reads_business_days_and_keeps_amendments() -> None:
     rows = form10_candidates(client, date(2026, 11, 9), date(2026, 11, 9))
     assert [row.form for row in rows] == ["10-12B/A"]
     assert master_index_url(date(2026, 11, 9)).endswith("2026/QTR4/master.20261109.idx")
+
+
+def test_quarterly_candidates_filter_exact_dates_and_forms() -> None:
+    payload = (
+        b"1|Before|10-12B|2025-11-18|edgar/data/1/0001/before.txt\n"
+        b"2|Child|10-12B/A|2025-11-19|edgar/data/2/0002/child.txt\n"
+        b"3|Exchange|CERT|2026-01-02|edgar/data/3/0003/cert.txt\n"
+        b"4|Other|8-K|2026-01-02|edgar/data/4/0004/other.txt\n"
+    )
+    client = SecClient("DJS Team team@example.edu", opener=lambda *_args, **_kwargs: Response(payload))
+    rows = form10_candidates_quarterly(client, date(2025, 11, 19), date(2026, 1, 2))
+    assert [row.form for row in rows] == ["10-12B/A", "CERT", "10-12B/A", "CERT"]
+    assert list(iter_quarters(date(2025, 11, 19), date(2026, 1, 2))) == [(2025, 4), (2026, 1)]
+    assert quarterly_master_index_url(2026, 1).endswith("2026/QTR1/master.idx")
 
 
 def test_filing_folder_returns_all_named_documents() -> None:

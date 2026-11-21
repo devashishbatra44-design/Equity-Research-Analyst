@@ -1,0 +1,8 @@
+{
+  "stress_multiple": "10.00",
+  "low_multiple": "14.00",
+  "mid_multiple": "18.75",
+  "high_multiple": "28.00",
+  "intended_purchase_size_usd": "500000",
+  "maximum_purchase_fraction_percent": "5.00"
+}

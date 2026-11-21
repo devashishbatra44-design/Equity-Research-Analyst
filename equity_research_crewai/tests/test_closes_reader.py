@@ -20,6 +20,11 @@ TEST.O,2026-11-09,101.25,USD
 TEST.O,2026-11-10,102.75,USD
 """
 
+CSV_WITH_VOLUME = """Instrument,Date,TR.PriceClose,TR.Volume,Currency
+TEST.O,2026-11-09,101.25,125000,USD
+TEST.O,2026-11-10,102.75,140000,USD
+"""
+
 
 @pytest.fixture()
 def close_export(tmp_path: Path) -> Path:
@@ -35,6 +40,18 @@ def test_official_daily_closes_filters_instrument_and_inclusive_dates(close_expo
     assert [record.pricing_date for record in result.records] == [date(2026, 11, 9), date(2026, 11, 10)]
     assert [record.close for record in result.records] == [Decimal("101.25"), Decimal("102.75")]
     assert all(record.currency == "USD" for record in result.records)
+    assert all(record.volume is None for record in result.records)
+
+
+def test_official_daily_closes_retains_optional_volume(tmp_path: Path) -> None:
+    path = tmp_path / "licensed-close-and-volume.csv"
+    path.write_text(CSV_WITH_VOLUME, encoding="utf-8")
+
+    result = official_daily_closes("TEST.O", "2026-11-09", "2026-11-10", export_path=path)
+
+    assert result.status == "available"
+    assert [record.volume for record in result.records] == [Decimal("125000"), Decimal("140000")]
+    assert result.to_dict()["records"][0]["volume"] == "125000"
 
 
 def test_last_close_before_pre_market_filing_uses_prior_trading_day(close_export: Path) -> None:

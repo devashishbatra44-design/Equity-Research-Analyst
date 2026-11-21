@@ -10,14 +10,23 @@ import json
 import re
 import sys
 from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation
+from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 
 REFUSAL = "REFUSE: saved worksheet numeric verification failed"
 IGNORED_KINDS = {"date", "accession", "line_number"}
-ALLOWED_KINDS = {"filing_fact", "arithmetic", "human_rate", "human_weight", "licensed_price"}
+ALLOWED_KINDS = {
+    "filing_fact",
+    "arithmetic",
+    "human_rate",
+    "human_weight",
+    "licensed_price",
+    "official_exchange_price",
+    "market_metric",
+    "analytical_score",
+}
 
 
 @dataclass(frozen=True)
@@ -57,12 +66,28 @@ def verify_claim(claim: Mapping[str, Any]) -> list[str]:
             expected: Decimal | None = None
             if operation == "sum":
                 expected = sum(numbers, Decimal("0"))
+            elif operation == "identity" and len(numbers) == 1:
+                expected = numbers[0]
             elif operation == "a_plus_b_minus_c" and len(numbers) == 3:
                 expected = numbers[0] + numbers[1] - numbers[2]
             elif operation == "divide" and len(numbers) == 2 and numbers[1] != 0:
                 expected = numbers[0] / numbers[1]
+            elif operation == "multiply" and len(numbers) == 2:
+                expected = numbers[0] * numbers[1]
+            elif operation == "multiply_one_minus" and len(numbers) == 2:
+                expected = numbers[0] * (Decimal("1") - numbers[1])
+            elif operation == "multiply_divide" and len(numbers) == 3 and numbers[2] != 0:
+                expected = numbers[0] * numbers[1] / numbers[2]
+            elif operation == "percentage" and len(numbers) == 2 and numbers[1] != 0:
+                expected = numbers[0] / numbers[1] * Decimal("100")
+            elif operation == "absolute_difference" and len(numbers) == 2:
+                expected = abs(numbers[0] - numbers[1])
             else:
                 errors.append(f"{claim_id}: unsupported arithmetic operation or inputs")
+            round_places = claim.get("round_places")
+            if expected is not None and round_places is not None:
+                places = int(round_places)
+                expected = expected.quantize(Decimal("1").scaleb(-places), rounding=ROUND_HALF_UP)
             if expected is not None and decimal(claim.get("value")) != expected:
                 errors.append(f"{claim_id}: printed arithmetic does not recompute")
     elif kind in {"human_rate", "human_weight"}:
@@ -71,10 +96,42 @@ def verify_claim(claim: Mapping[str, Any]) -> list[str]:
                 errors.append(f"{claim_id}: missing {field}")
         if decimal(claim.get("value")) != decimal(claim.get("frozen_value")):
             errors.append(f"{claim_id}: value differs from frozen human configuration")
-    elif kind == "licensed_price":
+    elif kind in {"licensed_price", "official_exchange_price"}:
         for field in ("instrument", "price_date", "reader_source", "reader_file"):
             if claim.get(field) in (None, ""):
                 errors.append(f"{claim_id}: missing {field}")
+    elif kind == "market_metric":
+        for field in ("instrument", "metric", "reader_source", "reader_file"):
+            if claim.get(field) in (None, ""):
+                errors.append(f"{claim_id}: missing {field}")
+    elif kind == "analytical_score":
+        for field in (
+            "criterion",
+            "persona_file",
+            "scale_min",
+            "scale_max",
+            "evidence_claim_ids",
+            "used_in_composite",
+        ):
+            if claim.get(field) in (None, ""):
+                errors.append(f"{claim_id}: missing {field}")
+        try:
+            score = decimal(claim.get("value"))
+            scale_min = decimal(claim.get("scale_min"))
+            scale_max = decimal(claim.get("scale_max"))
+            if scale_min != Decimal("1") or scale_max != Decimal("5"):
+                errors.append(f"{claim_id}: analytical score scale must be 1 through 5")
+            if score != score.to_integral_value() or score < scale_min or score > scale_max:
+                errors.append(f"{claim_id}: analytical score must be an integer from 1 through 5")
+        except ValueError as exc:
+            errors.append(f"{claim_id}: {exc}")
+        evidence_claim_ids = claim.get("evidence_claim_ids")
+        if not isinstance(evidence_claim_ids, list) or not evidence_claim_ids or not all(
+            isinstance(item, str) and item.strip() for item in evidence_claim_ids
+        ):
+            errors.append(f"{claim_id}: evidence_claim_ids must be a nonempty list of claim IDs")
+        if claim.get("used_in_composite") is not False:
+            errors.append(f"{claim_id}: analytical score must not be used in a composite")
     return errors
 
 
@@ -83,6 +140,20 @@ def verify_document(document: Mapping[str, Any]) -> Verification:
     if not isinstance(claims, list):
         return Verification(False, ("numeric_claims must be a list",))
     errors = [error for claim in claims for error in verify_claim(claim)]
+    claims_by_id = {str(claim.get("id", "unnamed")): claim for claim in claims}
+    for claim in claims:
+        if str(claim.get("kind", "")) != "analytical_score":
+            continue
+        claim_id = str(claim.get("id", "unnamed"))
+        evidence_claim_ids = claim.get("evidence_claim_ids")
+        if not isinstance(evidence_claim_ids, list):
+            continue
+        for evidence_id in evidence_claim_ids:
+            evidence = claims_by_id.get(str(evidence_id))
+            if evidence is None:
+                errors.append(f"{claim_id}: evidence claim {evidence_id!r} does not exist")
+            elif str(evidence.get("kind", "")) in IGNORED_KINDS | {"analytical_score"}:
+                errors.append(f"{claim_id}: evidence claim {evidence_id!r} is not source evidence")
     return Verification(not errors, tuple(errors))
 
 
@@ -144,7 +215,7 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
                     errors.append(f"{claim_id}: value differs from the external frozen human configuration")
             except (OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
                 errors.append(f"{claim_id}: invalid frozen configuration: {exc}")
-        elif kind == "licensed_price" and claim.get("reader_file"):
+        elif kind in {"licensed_price", "official_exchange_price"} and claim.get("reader_file"):
             try:
                 reader = json.loads(_within(base, str(claim["reader_file"])).read_text(encoding="utf-8"))
                 matches = [
@@ -158,6 +229,43 @@ def _external_errors(document: Mapping[str, Any], base: Path) -> list[str]:
                     errors.append(f"{claim_id}: price does not match the saved closes-reader record")
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 errors.append(f"{claim_id}: invalid closes-reader record: {exc}")
+        elif kind == "market_metric" and claim.get("reader_file"):
+            try:
+                reader = json.loads(_within(base, str(claim["reader_file"])).read_text(encoding="utf-8"))
+                records = [
+                    record
+                    for record in reader.get("records", [])
+                    if str(record.get("instrument", "")).upper() == str(claim.get("instrument", "")).upper()
+                ]
+                metric = str(claim.get("metric", ""))
+                expected: Decimal | None = None
+                if metric == "observation_count":
+                    expected = Decimal(len(records))
+                elif metric == "median_daily_dollar_volume":
+                    values = sorted(decimal(record["close"]) * decimal(record["volume"]) for record in records)
+                    if values:
+                        middle = len(values) // 2
+                        expected = (
+                            values[middle]
+                            if len(values) % 2
+                            else (values[middle - 1] + values[middle]) / Decimal("2")
+                        )
+                if expected is None:
+                    errors.append(f"{claim_id}: unsupported or empty market metric")
+                elif decimal(claim.get("value")) != expected:
+                    errors.append(f"{claim_id}: market metric does not match the saved reader records")
+            except (OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
+                errors.append(f"{claim_id}: invalid market-reader record: {exc}")
+        elif kind == "analytical_score" and claim.get("persona_file"):
+            try:
+                persona_text = _within(base, str(claim["persona_file"])).read_text(
+                    encoding="utf-8", errors="replace"
+                )
+                criterion = str(claim.get("criterion", "")).strip()
+                if not criterion or criterion.casefold() not in persona_text.casefold():
+                    errors.append(f"{claim_id}: criterion is absent from the frozen persona")
+            except (OSError, ValueError) as exc:
+                errors.append(f"{claim_id}: invalid frozen persona: {exc}")
 
     if worksheet_lines:
         token_pattern = re.compile(

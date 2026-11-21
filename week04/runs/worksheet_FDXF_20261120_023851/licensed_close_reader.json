@@ -1,0 +1,17 @@
+{
+  "status": "available for close; volume not available in supplied export",
+  "source": "S&P Capital IQ Quick Comparable Analysis export",
+  "source_workbook": "Capital IQ/FDX/Company Comparable Analysis FedEx Freight Holding Company Inc .xls",
+  "source_sheet": "Financial Data",
+  "source_row": 27,
+  "as_of_date": "2026-11-19",
+  "records": [
+    {
+      "instrument": "FDXF",
+      "pricing_date": "2026-11-19",
+      "close": "126.58",
+      "currency": "USD",
+      "source": "S&P Capital IQ licensed local export"
+    }
+  ]
+}

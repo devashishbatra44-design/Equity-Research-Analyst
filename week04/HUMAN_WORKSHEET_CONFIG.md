@@ -1,14 +1,14 @@
 # Human Worksheet Configuration
 
-Status: incomplete until Devashish writes the rules
+Status: frozen by Devashish Batra for the first investor-worksheet run
 
 Do not ask AI to choose the rates, client size, or decision thresholds.
 
 ## Client constraint
 
-- Client type:
-- Intended purchase size in USD:
-- Minimum liquidity rule:
+- Client type: Patient, value-oriented family office with moderate risk tolerance and a 3-5 year holding period.
+- Intended purchase size in USD: $500,000.
+- Minimum liquidity rule: Pass only when the intended purchase is no more than 5% of median daily dollar volume. For the approved $500,000 purchase, the required median daily dollar volume is at least $10,000,000 USD.
 
 ## Owner cash flow
 
@@ -16,26 +16,54 @@ The fixed formula is:
 
 `after-tax earnings + depreciation - capital expenditures`
 
-- Historical period to use:
-- Treatment of pro forma standalone costs:
-- Treatment of unknown costs:
+- Historical period to use: Fiscal year ended May 31, 2026. Use this audited 12-month period for the primary owner-cash-flow calculation. Keep later post-spin quarters separate as trend evidence.
+- Treatment of pro forma standalone costs: Deduct recurring incremental standalone costs only when an SEC filing quantifies them. Exclude one-time separation and transaction costs from normalized owner cash flow, but disclose quantified one-time costs separately.
+- Treatment of unknown costs: Record the amount as `not known` and do not estimate it. If the unknown amount is required for a calculation, report the calculation as `not computed`.
 
 ## Value range
 
-- Low-case rate or multiple:
-- Mid-case rate or multiple:
-- Why these values fit this client:
-- Rule for comparing current price with low value:
+- Primary method: Owner-cash-flow multiple.
+- Low-case rate or multiple: 14.00x.
+- Mid-case rate or multiple: 18.75x.
+- Supplemental high-case sensitivity: 28.00x. This sensitivity does not replace the required low and mid cases.
+- Severe stress sensitivity: 10.00x. This sensitivity is not part of the required low and mid range.
+- Why these values fit this client: The low case uses the observed 14.03x minimum owner-cash-flow multiple in the selected five-company LTL peer set. The mid case uses the 18.76x lower quartile. The supplemental high case uses the 28.05x peer median. The selected range keeps the required cases below the peer median because FedEx Freight has higher leverage, unknown recurring standalone costs, and limited independent operating history. The range fits a patient, value-oriented family office with moderate risk tolerance and a 3-5 year holding period.
+- Rule for comparing current price with low value: The security passes the low-value test only when the current share price is less than or equal to the calculated low-case value per share. Equality passes. A current price above the low-case value fails. If the low-case value or current price is unavailable, report `not computed` and do not infer a result.
+
+## Supplemental DCF cross-check
+
+- Status: Approved by Devashish as an additional valuation cross-check. It does not replace the required low and mid owner-cash-flow multiple cases.
+- Cash-flow definition: Use unlevered free cash flow to the firm: `EBIT x (1 - operating tax rate) + depreciation and amortization - capital expenditures - change in net working capital`. Exclude interest income, interest expense, debt issuance, debt repayment, and other financing cash flows. Exclude one-time separation and transaction costs from normalized EBIT. Include recurring incremental standalone operating costs only when an SEC filing quantifies them. Record an unquantified required cost as `not known` and do not estimate it. Convert enterprise value to equity value through a separate net-debt bridge.
+- Explicit forecast period: Five annual forecast years. Model the standalone transition and cost normalization in Years 1-2, model movement toward sustainable operating performance in Years 3-5, and calculate terminal value after Year 5. A 10-year gradual-convergence case may be shown only as an optional sensitivity and must not replace the primary five-year DCF.
+- Forecast rules:
+  - Base the historical starting point on the audited fiscal year ended May 31, 2026. Keep the four months ended September 30, 2026 separate as post-spin trend evidence and do not splice the periods together.
+  - Revenue: Use dated, cited company guidance or Capital IQ consensus for the explicit years when available. Do not substitute an AI estimate. Fade later explicit-year growth toward the approved terminal growth rate without a step change.
+  - EBIT: Start from reported operating income. Exclude SEC-quantified one-time separation and transaction costs. Include recurring standalone operating costs when quantified. Do not remove ordinary operating costs or add unsupported synergies.
+  - EBIT margin: In Years 1-2, use cited post-spin evidence and cited estimates. In Years 3-5, move gradually toward a sustainable margin supported by FDXF history and selected LTL peers. Do not exceed the selected peer median without filed evidence.
+  - Operating tax rate: Use the latest SEC-reported effective tax rate applicable to post-spin operations unless a filing quantifies a different continuing rate.
+  - Depreciation and amortization: Forecast from a cited historical percentage of revenue or a cited company forecast. Apply one consistent method across the five explicit years.
+  - Capital expenditures: Use SEC-filed company guidance when available. Otherwise use a cited historical percentage of revenue. Keep transition technology spending visible and do not treat it as recurring maintenance capital without evidence.
+  - Change in net working capital: Exclude transaction-driven changes, including the receivables reacquisition associated with ending the FedEx factoring arrangement. Use a cited normalized historical relationship to revenue only when it can be calculated reliably.
+  - Do not forecast acquisitions, divestitures, synergies, restructuring benefits, share repurchases, or new financing unless an SEC filing quantifies them.
+  - Record a required unsupported forecast input as `not known`. If that input is necessary for FCFF, report the affected DCF result as `not computed`.
+- Discount-rate rule: Use an 11.0% base weighted-average cost of capital for the supplemental DCF. The unrounded cross-check is 11.08%. Calculate cost of equity with CAPM. Use the 5.04% U.S. Treasury 10-year constant-maturity yield dated November 19, 2026 as the risk-free rate. Use the 4.41% U.S. implied equity-risk premium dated November 1, 2026. Use a bottom-up levered beta of 1.73. Derive that beta from the median unlevered beta of 1.50 for the approved five-company LTL peer set of XPO, ODFL, SAIA, TFII, and ARCB, then relever it to FDXF using a 27.5% tax rate and approximately $4.0 billion USD of debt fair value. This produces a 12.68% cost of equity. Use FDXF's 4.82% annualized weighted-average interest rate at September 30, 2026 as the pre-tax cost of debt. Apply the 27.5% tax rate to produce a 3.49% after-tax cost of debt. Weight the cost of equity and after-tax cost of debt by the $18,926.4 million USD Capital IQ market capitalization dated November 19, 2026 and approximately $4.0 billion USD SEC-reported debt fair value at September 30, 2026. Do not add a separate company-specific risk premium. Test WACC from 10.0% through 12.5% in 0.5-percentage-point increments. Keep 11.0% as the base case. Do not change this rule because a different rate produces a preferred valuation result.
+- Terminal-value method and rule: Use the Gordon Growth Method after Year 5. Use a 2.0% perpetual-growth rate in the base case. Calculate terminal value as `Year 6 FCFF / (WACC - perpetual growth)`, where `Year 6 FCFF = Year 5 normalized FCFF x (1 + perpetual growth)`. Set Year 5 operating assumptions so that they transition without a step change into the terminal year. Make terminal reinvestment internally consistent with growth by applying `terminal reinvestment rate = perpetual growth / terminal ROIC`. Derive terminal ROIC from cited normalized operating inputs. Do not assume perpetual growth without the required capital expenditures and working-capital investment. Use an exit-multiple calculation only as a reasonableness cross-check. Do not average the Gordon Growth and exit-multiple results. If a reliable terminal ROIC or required reinvestment cannot be calculated, report the affected terminal value as `not computed`.
+- Net-debt treatment: Use the latest filed balance sheet dated September 30, 2026. Use the lease-expensed FCFF convention. Leave ordinary operating-lease payments in operating expenses and do not subtract the $1,841 million USD operating-lease liability from enterprise value. In the base equity bridge, subtract approximately $4,000 million USD of funded debt at SEC-reported estimated fair value, subtract $255 million USD of finance-lease liabilities, add $388 million USD of reported cash, and subtract the $22 million USD net pension liability. The base net-debt and other-claims adjustment is therefore $3,889 million USD, calculated as `$4,000 + $255 - $388 + $22`. Calculate base equity value as `enterprise value - $3,889 million`. Use the $4,166 million USD carrying value of funded debt only as a conservative sensitivity. The conservative adjustment is $4,055 million USD, calculated as `$4,166 + $255 - $388 + $22`. Include new finance-lease right-of-use asset additions in capital expenditures when a filing quantifies them. Include operating-lease payments in projected operating expenses when the leases commence. Do not separately subtract the approximately $275 million USD of uncommenced operating-lease commitments disclosed at September 30, 2026. Record an unsupported future lease cost as `not known`. Do not treat accounts payable, ordinary operating accruals, deferred tax liabilities, self-insurance accruals, or unused revolving-credit capacity as debt. Do not use Capital IQ net debt without reconciling its inclusion of operating-lease liabilities. Do not mix the lease-expensed convention with a lease-capitalized enterprise value.
+- Share-count treatment: Start with the exact common shares outstanding stated on the cover page of the latest SEC filing. Use 149,521,266 actual common shares outstanding as of October 27, 2026 as the basic point-in-time share count. Do not substitute the 149.5 million weighted-average basic shares while this point-in-time count is available. If a later SEC filing does not provide a point-in-time outstanding share count, use the latest filed weighted-average basic shares and label that fallback explicitly. For the primary diluted per-share valuation, add the latest filed approximately 0.4 million incremental dilutive effect of stock options and RSUs to the point-in-time basic count. Because the 0.4 million amount is rounded and period-weighted, present the resulting primary diluted denominator as 149.9 million shares and do not claim false precision. This treatment relies on FDXF's filed ASC 260 dilution result instead of reconstructing the treasury-stock method without complete award-level inputs. Do not separately add the 120,421 RSUs because the filed dilution line includes RSUs. Do not include the 14 million shares registered for possible issuance under the equity plans because registration is not issuance. Do not add FedEx's retained 19.9% interest because those shares are already included in outstanding shares. Show 150.0 million shares only as a target-PSU sensitivity that adds the 118,286 PSUs granted in June 2026. Do not describe 150.0 million as the filed diluted count or as maximum dilution. Do not reduce the denominator for hypothetical repurchases. Keep stock-based compensation in operating expenses and do not add it back to FCFF while using diluted shares. Replace these amounts when a later SEC filing provides newer point-in-time shares or dilution information.
+- Sensitivity ranges: Present a two-way terminal-value sensitivity table. Test WACC from 10.0% through 12.5% in 0.5-percentage-point increments. Test perpetual growth from 1.0% through 3.0% in 0.5-percentage-point increments. Use 11.0% WACC and 2.0% perpetual growth as the base case. Do not use a perpetual-growth rate equal to or greater than WACC.
 
 ## Conviction
 
-- `high` rule:
-- `low` rule:
-- `not computed` rule:
+- `high` rule: Report `high` only when the official current close, owner cash flow, low-case value per share, and median daily dollar volume are computed; the official current close is less than or equal to the low-case value per share; and the intended $500,000 purchase is less than or equal to 5% of median daily dollar volume. Equality passes both the valuation and liquidity tests.
+- `low` rule: Report `low` when all required inputs are computed, but the official current close is greater than the low-case value per share or the intended $500,000 purchase is greater than 5% of median daily dollar volume. A `low` result can therefore reflect a valuation failure, a client-liquidity failure, or both.
+- `not computed` rule: Report `not computed` when the official current close, a required owner-cash-flow input, the low-case value per share, or the median daily dollar volume needed for the liquidity test is unavailable. Do not infer a conviction from incomplete required inputs.
+- Deciding valuation number: Use the low-case value per share. Print the valuation gap as `low-case value per share - official current close`. A nonnegative gap passes the valuation test.
+- Supplemental DCF treatment: Report the five-year DCF separately as supporting or conflicting evidence. Do not average it with the owner-cash-flow multiple valuation. A missing DCF does not cause `not computed`. A DCF disagreement must be disclosed, but it does not mechanically change the conviction label.
 
 ## Freeze record
 
-- Frozen by:
-- Frozen at, Eastern:
-- Commit or file hash:
-- Change rule after freeze:
+- Frozen by: Devashish Batra
+- Frozen at, Eastern: November 20, 2026 at 2:38:51 AM EST
+- Approval record: Devashish Batra replied `okay approved` to the full freeze statement presented immediately before this record.
+- Commit or file hash: Pending the first authorized commit. The local freeze precedes that commit.
+- Change rule after freeze: Preserve this frozen version for the first investor-worksheet run. Any later change requires a dated amendment approved by Devashish Batra and a new run. Do not use an amendment to rewrite an earlier result.

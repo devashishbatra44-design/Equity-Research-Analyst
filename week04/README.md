@@ -39,17 +39,17 @@ The numeric hook must block completion when a financial number lacks a permitted
 | Instructor live-report clarification | Recorded and applied | `INSTRUCTOR_CLARIFICATION.md` |
 | Data and licensing rules | Complete | `LINK_AUDIT.md` and `REQUIREMENTS.md` |
 | Required reading map | Complete | `LINK_AUDIT.md` |
-| Human chapter notes | Pending human work | `HUMAN_PREWORK.md` |
-| Two hand-found Form 10 examples | Pending human work | `HUMAN_PREWORK.md` |
-| Human factor file | Pending human work | `HUMAN_FACTORS.md` |
-| Human worksheet config | Pending human work | `HUMAN_WORKSHEET_CONFIG.md` |
-| Human investor persona | Pending human work | `HUMAN_INVESTOR_PERSONA.md` |
+| Human chapter notes | Complete and approved by Devashish | `HUMAN_PREWORK.md` |
+| Two hand-found Form 10 examples | Complete and approved by Devashish | `HUMAN_PREWORK.md` |
+| Human factor file | Frozen before the first pre-registered run | `HUMAN_FACTORS.md` |
+| Human worksheet config | Frozen and approved by Devashish | `HUMAN_WORKSHEET_CONFIG.md` |
+| Human investor persona | Frozen and approved by Devashish | `HUMAN_INVESTOR_PERSONA.md` |
 | Closes reader | Built in code; local package or export still required | `equity_research_crewai/src/equity_research_crewai/closes_reader.py` |
-| Seeker skill | Built and synthetic-tested; real filing validation waits for human inputs | `.agents/skills/fin67110-spinoff-seeker/SKILL.md` and `REQUIREMENTS.md` |
-| Worksheet skill | Built and synthetic-tested; real run waits for human config and persona | `.agents/skills/fin67110-investor-worksheet/SKILL.md` and `REQUIREMENTS.md` |
-| Numeric hook | Built and seeded-error tested; not enabled | `equity_research_crewai/src/equity_research_crewai/numeric_hook.py` and `HOOK_REVIEW.md` |
-| First live report | Pending team selection and an eligible filing | `TEAM_DECISIONS.md` |
-| Live-record index | Ready for GitHub commit links | `LIVE_RECORD.md` |
+| Seeker skill | Complete locally; 15 in-window distributions audited for F1, F2, and F3; final report has 10 ranked, 9 watch, and 1 dropped row | `.agents/skills/fin67110-spinoff-seeker/SKILL.md`, `REQUIREMENTS.md`, and `runs/seeker_20261119_full/` |
+| Worksheet skill | Built, synthetic-tested, and run on FDXF with saved SEC and Nasdaq evidence | `.agents/skills/fin67110-investor-worksheet/SKILL.md`, `REQUIREMENTS.md`, and `runs/worksheet_FDXF_20261120_023851/` |
+| Numeric hook | Built, seeded-error tested, enabled, and trusted as a project Stop hook | `.codex/hooks.json`, `week04/run_fdxf_numeric_hook.sh`, and `HOOK_REVIEW.md` |
+| First live report | Complete and pushed within the 24-hour deadline for WFCF | `runs/live/WFCF_20261114_144628/` and `LIVE_RECORD.md` |
+| Live-record index | Week 4 permanent commit link recorded | `LIVE_RECORD.md` |
 | Owned product line | Pending team decision | `TEAM_DECISIONS.md` |
 
 ## Safety boundaries
@@ -66,15 +66,57 @@ The numeric hook must block completion when a financial number lacks a permitted
 
 ## Immediate sequence
 
-1. Devashish completes the human-only fields in the 4 templates in this folder.
-2. The team selects the Week 4 live filing.
-3. Run the closes reader against one exchange-checked close.
-4. Run the tested seeker on the two human-found examples and the frozen factors.
-5. Run the tested worksheet on the saved seeker result.
-6. Review the numeric hook. Enable it only after review.
-7. Save the live report in `week04/runs/live/`.
-8. Commit and push the report to the team GitHub repository within 24 hours of the EDGAR Accepted time.
-9. Record the permanent commit link and commit timestamp in `LIVE_RECORD.md`.
+1. Devashish reviews the completed FDXF worksheet.
+2. Commit or push only after Devashish approves publication.
+
+## Reproducible seeker commands
+
+Run the deterministic seeker tests:
+
+```bash
+.venv/bin/python -m pytest \
+  equity_research_crewai/tests/test_spinoff_seeker.py \
+  equity_research_crewai/tests/test_sec_spinoff_discovery.py \
+  equity_research_crewai/tests/test_sec_form10_text_screen.py \
+  equity_research_crewai/tests/test_sec_form4_audit.py -q
+```
+
+Rebuild the SEC index, text screen, and F3 audit:
+
+```bash
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.sec_spinoff_discovery \
+  --start 2024-01-01 --end 2026-11-19 \
+  --output week04/runs/seeker_20261119_full/sec_form10_cert_candidates.json
+
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.sec_form10_text_screen \
+  --input week04/runs/seeker_20261119_full/sec_form10_cert_candidates.json \
+  --output week04/runs/seeker_20261119_full/form10_text_screen.json
+
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.sec_form4_audit \
+  --registry week04/runs/seeker_20261119_full/registry.json \
+  --output week04/runs/seeker_20261119_full/form4_f3_audit.json
+```
+
+Rebuild F1, validate F2, and render the final seeker report:
+
+```bash
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.official_close_f1_audit \
+  --registry week04/runs/seeker_20261119_full/registry.json \
+  --output week04/runs/seeker_20261119_full/official_close_f1_audit.json
+
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.sec_f2_audit \
+  --input week04/runs/seeker_20261119_full/f2_filing_evidence.json \
+  --output week04/runs/seeker_20261119_full/sec_f2_audit.json
+
+PYTHONPATH=equity_research_crewai/src .venv/bin/python -m equity_research_crewai.build_full_seeker_report \
+  --registry week04/runs/seeker_20261119_full/registry.json \
+  --f1 week04/runs/seeker_20261119_full/official_close_f1_audit.json \
+  --f2 week04/runs/seeker_20261119_full/sec_f2_audit.json \
+  --f3 week04/runs/seeker_20261119_full/form4_f3_audit.json \
+  --human-factors week04/HUMAN_FACTORS.md \
+  --report-output week04/runs/seeker_20261119_full/report.md \
+  --evidence-output week04/runs/seeker_20261119_full/evidence.md
+```
 
 Do not upload the weekly report separately to Brightspace. Starting with Checkpoint 3, the checkpoint submission lists the live record completed so far.
 

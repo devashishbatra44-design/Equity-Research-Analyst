@@ -1,0 +1,2518 @@
+fdxf-20260930
+Table of Contents
+UNITED STATES
+SECURITIES AND EXCHANGE COMMISSION
+Washington, D.C. 20549
+FORM
+10-Q
+☑
+QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the quarterly period ended
+September 30, 2026
+OR
+☐
+TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the transition period from ______ to ______
+Commission file number:
+001-43059
+FedEx Freight Holding Company, Inc.
+(Exact name of registrant as specified in its charter)
+Delaware
+39-3560171
+(State or other jurisdiction of
+incorporation or organization)
+(I.R.S. Employer Identification No.)
+8285 Tournament Drive
+38125
+Memphis
+,
+Tennessee
+(ZIP code)
+(Address of principal executive offices)
+(901)
+560-0784
+(Registrant’s telephone number, including area code)
+Securities registered pursuant to Section 12(b) of the Act:
+Title of each class
+Trading symbol(s)
+Name of each exchange on which registered
+Common Stock, par value $0.10 per share
+FDXF
+New York Stock Exchange
+Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.
+Yes
+☑ No ☐
+Indicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§ 232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit such files).
+Yes
+☑ No ☐
+Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.
+Large accelerated filer ☐
+Accelerated filer ☐
+Non-accelerated filer
+☑
+Smaller reporting company
+☐
+Emerging growth company
+☐
+If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐
+Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Act). Yes ☐ No
+☑
+As of October 27, 2026,
+149,521,266
+shares of the registrant’s common stock were outstanding.
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+TABLE OF CONTENTS
+Page
+PART I. FINANCIAL INFORMATION
+1
+Item 1. Financial Statements
+1
+Condensed Consolidated Balance Sheets
+1
+Condensed Consolidated Statements of Income
+2
+Condensed Consolidated Statements of Cash Flows
+3
+Condensed Consolidated Statements of Stockholders' Equity
+4
+Notes to Condensed Consolidated Financial Statements
+5
+Item 2. Management’s Discussion and Analysis of Results of Operations and Financial Condition
+16
+Item 3. Quantitative and Qualitative Disclosure About Market Risk
+24
+Item 4. Controls and Procedures
+24
+PART II. OTHER INFORMATION
+24
+Item 1. Legal Proceedings
+24
+Item 1A. Risk Factors
+24
+Item 5. Other Information
+25
+Item 6. Exhibits
+26
+Signature
+27
+Table of Contents
+PART I
+ITEM 1. FINANCIAL STATEMENTS
+FEDEX FREIGHT HOLDING COMPANY, INC.
+CONDENSED CONSOLIDATED BALANCE SHEETS
+(IN MILLIONS, EXCEPT SHARE DATA)
+September 30,
+2026 (Unaudited)
+May 31,
+2026
+ASSETS
+Current assets
+Cash
+$
+388
+$
+251
+Receivables, less allowances of $
+196
+and $
+204
+1,262
+1,154
+Due from Parent
+—
+18
+Prepaid expenses and other
+196
+83
+Total current assets
+1,846
+1,506
+Property and equipment
+Property and equipment, at cost
+6,671
+6,670
+Less accumulated depreciation and amortization
+3,764
+3,747
+Net property and equipment
+2,907
+2,923
+Other long-term assets
+Operating lease right-of-use assets, net
+1,822
+1,824
+Goodwill
+602
+602
+Other assets
+39
+29
+Total other long-term assets
+2,463
+2,455
+TOTAL ASSETS
+$
+7,216
+$
+6,884
+LIABILITIES AND (DEFICIT) EQUITY
+Current liabilities
+Current portion of long-term debt
+$
+45
+$
+43
+Accrued salaries and employee benefits
+305
+389
+Accounts payable
+210
+106
+Operating lease liabilities
+162
+172
+Accrued expenses
+414
+283
+Total current liabilities
+1,136
+993
+Long-term liabilities
+Long-term debt, less current portion
+4,376
+4,484
+Deferred income taxes
+209
+220
+Self-insurance accruals
+43
+13
+Operating lease liabilities
+1,679
+1,666
+Other liabilities
+25
+5
+Total long-term liabilities
+6,332
+6,388
+Commitments and contingencies
+(Deficit) equity
+Common stock, $
+0.10
+par value;
+500
+million shares authorized;
+150
+million shares issued and outstanding as of September 30, 2026 and
+150
+million shares authorized, issued, and outstanding as of May 31, 2026
+15
+15
+Additional paid-in capital
+19
+—
+Accumulated deficit
+(
+280
+)
+(
+509
+)
+Accumulated other comprehensive loss
+(
+6
+)
+(
+3
+)
+Total (deficit) equity
+(
+252
+)
+(
+497
+)
+TOTAL LIABILITIES AND (DEFICIT) EQUITY
+$
+7,216
+$
+6,884
+The accompanying notes are an integral part of these condensed consolidated financial statements.
+1
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF INCOME
+(IN MILLIONS, EXCEPT EARNINGS PER SHARE)
+(UNAUDITED)
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Revenue
+$
+2,442
+$
+2,259
+$
+3,281
+$
+3,004
+Operating expenses:
+Salaries and employee benefits
+1,128
+1,084
+1,506
+1,433
+Operating supplies and expenses
+546
+471
+722
+621
+Purchased transportation
+235
+200
+309
+265
+Depreciation and amortization
+114
+125
+152
+168
+Insurance and claims
+44
+42
+59
+56
+Operating taxes and licenses
+17
+17
+23
+23
+Separation and other costs
+105
+30
+127
+30
+Total operating expenses
+2,189
+1,969
+2,898
+2,596
+Operating income
+253
+290
+383
+408
+Other income (expense):
+Related party interest income
+—
+98
+—
+128
+Interest expense
+(
+55
+)
+—
+(
+73
+)
+—
+Interest income
+5
+—
+5
+—
+Other, net
+1
+3
+3
+5
+Total other income (expense)
+(
+49
+)
+101
+(
+65
+)
+133
+Income before income taxes
+204
+391
+318
+541
+Provision for income taxes
+57
+100
+88
+137
+Net income
+$
+147
+$
+291
+$
+230
+$
+404
+Earnings per share:
+Basic
+$
+0.98
+$
+1.95
+$
+1.54
+$
+2.70
+Diluted
+$
+0.98
+$
+1.95
+$
+1.54
+$
+2.70
+Weighted-average shares outstanding:
+Basic
+149.5
+149.5
+149.5
+149.5
+Diluted
+149.9
+149.5
+149.9
+149.5
+The accompanying notes are an integral part of these condensed consolidated financial statements.
+2
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(IN MILLIONS)
+(UNAUDITED)
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+OPERATING ACTIVITIES
+Net income
+$
+230
+$
+404
+Adjustments to reconcile net income to cash provided by operating activities:
+Depreciation and amortization
+152
+148
+Provision for uncollectible accounts
+39
+8
+Other noncash items including leases and deferred income taxes
+84
+33
+Stock-based compensation
+16
+5
+Separation and other costs, net of payments
+(
+11
+)
+6
+Changes in assets and liabilities:
+Receivables
+(
+149
+)
+(
+18
+)
+Other current assets
+(
+84
+)
+(
+30
+)
+Accounts payable and other liabilities
+90
+(
+94
+)
+Due from Parent, net
+18
+624
+Other, net
+5
+(
+1
+)
+Cash provided by operating activities
+390
+1,085
+INVESTING ACTIVITIES
+Capital expenditures
+(
+151
+)
+(
+55
+)
+Proceeds from asset dispositions and other
+13
+5
+Cash used in investing activities
+(
+138
+)
+(
+50
+)
+FINANCING ACTIVITIES
+Principal payments on debt
+(
+115
+)
+(
+1
+)
+Proceeds from stock issuances
+1
+—
+Net transfers to Parent
+—
+(
+1,059
+)
+Cash used in financing activities
+(
+114
+)
+(
+1,060
+)
+Effect of exchange rate changes on cash
+(
+1
+)
+1
+Net increase (decrease) in cash
+137
+(
+24
+)
+Cash at beginning of period
+251
+109
+Cash at end of period
+$
+388
+$
+85
+The accompanying notes are an integral part of these condensed consolidated financial statements.
+3
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS’ EQUITY
+(IN MILLIONS)
+(UNAUDITED)
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Common Stock
+Beginning Balance
+$
+15
+$
+—
+$
+15
+$
+—
+Employee incentive plans and other
+(1)
+—
+—
+—
+—
+Ending Balance
+15
+—
+15
+—
+Additional Paid-in Capital
+Beginning Balance
+8
+—
+—
+—
+Net transfers from (to) Parent
+(2)
+—
+—
+(
+5
+)
+—
+Employee incentive plans and other
+(1)
+11
+—
+24
+—
+Ending Balance
+19
+—
+19
+—
+(Accumulated Deficit) Retained Earnings
+Beginning Balance
+(
+427
+)
+1,736
+(
+509
+)
+2,400
+Net income
+147
+291
+230
+404
+Net transfers from (to) Parent
+(2)
+—
+(
+280
+)
+(
+1
+)
+(
+1,057
+)
+Ending Balance
+(
+280
+)
+1,747
+(
+280
+)
+1,747
+Accumulated Other Comprehensive Loss
+Beginning Balance
+(
+5
+)
+(
+6
+)
+(
+3
+)
+(
+7
+)
+Foreign currency translation adjustments
+(
+1
+)
+—
+(
+3
+)
+1
+Ending Balance
+(
+6
+)
+(
+6
+)
+(
+6
+)
+(
+6
+)
+Total (Deficit) Equity Balance
+$
+(
+252
+)
+$
+1,741
+$
+(
+252
+)
+$
+1,741
+___________________
+(1)
+Shares issued under employee incentive plans totaled
+7,630
+and
+15,671
+shares during the three- and four-month periods ended September 30, 2026, respectively.
+No
+shares were issued under employee incentive plans during the three- and four-month periods ended September 30, 2025.
+(2)
+Refer to
+Note 1
+2
+,
+Related Party Transactions
+, for additional information on Net transfers from (to) Parent.
+The accompanying notes are an integral part of these condensed consolidated financial statements.
+4
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+NOTE 1:
+DESCRIPTION OF BUSINESS AND BASIS OF PRESENTATION
+BACKGROUND.
+FedEx Freight Holding Company, Inc. (“FedEx Freight,” the “Company,” “we,” or “our”) was incorporated in Delaware on July 14, 2025, for the purpose of receiving, pursuant to a reorganization, all of the outstanding equity interests of FedEx Freight, Inc., an indirect wholly owned subsidiary of FedEx Corporation (the “Parent” or “FedEx”). On June 1, 2026 (the “Distribution Date”), FedEx completed the spin-off of FedEx Freight (the “Spin-Off” or the “Separation”), which was tax-free for U.S. federal income tax purposes. The Separation was completed through the distribution of approximately
+80.1
+% of the Company’s outstanding common stock to holders of record of FedEx common stock as of the close of business on May 15, 2026 (the “Distribution”), which resulted in the issuance of approximately
+150
+million shares of common stock inclusive of FedEx’s retained stake. Prior to the Distribution, the Company issued
+100
+shares of common stock in exchange for a subscription receivable of $
+10
+, all of which were held by FedEx. On May 27, 2026, the Company effected a recapitalization whereby those shares were reclassified and converted into
+149,505,248
+shares of common stock. In connection with the Spin-Off, the Company became an independent, publicly traded company. Our common stock is listed under the symbol “FDXF” on the New York Stock Exchange.
+Unless the context otherwise requires, references to “FedEx Freight,” the “Company,” “we,” or “our” refer to (i) FedEx Freight Holding Company, Inc. and its direct and indirect subsidiaries after giving effect to the reorganization completed on May 29, 2026 in preparation for the Spin-Off and (ii) FedEx Freight, Inc. when referencing the time period prior to the reorganization.
+DESCRIPTION OF BUSINESS.
+FedEx Freight is a leading North American provider of less-than-truckload (“LTL”) freight transportation services. We offer a range of services designed to meet the diverse needs of LTL shippers including time-critical transportation needs leveraging our advanced tracking capabilities and a comprehensive network of service centers and hubs that facilitate efficient delivery and pickup. FedEx Freight service offerings include priority services when speed is critical and economy services when time can be traded for savings. FedEx Freight is our sole reportable segment based upon the information used by our chief operating decision maker (“CODM”) in evaluating the performance of our business and allocating resources and capital.
+FISCAL YEARS.
+Effective June 1, 2026, the Company’s fiscal year-end changed from May 31 to December 31. The accompanying unaudited condensed consolidated financial statements present our financial position as of September 30, 2026 and May 31, 2026; our results of operations and changes in stockholders’ equity for the three- and four-month periods ended September 30, 2026 and 2025; and cash flows for the four-month periods ended September 30, 2026 and 2025.
+Refer to
+Note 4, Additional Financial Information
+, for additional information regarding the periods presented and related comparisons.
+BASIS OF PRESENTATION.
+These unaudited condensed consolidated financial statements of FedEx Freight have been prepared in accordance with accounting principles generally accepted in the United States (“GAAP”) and Securities and Exchange Commission (“SEC”) instructions for interim financial information and should be read in conjunction with our Annual Report on Form 10-K for the fiscal year ended May 31, 2026 (“Annual Report”). Accordingly, certain disclosures required by GAAP and normally included in annual financial statements have been omitted.
+For the periods presented in these financial statements prior to the Spin-Off, FedEx Freight operated as part of FedEx and consisted of several legal entities. Separate financial statements were not historically prepared for FedEx Freight. The financial statements for periods prior to the Spin-Off were derived from FedEx’s historical accounting records and presented as if FedEx Freight’s operations had been conducted independently from FedEx, using the historical accounting policies applied by FedEx. As discussed in the Annual Report, the results of FedEx Custom Critical, Inc. (“FedEx Custom Critical”) and FedEx Freight Canada Corp. have been retrospectively included for the periods ended prior to June 1, 2026, as the contribution of these entities to FedEx Freight was accounted for as a transaction under common control. These financial statements are presented on a consolidated basis for all periods presented.
+Following completion of the Spin-Off, FedEx Freight began operating as an independent, publicly traded company. Accordingly, transactions and balances after June 1, 2026 reflect the Company's stand-alone operations, capital structure, financing arrangements, and cash management activities.
+The historical results of operations, financial position, and cash flows of FedEx Freight prior to the Spin-Off presented in these financial statements may not be indicative of what they would have been had FedEx Freight been an independent stand-alone entity. In the opinion of management, these financial statements reflect all adjustments, including normal recurring adjustments, that are necessary for a fair presentation of results of operations and financial condition for the interim periods shown. The results for the current interim periods are not necessarily indicative of results for the full year.
+The financial statements include all revenue and costs directly attributable to FedEx Freight and, prior to the Spin-Off, an allocation of expenses related to certain FedEx corporate and shared functions. These expenses have been allocated to FedEx Freight based on direct usage or benefit where specifically identifiable, with the remainder allocated pro rata based on an applicable measure of total revenue, headcount, specific revenue by function, transaction volume, or other relevant measures. Management considers these allocations to be a reasonable reflection of the utilization of services or the benefit received. Where allocations of amounts were necessary, the allocations of these amounts were determined on a reasonable basis and the methods were applied consistently for the applicable periods presented prior to the Spin-Off and reflect all of the costs of FedEx Freight. These allocated amounts are not necessarily indicative of the actual amounts that might have been incurred or realized had FedEx Freight operated as an independent, stand-alone entity during the periods presented, nor are they indicative of FedEx Freight’s future operations. Consequently, the financial
+5
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+statements do not necessarily represent the results the Company would have achieved if the Company had operated as a separate, stand-alone entity during the periods presented. It is not practicable to estimate actual costs that would have been incurred had the Company been a separate, stand-alone company during the periods presented. Refer to
+Note
+1
+2
+, Related Party Transactions
+, for additional information regarding these allocations.
+The financial statements include all of the assets and liabilities specifically attributable to FedEx Freight and its subsidiaries, all of which are wholly owned. All intercompany transactions and balances within FedEx Freight have been eliminated in these financial statements. As described in
+Note 1
+2
+, Related Party Transactions
+, certain transactions between FedEx Freight and FedEx prior to the Spin-Off have been included in these financial statements.
+Prior to the Spin-Off, FedEx used a centralized approach to cash management and financing of its domestic operations. The related balances were increased through daily cash deposits by the Company to FedEx and decreased by cash distributions and disbursements made by FedEx on behalf of FedEx Freight for operating expenses. This arrangement was not reflective of the manner in which we would have financed our domestic operations had we been a stand-alone business separate from FedEx during the periods presented prior to the Spin-Off. As a result of this arrangement, we were dependent on transfers of cash from FedEx to fund our operations in certain situations. The amounts associated with this arrangement are reported in the caption “Accumulated deficit” as a component of (deficit) equity in the accompanying Condensed Consolidated Balance Sheets and as a financing activity on the accompanying Condensed Consolidated Statements of Cash Flows. Refer to
+Note 1
+2
+, Related Party Transactions
+, for further discussion. On May 29, 2026, the Company’s cash pooling arrangement with FedEx was terminated in preparation for the Spin-Off.
+FedEx’s third-party debt and related interest expense were not attributed to FedEx Freight for the periods presented prior to the Spin-Off because FedEx’s borrowings were neither directly attributable to FedEx Freight nor was FedEx Freight the legal obligor of such borrowings. Refer to
+Note 13, Commitments and Contingencies
+, for further discussion of our guarantees of FedEx’s third-party debt during the periods presented. In connection with the Spin-Off, we entered into a series of financing arrangements for which both FedEx and FedEx Freight, Inc. were jointly and severally liable until completion of the Spin-Off. Upon completion of the Spin-Off, FedEx was automatically released from its guarantee of these financing arrangements, and FedEx Custom Critical joined FedEx Freight, Inc. as a guarantor. The borrowings under such financing arrangements are reflected in the “Long-term debt, less current portion” caption on the accompanying Condensed Consolidated Balance Sheets, with a corresponding amount reflected as a Net transfer to Parent. Refer to
+Note 7, Long-Term Debt
+, for further discussion on the composition of debt during the periods presented.
+Certain prior-year balances have been reclassified to conform to the current-year presentation. Costs previously reported within “Fuel,” “Rentals,” and “Maintenance and repairs,” and certain costs previously reported within “Other,” were aggregated and presented within “Operating supplies and expenses.” In addition, the remaining amounts previously included within “Other” were presented separately as “Insurance and claims” and “Operating taxes and licenses,” respectively. These changes had no impact on previously reported total revenue, total operating expenses, operating income, net income, or earnings per share.
+NOTE 2:
+SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES
+CONTRACT ASSETS.
+Contract assets include billed and unbilled amounts resulting from in-transit shipments, as we have an unconditional right to payment only once all performance obligations have been completed (e.g., delivery has occurred). Contract assets are generally classified as current, and the full balance is converted each quarter based on the short-term nature of the transactions.
+The Company’s contract assets were historically included in the balances sold to FedEx pursuant to the Company’s historical factoring arrangement. On November 30, 2025, the Company’s factoring agreement with FedEx was terminated in preparation for the Spin-Off. Additionally, on November 18, 2025, the Company entered into a True Sale and Assignment Agreement with FedEx, effective December 1, 2025, under which the Company reacquired all outstanding U.S. trade receivables previously sold to FedEx. Refer to
+Note 1
+2
+, Related Party Transactions
+, for additional information related to the Company’s participation in the historical factoring agreement with FedEx.
+Gross contract assets related to in-transit shipments totaled $
+149
+million at September 30, 2026 and $
+150
+million at May 31, 2026. Contract assets net of deferred unearned revenue were $
+74
+million at September 30, 2026 and $
+76
+million at May 31, 2026. Contract assets are included within “Receivables” in the accompanying Condensed Consolidated Balance Sheets.
+CREDIT RISK.
+We routinely grant credit to many of our customers without collateral. We believe the risk of credit loss in our non-factored trade receivables is substantially mitigated by our credit evaluation process, short collection terms, and our broad and diverse customer base. We have elected the practical expedient under Accounting Standards Codification (“ASC”) Topic 326, Financial Instruments - Credit Losses to assume that current conditions as of the balance sheet date do not change for the remaining life of our accounts receivable. Accordingly, allowances for potential credit losses are updated monthly and determined using historical experience and the impact of current economic conditions. Historically, credit losses have been within management’s expectations.
+6
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+EMPLOYEE BENEFIT PLANS.
+We sponsor defined benefit pension and defined contribution plans covering eligible employees.
+Defined Benefit Plans
+In connection with the Spin-Off, effective June 1, 2026 and as a result of the legal split of certain of FedEx’s benefit plans, all eligible FedEx Freight employees transitioned to a newly established, dedicated defined benefit plan. Prior to the Spin-Off, certain of our employees participated in defined benefit pension and post-retirement healthcare plans sponsored by FedEx, which were accounted for under the multi-employer approach. Accordingly, we did not record an asset or liability to recognize the funded status of the plans in the accompanying Condensed Consolidated Balance Sheets as of May 31, 2026. The accompanying Condensed Consolidated Statements of Income reflect a proportionate allocation of net periodic benefit costs associated with FedEx Freight employees’ participation in the multi-employer plans for the three- and four-month periods ended September 30, 2025. We recognize the funded status of each defined benefit plan in the accompanying Condensed Consolidated Balance Sheets. The funded status represents the difference between the fair value of plan assets and the projected benefit obligation. We use “mark-to-market” accounting and immediately recognize changes in the fair value of plan assets and actuarial gains or losses in our results annually in the fourth quarter of each year.
+The service cost component of net periodic benefit cost is included in “Salaries and employee benefits” and all other components are included in “Other, net” in the accompanying Condensed Consolidated Statements of Income.
+Defined Contribution Plans
+In connection with the Spin-Off, effective June 1, 2026 and as a result of the legal split of certain of FedEx’s contribution plans, all eligible FedEx Freight employees transitioned to newly established, dedicated defined contribution plans. Prior to the Spin-Off, certain of our employees in Canada participated in a defined contribution plan sponsored by FedEx Freight, while certain of our employees in the United States participated in defined contribution plans sponsored by FedEx. Contributions in the United States are subject to maximum compensation and contribution limits for a tax-qualified defined contribution plan as prescribed by the Internal Revenue Service. Contributions to defined contribution plans are expensed as incurred.
+STOCK-BASED COMPENSATION.
+Certain of our employees and members of our Board of Directors participated in the stock-based compensation program sponsored by FedEx Freight for the three- and four-month periods ended September 30, 2026 and had participated in the stock-based compensation plans sponsored by FedEx prior to the Spin-Off for the three- and four-month periods ended September 30, 2025. The accounting guidance related to share-based payments requires recognition of compensation expense for stock-based awards using a fair value method. FedEx Freight uses the Black-Scholes option pricing model to calculate the fair value of stock options. The value of awards of restricted stock, restricted stock units (“RSUs”), and performance stock units (“PSUs”) is based on the stock price underlying the award on the grant date.
+In June 2026, we granted
+120,421
+RSUs and
+118,286
+PSUs to eligible employees and members of our Board of Directors both with weighted-average grant-date fair values of $
+149.69
+. Expenses associated with our stock-based compensation plans are reflected within “Salaries and employee benefits” in the accompanying Condensed Consolidated Statements of Income and were $
+9
+million and $
+3
+million for the three-month periods ended September 30, 2026 and 2025, respectively, and $
+16
+million and $
+5
+million for the four-month periods ended September 30, 2026 and 2025, respectively. Expenses prior to the Spin-Off also included an allocation of shared employee costs.
+NOTE 3:
+RECENT ACCOUNTING GUIDANCE
+New accounting rules and disclosure requirements can significantly affect our reported results and the comparability of our financial statements. We believe the following new accounting guidance is relevant to the readers of our financial statements.
+RECENTLY ADOPTED ACCOUNTING STANDARDS.
+In July 2025, the Financial Accounting Standards Board (“FASB”) issued Accounting Standards Update (“ASU”) 2025-05, Financial Instruments — Credit Losses (Topic 326): Measurement of Credit Losses for Accounts Receivable and Contract Assets, which simplifies the application of the current expected credit loss model for current accounts receivable and current contract assets under ASC 606 by providing a practical expedient that permits entities to assume that economic conditions existing as of the balance sheet date will remain unchanged when estimating expected credit losses on current trade receivables and contract assets. We adopted the standard and elected the practical expedient effective June 1, 2026 on a prospective basis. The practical expedient did not have a material impact on our financial statements.
+NEW ACCOUNTING STANDARDS AND ACCOUNTING STANDARDS NOT YET ADOPTED.
+In December 2025, the FASB issued ASU 2025-11, Interim Reporting (Topic 270): Narrow-Scope Improvements, which clarifies the applicability of the interim reporting guidance, the types of interim reporting, and the form and content of interim financial statements in accordance with U.S. GAAP. Per the FASB, the amendment does not intend to change the fundamental nature of interim reporting or expand or reduce current interim disclosure requirements but rather provide clarity and improve navigability of the existing interim reporting requirements. The update will be effective for interim reporting periods beginning after December 15, 2027. We are assessing the effect of this update on our consolidated financial statements and related disclosures.
+In September 2025, the FASB issued ASU 2025-06, Intangibles — Goodwill and Other — Internal-Use Software (Subtopic 350-40): Targeted Improvements to Accounting for Internal-Use Software, which updates the accounting for internal-use software by eliminating the concept of development stages. Under the updated guidance, software costs are capitalized once management has authorized and
+7
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+committed to funding the project, and it is probable the project will be completed and the software will be used to perform the function intended. The update will be effective for annual reporting periods beginning after December 15, 2027, and subsequent interim reporting periods. We evaluated the amendments and do not expect adoption of the update to have a material impact on our consolidated financial statements or related disclosures.
+In November 2024, the FASB issued ASU 2024-03, Income Statement — Reporting Comprehensive Income — Expense Disaggregation Disclosures (Subtopic 220-40): Disaggregation of Income Statement Expenses, which expands disclosures about specific expense categories. The update will be effective for annual periods beginning after December 15, 2026, and interim periods beginning after December 15, 2027. We are assessing the effect of this update on our consolidated financial statements and related disclosures.
+NOTE 4:
+ADDITIONAL FINANCIAL INFORMATION
+As described in
+Note 1
+,
+Description of
+B
+usiness and Basis of Presentation
+, FedEx Freight became an independent, publicly traded company on June 1, 2026, and also changed its fiscal year-end from May 31 to December 31. As a result of this change, the period from June 1, 2026, to December 31, 2026, represents a seven-month transition period. Accordingly, the Condensed Consolidated Statements of Income include three- and four-month periods ended September 30, 2026 and 2025.
+To provide additional financial information, one-month periods ended June 30, 2026 and 2025 are presented in the table below.
+One Month Ended
+June 30, 2026
+June 30, 2025
+Revenue
+$
+839
+$
+745
+Operating expenses:
+Salaries and employee benefits
+378
+349
+Operating supplies and expenses
+176
+150
+Purchased transportation
+74
+65
+Depreciation and amortization
+38
+43
+Insurance and claims
+15
+14
+Operating taxes and licenses
+6
+6
+Separation and other costs
+22
+—
+Total operating expenses
+709
+627
+Operating income
+130
+118
+Other income (expense):
+Related party interest income
+—
+30
+Interest, net
+(
+18
+)
+—
+Other, net
+2
+2
+Total other income (expense)
+(
+16
+)
+32
+Income before income taxes
+114
+150
+Provision for income taxes
+31
+37
+Net income
+$
+83
+$
+113
+Earnings per share:
+Basic
+$
+0.56
+$
+0.76
+Diluted
+$
+0.56
+$
+0.76
+Weighted average shares outstanding:
+Basic
+149.5
+149.5
+Diluted
+149.9
+149.5
+NOTE 5:
+SEGMENT INFORMATION
+As described in
+Note 1, Description of Business and Basis of Presentation
+, we operate as
+one
+reportable segment. John A. Smith, President and Chief Executive Officer of FedEx Freight, is our CODM and utilizes net income as the primary measure of segment performance because it reflects the underlying business performance and provides a basis for making resource allocation decisions. Our CODM utilizes net income in the annual budget and monthly forecasting processes, and considers forecast-to-actual variances on a monthly basis, when making resource allocation decisions. Our CODM regularly reviews significant expense details, which include salaries and employee benefits, operating supplies and expenses, purchased transportation, depreciation and amortization, insurance and claims, operating taxes and licenses, separation and other costs, total other (income) expense, and provision for income taxes. These expense categories are presented in the accompanying Condensed Consolidated Statements of Income and are used by our CODM in assessing performance and allocating resources.
+8
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+The following table presents significant segment expense details and other financial information for our sole reportable segment (in millions):
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Revenue
+$
+2,442
+$
+2,259
+$
+3,281
+$
+3,004
+Significant segment expenses:
+Salaries and employee benefits
+1,128
+1,084
+1,506
+1,433
+Operating supplies and expenses
+546
+471
+722
+621
+Purchased transportation
+235
+200
+309
+265
+Depreciation and amortization
+114
+125
+152
+168
+Insurance and claims
+44
+42
+59
+56
+Operating taxes and licenses
+17
+17
+23
+23
+Separation and other costs
+105
+30
+127
+30
+Total other (income) expense
+49
+(
+101
+)
+65
+(
+133
+)
+Provision for income taxes
+57
+100
+88
+137
+Total significant segment expenses
+2,295
+1,968
+3,051
+2,600
+Net income
+$
+147
+$
+291
+$
+230
+$
+404
+The following table presents revenue by service type (in millions):
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Revenue by service type:
+Priority
+$
+1,567
+$
+1,430
+$
+2,096
+$
+1,901
+Economy
+783
+730
+1,061
+972
+Other
+92
+99
+124
+131
+Total Revenue
+$
+2,442
+$
+2,259
+$
+3,281
+$
+3,004
+NOTE 6:
+CREDIT RISK.
+Changes in the allowance for credit losses during the three- and four-month periods ended September 30, 2026 and 2025 were as follows:
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Allowance, beginning of period
+$
+140
+$
+12
+$
+140
+$
+12
+Current period provision for expected credit losses
+28
+6
+39
+8
+Write-offs charged against allowance
+(
+33
+)
+(
+4
+)
+(
+44
+)
+(
+6
+)
+Recoveries collected
+1
+—
+1
+—
+Allowance, end of period
+$
+136
+$
+14
+$
+136
+$
+14
+Changes in allowance for revenue adjustments during the three- and four-month periods ended September 30, 2026 and 2025 were as follows:
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Allowance, beginning of period
+$
+65
+$
+2
+$
+64
+$
+2
+Current period provision for expected revenue adjustments
+60
+4
+79
+4
+Write-offs charged against allowance
+(
+65
+)
+(
+2
+)
+(
+83
+)
+(
+2
+)
+Allowance, end of period
+$
+60
+$
+4
+$
+60
+$
+4
+9
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+Activity related to receivables historically sold under the Company’s factoring agreement with FedEx is excluded from the changes in the allowance for credit losses and allowance for revenue adjustments for periods prior to December 1, 2025. Excluded from the table above are adjustments to revenue recognized prior to the termination of the factoring agreement. These revenue adjustments were $
+43
+million and $
+57
+million for the three- and four-month periods ended September 30, 2025, respectively. Refer to
+Note 1
+2
+,
+Related Party Transactions
+, for additional information related to the Company’s participation in the historical factoring agreement with FedEx and factoring fees incurred.
+NOTE 7:
+LONG-TERM DEBT
+The components of long-term debt (net of discounts and debt issuance costs), along with maturity dates for the years subsequent to May 31, 2026, are as follows (in millions):
+Amount Outstanding
+Interest Rate %
+Year of Maturity
+September 30,
+2026
+May 31,
+2026
+Unsecured debt:
+Term loan facility
+5.15
+%
+2029
+$
+499
+$
+599
+Senior unsecured note
+4.30
+%
+2029
+994
+993
+Senior unsecured note
+4.65
+%
+2031
+992
+991
+Senior unsecured note
+4.95
+%
+2033
+693
+693
+Senior unsecured note
+5.25
+%
+2036
+988
+988
+Total unsecured debt
+4,166
+4,264
+Finance lease liabilities
+255
+263
+Total long-term debt
+4,421
+4,527
+Current portion of long-term debt
+45
+43
+Long-term debt, less current portion
+$
+4,376
+$
+4,484
+In preparation for the Spin-Off, FedEx Freight issued $
+3.7
+billion of senior unsecured notes (the “Notes”) and a $
+0.6
+billion
+three-year
+delayed draw term loan (the “Term Loan Facility”). Substantially all of the proceeds from the Notes and Term Loan Facility were used to fund the distribution of approximately $
+4.1
+billion in cash to FedEx at the closing of the Spin-Off. Obligations under the Notes and Term Loan Facility were jointly and severally guaranteed by FedEx and FedEx Freight, Inc. until the completion of the Spin-Off, when FedEx was automatically released from its guarantees and FedEx Custom Critical, Inc., a wholly owned subsidiary of FedEx Freight, joined FedEx Freight, Inc. as a guarantor of the Notes.
+Long-term debt, exclusive of finance leases, had carrying values of $
+4.2
+billion at September 30, 2026 and $
+4.3
+billion at May 31, 2026, with estimated fair values of $
+4.0
+billion at September 30, 2026 and $
+4.2
+billion at May 31, 2026. The annualized weighted-average interest rate on long-term debt was
+4.82
+% at September 30, 2026. The fair value of our long-term debt is classified as Level 2 within the fair value hierarchy.
+CREDIT FACILITIES.
+On January 15, 2026, FedEx Freight entered into (a) a
+five-year
+revolving credit facility in an aggregate committed amount of $
+1.2
+billion (including a letter of credit sub-facility in an aggregate face amount of up to $
+50
+million) (the “Revolving Credit Facility”) and (b) the Term Loan Facility in the aggregate principal amount of $
+0.6
+billion (together with the Revolving Credit Facility, the “Credit Facilities”). As of September 30, 2026, $
+500
+million was outstanding under the Term Loan Facility and
+no
+amounts were outstanding under the Revolving Credit Facility.
+The Credit Facilities require that we maintain, on a quarterly basis, a total leverage ratio of no more than (a) in the case of any fiscal quarter ending prior to January 1, 2027,
+3.75
+:1.00 and (b) in the case of any fiscal quarter ending on or after January 1, 2027,
+3.50
+:1.00. As of September 30, 2026, our total leverage ratio was
+2.61
+:1.00.
+The proceeds of the borrowings under the Revolving Credit Facility will be used for general corporate purposes and to pay fees and expenses related to the Spin-Off. Letters of credit issued under the Revolving Credit Facility will be used for general corporate purposes.
+On October 7, 2026, we entered into amendments to the Credit Facilities. Pursuant to the amendments, we may elect to borrow under the Revolving Credit Facility at a Daily Simple SOFR rate with a same-day borrowing notice. Additionally, the amendments revise the definition of consolidated EBITDA for purposes of calculating the total leverage ratio to permit the add-back of certain non-cash charges associated with share-based employee compensation.
+10
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+NOTE 8:
+LEASES
+Supplemental cash flow information related to leases is as follows (in millions):
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+Right-of-use assets obtained in exchange for new operating lease liabilities
+$
+67
+$
+30
+Right-of-use assets obtained in exchange for new finance lease liabilities
+7
+65
+A summary of future minimum lease payments under noncancelable operating and finance leases with an initial or remaining term in excess of one year at September 30, 2026 is as follows (in millions):
+Operating
+Leases
+Finance
+Leases
+Total
+Leases
+2026 (remainder)
+$
+66
+$
+14
+$
+80
+2027
+266
+58
+324
+2028
+254
+58
+312
+2029
+237
+58
+295
+2030
+233
+48
+281
+Thereafter
+1,331
+62
+1,393
+Total lease payments
+2,387
+298
+2,685
+Less imputed interest
+(
+546
+)
+(
+43
+)
+(
+589
+)
+Present value of lease liability
+$
+1,841
+$
+255
+$
+2,096
+While certain of our lease agreements contain covenants governing the use of the leased assets or require us to maintain certain levels of insurance, none of our lease agreements include material financial covenants or limitations. Certain of our lease agreements include guarantees from FedEx. We and FedEx are currently using commercially reasonable efforts to terminate all such guarantees. See
+Note 1
+2
+,
+Related Party Transactions
+, for further discussion.
+As of September 30, 2026, we have entered into additional leases which have not yet commenced and are therefore not part of the right-of-use asset and liability. These leases are generally for build-to-suit facilities and have undiscounted future payments of approximately $
+275
+million and will commence when we gain beneficial access to the leased asset. Commencement dates are expected to be from
+2026
+to
+2030
+.
+NOTE 9:
+COMPUTATION OF EARNINGS PER SHARE
+On May 27, 2026, the Company effected a recapitalization pursuant to an amendment to its certificate of incorporation, whereby our
+100
+issued and outstanding shares of common stock were reclassified and converted into
+149,505,248
+shares of common stock. As the common stock par value remained $
+0.10
+per share, the recapitalization resulted in a corresponding increase in Common Stock in the accompanying Condensed Consolidated Balance Sheets. All historical share and per-share amounts presented herein have been retrospectively adjusted to reflect this recapitalization.
+The calculation of basic and diluted earnings per common share for the three- and four-month periods ended September 30, 2026 and 2025 was as follows (in millions, except earnings per share):
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Numerator:
+Net earnings allocable to common shares
+(1)
+$
+147
+$
+291
+$
+230
+$
+404
+Denominator:
+Weighted-average common shares for basic earnings per common share
+149.5
+149.5
+149.5
+149.5
+Dilutive effect of stock options and RSUs
+0.4
+—
+0.4
+—
+Weighted-average common shares for diluted earnings per common share
+149.9
+149.5
+149.9
+149.5
+Basic earnings per common share
+$
+0.98
+$
+1.95
+$
+1.54
+$
+2.70
+Diluted earnings per common share
+$
+0.98
+$
+1.95
+$
+1.54
+$
+2.70
+(1)
+Net earnings allocated to participating securities were immaterial for the three- and four-month periods ended September 30, 2026.
+11
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+Anti-dilutive share-based awards excluded from the computation of diluted earnings per common share were immaterial for the three- and four-month periods ended September 30, 2026.
+NOTE 10:
+RETIREMENT PLANS
+ESTABLISHMENT AND TRANSFER OF THE DEFINED BENEFIT PLANS.
+At June 1, 2026, the projected benefit obligation and fair value of plan assets transferred or otherwise attributable to the Company-sponsored defined benefit pension plans were as follows (in millions):
+Projected benefit obligation
+$
+(
+1,266
+)
+Fair value of plan assets
+1,259
+Funded status
+$
+(
+7
+)
+The transfer of the related net pension obligation and accumulated other comprehensive income was recorded as a transfer from the former parent within additional paid-in capital. As of September 30, 2026, net pension liabilities of $
+22
+million are included within “Other liabilities” in the Condensed Consolidated Balance Sheets.
+NET PERIODIC PENSION COST.
+The components of net periodic pension cost were as follows:
+Three Months Ended September 30, 2026
+Four Months Ended September 30, 2026
+Service cost
+$
+14
+$
+19
+Other retirement plans expense (income):
+Interest cost
+18
+24
+Expected return on plan assets
+(
+21
+)
+(
+28
+)
+Amortization of prior service credit and other
+—
+—
+Other retirement plans income, net
+(
+3
+)
+(
+4
+)
+Net periodic pension cost
+$
+11
+$
+15
+For the three- and four-month periods ended September 30, 2025, allocated defined benefit plan expense associated with our employees' participation in FedEx-sponsored plans was $
+9
+million and $
+11
+million, respectively. Those amounts were determined under the historical cost-allocation methodology and do not represent the cost of a separate FedEx Freight-sponsored plan. Accordingly, the historical allocated costs are not directly comparable to net periodic pension cost recognized after the Spin-Off.
+PENSION PLAN ASSUMPTIONS.
+The determination of benefit obligations and net periodic benefit cost requires the use of assumptions, including discount rates, expected long-term rates of return on plan assets, rates of compensation increases, mortality, retirement, and employee turnover. The measurement date for our defined benefit plans is December 31.
+Weighted-average actuarial assumptions used to determine the benefit obligation as of June 1, 2026 and net periodic benefit cost for the period ending September 30, 2026 are as follows:
+Discount rate used to determine benefit obligation
+5.76
+%
+Discount rate used to determine net periodic benefit cost
+5.78
+Rate of increase in future compensation levels used to determine benefit obligation and net periodic benefit cost
+5.46
+Expected long-term rate of return on assets
+7.00
+Interest crediting rate used to determine benefit obligation and net periodic benefit cost
+4.07
+%
+The investment strategy for our U.S. pension plan assets is to utilize a diversified mix of public equities, fixed-income, and alternative investments to earn a long-term investment return that meets our pension plan obligations. Our largest asset classes are Corporate Fixed Income Securities and Government Fixed Income Securities (which are largely benchmarked against the Bloomberg Barclays Long Government, Bloomberg Barclays Long Corporate, or the Bloomberg Barclays 20+ STRIPS indices), and U.S. and non-U.S. Equities (which are mainly benchmarked to the MSCI and ACWI indices). Accordingly, we do not have any significant concentrations of risk. Active management strategies are utilized within the plan in an effort to realize investment returns in excess of market indices.
+CONTRIBUTIONS.
+No contributions are required for our tax-qualified U.S. pension plan during 2026 under applicable minimum-funding requirements. The absence of a required contribution under those requirements does not necessarily indicate that the plan is fully funded under the accounting provisions of ASC 715.
+12
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+We did not contribute to our defined benefit pension plans during the four months ended September 30, 2026. We do not currently expect to contribute during the remainder of 2026. Actual contributions may differ from current estimates based on changes in funded status, regulatory requirements, investment performance, and other factors.
+DEFINED CONTRIBUTION PLANS.
+The U.S. defined contribution plans provide matching contributions based on a percentage of eligible employee compensation and elective deferrals. Eligible Canadian employees participate in a separate Company-sponsored defined contribution arrangement.
+In connection with the Spin-Off, account balances attributable to eligible active U.S. employees were transferred from the applicable FedEx-sponsored plans to the FedEx Freight-sponsored plans. The transfer of participant account balances did not affect the Company's results of operations.
+Defined contribution plan expense is included in “Salaries and employee benefits” and was $
+40
+million and $
+38
+million for the three-month periods ended September 30, 2026 and 2025, respectively, and $
+53
+million and $
+49
+million for the four-month periods ended September 30, 2026 and 2025, respectively. Amounts for periods prior to the Spin-Off include directly attributable plan costs and, where applicable, allocated shared employee-benefit costs.
+NOTE 11:
+SUPPLEMENTAL CASH FLOW INFORMATION
+Cash paid for interest expense and income taxes for the four-month periods ended September 30, was as follows (in millions):
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+Cash payments for:
+Interest
+$
+122
+$
+1
+Income taxes
+66
+23
+NOTE 12:
+RELATED PARTY TRANSACTIONS
+RELATIONSHIP WITH FEDEX.
+Prior to the Spin-Off, FedEx Freight was a wholly owned subsidiary of FedEx. On June 1, 2026, FedEx completed the Spin-Off, after which FedEx Freight began operating as an independent, publicly traded company. Following the Spin-Off, FedEx retained
+19.9
+% of the outstanding shares of our common stock. We operate as an independent, publicly traded company; however, FedEx remains a significant stockholder of FedEx Freight and we continue to have certain commercial and other relationships with FedEx. Accordingly, FedEx and its affiliates are considered related parties of the Company.
+RELATED PARTY REVENUE AND PURCHASES.
+FedEx Freight provides transportation services to and receives services from FedEx. The nature of the services provided is similar to the services that FedEx Freight provides to its other third-party customers.
+The following table presents related party revenue and purchases (in millions):
+Three Months Ended
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+September 30,
+2026
+September 30,
+2025
+Related party revenue
+$
+11
+$
+39
+$
+16
+$
+51
+Related party purchased transportation
+—
+2
+—
+3
+All significant transactions between FedEx Freight and FedEx, other than those pertaining to centralized cash management, have been included in these financial statements and are considered to have been effectively settled at the time the transactions were recorded or are expected to be settled for cash. These amounts are included in the accompanying Condensed Consolidated Balance Sheets in the captions “Receivables, less allowances” and “Due from Parent” as of September 30, 2026 and May 31, 2026, respectively. The total net effect of the settlement of these transactions is reflected in the accompanying Condensed Consolidated Statements of Cash Flows as an operating activity.
+RELATED PARTY TRANSITION SERVICES.
+In connection with the Spin-Off, FedEx Freight entered into a Separation and Distribution Agreement and various other agreements with FedEx that govern certain aspects of FedEx Freight and FedEx’s relationship following the Spin-Off, including a Transition Services Agreement, Tax Matters Agreement, and Employee Matters Agreement. Under the Transition Services Agreement, FedEx provides us with specified services on a transitional basis. These services include certain information technology, financial, administrative, and other support services. We recognized expenses of $
+20
+million and $
+30
+million under the Transition Services Agreement during the three and four-month periods ended September 30, 2026, respectively. Such expenses are included in the “Operating supplies and expenses” caption in the accompanying Condensed Consolidated Statements of Income.
+NET TRANSFERS TO PARENT.
+As described in
+Note 1,
+Description of Business and Basis of Presentation
+, net transfers to Parent represents FedEx’s historical investment in FedEx Freight and includes the net effect of transactions with and allocations from FedEx as
+13
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+well as FedEx Freight’s accumulated earnings. Net transfers to and from Parent are included within “Net Transfers from (to) Parent” in the accompanying Condensed Consolidated Statements of Stockholders’ Equity and Condensed Consolidated Statements of Cash Flows.
+The components of the net transfers to Parent were as follows (in millions):
+Four Months Ended
+September 30,
+2026
+September 30,
+2025
+Cash pooling and general financing activities / other
+$
+—
+$
+(
+1,130
+)
+Corporate and other allocations
+(
+13
+)
+21
+Income taxes
+7
+52
+Total net transfers to Parent per Condensed Consolidated Statements of Stockholders' Equity
+(
+6
+)
+(
+1,057
+)
+Stock-based compensation – equity classified awards
+—
+(
+2
+)
+Non-cash Spin-Off adjustments
+6
+—
+Total net transfers to Parent per Condensed Consolidated Statements of Cash Flows
+$
+—
+$
+(
+1,059
+)
+SHARED SERVICES AND CORPORATE ALLOCATIONS.
+Prior to the Spin-Off, FedEx Freight operated as part of FedEx and not as a stand-alone company. Accordingly, FedEx allocated certain shared services and general corporate costs to FedEx Freight that are reflected as expenses in these condensed consolidated financial statements. See Note 1, Description of Business and Basis of Presentation, and Note 10, Related Party Transactions, to the financial statements included in our Annual Report for additional information related to these allocations.
+Allocations for shared services and general corporate costs provided to FedEx Freight are reflected in the accompanying Condensed Consolidated Statements of Income as follows (in millions):
+Three Months Ended September 30, 2025
+Four Months Ended September 30, 2025
+Operating expenses:
+Salaries and employee benefits
+$
+89
+$
+120
+Operating supplies and expenses
+72
+96
+Depreciation and amortization
+14
+20
+Total operating expenses
+$
+175
+$
+236
+CASH MANAGEMENT.
+The Company participated in FedEx’s centralized cash management program prior to the Spin-Off. Interest income received from FedEx for the cumulative amount of cash swept from FedEx Freight to FedEx is included in “Related party interest income” in the accompanying Condensed Consolidated Statements of Income and was $
+98
+million and $
+128
+million for the three- and four-month periods ended September 30, 2025. On May 29, 2026, the Company's cash pooling arrangement with FedEx was terminated in preparation for the Spin-Off. See Note 1, Description of Business and Basis of Presentation, to the financial statements included in our Annual Report for additional information related to FedEx’s centralized cash management program.
+RECEIVABLES.
+The Company historically factored certain U.S. trade receivables through another subsidiary of FedEx on a non-recourse basis pursuant to a factoring agreement. The Company sold customer receivables of $
+2.1
+billion and $
+2.8
+billion in the three- and four-month periods ended September 30, 2025, respectively. Prior to the termination of the factoring agreement, these receivables were not recognized on the Company's Consolidated Balance Sheets. We incurred finance charges of $
+36
+million and $
+48
+million in the three- and four-month periods ended September 30, 2025, respectively, which are included in the “Operating supplies and expenses” line item in the accompanying Condensed Consolidated Statements of Income.
+On November 30, 2025, the Company's factoring agreement with FedEx was terminated in preparation for the Spin-Off. On December 1, 2025, the Company reacquired all outstanding U.S. trade receivables previously sold to FedEx under the Company's factoring arrangement described above for approximately $
+1.0
+billion. This transaction was structured as a true sale without recourse, resulting in the Company resuming ownership and collection of its outstanding receivable balances.
+LEASES.
+FedEx is a named guarantor for certain of FedEx Freight’s third-party lease agreements for the periods presented. In 2025, we began the process of releasing FedEx as a guarantor to our lessors in contemplation of the Spin-Off. We and FedEx are currently using commercially reasonable efforts to terminate all such guarantees; however, some guarantees remain in place following the Spin-Off.
+14
+Table of Contents
+FEDEX FREIGHT HOLDING COMPANY, INC.
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(UNAUDITED)
+NOTE 13:
+COMMITMENTS AND CONTINGENCIES
+COMMITMENTS.
+As of September 30, 2026, our purchase commitments (primarily information technology and advertising contracts) under various contracts for the remainder of 2026 and annually thereafter were as follows (in millions):
+2026 (remainder)
+$
+17
+2027
+129
+2028
+135
+2029
+108
+2030
+104
+Thereafter
+12
+Total
+$
+505
+The amounts reflected in the table above for purchase commitments represent noncancelable agreements to purchase goods or services. Open purchase orders that are cancelable are not considered unconditional purchase obligations for financial reporting purposes and are not included in the table above.
+CONTINGENCIES.
+Historical Guarantees of Parent’s Third-Party Debt
+FedEx Freight was a named guarantor for the majority of FedEx’s third-party debt arrangements for the pre-Spin-Off periods presented. We did not recognize a loss contingency in relation to these guarantees as FedEx did not experience events of default and did not demonstrate indicators that it would be unable to settle its debt through its then-current operating cash flows. In 2025, FedEx began the process of releasing FedEx Freight as a guarantor in contemplation of the Spin-Off. Following the Spin-Off, all guarantees by the Company of FedEx debt were released with one exception, for which FedEx will indemnify FedEx Freight from any liability arising from such guarantee.
+Other Matters
+FedEx Freight is subject to legal proceedings that arise in the ordinary course of business. These proceedings may include various class-action allegations of wage-and-hour violations in which plaintiffs claim, among other things, that they were forced to work “off the clock,” were not paid overtime, or were not provided work breaks or other benefits, as well as other lawsuits containing allegations that FedEx Freight and its subsidiaries are responsible for third-party losses related to vehicle accidents that could exceed our insurance coverage for such losses. In the opinion of management, the aggregate liability, if any, with respect to these actions will not have a material adverse effect on our financial position, results of operations, or cash flows.
+Environmental Matters
+SEC regulations require us to disclose certain information about proceedings arising under federal, state, or local environmental provisions involving a governmental authority as a party if we reasonably believe that such proceedings may result in monetary sanctions above a stated threshold. Pursuant to the SEC regulations, we use a threshold of $
+1
+million or more for purposes of determining whether disclosure of any such proceedings is required. Applying this threshold, there are no environmental matters required to be disclosed for this period.
+15
+Table of Contents
+ITEM 2. MANAGEMENT’S DISCUSSION AND ANALYSIS OF RESULTS OF OPERATIONS AND FINANCIAL CONDITION
+The following discussion and analysis of our results of operations and financial condition should be read in conjunction with the accompanying quarterly unaudited condensed consolidated financial statements and corresponding notes and our Annual Report on Form 10-K for the year ended May 31, 2026. Our Annual Report includes additional information about our significant accounting policies, practices, and the transactions that underlie our financial results, as well as a detailed discussion of the most significant risks and uncertainties associated with our financial condition and operating results. This discussion contains forward-looking statements that are based upon current expectations and are subject to uncertainty and changes in circumstances. Our actual results could differ materially from the results contemplated by these forward-looking statements due to a number of factors, including those discussed below and elsewhere in this Quarterly Report on Form 10-Q (“Quarterly Report”). See “
+Forward-Looking Statements
+” and Part II,
+Item 1A. “Risk Factors
+” for a discussion of the uncertainties, risks, and assumptions associated with these statements.
+The following tables are presented in millions of U.S. dollars unless otherwise stated except for per-share amounts, which are presented in U.S. dollars.
+The “Company,” “FedEx Freight,” “we,” “us,” and “our” refer to FedEx Freight Holding Company, Inc. and its direct and indirect subsidiaries after giving effect to the reorganization completed on May 29, 2026 or, when referencing the time period prior to the reorganization, FedEx Freight, Inc.
+Description of Business
+FedEx Freight is a leading North American provider of less-than-truckload (“LTL”) freight transportation services. We offer a range of services designed to meet the diverse needs of LTL shippers including time-critical transportation needs leveraging our advanced tracking capabilities and a comprehensive network of service centers and hubs that facilitate efficient delivery and pickup. FedEx Freight’s service offerings include priority services when speed is critical and economy services when time can be traded for savings. FedEx Freight is our sole reportable segment.
+The key indicators necessary to understand our operating results include:
+•
+the overall customer demand for our various services based on macroeconomic factors and the North American and global economies;
+•
+the volumes of transportation services provided through our network, primarily measured by our average daily shipments, shipment weight and size, and average length of haul;
+•
+the mix of services purchased by our customers;
+•
+the prices we obtain for our services, primarily measured by yield (revenue per shipment or hundredweight);
+•
+our ability to manage our cost structure (capital expenditures and operating expenses) to match shifting volume levels; and
+•
+the timing and amount of fluctuations in fuel prices and our ability to recover incremental fuel costs through our fuel surcharges.
+In analyzing the components of our revenue, we monitor changes and trends in our volumes and revenue per hundredweight. While revenue per hundredweight is a yield measurement, it is also a commonly used indicator for general pricing trends in the LTL industry. This metric is not a true measure of price, however, as it can be influenced by many other factors, such as changes in fuel surcharges and weight per shipment. As a result, changes in revenue per hundredweight do not necessarily indicate actual changes in underlying base rates. LTL revenue per hundredweight and the key factors that can impact this metric are described in more detail below:
+•
+Revenue Per Hundredweight
+— Our LTL transportation services are generally priced based on weight, commodity, and distance. This measurement reflects the application of our pricing policies to the services we provide, which are influenced by competitive market conditions and our growth objectives. Generally, freight is rated by a class system, which is established by the National Motor Freight Traffic Association. Light, bulky freight typically has a higher class and is priced higher than dense, heavy freight. Fuel surcharges, accessorial charges, and revenue adjustments reflected in the “Revenue” line item in the accompanying unaudited Condensed Consolidated Statements of Income are included in this measurement.
+•
+Weight Per Shipment
+— Fluctuations in weight per shipment can indicate changes in the mix of freight we receive from our customers, as well as changes in the number of units included in a shipment. Generally, increases in weight per shipment indicate higher demand for our customers’ products and overall increased economic activity. Changes in weight per shipment can also be influenced by shifts between LTL and other modes of transportation, such as truckload and intermodal, in response to capacity, service, and pricing issues. Fluctuations in weight per shipment generally have an inverse effect on our revenue per hundredweight, as a decrease in weight per shipment will typically cause an increase in revenue per hundredweight.
+•
+Revenue Per Shipment
+— This measurement is primarily determined by the two metrics listed above and is used in conjunction with the number of LTL shipments we receive to evaluate LTL revenue.
+16
+Table of Contents
+Transition to Stand-Alone Company
+FedEx Freight Holding Company, Inc. was incorporated in Delaware on July 14, 2025, for the purpose of receiving, pursuant to a reorganization, all of the outstanding equity interests of FedEx Freight, Inc. On June 1, 2026, FedEx distributed shares representing approximately 80.1% of FedEx Freight Holding Company, Inc.'s outstanding common stock to holders of record of FedEx's common stock as of the close of business on May 15, 2026 (the “Spin-Off”). Following the Spin-Off, FedEx Freight became an independent, publicly traded company. For additional information, see
+Note 1
+,
+Description of Business and Basis of Presentation
+, of the accompanying consolidated financial statements.
+Effective for the period beginning June 1, 2026, the Company's fiscal year-end has changed from May 31 to December 31. As a result of this change, the Company’s financial statements include a four-month transition period from June 1, 2026 through September 30, 2026. The Company adopted this change to align its reporting periods with the calendar year.
+Relationship with FedEx
+As a wholly owned subsidiary of FedEx prior to the Spin-Off, we relied on FedEx to manage certain of our operations and provide certain services, the costs of which were either allocated or directly billed to us. Historical costs for such services may not necessarily reflect the actual expenses we would have incurred, or will incur, as an independent company. In connection with the Spin-Off, we entered into a Separation and Distribution Agreement and certain other agreements with FedEx, including a Transition Services Agreement, a Tax Matters Agreement, an Employee Matters Agreement, an Intellectual Property Cross-License Agreement, a Trademark License Agreement, and a Stockholder and Registration Rights Agreement, as described in our Annual Report, which provide a framework for our relationship with FedEx after the Spin-Off. We expect to be able to utilize certain FedEx services for a transitional period following the Spin-Off, but generally not longer than 24 months after the Spin-Off before we replace these services with services supplied either internally or by third parties. The cost of replacing such services may vary from the historical costs directly allocated to us. Addressing the needs that arise from becoming a stand-alone company will require significant resources. We will continue to monitor potential separation dis-synergies and we have incurred, and anticipate we will further incur, certain one-time costs associated with transitioning operations to self-management and arranging for services that we previously received as part of FedEx.
+Stand-Alone Company Expenses
+As a result of the Spin-Off, we became subject to federal securities law and stock exchange requirements. We are establishing additional procedures and practices as a stand-alone public company. As a result, subsequent to the Spin-Off, we have incurred and will continue to incur additional expenditures consisting primarily of employee-related costs, costs to establish certain stand-alone functions and information technology systems, and other transaction-related costs. Additionally, we have incurred and will continue to incur incremental costs that arise from becoming a stand-alone public company, including costs related to external reporting, internal audit, treasury, investor relations, board of directors and officers, and stock and benefit plan administration, as well as costs from expanding the services of existing functions, such as information technology, finance, human resources, legal, tax, facilities, branding, security, government relations, community outreach, and insurance. In line with our long-term cost strategy, we will continue to look for operational cost improvement opportunities as a stand-alone company by utilizing our lean culture and innovative technologies to drive lower costs and increased productivity levels across our business and corporate functions.
+Results of Operations
+Many of our operating expenses are directly affected by revenue and volume levels, and we expect these operating expenses to fluctuate on a year-over-year basis consistent with changes in revenue and volumes. The discussion of operating expense below focuses on the key drivers and trends affecting expenses other than those factors strictly related to changes in revenue and volumes.
+Seasonality
+Our business is cyclical in nature, as seasonal fluctuations affect volumes, revenue, and earnings. Our second and third quarters are historically the busiest periods and the latter part of December through February is historically the slowest period. Shipment levels, operating costs, earnings, and cash flow can also be affected by timing of merit-based compensation increases, our annual general rate increase, and severe weather. See Part I, “Item 1A. Risk Factors” in our Annual Report for more information.
+Trends Affecting our Business
+In addition to the matters discussed above under “—
+Transition to Stand
+-
+Alone
+Company
+,” the following trends significantly affect our business and operating results. See Part I, “Item 1A. Risk Factors” in our Annual Report and Part II,
+Item 1A. “Risk Factors
+” of this Quarterly Report for more information.
+Fuel
+We apply fuel surcharges on our services, which are adjusted on a weekly basis. The fuel surcharge is based on a weekly fuel price from ten days prior to the week in which it is assessed. We routinely review our fuel surcharges and periodically update the tables used to determine our fuel surcharges.
+While fluctuations in fuel surcharge percentages can be significant from period to period, fuel surcharges represent one of the many individual components of our pricing structure that impact our overall revenue and yield. Additional components include the mix of services sold, the base price, extra service charges, and the level of discounts offered.
+17
+Table of Contents
+In addition to variability in usage and market prices, the manner in which we purchase fuel (whether through retail or bulk suppliers) also influences our results. We must purchase large quantities of fuel to operate our vehicles, and the price and availability of fuel are beyond our control and can be highly volatile. For example, recent disruptions to shipping have contributed to a significant increase in fuel prices, and global volatility in fuel prices may persist due to ongoing regional and global tensions and conflicts in the Middle East and elsewhere. In addition, our purchased transportation expense is affected by fuel costs.
+Because of the factors described above, our operating results may be affected should the market price of fuel suddenly change by a significant amount or change by amounts that do not result in an adjustment in our fuel surcharges, which can significantly affect our earnings either positively or negatively in the short-term. During calendar year 2026, higher fuel prices have positively affected yields through increased fuel surcharges which have more than offset the impact of higher fuel expense, resulting in a net favorable operating income impact.
+To date, we have been mostly successful in mitigating over time the expense effect of higher fuel costs through our indexed fuel surcharges, as the amount of the surcharges is closely linked to the market prices for fuel. If we are unable to maintain or increase our fuel surcharges because of competitive pricing pressures or some other reason, fuel costs could materially and adversely affect our operating results.
+Macroeconomic Conditions
+While our operations are limited to the United States, Canada, and Mexico, we are indirectly impacted by, and particularly vulnerable to, broader macroeconomic activity. The transportation industry is highly cyclical and especially susceptible to trends in economic activity. Our primary business is to transport goods, so our business levels are directly tied to the purchase and production of goods and the rate of global trade growth. The decline in U.S. imports of consumer goods that started in late 2022, along with slowed global industrial production, has contributed to continued weakened business conditions for the transportation industry leading to lower shipment volumes. Additionally, changes in U.S. and international trade policy have in the past, and could in the future, lead to further weakened business conditions for the transportation industry. We also have experienced, and may continue to experience, a decline in demand for our transportation services as inflation and elevated interest rates are negatively affecting consumer and business spending. We expect inflation and elevated interest rates to continue to negatively affect our results for the remainder of calendar year 2026.
+While broader freight conditions have shown signs of improvement and volume and base yield trends continue to stabilize, we expect softness in the industrial economy to continue to put pressure on demand for LTL services for the remainder of calendar year 2026. We will continue to execute on our four key priorities of optimizing our network, strengthening our commercial offering, advancing our technology capabilities, and driving financial value creation.
+The uncertainty of slowing North American and global economies, global inflation, geopolitical challenges, and the effects these factors will have on the rate of growth of North American and global trade, supply chains, fuel prices, and our business in particular, make any expectations for the remainder of calendar year 2026 inherently less certain.
+Global Trade Policies
+The United States government has taken certain actions that have negatively affected U.S. trade, including imposing and threatening to impose tariffs on many goods imported into the United States (including certain goods from Canada and Mexico). Additionally, many foreign governments (including Canada and Mexico) have imposed, and others have threatened to impose, tariffs on certain goods exported from the United States. These actions have contributed to weakness in the global economy and in the transportation industry, which has led to lower shipments, adversely affecting our results of operations.
+These or additional changes in U.S. or international trade policy could lead to further weakened business conditions for the transportation industry.
+18
+Table of Contents
+Summary of Results
+The following tables compare revenue, operating expenses, operating income (dollars in millions), net income, operating expenses as a percent of revenue, operating margin, and selected statistics:
+Three Months Ended
+September 30,
+Percent
+Change
+Four Months Ended
+September 30,
+Percent
+Change
+2026
+2025
+2026
+2025
+Revenue
+$
+2,442
+$
+2,259
+8
+%
+$
+3,281
+$
+3,004
+9
+%
+Operating expenses:
+Salaries and employee benefits
+1,128
+1,084
+4
+1,506
+1,433
+5
+Operating supplies and expenses
+546
+471
+16
+722
+621
+16
+Purchased transportation
+235
+200
+18
+309
+265
+17
+Depreciation and amortization
+114
+125
+(9)
+152
+168
+(10)
+Insurance and claims
+44
+42
+5
+59
+56
+5
+Operating taxes and licenses
+17
+17
+—
+23
+23
+—
+Separation and other costs
+105
+30
+250
+127
+30
+323
+Total operating expenses
+2,189
+1,969
+11
+2,898
+2,596
+12
+Operating income
+253
+290
+(13)
+383
+408
+(6)
+Other income (expense):
+Related party interest income
+—
+98
+(100)
+—
+128
+(100)
+Interest expense
+(55)
+—
+NM
+(73)
+—
+NM
+Interest income
+5
+—
+NM
+5
+—
+NM
+Other, net
+1
+3
+(67)
+3
+5
+(40)
+Total other income (expense)
+(49)
+101
+(149)
+(65)
+133
+(149)
+Income before income taxes
+204
+391
+(48)
+318
+541
+(41)
+Provision for income taxes
+57
+100
+(43)
+88
+137
+(36)
+Net income
+$
+147
+$
+291
+(49)
+$
+230
+$
+404
+(43)
+Earnings per share:
+Basic
+$
+0.98
+$
+1.95
+(50)
+$
+1.54
+$
+2.70
+(43)
+Diluted
+$
+0.98
+$
+1.95
+(50)
+%
+$
+1.54
+$
+2.70
+(43)
+%
+Percent of Revenue
+Three Months Ended
+September 30,
+Change (bps)
+Four Months Ended
+September 30,
+Change (bps)
+2026
+2025
+2026
+2025
+Operating expenses:
+Salaries and employee benefits
+46.2
+%
+48.0
+%
+(180)
+45.9
+%
+47.7
+%
+(180)
+Operating supplies and expenses
+22.4
+20.8
+160
+22.0
+20.7
+130
+Purchased transportation
+9.5
+8.9
+60
+9.4
+8.8
+60
+Depreciation and amortization
+4.7
+5.5
+(80)
+4.6
+5.5
+(90)
+Insurance and claims
+1.8
+1.9
+(10)
+1.8
+1.9
+(10)
+Operating taxes and licenses
+0.7
+0.8
+(10)
+0.7
+0.8
+(10)
+Separation and other costs
+4.3
+1.3
+300
+3.9
+1.0
+290
+Total operating expenses
+89.6
+%
+87.2
+%
+240
+88.3
+%
+86.4
+%
+190
+Operating margin
+10.4
+%
+12.8
+%
+(240)
+11.7
+%
+13.6
+%
+(190)
+19
+Table of Contents
+Three Months Ended
+September 30,
+Percent
+Change
+Four Months Ended
+September 30,
+Percent
+Change
+2026
+2025
+2026
+2025
+Operating Statistics
+Operating days
+64
+64
+86
+85
+Total shipments
+5,702,719
+5,741,922
+(1)
+%
+7,643,623
+7,658,866
+—
+%
+Total tonnage
+2,658,119
+2,658,064
+—
+3,584,767
+3,544,693
+1
+Tonnage per day
+41,533
+41,532
+—
+41,683
+41,702
+—
+Average daily shipments:
+Priority
+62,247
+61,763
+1
+62,000
+62,086
+—
+Economy
+26,858
+27,954
+(4)
+26,879
+28,018
+(4)
+Total average daily shipments
+89,105
+89,717
+(1)
+88,879
+90,104
+(1)
+Weight per shipment (pounds):
+Priority
+919
+931
+(1)
+924
+933
+(1)
+Economy
+964
+914
+5
+970
+910
+7
+Composite weight per shipment
+932
+926
+1
+938
+926
+1
+Average length of haul (miles):
+Priority
+911
+920
+(1)
+914
+920
+(1)
+Economy
+1,170
+1,161
+1
+1,172
+1,162
+1
+Composite average length of haul
+991
+994
+—
+994
+994
+—
+Yield Statistics
+Revenue per shipment:
+Priority
+$
+393.28
+$
+361.80
+9
+$
+393.06
+$
+360.16
+9
+Economy
+455.58
+408.09
+12
+458.98
+408.30
+12
+Composite revenue per shipment
+$
+412.05
+$
+376.23
+10
+$
+413.00
+$
+375.13
+10
+Revenue per hundredweight:
+Priority
+$
+42.82
+$
+38.85
+10
+$
+42.54
+$
+38.62
+10
+Economy
+47.26
+44.66
+6
+47.30
+44.85
+5
+Composite revenue per hundredweight
+$
+44.20
+$
+40.64
+9
+%
+$
+44.03
+$
+40.53
+9
+%
+Revenue
+Revenue increased 8% in the third quarter and 9% in the four months ended September 30, 2026, primarily due to higher fuel surcharges and favorable base yield, partially offset by lower volume. Revenue for the four months ended September 30, 2026 was also positively affected by one additional operating day.
+Revenue per shipment increased 10% and revenue per hundredweight increased 9% in both the third quarter and in the four months ended September 30, 2026, reflecting higher fuel surcharges, favorable base yield, and increased weight per shipment. Average daily shipments decreased 1% in each of the third quarter and the four months ended September 30, 2026 due to reduced demand for our services, primarily resulting from macroeconomic conditions.
+Operating Income
+Operating income decreased 13% in the third quarter and 6% in the four months ended September 30, 2026, primarily due to increased separation and other expenses related to IT and other professional services following the Spin-Off, increased salaries and employee benefit expenses, and increased operating supplies and expenses. These impacts were partially offset by increased revenue.
+Salaries and employee benefits increased 4% in the third quarter and 5% in the four months ended September 30, 2026, primarily due to investments in our employees, including higher wage rates and increased variable incentive compensation.
+Operating supplies and expenses increased 16% in the third quarter and in the four months ended September 30, 2026, primarily due to higher costs related to outside service contracts, professional fees, incremental software license costs, and other technology-related expenditures to support the business as a stand-alone company. Higher fuel expense also contributed to the increase in both periods.
+Purchased transportation expense increased 18% in the third quarter and 17% in the four months ended September 30, 2026, primarily due to higher base rates and fuel prices.
+20
+Table of Contents
+We incurred separation and other costs of $105 million in the third quarter and $127 million in the four months ended September 30, 2026, compared with costs of $30 million in the corresponding prior-periods. These costs are primarily professional services related to consulting and advisory services associated with the Spin-Off and employee-related costs as a result of the dissolution of a retiree healthcare benefit plan upon completion of the Spin-Off.
+Other Income (Expense)
+Other income (expense) changed unfavorably 149% in the third quarter and in the four months ended September 30, 2026 primarily due to the termination of the cash pooling arrangement associated with the Spin-Off, resulting in no related-party interest income in the third quarter and in the four months ended September 30, 2026, and higher third-party interest expense resulting from debt incurred during calendar year 2026.
+Income Taxes
+Our effective tax rate was 27.5% for the third quarter and 27.5% for the four months ended September 30, 2026, compared to 25.5% for the third quarter and 25.6% for the four months ended September 30, 2025. The effective tax rates for the third quarter and four months ended September 30, 2026 were higher than the comparable prior-year periods primarily due to incremental nondeductible costs incurred in connection with operating as a stand-alone company. The effective tax rate exceeds the federal statutory rate primarily due to state taxes and non-deductible items.
+Recent Accounting Guidance
+See
+Note 3, Recent Accounting Guidance
+, of the accompanying financial statements for a discussion of recent accounting guidance.
+Financial Condition
+Liquidity
+Cash totaled $388 million as of September 30, 2026, compared to $251 million as of May 31, 2026. The following table provides a summary of our cash flows for the four months ended September 30, 2026 and 2025 (in millions):
+Four Months Ended
+September 30,
+2026
+2025
+OPERATING ACTIVITIES
+Net income
+$
+230
+$
+404
+Separation and other costs, net of payments
+(11)
+6
+Other noncash charges and credits
+291
+194
+Changes in assets and liabilities
+(120)
+481
+Cash provided by operating activities
+390
+1,085
+INVESTING ACTIVITIES
+Capital expenditures
+(151)
+(55)
+Proceeds from asset dispositions and other
+13
+5
+Cash used in investing activities
+(138)
+(50)
+FINANCING ACTIVITIES
+Principal payments on debt
+(115)
+(1)
+Other financing activities
+1
+(1,059)
+Cash used in financing activities
+(114)
+(1,060)
+Effect of exchange rate changes on cash
+(1)
+1
+Net increase (decrease) in cash
+137
+(24)
+Cash at beginning of period
+251
+109
+Cash at end of period
+$
+388
+$
+85
+Cash Provided by Operating Activities.
+Cash flows from operating activities decreased $695 million in the four months ended September 30, 2026 primarily due to lower net income and working capital changes, driven by a decrease in intercompany amounts due to Parent related to the termination of the Company's factoring agreement with FedEx in preparation for the Spin-Off. For additional information regarding our historical factoring agreement with FedEx, refer to
+Note 1
+2
+,
+Related Party Transactions
+, of the accompanying financial statements.
+21
+Table of Contents
+Cash Used in Investing Activities.
+Capital expenditures increased $96 million in the four months ended September 30, 2026 primarily due to increased spending on information technology and vehicles and trailers, partially offset by decreased spending on ground support and dock equipment and facilities and other.
+See “—
+Capital Resources
+” for a more detailed discussion of capital expenditures during calendar year 2026.
+Cash Used in Financing Activities.
+In the four months ended September 30, 2026, cash used in financing activities decreased $946 million, driven by a $1,059 million decrease in net transfers to FedEx, partially offset by a $100 million principal payment on the Term Loan Facility.
+Capital Resources
+Our operations are capital intensive, characterized by significant investments in vehicles and trailers, facilities, ground support and dock equipment, and technology. The amount and timing of capital investments depend on various factors, including pre-existing contractual commitments, anticipated volume growth, economic conditions, new or enhanced services, geographical expansion of services, availability of satisfactory financing, and actions of regulatory authorities.
+The following table compares capital expenditures by asset category (in millions):
+Three Months Ended
+September 30,
+Four Months Ended
+September 30,
+Percent Change
+2026
+2025
+2026
+2025
+Three Months Ended
+Four Months Ended
+Vehicles and trailers
+$
+44
+$
+—
+$
+49
+$
+1
+NM
+NM
+Facilities and other
+20
+25
+24
+31
+(20)
+(23)
+Ground support and dock equipment
+—
+21
+1
+22
+NM
+(95)
+Information technology
+71
+1
+77
+1
+NM
+NM
+Total capital expenditures
+$
+135
+$
+47
+$
+151
+$
+55
+187
+%
+175
+%
+Capital expenditures increased $88 million in the third quarter of 2026 and $96 million in the four months ended September 30, 2026 primarily due to increased spending on information technology and vehicles and trailers, partially offset by decreased spending on ground support and dock equipment and facilities and other. These changes in capital expenditures are a result of continuing to prioritize investments that support increasing efficiency and reducing our cost to serve.
+Our capital expenditures for the seven months ending December 31, 2026 are expected to total approximately $365 million, funded by cash on hand and available liquidity. Our expected capital expenditures for the remainder of calendar year 2026 include investments in technology required for our exit from the Transition Services Agreement. We will continue to evaluate our investments in critical long-term strategic projects to prioritize capital expenditures expected to generate high returns on investment and are balanced with our outlook.
+Liquidity Outlook
+We continually evaluate our liquidity requirements in light of our operating needs, growth initiatives, and capital resources. We believe our existing cash, cash flows generated from operations, availability under our revolving credit facility, and access to capital markets will provide adequate resources to fund our future cash flow needs.
+In response to the conditions referenced in “—
+Results of Operations — Trends Affecting our Business
+” above, we are continuing to actively manage and optimize our capital allocation.
+We have additional obligations as part of our ordinary course of business, beyond those committed for capital expenditures, which include lease obligations. Refer to
+Note 8, Leases
+and
+Note 13, Commitment
+s and Conting
+encies
+of the accompanying financial statements for more information. In addition, we have certain tax positions that are further discussed in Note 8, Income Taxes, to the financial statements included in our Annual Report. We do not have any guarantees or other off-balance sheet financing arrangements that we believe could have a material impact on our financial condition or liquidity.
+In contemplation of the Spin-Off, we incurred $4.3 billion of indebtedness, consisting of $3.7 billion in senior notes (the “Notes”) and a $0.6 billion term loan under a three-year delayed draw term loan facility (the “Term Loan Facility”). Substantially all of the proceeds from the Notes and Term Loan Facility were used to fund the distribution of approximately $4.1 billion in cash to FedEx at the closing of the Spin-Off as part of the consideration for the assets FedEx contributed to us. $4.2 billion of this indebtedness is outstanding as of September 30, 2026 and has an estimated weighted average interest rate of 4.82%. The actual rates of interest may be different from those assumed. We have also entered into a revolving credit facility (together with the Term Loan Facility, the “Credit Facilities”) which will provide for borrowings of up to $1.2 billion, as further described under
+Note 7, Long-Term Debt
+. As of September 30, 2026, we were in compliance with the financial covenant and all other covenants of the Credit Facilities and do not expect the covenants to affect our operations, including our liquidity or expected funding needs. If we failed to comply with the financial covenant or any other covenants of the Credit Facilities, our access to financing could become limited.
+22
+Table of Contents
+Standard & Poor's has assigned us a BBB- rating and Moody's Investors Service has assigned us a Baa3 rating for our senior unsecured debt. Our interest expense may increase in the event of a reduction in our credit rating. If our unsecured debt ratings are reduced to below investment grade, our access to the capital markets may become limited.
+Critical Accounting Estimates
+The preparation of financial statements in accordance with accounting principles generally accepted in the United States requires management to make significant judgments and estimates to develop amounts reflected and disclosed. In many cases, there are alternative policies or estimation techniques that could be used. We maintain a thorough process to review the application of our accounting policies and to evaluate the appropriateness of the many estimates that are required to prepare the financial statements of a complex corporation. However, even under optimal circumstances, estimates routinely require adjustment based on changing circumstances and new or better information.
+Information regarding our critical accounting estimates can be found in our Annual Report, including Note 2, Summary of Significant Accounting Policies,
+to the financial statements therein. Management has discussed the development and selection of these critical accounting estimates with the Audit Committee of our Board of Directors and with our independent registered public accounting firm.
+Forward-looking Statements
+Certain statements contained in this report are “forward-looking” statements within the meaning of the Private Securities Litigation Reform Act of 1995. All statements, other than statements of historical fact are, or may be deemed to be, forward-looking statements, including (but not limited to) statements contained in the notes to the financial statements contained in Part I,
+Item 1. “
+Fina
+ncial Statements
+;” Part I,
+Item 2. “Management’s Discussion and Analysis of Results of Operations and Financial Condition
+;” and Part II,
+Item 1A. “Risk Factors
+;” regarding our strategy, outlook, financial condition, results of operations, cash flows, plans, objectives, future performance, and business.
+Forward-looking statements are generally identified by the words “will,” “may,” “could,” “would,” “should,” “believes,” “expects,” “forecasts,” “anticipates,” “plans,” “estimates,” “targets,” “projects,” “intends,” “outlook,” “potential,” and similar expressions, although not all forward-looking statements contain these identifying words. These forward-looking statements are based on assumptions and analyses made by us in light of our experience and our perception of historical trends, current conditions, and expected future developments, as well as other factors we believe are appropriate under the circumstances. These forward-looking statements involve risks and uncertainties, and actual results may differ materially from those contemplated (expressed or implied) by such forward-looking statements, because of, among other things, economic conditions in the markets in which we operate; significant changes in the volumes of shipments transported through our network, customer demand for our various services, and the prices we obtain for our services; geopolitical developments and additional changes in international trade policies and relations; the price and availability of fuel and limitations on our ability to recover fuel costs through surcharges; failure to successfully implement our business strategy and effectively respond to changes in market dynamics and customer preferences; our ability to achieve some or all of the anticipated benefits from the Spin-Off; the consequences of us no longer operating as part of a globally diversified company; dis-synergies and other costs incurred in connection with the Spin-Off exceeding our estimates; the distribution of shares of FedEx Freight, together with certain related transactions, not qualifying for the intended tax treatment; a significant data breach or other disruption to our technology infrastructure, and our ability to mitigate the technological, operational, legal, regulatory, and reputational risks related to emerging technologies such as autonomous technology and artificial intelligence (“AI”); increased insurance and claims expenses related to vehicle accidents, workers’ compensation claims, property and cargo loss, general business liabilities, and benefits paid under employee disability programs; failure to receive or collect expected insurance coverage; the effect of any international conflicts or terrorist activities; failure of third-party service providers to perform as expected, or disruptions in our relationships with those providers or their provision of services to us; widespread outbreak of an illness or any other communicable disease or public health crisis; damage to our or FedEx’s reputation or loss of brand equity; the intense competition within our industry; our ability to maintain good relationships with our employees and avoid attempts by labor organizations to organize groups of our employees; any effects on our businesses resulting from evolving or new U.S. domestic or international government regulations, laws, policies, and actions; any liability resulting from and the costs of defending against litigation and governmental proceedings; the sufficiency of insurance coverage we purchase; the effect of technology developments (including AI and machine learning) on our operations and on demand for its services, and our ability to identify and eliminate unnecessary information technology redundancy and complexity throughout the organization, including exiting the Transition Services Agreement with FedEx in the expected timeframe and at the expected cost; disruptions in global supply chains; constraints, volatility, or disruption in the global capital and credit markets; our ability to maintain our current credit ratings and senior unsecured debt credit ratings, and our ability to meet credit agreement financial covenants; and other risk factors identified in Item 1A. “Risk Factors” of our Annual Report, as updated by subsequent filings with the Securities and Exchange Commission (“SEC”). Further, new risk factors emerge from time to time, and it is not possible for us to predict all risk factors, nor can we accurately assess the ultimate impact of all risk factors on our business or the extent to which any risk factor, or combination of risk factors, may cause actual results to differ materially from those contained in any forward-looking statements.
+As a result, no assurance can be given as to our future results and achievements or the effect of such results and achievements on our business and results of operations. A forward-looking statement is neither a prediction nor a guarantee of future events or circumstances, and those events or circumstances may not occur. You should not place undue reliance on forward-looking statements, which speak only as of the date of this Quarterly Report. We undertake no obligation, and expressly disclaim any obligation, to update or alter any forward-looking statements, whether as a result of new information, future events, or otherwise.
+23
+Table of Contents
+ITEM 3. QUANTITATIVE AND QUALITATIVE DISCLOSURE ABOUT MARKET RISK
+There have been no material changes in our exposures to market risk since May 31, 2026. For details on the Company’s interest rate, foreign currency, and commodity risks, see Part II, Item 7A, “Quantitative and Qualitative Disclosures About Market Risk” in our Annual Report.
+ITEM 4. CONTROLS AND PROCEDURES
+The management of FedEx Freight, with the participation of our principal executive and financial officers, has evaluated the effectiveness of our disclosure controls and procedures in ensuring that the information required to be disclosed in our filings under the Securities Exchange Act of 1934, as amended, is recorded, processed, summarized, and reported within the time periods specified in the SEC’s rules and forms, including ensuring that such information is accumulated and communicated to FedEx Freight management as appropriate to allow timely decisions regarding required disclosure. Based on such evaluation, our principal executive and financial officers have concluded that such disclosure controls and procedures were effective as of September 30, 2026 (the end of the period covered by this Quarterly Report).
+During the quarter ended September 30, 2026, no change occurred in our internal control over financial reporting that has materially affected, or is reasonably likely to materially affect, our internal control over financial reporting.
+PART II. OTHER INFORMATION
+ITEM 1. LEGAL PROCEEDINGS
+FedEx Freight and its subsidiaries are subject to legal proceedings and claims that arise in the ordinary course of business. See
+Note 13, Commitments and Contingencies
+, of the accompanying financial statements, which is incorporated herein by reference, for additional information.
+ITEM 1A. RISK FACTORS
+You should carefully consider the risk factors discussed in Part I, Item 1A in our Annual Report, which could materially affect our business, results of operations, financial condition, and the price of our common stock. The risks described in our Annual Report are not the only risks we face. Additional risks and uncertainties not currently known to us or that we currently deem to be immaterial also may materially affect our business, results of operations, financial condition, and the price of our common stock. The risk factor set forth below updates, and should be read together with, the risk factors described in our Annual Report.
+A significant data breach or other disruption to our technology infrastructure could materially adversely affect our business and result in the loss of critical, sensitive, or confidential information.
+Our ability to attract and retain customers, efficiently operate our business, and compete effectively depends in part on the sophistication, security, and reliability of our technology infrastructure, including our ability to provide features of service that are important to our customers, to protect our confidential business information and the information provided by our customers (including personal information), and to maintain customer confidence in our ability to protect our systems and to provide services consistent with their expectations. We face significant and evolving risks from cyberattacks, data breaches, and operational disruptions, which may be random or targeted and can originate from a variety of sources, including external actors, malicious insiders, and third-party service providers. These risks are heightened by the increasing number, intensity, and sophistication of attempted attacks globally, as well as the growing reliance on connected information technology systems to store and transmit sensitive data. FedEx and our third-party service providers have experienced, and we and our third-party service providers may experience in the future, breaches or disruptions of our technology infrastructure, which could result in unauthorized access to, or loss of, sensitive or confidential information regarding our operations, customers, employees, or suppliers, including personal information. We have also faced, and may continue to face, attempts to gain access to customer accounts. We also maintain integrations with customers and key business partners and have faced, and may continue to face, attempts to gain access to our systems and environments through such entry points. Additionally, risks such as code anomalies, “Acts of God,” transitional challenges in migrating operating company functionality to our enterprise automation platforms, data leakage, cyber-fraud, and human error pose a direct threat to our products, services, systems, and data, and could result in unauthorized access to, or block legitimate access to, sensitive or confidential data. Any incidents involving the foregoing or similar matters could materially adversely affect our business and result in significant costs.
+We depend on and interact with technology and systems of third parties, including customers, cloud service providers, Software as a Service providers, and other vendors. Certain third parties are involved in critical technology services and data processing. These third parties are subject to similar cybersecurity and operational risks, and their failures, breaches, or human errors could compromise our data or disrupt our operations, despite having security processes, protocols, and standards in place. The security measures we and our third-party service providers have in place may not be sufficient to prevent all breaches or disruptions.
+Detecting, investigating, and remediating cybersecurity incidents is complex and may be delayed by incomplete or insufficiently detailed logging, the sophistication of threat actors, and the size and complexity of our information systems. The full scope and impact of an incident may not be immediately apparent, and remediation efforts may be prolonged or repeated before the incident is fully contained. In some cases, breaches may not be discovered for a significant period of time after they occur, and harm may spread internally or to customers, vendors, or other third parties before containment. Patches for certain vulnerabilities may not exist and, even where patches or other risk-mitigating activities are available, the development of patches or execution of risk-mitigating actions may not occur before an underlying vulnerability is exploited and results in the disruption of our operations or compromise of our information systems or data.
+24
+Table of Contents
+A significant number of our employees as well as customers and others with whom we do business work remotely or in hybrid models, which may heighten these risks. We and certain other companies have recently been targeted by nation-state sponsored schemes intended to defraud companies through the use of synthetic identities and technological tools (including generative AI and deepfake technologies) to obtain remote employment in the U.S. While to date we have not experienced a material impact on our business or results of operations from such scams, if these scams were to succeed, they could expose us to governmental and regulatory as well as market and media scrutiny regarding the actual or perceived integrity of our technology infrastructure, as well as other potential liability and consequences.
+Our investments in technology security initiatives, information technology risk management, business continuity, and disaster recovery plans, including the retirement and replacement of end-of-life systems, are costly, require ongoing monitoring and updating, and may not be sufficient to prevent all incidents, particularly as threats evolve and new technologies such as AI and machine learning introduce additional challenges. A significant cybersecurity incident could materially adversely affect our business, results of operations, and financial condition.
+ITEM 5. OTHER INFORMATION
+During the quarter ended September 30, 2026, no director or officer of FedEx Freight
+adopted
+, modified, or
+terminated
+any Rule 10b5-1 trading arrangement or non-Rule 10b5-1 trading arrangement, as such terms are defined in Item 408(a) of Regulation S-K.
+25
+Table of Contents
+ITEM 6. EXHIBITS
+Exhibit
+Number
+Description of Exhibit
+†2.1
+Separation and Distribution Agreement, effective as of May 28, 2026, by and between FedEx and FedEx Freight. (Filed as Exhibit 2.1 to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+3.1
+Amended and Restated Certificate of Incorporation of FedEx Freight. (Filed as Exhibit 3.
+2
+to FedEx Freight's
+Cur
+rent
+Report on Form
+8
+-K dated and filed
+June 1
+, 2026, and incorporated herein by reference.)
+3.2
+Amended and Restated Bylaws of FedEx Freight. (Filed as
+Exhibit 3.
+3
+to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+^10.1
+FedEx Freight 2026 Omnibus Stock Incentive Plan. (Filed as Exhibit 10.8 to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+^10.2
+Form of Restricted Stock Unit Agreement Pursuant to the FedEx Freight 2026 Omnibus Stock Incentive Plan. (Filed as Exhibit 10.10 to FedEx Freight's
+FY26
+Annual Report on Form 10-K
+, and incorporated herein by reference.)
+†^10.3
+Form of Performance Stock Unit Agreement Pursuant to the FedEx Freight 2026 Omnibus Stock Incentive Plan. (Filed as Exhibit 10.11 to FedEx Freight's
+FY
+26
+Annual Report on Form 10-K
+, and incorporated herein by reference.)
+^10.4
+FedEx Freight Policy Regarding Treatment of Equity-Based Awards Upon Retirement
+.(Filed as Exhibit 10.12 to FedEx Freight's
+FY26
+Annual Report on Form 10-K
+, and incorporated herein by reference.)
+^10.5
+Form of Restricted Stock Unit Agreement for Non-Management Directors Pursuant to the FedEx Freight 2026 Omnibus Stock Incentive Plan. (Filed as Exhibit 10.7 to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+^10.6
+FedEx Freight 2026 Employee Stock Purchase Plan. (Filed as Exhibit 10.9 to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+^10.7
+FedEx Freight Retirement Parity Pension Plan. (Filed as Exhibit 10.10 to FedEx Freight's Current Report on Form 8-K dated and filed June 1, 2026, and incorporated herein by reference.)
+*31.1
+Certification of Principal Executive Officer Pursuant to Rules 13a-14(a) and 15d-14(a) under the Securities Exchange Act of 1934, as Adopted Pursuant to Section 302 of the Sarbanes-Oxley Act of 2002
+.
+*31.2
+Certification of Principal Financial Officer Pursuant to Rules 13a-14(a) and 15d-14(a) under the Securities Exchange Act of 1934, as Adopted Pursuant to Section 302 of the Sarbanes-Oxley Act of 2002
+.
+*32.1
+Certification of Principal Executive Officer Pursuant to 18 U.S.C. Section 1350, as Adopted Pursuant to Section 906 of the Sarbanes-Oxley Act of 2002
+.
+*32.2
+Certification of Principal Financial Officer Pursuant to 18 U.S.C. Section 1350, as Adopted Pursuant to Section 906 of the Sarbanes-Oxley Act of 2002
+.
+101.1
+Interactive Data Files pursuant to Rule 405 of Regulation S-T formatted in Inline Extensible Business Reporting Language (“Inline XBRL”).
+104.1
+Cover Page Interactive Data File (formatted in Inline XBRL and contained in Exhibit 101.1).
+__________________________________________
+†
+Certain attachments have been omitted pursuant to Item 601(a)(5) of Regulation S-K because the information contained therein is not material and is not otherwise publicly disclosed. FedEx Freight will furnish supplementally copies of such attachments to the SEC or its staff upon request.
+^
+Management contract/compensatory plan or arrangement.
+*
+Filed herewith.
+26
+Table of Contents
+SIGNATURE
+Pursuant to the requirements of the Securities Exchange Act of 1934, as amended, the Registrant has duly caused this report to be signed on its behalf by the undersigned thereunto duly authorized.
+FEDEX FREIGHT HOLDING COMPANY, INC.
+Date: October 29, 2026
+By:
+/s/ Guy M. Erwin II
+Guy M. Erwin II
+Senior Vice President and Chief Accounting Officer
+27

@@ -33,6 +33,7 @@ week03/runs/**/faskills_financialdatasets.json
 # Supplied research exports/transcripts may contain licensed third-party content.
 # Keep the local Company reports folder out of the public repository.
 /Company reports\ /
+/Capital IQ/
 
 # Keep the licensed course-paper PDF local. Link to the DOI in public notes.
 /FRL-CanAIReplaceAnalyst (1).pdf

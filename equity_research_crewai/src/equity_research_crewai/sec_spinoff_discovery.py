@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import gzip
 import time
@@ -11,6 +12,7 @@ from urllib.parse import urlparse
 from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import PurePosixPath
+from pathlib import Path
 from typing import Any, Callable, Iterator, Mapping
 
 
@@ -109,6 +111,32 @@ def master_index_url(day: date) -> str:
     )
 
 
+def quarterly_master_index_url(year: int, quarter_number: int) -> str:
+    """Return the SEC full-quarter master index URL."""
+
+    if year < 1994:
+        raise ValueError("SEC full indexes are available from 1994.")
+    if quarter_number not in {1, 2, 3, 4}:
+        raise ValueError("Quarter must be 1, 2, 3, or 4.")
+    return f"{SEC_ARCHIVES}/edgar/full-index/{year}/QTR{quarter_number}/master.idx"
+
+
+def iter_quarters(start: date, end: date) -> Iterator[tuple[int, int]]:
+    """Yield each calendar quarter that intersects an inclusive date range."""
+
+    if end < start:
+        raise ValueError("End date must be on or after start date.")
+    year = start.year
+    quarter_number = quarter(start)
+    while (year, quarter_number) <= (end.year, quarter(end)):
+        yield year, quarter_number
+        if quarter_number == 4:
+            year += 1
+            quarter_number = 1
+        else:
+            quarter_number += 1
+
+
 def parse_master_index(text: str) -> tuple[IndexFiling, ...]:
     rows: list[IndexFiling] = []
     for line in text.splitlines():
@@ -150,6 +178,24 @@ def form10_candidates(client: SecClient, start: date, end: date) -> tuple[IndexF
     return tuple(candidates)
 
 
+def form10_candidates_quarterly(
+    client: SecClient,
+    start: date,
+    end: date,
+) -> tuple[IndexFiling, ...]:
+    """Read full-quarter indexes and keep in-range Form 10 and CERT filings."""
+
+    candidates: list[IndexFiling] = []
+    for year, quarter_number in iter_quarters(start, end):
+        rows = parse_master_index(client.get_text(quarterly_master_index_url(year, quarter_number)))
+        candidates.extend(
+            row
+            for row in rows
+            if start <= row.filed_date <= end and row.form.upper() in FORM10_FORMS
+        )
+    return tuple(candidates)
+
+
 def filing_folder_documents(client: SecClient, filing: IndexFiling) -> tuple[str, ...]:
     """Return every named document in the filing folder without guessing exhibits."""
 
@@ -182,3 +228,56 @@ def parent_recent_8ks(client: SecClient, parent_cik: str) -> tuple[IndexFiling, 
         filename = f"edgar/data/{int(cik)}/{accession_compact}/{primary}"
         rows.append(IndexFiling(cik, name, "8-K", date.fromisoformat(str(filed)), filename))
     return tuple(rows)
+
+
+def _sec_user_agent_from_env_file(path: Path) -> str:
+    """Read SEC_USER_AGENT without printing or placing it in command history."""
+
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        if key.strip() == "SEC_USER_AGENT":
+            return value.strip().strip('"').strip("'")
+    raise ValueError(f"SEC_USER_AGENT is missing from {path}.")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Save a dated SEC Form 10 and CERT candidate index.")
+    parser.add_argument("--start", required=True, type=date.fromisoformat)
+    parser.add_argument("--end", required=True, type=date.fromisoformat)
+    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--env-file", type=Path, default=Path(".env"))
+    return parser
+
+
+def main() -> None:
+    args = build_parser().parse_args()
+    client = SecClient(_sec_user_agent_from_env_file(args.env_file))
+    rows = form10_candidates_quarterly(client, args.start, args.end)
+    payload = {
+        "source": "SEC EDGAR full-quarter master indexes",
+        "start_date": args.start.isoformat(),
+        "end_date": args.end.isoformat(),
+        "candidate_count": len(rows),
+        "filings": [
+            {
+                "cik": row.cik.zfill(10),
+                "company_name": row.company_name,
+                "form": row.form,
+                "filed_date": row.filed_date.isoformat(),
+                "accession": row.accession,
+                "filing_url": row.filing_url,
+                "folder_index_url": row.folder_index_url,
+            }
+            for row in rows
+        ],
+    }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(f"Saved {len(rows)} SEC candidate filings to {args.output}.")
+
+
+if __name__ == "__main__":
+    main()

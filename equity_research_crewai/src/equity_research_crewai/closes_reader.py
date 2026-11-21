@@ -40,15 +40,19 @@ class CloseRecord:
     close: Decimal
     currency: str
     source: str
+    volume: Decimal | None = None
 
     def to_dict(self) -> dict[str, str]:
-        return {
+        payload = {
             "pricing_date": self.pricing_date.isoformat(),
             "instrument": self.instrument,
             "close": format(self.close, "f"),
             "currency": self.currency,
             "source": self.source,
         }
+        if self.volume is not None:
+            payload["volume"] = format(self.volume, "f")
+        return payload
 
 
 @dataclass(frozen=True)
@@ -111,6 +115,17 @@ def _parse_close(value: Any) -> Decimal:
     return close
 
 
+def _parse_volume(value: Any) -> Decimal:
+    text = str(value).strip().replace(",", "")
+    try:
+        volume = Decimal(text)
+    except (InvalidOperation, ValueError) as exc:
+        raise ValueError(f"Invalid trading volume: {value!r}.") from exc
+    if not volume.is_finite() or volume < 0:
+        raise ValueError(f"Trading volume must be nonnegative and finite: {value!r}.")
+    return volume
+
+
 def _records_from_rows(
     rows: Iterable[Mapping[Any, Any]],
     requested_instrument: str,
@@ -132,6 +147,11 @@ def _records_from_rows(
     )
     instrument_key = _select_key(keys, ("instrument", "ric", "ticker", "symbol", "universe"))
     currency_key = _select_key(keys, ("currency", "currency_code", "ccy"))
+    volume_key = _select_key(
+        keys,
+        ("volume", "tr_volume", "trading_volume", "daily_volume"),
+        ("tr_volume", "trading_volume", "daily_volume"),
+    )
     if date_key is None or close_key is None:
         raise ValueError("The price source must contain a date column and an official close column.")
 
@@ -145,6 +165,7 @@ def _records_from_rows(
         raw_close = row.get(close_key)
         if raw_date in (None, "") or raw_close in (None, ""):
             continue
+        raw_volume = row.get(volume_key) if volume_key is not None else None
         pricing_date = _parse_date(raw_date)
         record = CloseRecord(
             pricing_date=pricing_date,
@@ -152,12 +173,12 @@ def _records_from_rows(
             close=_parse_close(raw_close),
             currency=str(row.get(currency_key, "")).strip().upper() if currency_key else "",
             source=source,
+            volume=_parse_volume(raw_volume) if raw_volume not in (None, "") else None,
         )
         prior = by_date.get(pricing_date)
-        if prior and prior.close != record.close:
+        if prior and (prior.close != record.close or prior.volume != record.volume):
             raise ValueError(
-                f"Conflicting closes for {requested} on {pricing_date.isoformat()}: "
-                f"{prior.close} and {record.close}."
+                f"Conflicting closes or volumes for {requested} on {pricing_date.isoformat()}."
             )
         by_date[pricing_date] = record
     return sorted(by_date.values())
@@ -205,7 +226,7 @@ def _read_lseg_desktop(
         opened = True
         frame = ld.get_data(
             universe=[instrument],
-            fields=["TR.PriceClose.date", "TR.PriceClose", "TR.PriceClose.currency"],
+            fields=["TR.PriceClose.date", "TR.PriceClose", "TR.PriceClose.currency", "TR.Volume"],
             parameters={
                 "SDate": start_date.isoformat(),
                 "EDate": end_date.isoformat(),

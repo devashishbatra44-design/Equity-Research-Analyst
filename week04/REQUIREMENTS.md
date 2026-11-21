@@ -1,13 +1,13 @@
 # Week 4 Requirement Trace
 
-Checked: November 14, 2026
+Checked: November 19, 2026
 
 ## Lab 06: seeker
 
 | ID | Requirement | Planned evidence | State |
 |---|---|---|---|
-| S01 | Accept a distribution start date. | Skill contract and date-range functions | Implemented; live run pending |
-| S02 | Read Form 10, amendments, CERT, filing folders, and parent distribution 8-Ks. | Synthetic SEC index and filing-folder tests | Implemented; real filing validation pending |
+| S01 | Accept a distribution start date. | Skill contract and date-range functions | Verified in the November 19 broader registry run |
+| S02 | Read Form 10, amendments, CERT, filing folders, and parent distribution 8-Ks. | Synthetic SEC index and filing-folder tests | Verified; 5,199 indexed filings reduced to 237 Form 10 registrants and 15 in-window distributions; F1, F2, and F3 are complete |
 | S03 | Send a declared SEC User-Agent and remain below 10 requests per second. | Request client test | Verified |
 | S04 | Save parent, ratio, record date, distribution date, filing, and section. | Registry schema and fixture | Verified |
 | S05 | Leave a missing fact blank and say it is missing. Never estimate it. | Missing-field test | Verified |
@@ -15,35 +15,35 @@ Checked: November 14, 2026
 | S07 | Assign registered, listing approved, trading, in window, or past stage. | Stage truth table | Verified |
 | S08 | Use the parent CIK to find the distribution 8-K. | Parent-CIK submissions fixture | Verified |
 | S09 | Use the first regular close after distribution. Never use when-issued trading. | Price-date test | Verified |
-| S10 | Read human factors with direction, weight, and window. | `HUMAN_FACTORS.md` plus parser | Waiting for human input |
+| S10 | Read human factors with direction, weight, and window. | `HUMAN_FACTORS.md` plus parser | Verified with the frozen November 19 configuration |
 | S11 | Print points by factor. | Rank calculation test | Verified |
 | S12 | Leave a name unranked when a required date is missing. | Missing-date test | Verified |
 | S13 | First line states run date, price date, and index date. | Report snapshot test | Verified |
 | S14 | Report ranked, watch, dropped, and data-limit sections. | Report fixture | Verified |
 | S15 | End with `screens, not recommendations` exactly. | Exact-line test | Verified |
-| S16 | Save a dated run. | Filesystem test | Pending |
-| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified for implemented rules |
+| S16 | Save a dated run. | Filesystem test | Verified with `runs/seeker_20261119/` and `runs/seeker_20261119_full/` |
+| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified; 122 tests passed on November 19, 2026 |
 | S18 | Code and skill names contain no company name. | Path/name review | Verified |
 
 ## Lab 07: worksheet
 
 | ID | Requirement | Planned evidence | State |
 |---|---|---|---|
-| W01 | Run on a saved team seeker result and saved filings. | CLI contract test | Pending |
-| W02 | Save Form 10 and the information statement by accession when the name is in the registry. | Filing fixture test | Pending |
+| W01 | Run on a saved team seeker result and saved filings. | CLI contract test | Verified with the saved FDXF seeker evidence and filing set |
+| W02 | Save Form 10 and the information statement by accession when the name is in the registry. | Filing fixture test | Verified in `runs/worksheet_FDXF_20261120_023851/filings/` |
 | W03 | Use `not applicable` for spin sections when the name is outside the registry. | Branch test | Pending |
 | W04 | Emit one line per fact with an amount or `not known`. | Renderer test | Verified |
 | W05 | Separate historical, pro forma, and post-spin facts. | Schema test | Verified |
-| W06 | Record parent, ratio, dates, debt/cash destination, liabilities, restrictions, Form 4 code P, and liquidity. | Fact checklist test | Pending |
-| W07 | Compare median daily dollar volume with the client purchase size. | Code calculation test | Code verified; waiting for human client size |
+| W06 | Record parent, ratio, dates, debt/cash destination, liabilities, restrictions, Form 4 code P, and liquidity. | Fact checklist test | Verified in the FDXF facts and worksheet |
+| W07 | Compare median daily dollar volume with the client purchase size. | Code calculation test | Verified with the frozen 500,000 USD client size and Nasdaq market data |
 | W08 | Print owner cash flow as after-tax earnings + depreciation - capex. | Arithmetic test | Verified |
-| W09 | Compute low and mid values from human rates and compare price with the low value. | Truth table | Code verified; waiting for human config |
-| W10 | Make one model call with the human persona only for why cheap, why not cheap, and the next filing that changes the view. | Stub-model prompt test | Waiting for human persona |
-| W11 | Add liquidity by code after the model call. | Ordering test | Pending |
-| W12 | End with a release view, one deciding number and citation, conviction under the human rule, and a not-known list. | Output contract test | Waiting for human rules |
+| W09 | Compute low and mid values from human rates and compare price with the low value. | Truth table | Verified with the frozen FDXF configuration |
+| W10 | Make one model call with the human persona only for why cheap, why not cheap, and the next filing that changes the view. | Stub-model prompt test | Verified; the saved input and one-call output are in the FDXF run |
+| W11 | Add liquidity by code after the model call. | Ordering test | Verified; Nasdaq liquidity was added after the saved persona call |
+| W12 | End with a release view, one deciding number and citation, conviction under the human rule, and a not-known list. | Output contract test | Verified in `worksheet.md` |
 | W13 | Use `not computed` when no close is available. | Missing-price test | Verified |
-| W14 | Save a dated result. | Filesystem test | Pending |
-| W15 | Do not let a model compute a number. | Prompt and output verifier tests | Pending |
+| W14 | Save a dated result. | Filesystem test | Verified in `runs/worksheet_FDXF_20261120_023851/` |
+| W15 | Do not let a model compute a number. | Prompt and output verifier tests | Verified; code computes the financial values and the saved model output contains judgment only |
 
 ## Numeric hook
 
@@ -53,12 +53,12 @@ Checked: November 14, 2026
 | H02 | Verify exact tag, period, filing, and saved text line. | Saved-line fixture | Verified |
 | H03 | Recompute printed arithmetic from printed inputs. | Seeded arithmetic tests | Verified |
 | H04 | Verify rates and weights against human config. | Config mismatch tests | Verified |
-| H05 | Verify price through the closes reader. | Saved reader-record test | Verified |
+| H05 | Verify price and market metrics through the saved market reader. | Saved reader-record test | Verified for Nasdaq official close, observation count, and median daily dollar volume |
 | H06 | Ignore only dates, accessions, and line numbers as numeric categories. | Scanner truth table | Verified |
 | H07 | Fail an unknown numeric kind. | Unknown-number test | Verified |
 | H08 | Print the refusal line when blocked. Stay silent when clean. | Seeded-error and clean tests | Verified |
-| H09 | Show the hook file before enabling it. | Human review receipt | Waiting for review |
-| H10 | With the Stop hook enabled, a seeded output cannot finish. | Controlled hook test | Waiting for review |
+| H09 | Show the hook file before enabling it. | Human review receipt | Verified; Devashish received the hook-review and source links before approving enablement |
+| H10 | With the Stop hook enabled, a seeded output cannot finish. | Controlled hook test | Verified; the trusted project Stop command refused a 1 USD seeded error and the restored clean file was silent |
 
 ## Live record and hit rate
 

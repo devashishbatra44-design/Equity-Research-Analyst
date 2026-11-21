@@ -1,0 +1,270 @@
+{
+  "results": [
+    {
+      "child": "Versant Media Group, Inc.",
+      "child_cik": "0002067876",
+      "parent": "Comcast Corporation",
+      "parent_cik": "0001166691",
+      "distribution_date": "2026-01-02",
+      "currency": "USD",
+      "payment_amount_usd": "2250000000",
+      "filing_fact": "Versant stated that it would use proceeds of its separation indebtedness to make an approximately $2.25 billion cash payment to Comcast.",
+      "sources": [
+        {
+          "accession": "0001193125-25-306792",
+          "url": "https://www.sec.gov/Archives/edgar/data/2067876/0001193125-25-306792.txt",
+          "section": "The Separation—Incurrence of Debt; Description of Material Indebtedness"
+        }
+      ]
+    },
+    {
+      "child": "Augusta SpinCo Corporation",
+      "child_cik": "0002082015",
+      "parent": "Becton, Dickinson and Company",
+      "parent_cik": "0000010795",
+      "distribution_date": "2026-02-09",
+      "currency": "USD",
+      "payment_amount_usd": "4000000000",
+      "filing_fact": "SpinCo borrowed $4.0 billion of unsecured term loans and used the funds to finance the $4.0 billion SpinCo Cash Distribution to BD.",
+      "sources": [
+        {
+          "accession": "0001193125-25-327056",
+          "url": "https://www.sec.gov/Archives/edgar/data/2082015/0001193125-25-327056.txt",
+          "section": "The Transactions—SpinCo Cash Distribution; Financing"
+        },
+        {
+          "accession": "0001193125-26-149679",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000697/000119312526149679/d778470dars.pdf",
+          "section": "SpinCo financing and cash distribution"
+        }
+      ]
+    },
+    {
+      "child": "Atrium Therapeutics, Inc.",
+      "child_cik": "0002093101",
+      "parent": "Avidity Biosciences, Inc.",
+      "parent_cik": "0001599901",
+      "distribution_date": "2026-02-26",
+      "currency": "USD",
+      "payment_amount_usd": "0",
+      "filing_fact": "The separation financing ran from parent to child: Avidity was required to contribute cash so Atrium held $270 million less specified cash and marketable securities. The filing did not identify a debt-funded cash payment from Atrium to Avidity.",
+      "sources": [
+        {
+          "accession": "0001193125-26-055010",
+          "url": "https://www.sec.gov/Archives/edgar/data/2093101/000119312526055010/d42675dex991.htm",
+          "section": "Liquidity and Capital Resources—Sources of Liquidity; The Separation and Distribution"
+        }
+      ]
+    },
+    {
+      "child": "Versigent PLC",
+      "child_cik": "0002078008",
+      "parent": "Aptiv PLC",
+      "parent_cik": "0001521332",
+      "distribution_date": "2026-04-01",
+      "currency": "USD",
+      "payment_amount_usd": "1900000000",
+      "filing_fact": "Aptiv reported an approximately $1.9 billion cash distribution from Versigent financed through approximately $2.1 billion of Versigent debt.",
+      "sources": [
+        {
+          "accession": "0001521332-26-000075",
+          "url": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000075/aptv-20260930.htm",
+          "section": "Distribution to Aptiv and Completion of Separation; Note 8, Debt"
+        }
+      ]
+    },
+    {
+      "child": "First Tracks Biotherapeutics, Inc.",
+      "child_cik": "0002091349",
+      "parent": "AnaptysBio, Inc.",
+      "parent_cik": "0001370053",
+      "distribution_date": "2026-04-20",
+      "currency": "USD",
+      "payment_amount_usd": "0",
+      "filing_fact": "The separation financing ran from parent to child: AnaptysBio provided a $100.0 million initial cash distribution to First Tracks. The filing did not identify a debt-funded cash payment from First Tracks to AnaptysBio.",
+      "sources": [
+        {
+          "accession": "0001193125-26-177317",
+          "url": "https://www.sec.gov/Archives/edgar/data/1370053/000119312526177317/d104779dex991.htm",
+          "section": "Unaudited Pro Forma Condensed Consolidated Financial Statements—Transaction Accounting Adjustment (B)"
+        }
+      ]
+    },
+    {
+      "child": "FedEx Freight Holding Company, Inc.",
+      "child_cik": "0002082247",
+      "parent": "FedEx Corporation",
+      "parent_cik": "0001048911",
+      "distribution_date": "2026-06-01",
+      "currency": "USD",
+      "payment_amount_usd": "4100000000",
+      "filing_fact": "FedEx Freight used substantially all proceeds from $3.7 billion of notes and a $0.6 billion term loan facility to fund an approximately $4.1 billion cash distribution to FedEx.",
+      "sources": [
+        {
+          "accession": "0001628280-26-068246",
+          "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+          "section": "Note—Long-Term Debt"
+        }
+      ]
+    },
+    {
+      "child": "Enviri Corporation (formerly Enviri II Corporation)",
+      "child_cik": "0002104052",
+      "parent": "CE Holdings, Inc. (successor holding company to former Enviri)",
+      "parent_cik": "0000045876",
+      "distribution_date": "2026-06-01",
+      "currency": "USD",
+      "payment_amount_usd": "0",
+      "filing_fact": "The transaction sent acquisition proceeds to CE Holdings stockholders and approximately $1.7 billion through an intercompany note to Enviri LLC, primarily to repay Enviri debt and fund transaction and contract needs. The filing did not identify a debt-funded cash payment from New Enviri to CE Holdings.",
+      "sources": [
+        {
+          "accession": "0002104052-26-000081",
+          "url": "https://www.sec.gov/Archives/edgar/data/2104052/000210405226000081/nvriwi-20260331.htm",
+          "section": "Spin-Off"
+        }
+      ]
+    },
+    {
+      "child": "Honeywell Aerospace Inc.",
+      "child_cik": "0002089271",
+      "parent": "Honeywell Technologies",
+      "parent_cik": "0000773840",
+      "distribution_date": "2026-06-29",
+      "currency": "USD",
+      "payment_amount_usd": "9100000000",
+      "filing_fact": "Aerospace used $9.1 billion of net proceeds from new notes to make a cash distribution to Honeywell as partial consideration for contributed assets.",
+      "sources": [
+        {
+          "accession": "0001193125-26-302021",
+          "url": "https://www.sec.gov/Archives/edgar/data/2089271/000119312526302021/d132076d424b3.htm",
+          "section": "Use of Proceeds; Separation Financing"
+        }
+      ]
+    },
+    {
+      "child": "Mobility Global Inc.",
+      "child_cik": "0002090312",
+      "parent": "S&P Global Inc.",
+      "parent_cik": "0000064040",
+      "distribution_date": "2026-07-01",
+      "currency": "USD",
+      "payment_amount_usd": "1900000000",
+      "filing_fact": "Mobility stated that it would use senior-note proceeds to finance a cash payment and make an approximately $1.9 billion net cash distribution to S&P Global at separation.",
+      "sources": [
+        {
+          "accession": "0001104659-26-066592",
+          "url": "https://www.sec.gov/Archives/edgar/data/2090312/000110465926066592/tm2528763d9_ex99-1.htm",
+          "section": "Unaudited Pro Forma Combined Financial Statements—Cash and cash equivalents adjustment (c)"
+        }
+      ]
+    },
+    {
+      "child": "Midera Food Processing, Inc.",
+      "child_cik": "0002088281",
+      "parent": "The Middleby Corporation",
+      "parent_cik": "0000769520",
+      "distribution_date": "2026-07-06",
+      "currency": "USD",
+      "payment_amount_usd": "233000000",
+      "filing_fact": "Midera reported that it used revolving-credit borrowings and cash on hand to make a $233.0 million distribution to Middleby on June 29, 2026.",
+      "sources": [
+        {
+          "accession": "0001193125-26-465503",
+          "url": "https://www.sec.gov/Archives/edgar/data/2088281/000119312526465503/ck0002088281-20261003.htm",
+          "section": "Note 1—Nature of Operations and Basis of Presentation"
+        }
+      ]
+    },
+    {
+      "child": "ADI Global Distribution Inc.",
+      "child_cik": "0002105139",
+      "parent": "Resideo Technologies, Inc.",
+      "parent_cik": "0001740332",
+      "distribution_date": "2026-08-03",
+      "currency": "USD",
+      "payment_amount_usd": "900000000",
+      "filing_fact": "ADI stated that it would use net proceeds from approximately $1.0 billion of separation indebtedness to make an approximately $900 million one-time cash dividend to Resideo.",
+      "sources": [
+        {
+          "accession": "0001213900-26-084882",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105139/000121390026084882/ea030019001ex99-1.htm",
+          "section": "Incurrence of Indebtedness; Separation and Distribution"
+        }
+      ]
+    },
+    {
+      "child": "BioKey (Cayman), Inc.",
+      "child_cik": "0002108359",
+      "parent": "ABVC BioPharma, Inc.",
+      "parent_cik": "0001173313",
+      "distribution_date": "2026-08-21",
+      "currency": "USD",
+      "payment_amount_usd": "0",
+      "filing_fact": "BioKey reported initial capitalization and asset transfers from ABVC and only potential equity or debt financing after the spin-off. The filing did not identify a debt-funded cash payment from BioKey to ABVC.",
+      "sources": [
+        {
+          "accession": "0001213900-26-070604",
+          "url": "https://www.sec.gov/Archives/edgar/data/2108359/0001213900-26-070604.txt",
+          "section": "Liquidity and Capital Resources—Working Capital"
+        }
+      ]
+    },
+    {
+      "child": "Vylor Inc.",
+      "child_cik": "0002128626",
+      "parent": "Corteva, Inc.",
+      "parent_cik": "0001755672",
+      "distribution_date": "2026-10-01",
+      "currency": "USD",
+      "payment_minimum_usd": "726000000",
+      "payment_maximum_usd": "776000000",
+      "filing_fact": "The final information statement stated a $726 million to $776 million Vylor cash distribution to the parent funded by a portion of the Vylor financing proceeds. The bounded amount is sufficient to make F2 false without estimating a point amount.",
+      "sources": [
+        {
+          "accession": "0001193125-26-396054",
+          "url": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526396054/ck0002128626-ex99_1.htm",
+          "section": "The Spin-Off; Separation and Distribution Agreement—Vylor Cash Distribution"
+        }
+      ]
+    },
+    {
+      "child": "Platinum SpinCo, Inc.",
+      "child_cik": "0002134183",
+      "parent": "Modine Manufacturing Company",
+      "parent_cik": "0000067347",
+      "distribution_date": "2026-10-01",
+      "currency": "USD",
+      "payment_amount_usd": "155991275",
+      "filing_fact": "Immediately before distribution, SpinCo paid Modine a $155,991,275 cash distribution. The financing documents and transaction filings link the cash distribution to SpinCo transaction debt.",
+      "sources": [
+        {
+          "accession": "0001104659-26-112870",
+          "url": "https://www.sec.gov/Archives/edgar/data/67347/000110465926112870/tm2626618d1_8k.htm",
+          "section": "Item 2.01—Completion of Acquisition or Disposition of Assets"
+        },
+        {
+          "accession": "0001193125-26-335481",
+          "url": "https://www.sec.gov/Archives/edgar/data/2134183/0001193125-26-335481.txt",
+          "section": "The Transactions—SpinCo Cash Distribution and financing"
+        }
+      ]
+    },
+    {
+      "child": "MSG Rangers Corp. (formerly MSGS Spinco, Inc.)",
+      "child_cik": "0002132873",
+      "parent": "MSG Knickerbockers Corp. (formerly Madison Square Garden Sports Corp.)",
+      "parent_cik": "0001636519",
+      "distribution_date": "2026-10-26",
+      "currency": "USD",
+      "payment_amount_usd": "0",
+      "filing_fact": "The separation financing ran from parent to child: MSG Rangers received a $19.095 million cash contribution from MSG Knicks. The filing reported no revolving-credit borrowings and did not identify a debt-funded cash payment from MSG Rangers to MSG Knicks.",
+      "sources": [
+        {
+          "accession": "0001628280-26-071325",
+          "url": "https://www.sec.gov/Archives/edgar/data/2132873/000162828026071325/msgr-20260930.htm",
+          "section": "Note 1—Spin-off Transaction; Liquidity and Capital Resources"
+        }
+      ]
+    }
+  ]
+}

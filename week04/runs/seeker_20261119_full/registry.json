@@ -1,0 +1,153 @@
+{
+  "run_date": "2026-11-19",
+  "index_date": "2026-11-19",
+  "distribution_start_date": "2025-11-19",
+  "distribution_end_date": "2026-11-19",
+  "discovery_lookback_start": "2024-01-01",
+  "source": "SEC EDGAR full-quarter master indexes and primary filings",
+  "included_distributions": [
+    {
+      "child": "Versant Media Group, Inc.", "child_cik": "0002067876", "child_ticker": "VSNT",
+      "parent": "Comcast Corporation", "parent_cik": "0001166691", "parent_ticker": "CMCSA",
+      "record_date": "2025-12-16", "distribution_date": "2026-01-02", "regular_trading_start_date": "2026-01-05", "ratio": "1 VSNT share per 25 CMCSA shares", "distributed_child_shares_per_parent_share": "0.04", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-25-306792", "form10_url": "https://www.sec.gov/Archives/edgar/data/2067876/0001193125-25-306792.txt", "section": "The Separation; Separation and Distribution Agreement",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/1166691/000095010325015694/dp238252_8k.htm"
+    },
+    {
+      "child": "Augusta SpinCo Corporation", "child_cik": "0002082015", "child_ticker": null,
+      "parent": "Becton, Dickinson and Company", "parent_cik": "0000010795", "parent_ticker": "BDX",
+      "record_date": "2026-02-05", "distribution_date": "2026-02-09", "regular_trading_start_date": null, "ratio": null, "distributed_child_shares_per_parent_share": null, "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-25-327056", "form10_url": "https://www.sec.gov/Archives/edgar/data/2082015/0001193125-25-327056.txt", "section": "The Transactions; Reverse Morris Trust distribution and merger",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/R8.htm",
+      "data_limit": "SpinCo merged into a Waters subsidiary immediately after distribution and had no standalone regular close."
+    },
+    {
+      "child": "Atrium Therapeutics, Inc.", "child_cik": "0002093101", "child_ticker": "RNA",
+      "parent": "Avidity Biosciences, Inc.", "parent_cik": "0001599901", "parent_ticker": "RNAM",
+      "record_date": "2026-02-12", "distribution_date": "2026-02-26", "regular_trading_start_date": "2026-02-27", "ratio": "1 RNA share per 10 Avidity shares", "distributed_child_shares_per_parent_share": "0.1", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-055010", "form10_url": "https://www.sec.gov/Archives/edgar/data/2093101/0001193125-26-055010.txt", "section": "Separation and Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2093101/000119312526077105/d14901d8k.htm",
+      "data_limit": "Avidity was acquired immediately after the distribution; a same-date parent comparison requires review."
+    },
+    {
+      "child": "Versigent PLC", "child_cik": "0002078008", "child_ticker": "VGNT",
+      "parent": "Aptiv PLC", "parent_cik": "0001521332", "parent_ticker": "APTV",
+      "record_date": "2026-03-17", "distribution_date": "2026-04-01", "regular_trading_start_date": "2026-04-01", "ratio": "1 VGNT share per 3 APTV shares", "distributed_child_shares_per_parent_share": "0.3333333333333333333333333333", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-096776", "form10_url": "https://www.sec.gov/Archives/edgar/data/2078008/0001193125-26-096776.txt", "section": "The Spin-Off",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2078008/000119312526104279/d65007d8k.htm"
+    },
+    {
+      "child": "First Tracks Biotherapeutics, Inc.", "child_cik": "0002091349", "child_ticker": "TRAX",
+      "parent": "AnaptysBio, Inc.", "parent_cik": "0001370053", "parent_ticker": "ANAB",
+      "record_date": "2026-04-06", "distribution_date": "2026-04-20", "regular_trading_start_date": "2026-04-20", "ratio": "1 TRAX share per 1 ANAB share", "distributed_child_shares_per_parent_share": "1", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-129178", "form10_url": "https://www.sec.gov/Archives/edgar/data/2091349/0001193125-26-129178.txt", "section": "The Spin-Off",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/1370053/000119312526164330/d120122d8k.htm"
+    },
+    {
+      "child": "FedEx Freight Holding Company, Inc.", "child_cik": "0002082247", "child_ticker": "FDXF",
+      "parent": "FedEx Corporation", "parent_cik": "0001048911", "parent_ticker": "FDX",
+      "record_date": "2026-05-15", "distribution_date": "2026-06-01", "regular_trading_start_date": "2026-06-01", "ratio": "1 FDXF share per 2 FDX shares", "distributed_child_shares_per_parent_share": "0.5", "fraction_distributed": "0.801",
+      "form10_accession": "0001104659-26-041977", "form10_url": "https://www.sec.gov/Archives/edgar/data/2082247/0001104659-26-041977.txt", "section": "The Spin-Off; Questions and Answers About the Spin-Off",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/1048911/000110465926068519/0001104659-26-068519-index.htm"
+    },
+    {
+      "child": "Enviri Corporation (formerly Enviri II Corporation)", "child_cik": "0002104052", "child_ticker": "NVRI",
+      "parent": "CE Holdings, Inc. (successor holding company to former Enviri)", "parent_cik": "0000045876", "parent_ticker": null,
+      "record_date": "2026-06-01", "distribution_date": "2026-06-01", "regular_trading_start_date": "2026-06-02", "ratio": "1 NVRI share per 3 former Enviri shares", "distributed_child_shares_per_parent_share": "0.3333333333333333333333333333", "fraction_distributed": "1.00",
+      "form10_accession": "0002104052-26-000013", "form10_url": "https://www.sec.gov/Archives/edgar/data/2104052/0002104052-26-000013.txt", "section": "Holding Company Merger, Reorganization and Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2104052/000210405226000055/exhibit991informationstate.htm",
+      "data_limit": "CE Holdings was acquired by Veolia after the distribution and has no post-distribution public close."
+    },
+    {
+      "child": "Honeywell Aerospace Inc.", "child_cik": "0002089271", "child_ticker": "HONA",
+      "parent": "Honeywell Technologies", "parent_cik": "0000773840", "parent_ticker": "HON",
+      "record_date": "2026-06-15", "distribution_date": "2026-06-29", "regular_trading_start_date": "2026-06-29", "ratio": "1 HONA share per 2 HON shares", "distributed_child_shares_per_parent_share": "0.5", "fraction_distributed": "1.00",
+      "form10_accession": "0001628280-26-041399", "form10_url": "https://www.sec.gov/Archives/edgar/data/2089271/0001628280-26-041399.txt", "section": "The Separation and Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000080/hon-20260615.htm"
+    },
+    {
+      "child": "Mobility Global Inc.", "child_cik": "0002090312", "child_ticker": "MBGL",
+      "parent": "S&P Global Inc.", "parent_cik": "0000064040", "parent_ticker": "SPGI",
+      "record_date": "2026-06-15", "distribution_date": "2026-07-01", "regular_trading_start_date": "2026-07-01", "ratio": "1 MBGL share per 1 SPGI share", "distributed_child_shares_per_parent_share": "1", "fraction_distributed": "1.00",
+      "form10_accession": "0001104659-26-066592", "form10_url": "https://www.sec.gov/Archives/edgar/data/2090312/0001104659-26-066592.txt", "section": "The Separation",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2090312/000110465926080006/tm2619098d1_ex99-1.htm"
+    },
+    {
+      "child": "Midera Food Processing, Inc.", "child_cik": "0002088281", "child_ticker": "MFP",
+      "parent": "The Middleby Corporation", "parent_cik": "0000769520", "parent_ticker": "MIDD",
+      "record_date": "2026-06-26", "distribution_date": "2026-07-06", "regular_trading_start_date": "2026-07-07", "ratio": "1 MFP share per 1 MIDD share", "distributed_child_shares_per_parent_share": "1", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-241891", "form10_url": "https://www.sec.gov/Archives/edgar/data/2088281/0001193125-26-241891.txt", "section": "The Separation and Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2088281/000119312526276742/d17861d8k.htm"
+    },
+    {
+      "child": "ADI Global Distribution Inc.", "child_cik": "0002105139", "child_ticker": "ADIG",
+      "parent": "Resideo Technologies, Inc.", "parent_cik": "0001740332", "parent_ticker": "REZI",
+      "record_date": "2026-07-20", "distribution_date": "2026-08-03", "regular_trading_start_date": "2026-08-04", "ratio": "1 ADIG share per 2 REZI shares", "distributed_child_shares_per_parent_share": "0.5", "fraction_distributed": "1.00",
+      "form10_accession": "0001213900-26-074253", "form10_url": "https://www.sec.gov/Archives/edgar/data/2105139/0001213900-26-074253.txt", "section": "The Separation and Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/1740332/000174033226000025/R24.htm"
+    },
+    {
+      "child": "BioKey (Cayman), Inc.", "child_cik": "0002108359", "child_ticker": null,
+      "parent": "ABVC BioPharma, Inc.", "parent_cik": "0001173313", "parent_ticker": "ABVC",
+      "record_date": "2026-07-24", "distribution_date": "2026-08-21", "regular_trading_start_date": null, "ratio": "0.169464 BioKey ordinary share per 1 ABVC share", "distributed_child_shares_per_parent_share": "0.169464", "fraction_distributed": "0.15",
+      "form10_accession": "0001213900-26-070604", "form10_url": "https://www.sec.gov/Archives/edgar/data/2108359/0001213900-26-070604.txt", "section": "The Spin-Off; final Information Statement",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2108359/000121390026094153/ea0302906-8k_biokey.htm",
+      "data_limit": "No trading market or ticker existed at distribution; the filing stated an intended later OTC quotation application."
+    },
+    {
+      "child": "Vylor Inc.", "child_cik": "0002128626", "child_ticker": "VYLR",
+      "parent": "Corteva, Inc.", "parent_cik": "0001755672", "parent_ticker": "CTVA",
+      "record_date": "2026-09-24", "distribution_date": "2026-10-01", "regular_trading_start_date": "2026-10-01", "ratio": "1 VYLR share per 1 CTVA share", "distributed_child_shares_per_parent_share": "1", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-396054", "form10_url": "https://www.sec.gov/Archives/edgar/data/2128626/0001193125-26-396054.txt", "section": "The Spin-Off",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526402928/ck0002128626-20260924.htm"
+    },
+    {
+      "child": "Platinum SpinCo, Inc.", "child_cik": "0002134183", "child_ticker": null,
+      "parent": "Modine Manufacturing Company", "parent_cik": "0000067347", "parent_ticker": "MOD",
+      "record_date": "2026-09-28", "distribution_date": "2026-10-01", "regular_trading_start_date": null, "ratio": "1 SpinCo share per 1 MOD share; each SpinCo share converted into 0.44619 THRM share", "distributed_child_shares_per_parent_share": null, "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-335481", "form10_url": "https://www.sec.gov/Archives/edgar/data/2134183/0001193125-26-335481.txt", "section": "The Transactions; Reverse Morris Trust distribution and merger",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/903129/000119312526419232/d186467d8ka.htm",
+      "data_limit": "SpinCo merged into a Gentherm subsidiary immediately after distribution and had no standalone regular close."
+    },
+    {
+      "child": "MSG Rangers Corp. (formerly MSGS Spinco, Inc.)", "child_cik": "0002132873", "child_ticker": "MSGR",
+      "parent": "MSG Knickerbockers Corp. (formerly Madison Square Garden Sports Corp.)", "parent_cik": "0001636519", "parent_ticker": "MSGK",
+      "record_date": "2026-10-20", "distribution_date": "2026-10-26", "regular_trading_start_date": "2026-10-27", "ratio": "1 MSGR share per 2 MSGS shares", "distributed_child_shares_per_parent_share": "0.5", "fraction_distributed": "1.00",
+      "form10_accession": "0001193125-26-409182", "form10_url": "https://www.sec.gov/Archives/edgar/data/2132873/0001193125-26-409182.txt", "section": "The Distribution",
+      "distribution_source": "https://www.sec.gov/Archives/edgar/data/1636519/000119312526434274/d178604d8k.htm"
+    }
+  ],
+  "registered_or_future_watch": [
+    {
+      "child": "Cortigent, Inc.", "child_cik": "0001958489",
+      "form": "10-12B/A", "form10_accession": "0001753926-25-001532", "form10_url": "https://www.sec.gov/Archives/edgar/data/1958489/0001753926-25-001532.txt", "section": "Preliminary information statement",
+      "reason": "Latest reviewed Form 10 remained preliminary; completed distribution date not established."
+    },
+    {
+      "child": "Electrified Materials Corp.", "child_cik": "0002049860",
+      "form": "10-12B/A", "form10_accession": "0001477932-25-009149", "form10_url": "https://www.sec.gov/Archives/edgar/data/2049860/0001477932-25-009149.txt", "section": "Planned spin-off",
+      "reason": "Form 10 described a planned spin-off; completed distribution date not established."
+    },
+    {
+      "child": "Axiom Solutions International, Inc.", "child_cik": "0002130999",
+      "form": "10-12B/A", "form10_accession": "0001193125-26-465664", "form10_url": "https://www.sec.gov/Archives/edgar/data/2130999/0001193125-26-465664.txt", "section": "Preliminary information statement",
+      "reason": "Latest reviewed information statement remained preliminary at the index date."
+    },
+    {
+      "child": "Trinzic, Inc.", "child_cik": "0002101664",
+      "form": "10-12B/A", "form10_accession": "0001140361-26-042809", "form10_url": "https://www.sec.gov/Archives/edgar/data/2101664/0001140361-26-042809.txt", "section": "The Separation and Distribution",
+      "reason": "Filing targeted January 4, 2027, after the index date."
+    }
+  ],
+  "known_past_window_controls": [
+    {"child": "Amrize Ltd", "distribution_date": "2025-06-23"},
+    {"child": "Ralliant Corporation", "distribution_date": "2025-06-28"},
+    {"child": "Solstice Advanced Materials Inc.", "distribution_date": "2025-10-30"},
+    {"child": "Qnity Electronics, Inc.", "distribution_date": "2025-11-01"}
+  ],
+  "notes": [
+    "A missing fact is null and is not estimated.",
+    "The registry identifies distributions. Frozen-factor scoring and complete Form 4 review are separate audit steps.",
+    "Reverse Morris Trust rows remain in the registry but cannot receive an estimated standalone child close."
+  ]
+}
