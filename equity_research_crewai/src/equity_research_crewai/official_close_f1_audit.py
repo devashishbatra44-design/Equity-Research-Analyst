@@ -12,6 +12,7 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from .closes_reader import CloseRecord, close_records_from_rows
 from .spinoff_seeker import (
     child_market_cap_is_small,
     child_parent_market_cap_ratio_from_distribution,
@@ -28,8 +29,8 @@ def _decimal(value: object) -> Decimal:
     return Decimal(cleaned)
 
 
-def parse_historical_rows(payload: Mapping[str, Any], ticker: str) -> tuple[dict[str, Any], ...]:
-    """Parse Nasdaq's official historical-table response."""
+def parse_historical_rows(payload: Mapping[str, Any], ticker: str) -> tuple[CloseRecord, ...]:
+    """Route Nasdaq's official historical table through the common closes reader."""
 
     data = payload.get("data")
     if not isinstance(data, Mapping):
@@ -44,17 +45,17 @@ def parse_historical_rows(payload: Mapping[str, Any], ticker: str) -> tuple[dict
     for row in rows:
         if not isinstance(row, Mapping) or not row.get("date") or not row.get("close"):
             continue
-        pricing_date = date.fromisoformat(
-            f"{str(row['date']).split('/')[2]}-{int(str(row['date']).split('/')[0]):02d}-{int(str(row['date']).split('/')[1]):02d}"
-        )
         parsed.append(
             {
-                "ticker": ticker,
-                "pricing_date": pricing_date,
-                "close_usd": _decimal(row["close"]),
+                "instrument": ticker,
+                "date": date.fromisoformat(
+                    f"{str(row['date']).split('/')[2]}-{int(str(row['date']).split('/')[0]):02d}-{int(str(row['date']).split('/')[1]):02d}"
+                ).isoformat(),
+                "close": str(_decimal(row["close"])),
+                "currency": "USD",
             }
         )
-    return tuple(sorted(parsed, key=lambda item: item["pricing_date"]))
+    return close_records_from_rows(parsed, ticker, "Nasdaq official historical endpoint")
 
 
 def historical_url(ticker: str, start: date, end: date) -> str:
@@ -69,7 +70,7 @@ def historical_url(ticker: str, start: date, end: date) -> str:
     return f"{NASDAQ_API.format(ticker=ticker.upper())}?{query}"
 
 
-def fetch_history(ticker: str, start: date, end: date) -> tuple[tuple[dict[str, Any], ...], str]:
+def fetch_history(ticker: str, start: date, end: date) -> tuple[tuple[CloseRecord, ...], str]:
     if not re.fullmatch(r"[A-Z][A-Z0-9.\-]{0,9}", ticker.upper()):
         raise ValueError(f"Invalid ticker: {ticker}")
     url = historical_url(ticker, start, end)
@@ -92,12 +93,12 @@ def fetch_history(ticker: str, start: date, end: date) -> tuple[tuple[dict[str, 
     return parse_historical_rows(payload, ticker), url
 
 
-def first_on_or_after(rows: Sequence[Mapping[str, Any]], target: date) -> Mapping[str, Any] | None:
-    return next((row for row in rows if row["pricing_date"] >= target), None)
+def first_after(rows: Sequence[CloseRecord], target: date) -> CloseRecord | None:
+    return next((row for row in rows if row.pricing_date > target), None)
 
 
-def on_date(rows: Sequence[Mapping[str, Any]], target: date) -> Mapping[str, Any] | None:
-    return next((row for row in rows if row["pricing_date"] == target), None)
+def on_date(rows: Sequence[CloseRecord], target: date) -> CloseRecord | None:
+    return next((row for row in rows if row.pricing_date == target), None)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -122,7 +123,7 @@ def main() -> None:
     ]
     start = date(min(value.year for value in distribution_dates), 1, 1)
     end = date.fromisoformat(registry["index_date"])
-    cache: dict[str, tuple[tuple[dict[str, Any], ...], str]] = {}
+    cache: dict[str, tuple[tuple[CloseRecord, ...], str]] = {}
     results: list[dict[str, Any]] = []
     for entry in registry["included_distributions"]:
         child_ticker = entry.get("child_ticker")
@@ -156,14 +157,14 @@ def main() -> None:
             if child_ticker not in cache:
                 cache[child_ticker] = fetch_history(child_ticker, start, end)
             child_rows, child_url = cache[child_ticker]
-            child_close = first_on_or_after(child_rows, regular_start or distributed)
+            child_close = first_after(child_rows, distributed)
             if child_close is None:
                 result["data_limit"] = "No official regular close was returned on or after distribution."
                 result["sources"] = [child_url]
                 results.append(result)
                 continue
-            result["child_close"] = child_close["close_usd"]
-            result["pricing_date"] = child_close["pricing_date"]
+            result["child_close"] = child_close.close
+            result["pricing_date"] = child_close.pricing_date
             if not parent_ticker:
                 result["sources"] = [child_url]
                 result["data_limit"] = entry.get("data_limit") or "Required parent ticker is unavailable."
@@ -172,20 +173,20 @@ def main() -> None:
             if parent_ticker not in cache:
                 cache[parent_ticker] = fetch_history(parent_ticker, start, end)
             parent_rows, parent_url = cache[parent_ticker]
-            parent_close = on_date(parent_rows, child_close["pricing_date"])
+            parent_close = on_date(parent_rows, child_close.pricing_date)
             result["sources"] = [child_url, parent_url]
             if parent_close is None:
                 result["data_limit"] = "No same-date official parent close was returned."
                 results.append(result)
                 continue
-            result["parent_close"] = parent_close["close_usd"]
+            result["parent_close"] = parent_close.close
             ratio = child_parent_market_cap_ratio_from_distribution(
                 Decimal(entry["distributed_child_shares_per_parent_share"])
                 if entry.get("distributed_child_shares_per_parent_share") is not None
                 else None,
                 Decimal(entry["fraction_distributed"]) if entry.get("fraction_distributed") else None,
-                child_close["close_usd"],
-                parent_close["close_usd"],
+                child_close.close,
+                parent_close.close,
             )
             result["market_cap_ratio"] = ratio
             result["f1"] = child_market_cap_is_small(ratio, Decimal("1"))

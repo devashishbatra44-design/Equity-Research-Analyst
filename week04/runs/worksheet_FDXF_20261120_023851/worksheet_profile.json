@@ -1,0 +1,11 @@
+{
+  "company_name": "FedEx Freight Holding Company, Inc.",
+  "ticker": "FDXF",
+  "run_time": "2026-11-22T09:30:00-05:00",
+  "index_date": "2026-11-19",
+  "window_end": "2027-06-01",
+  "rank": "7",
+  "points": "0",
+  "seeker_report": "../seeker_20261119_full/report.md",
+  "correction_note": "This generated worksheet corrects the saved analytical worksheet. It does not alter the historical live report or its missing release-time view."
+}

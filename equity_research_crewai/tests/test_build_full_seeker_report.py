@@ -22,14 +22,26 @@ def test_full_report_joins_every_audited_distribution() -> None:
         _load("sec_f2_audit.json"),
         _load("form4_f3_audit.json"),
         ROOT / "week04" / "HUMAN_FACTORS.md",
+        _load("form10_text_screen.json"),
+        run_time="2026-11-22T09:00:00-05:00",
     )
-    assert len(results) == 20
+    assert len(results) == 237
     assert sum(result.total_points is not None for result in results) == 10
-    assert sum(result.total_points is None and result.entry.is_spinoff for result in results) == 9
-    assert sum(not result.entry.is_spinoff for result in results) == 1
+    assert sum(
+        result.total_points is None and result.entry.is_spinoff and result.entry.regular_trading
+        for result in results
+    ) == 2
+    assert sum(
+        result.total_points is None and result.entry.is_spinoff and not result.entry.regular_trading
+        for result in results
+    ) == 5
+    assert sum(not result.entry.is_spinoff for result in results) == 220
     assert report.splitlines()[0] == (
-        "Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2026-11-19"
+        "Run date: 2026-11-19 | Price date: 2026-11-19 | Index date: 2026-11-19 | "
+        "Run time: 2026-11-22T09:00:00-05:00"
     )
     assert report.splitlines()[-1] == FINAL_LINE
     assert "Versant Media Group, Inc." in report
-    assert "PIMCO Asset-Based Lending Company LLC" in report
+    assert "PIMCO Asset-Based Lending Co LLC" in report
+    assert "Atrium Therapeutics, Inc." in report.split("## Ranked", 1)[1].split("## Watch", 1)[0]
+    assert "Augusta SpinCo Corporation" in report.split("## Dropped", 1)[1]

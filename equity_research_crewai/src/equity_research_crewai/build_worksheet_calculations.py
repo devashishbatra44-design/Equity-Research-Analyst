@@ -8,7 +8,12 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
-from .investor_worksheet import liquidity_check, owner_cash_flow, value_range
+from .investor_worksheet import (
+    liquidity_check,
+    liquidity_check_from_median,
+    owner_cash_flow,
+    value_range,
+)
 
 
 def _decimal(payload: dict[str, Any], key: str) -> Decimal:
@@ -19,35 +24,55 @@ def calculate(payload: dict[str, Any], reader: dict[str, Any]) -> dict[str, Any]
     tax_rate = _decimal(payload, "operating_tax_rate")
     one_time_cost = _decimal(payload, "one_time_cost")
     after_tax_adjustment = one_time_cost * (Decimal("1") - tax_rate)
-    adjusted_earnings = _decimal(payload, "reported_after_tax_earnings") + after_tax_adjustment
-    cash_flow = owner_cash_flow(
+    reported_earnings = _decimal(payload, "reported_after_tax_earnings")
+    course_cash_flow = owner_cash_flow(
+        reported_earnings,
+        _decimal(payload, "depreciation"),
+        _decimal(payload, "capital_expenditures"),
+    )
+    adjusted_earnings = reported_earnings + after_tax_adjustment
+    adjusted_cash_flow = owner_cash_flow(
         adjusted_earnings,
         _decimal(payload, "depreciation"),
         _decimal(payload, "capital_expenditures"),
     )
+    quarterly_interest = _decimal(payload, "post_spin_quarterly_interest_expense")
+    annualization_periods = _decimal(payload, "interest_annualization_periods")
+    annualized_interest = quarterly_interest * annualization_periods
+    after_tax_interest = annualized_interest * (Decimal("1") - tax_rate)
+    valuation_cash_flow = adjusted_cash_flow.value - after_tax_interest
 
     shares = _decimal(payload, "diluted_shares_millions")
     close = _decimal(payload, "official_close")
     primary = value_range(
-        cash_flow.value,
+        valuation_cash_flow,
         method="multiple",
         low_input=_decimal(payload, "low_multiple"),
         mid_input=_decimal(payload, "mid_multiple"),
         price=close * shares,
     )
-    high_value = cash_flow.value * _decimal(payload, "high_multiple")
-    stress_value = cash_flow.value * _decimal(payload, "stress_multiple")
+    high_value = valuation_cash_flow * _decimal(payload, "high_multiple")
+    stress_value = valuation_cash_flow * _decimal(payload, "stress_multiple")
 
     pairs = [
         (Decimal(str(record["close"])), Decimal(str(record["volume"])))
         for record in reader.get("records", [])
         if record.get("close") not in (None, "") and record.get("volume") not in (None, "")
     ]
-    liquidity = liquidity_check(
-        pairs,
-        intended_purchase_size=_decimal(payload, "intended_purchase_size"),
-        minimum_ratio=Decimal("1") / _decimal(payload, "maximum_purchase_fraction"),
-    )
+    intended_purchase_size = _decimal(payload, "intended_purchase_size")
+    minimum_ratio = Decimal("1") / _decimal(payload, "maximum_purchase_fraction")
+    if reader.get("median_daily_dollar_volume") not in (None, ""):
+        liquidity = liquidity_check_from_median(
+            Decimal(str(reader["median_daily_dollar_volume"])),
+            intended_purchase_size=intended_purchase_size,
+            minimum_ratio=minimum_ratio,
+        )
+    else:
+        liquidity = liquidity_check(
+            pairs,
+            intended_purchase_size=intended_purchase_size,
+            minimum_ratio=minimum_ratio,
+        )
 
     low_per_share = primary.low_value / shares
     mid_per_share = primary.mid_value / shares
@@ -69,14 +94,21 @@ def calculate(payload: dict[str, Any], reader: dict[str, Any]) -> dict[str, Any]
     )
 
     return {
-        "reported_after_tax_earnings_usd_millions": str(_decimal(payload, "reported_after_tax_earnings")),
+        "reported_after_tax_earnings_usd_millions": str(reported_earnings),
         "one_time_cost_usd_millions": str(one_time_cost),
         "operating_tax_rate": str(tax_rate),
         "after_tax_one_time_adjustment_usd_millions": str(after_tax_adjustment),
         "adjusted_after_tax_earnings_usd_millions": str(adjusted_earnings),
-        "depreciation_usd_millions": str(cash_flow.depreciation),
-        "capital_expenditures_usd_millions": str(cash_flow.capital_expenditures),
-        "owner_cash_flow_usd_millions": str(cash_flow.value),
+        "depreciation_usd_millions": str(course_cash_flow.depreciation),
+        "capital_expenditures_usd_millions": str(course_cash_flow.capital_expenditures),
+        "course_owner_cash_flow_usd_millions": str(course_cash_flow.value),
+        "adjusted_owner_cash_flow_before_new_debt_interest_usd_millions": str(adjusted_cash_flow.value),
+        "post_spin_quarterly_interest_expense_usd_millions": str(quarterly_interest),
+        "interest_annualization_periods": str(annualization_periods),
+        "annualized_post_spin_interest_expense_usd_millions": str(annualized_interest),
+        "after_tax_annualized_post_spin_interest_expense_usd_millions": str(after_tax_interest),
+        "valuation_owner_cash_flow_usd_millions": str(valuation_cash_flow),
+        "owner_cash_flow_usd_millions": str(course_cash_flow.value),
         "diluted_shares_millions": str(shares),
         "official_close_usd_per_share": str(close),
         "low_multiple": str(primary.low_input),

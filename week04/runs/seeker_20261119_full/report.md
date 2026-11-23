@@ -1,7 +1,7 @@
-Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2026-11-19
+Run date: 2026-11-19 | Price date: 2026-11-19 | Index date: 2026-11-19 | Run time: 2026-11-22T09:30:00-05:00
 
 ## Ranked
-- Mobility Global Inc. | parent: S&P Global Inc. | distributed: 2026-07-01 | window ends: 2027-07-01 | 21.19 USD on 2026-07-01 | 2 points; stage: in window
+- Mobility Global Inc. | parent: S&P Global Inc. | distributed: 2026-07-01 | window ends: 2027-07-01 | 19.80 USD on 2026-07-02 | 2 points; stage: in window
   - F1: true; 1 point
   - F2: false; 0 points
   - F3: true; 1 point
@@ -9,11 +9,11 @@ Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2
   - F1: true; 1 point
   - F2: false; 0 points
   - F3: true; 1 point
-- First Tracks Biotherapeutics, Inc. | parent: AnaptysBio, Inc. | distributed: 2026-04-20 | window ends: 2027-04-20 | 18.60 USD on 2026-04-20 | 1 point; stage: in window
+- First Tracks Biotherapeutics, Inc. | parent: AnaptysBio, Inc. | distributed: 2026-04-20 | window ends: 2027-04-20 | 17.00 USD on 2026-04-21 | 1 point; stage: in window
   - F1: false; 0 points
   - F2: true; 1 point
   - F3: false; 0 points
-- Honeywell Aerospace Inc. | parent: Honeywell Technologies | distributed: 2026-06-29 | window ends: 2027-06-29 | 220.19 USD on 2026-06-29 | 1 point; stage: in window
+- Honeywell Aerospace Inc. | parent: Honeywell Technologies | distributed: 2026-06-29 | window ends: 2027-06-29 | 221.08 USD on 2026-06-30 | 1 point; stage: in window
   - F1: false; 0 points
   - F2: false; 0 points
   - F3: true; 1 point
@@ -25,7 +25,7 @@ Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2
   - F1: false; 0 points
   - F2: false; 0 points
   - F3: false; 0 points
-- FedEx Freight Holding Company, Inc. | parent: FedEx Corporation | distributed: 2026-06-01 | window ends: 2027-06-01 | 149.53 USD on 2026-06-01 | 0 points; stage: in window
+- FedEx Freight Holding Company, Inc. | parent: FedEx Corporation | distributed: 2026-06-01 | window ends: 2027-06-01 | 153.34 USD on 2026-06-02 | 0 points; stage: in window
   - F1: false; 0 points
   - F2: false; 0 points
   - F3: false; 0 points
@@ -33,18 +33,12 @@ Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2
   - F1: false; 0 points
   - F2: false; 0 points
   - F3: false; 0 points
-- Versigent PLC | parent: Aptiv PLC | distributed: 2026-04-01 | window ends: 2027-04-01 | 27.85 USD on 2026-04-01 | 0 points; stage: in window
+- Versigent PLC | parent: Aptiv PLC | distributed: 2026-04-01 | window ends: 2027-04-01 | 28.10 USD on 2026-04-02 | 0 points; stage: in window
   - F1: false; 0 points
   - F2: false; 0 points
   - F3: false; 0 points
-- Vylor Inc. | parent: Corteva, Inc. | distributed: 2026-10-01 | window ends: 2027-10-01 | 68.26 USD on 2026-10-01 | 0 points; stage: in window
+- Vylor Inc. | parent: Corteva, Inc. | distributed: 2026-10-01 | window ends: 2027-10-01 | 67.26 USD on 2026-10-02 | 0 points; stage: in window
   - F1: false; 0 points
-  - F2: false; 0 points
-  - F3: false; 0 points
-
-## Watch
-- Augusta SpinCo Corporation | parent: Becton, Dickinson and Company | distributed: 2026-02-09 | window ends: 2027-02-09 | price not available | unranked: factor F1 missing; SpinCo merged into a Waters subsidiary immediately after distribution and had no standalone regular close; stage: registered
-  - F1: missing; 0 points
   - F2: false; 0 points
   - F3: false; 0 points
 - Atrium Therapeutics, Inc. | parent: Avidity Biosciences, Inc. | distributed: 2026-02-26 | window ends: 2027-02-26 | 14.75 USD on 2026-02-27 | unranked: factor F1 missing; No same-date official parent close was returned; stage: in window
@@ -55,13 +49,11 @@ Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2
   - F1: missing; 0 points
   - F2: true; 1 point
   - F3: true; 1 point
+
+## Watch
 - BioKey (Cayman), Inc. | parent: ABVC BioPharma, Inc. | distributed: 2026-08-21 | window ends: 2027-08-21 | price not available | unranked: factor F1 missing; No trading market or ticker existed at distribution; the filing stated an intended later OTC quotation application; stage: registered
   - F1: missing; 0 points
   - F2: true; 1 point
-  - F3: false; 0 points
-- Platinum SpinCo, Inc. | parent: Modine Manufacturing Company | distributed: 2026-10-01 | window ends: 2027-10-01 | price not available | unranked: factor F1 missing; SpinCo merged into a Gentherm subsidiary immediately after distribution and had no standalone regular close; stage: registered
-  - F1: missing; 0 points
-  - F2: false; 0 points
   - F3: false; 0 points
 - Cortigent, Inc. | parent: not available | distributed: not available | window ends: not available | price not available | unranked: Latest reviewed Form 10 remained preliminary; completed distribution date not established; stage: registered
 - Electrified Materials Corp. | parent: not available | distributed: not available | window ends: not available | price not available | unranked: Form 10 described a planned spin-off; completed distribution date not established; stage: registered
@@ -69,14 +61,231 @@ Run date: 2026-11-19 | Price date: per-entry first regular close | Index date: 2
 - Trinzic, Inc. | parent: not available | distributed: not available | window ends: not available | price not available | unranked: Filing targeted January 4, 2027, after the index date; stage: registered
 
 ## Dropped
-- PIMCO Asset-Based Lending Company LLC: direct Section 12(g) registration; no parent share distribution; 10-12G 0001193125-25-161296, Explanatory Note; Item 1, Business Overview and Reporting Obligations.
+- Augusta SpinCo Corporation: distribution immediately followed by a merger; no standalone regularly traded security; 10-12B 0001193125-25-327056, The Transactions; Reverse Morris Trust distribution and merger.
+- Platinum SpinCo, Inc.: distribution immediately followed by a merger; no standalone regularly traded security; 10-12B 0001193125-26-335481, The Transactions; Reverse Morris Trust distribution and merger.
+- KiNRG, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001213900-26-007267, Complete submission; deterministic filing-text screen.
+- Renewal Fuels, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001079973-26-000309, Complete submission; deterministic filing-text screen.
+- SOAFEE, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0000700815-24-000006, Complete submission; deterministic filing-text screen.
+- QUALSTAR CORP: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001096906-26-001670, Complete submission; deterministic filing-text screen.
+- UBUYHOLDINGS INC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001829126-26-003888, Complete submission; deterministic filing-text screen.
+- SportsQuest, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001683168-26-003868, Complete submission; deterministic filing-text screen.
+- POSITRON CORP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001539497-25-002908, Complete submission; deterministic filing-text screen.
+- China Dongsheng International, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001683168-24-003139, Complete submission; deterministic filing-text screen.
+- HyOrc Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-26-012036, Complete submission; deterministic filing-text screen.
+- BIOMOLECULAR LIFE HOLDINGS, INC.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-26-047964, Complete submission; deterministic filing-text screen.
+- MINERALRITE Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001539497-26-000849, Complete submission; deterministic filing-text screen.
+- Innovaro, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001683168-24-005545, Complete submission; deterministic filing-text screen.
+- CS DIAGNOSTICS CORP.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001214659-26-003205, Complete submission; deterministic filing-text screen.
+- Allied Energy, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001683168-26-000980, Complete submission; deterministic filing-text screen.
+- Glow Holdings, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001683168-26-004901, Complete submission; deterministic filing-text screen.
+- ECOMINAS CORP.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001477932-26-002091, Complete submission; deterministic filing-text screen.
+- NEURALBASE AI LTD.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001477932-24-007111, Complete submission; deterministic filing-text screen.
+- TX Rail Products, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001437749-26-018183, Complete submission; deterministic filing-text screen.
+- Adia Nutrition, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001683168-25-008925, Complete submission; deterministic filing-text screen.
+- GIVBUX, INC.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001641172-25-000306, Complete submission; deterministic filing-text screen.
+- HUMITECH INTERNATIONAL GROUP INC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001829126-25-009558, Complete submission; deterministic filing-text screen.
+- Superstar Platforms Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-25-027728, Complete submission; deterministic filing-text screen.
+- AI Technology Group Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001477932-26-001197, Complete submission; deterministic filing-text screen.
+- B-Scada, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001493152-26-038756, Complete submission; deterministic filing-text screen.
+- China Teletech Holding Inc: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001683168-24-007504, Complete submission; deterministic filing-text screen.
+- EBR Systems, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001214659-24-019438, Complete submission; deterministic filing-text screen.
+- ALEXANDER TECH CORP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12B 0001347491-26-000004, Complete submission; deterministic filing-text screen.
+- HYDRO POWER TECHNOLOGIES, INC.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001376474-26-000461, Complete submission; deterministic filing-text screen.
+- Holistic Asset Finance Group Co., Ltd.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001213900-25-017699, Complete submission; deterministic filing-text screen.
+- Mining Global, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001683168-24-000813, Complete submission; deterministic filing-text screen.
+- Scepter Holdings, Inc. NV: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-25-006190, Complete submission; deterministic filing-text screen.
+- Tanke Biosciences Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001477932-24-000583, Complete submission; deterministic filing-text screen.
+- Zicix Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001683168-25-009184, Complete submission; deterministic filing-text screen.
+- SOUTHERN ITS INTERNATIONAL, INC.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001096906-24-000132, Complete submission; deterministic filing-text screen.
+- Blue Chip Technologies Corp.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001477932-24-004654, Complete submission; deterministic filing-text screen.
+- ALPHA NETWORK ALLIANCE VENTURES INC.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-24-035308, Complete submission; deterministic filing-text screen.
+- Blackwell 3D Construction Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001477932-25-000891, Complete submission; deterministic filing-text screen.
+- SMC Entertainment, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001654954-24-006851, Complete submission; deterministic filing-text screen.
+- SANTO MINING CORP.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001393905-25-000099, Complete submission; deterministic filing-text screen.
+- Sky Century Investment, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001139020-25-000050, Complete submission; deterministic filing-text screen.
+- Atacama Resources International, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001062993-24-015532, Complete submission; deterministic filing-text screen.
+- International Endeavors Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001683168-25-007099, Complete submission; deterministic filing-text screen.
+- Barrel Energy Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001477932-26-002858, Complete submission; deterministic filing-text screen.
+- Signature Holdings Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001515971-25-000005, Complete submission; deterministic filing-text screen.
+- Rise Companies Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001628280-25-032586, Complete submission; deterministic filing-text screen.
+- BioStem Technologies, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001213900-26-084943, Complete submission; deterministic filing-text screen.
+- Quantumzyme Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001477932-25-002360, Complete submission; deterministic filing-text screen.
+- Feel The World, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001079973-26-000972, Complete submission; deterministic filing-text screen.
+- GRAIL, LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-24-152397, Complete submission; deterministic filing-text screen.
+- Private Bancorp of America, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-26-307732, Complete submission; deterministic filing-text screen.
+- Leef Brands Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001493152-26-012756, Complete submission; deterministic filing-text screen.
+- JS BEAUTY LAND NETWORK TECHNOLOGY INC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001493152-26-048210, Complete submission; deterministic filing-text screen.
+- CIM Opportunity Zone Fund, L.P.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001628280-24-017008, Complete submission; deterministic filing-text screen.
+- GLOBAL INFRASTRUCTURE FINANCE & DEVELOPMENT AUTHORITY INC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12B 0001213900-24-096059, Complete submission; deterministic filing-text screen.
+- FAST CASUAL CONCEPTS, INC.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001171520-25-000364, Complete submission; deterministic filing-text screen.
+- Exodus Movement, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001140361-24-047915, Complete submission; deterministic filing-text screen.
+- Broad Capital Acquisition Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001493152-26-047304, Complete submission; deterministic filing-text screen.
+- Keypath Education International, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001213900-24-034779, Complete submission; deterministic filing-text screen.
+- Bubblr Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001641172-25-009456, Complete submission; deterministic filing-text screen.
+- Verses AI Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001641172-25-025717, Complete submission; deterministic filing-text screen.
+- American CryptoFed: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001881928-26-000006, Complete submission; deterministic filing-text screen.
+- Sculptor Diversified Real Estate Income Trust, Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001140361-24-045424, Complete submission; deterministic filing-text screen.
+- Diameter Credit Co: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-24-026841, Complete submission; deterministic filing-text screen.
+- Eco Bright Future, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001171520-25-000026, Complete submission; deterministic filing-text screen.
+- Sealy Industrial Partners IV, LP: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0000950170-25-079641, Complete submission; deterministic filing-text screen.
+- Partners Group Lending Fund, LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001398344-25-022745, Complete submission; deterministic filing-text screen.
+- Willow Tree Capital Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001628280-24-025121, Complete submission; deterministic filing-text screen.
+- Fidelity Core Real Estate Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-280945, Complete submission; deterministic filing-text screen.
+- Blackstone Private Equity Strategies Fund (TE) L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-211746, Complete submission; deterministic filing-text screen.
+- White Oak Secured Asset Lending Fund, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-24-265226, Complete submission; deterministic filing-text screen.
+- Solventum Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001628280-24-010270, Complete submission; deterministic filing-text screen.
+- Overland Advantage: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-24-101844, Complete submission; deterministic filing-text screen.
+- Fortress Net Lease REIT: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001140361-24-031750, Complete submission; deterministic filing-text screen.
+- KKR FS Income Trust Select: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-24-055876, Complete submission; deterministic filing-text screen.
+- Invesco Commercial Real Estate Finance Trust, Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-067942, Complete submission; deterministic filing-text screen.
+- MADE IN USA INC.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001683168-25-009285, Complete submission; deterministic filing-text screen.
+- YERBAE BRANDS CORP.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001493152-24-028381, Complete submission; deterministic filing-text screen.
+- Investcorp US Private Credit BDC II: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-089532, Complete submission; deterministic filing-text screen.
+- WTI Fund XI, Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001140361-24-013488, Complete submission; deterministic filing-text screen.
+- American Carbon Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001477932-24-000716, Complete submission; deterministic filing-text screen.
+- HPS Corporate Capital Solutions Fund: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-24-149038, Complete submission; deterministic filing-text screen.
+- Antares Strategic Credit Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-24-004885, Complete submission; deterministic filing-text screen.
+- GE Vernova LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-24-059354, Complete submission; deterministic filing-text screen.
+- Shefford & Companies, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001477932-25-005945, Complete submission; deterministic filing-text screen.
+- 5C Lending Partners Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0000930413-24-002306, Complete submission; deterministic filing-text screen.
+- MCCASTLE IRWIN MICHAEL: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001999396-24-000004, Complete submission; deterministic filing-text screen.
+- North Haven Net REIT: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-24-032445, Complete submission; deterministic filing-text screen.
+- Apollo Asset Backed Credit Co LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-25-007756, Complete submission; deterministic filing-text screen.
+- Grafiti Holding Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001213900-24-082388, Complete submission; deterministic filing-text screen.
+- Stirling Hotels & Resorts, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-24-046842, Complete submission; deterministic filing-text screen.
+- Middle Market Apollo Institutional Private Lending: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-137330, Complete submission; deterministic filing-text screen.
+- Ionic Digital Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12B/A 0001104659-24-071135, Complete submission; deterministic filing-text screen.
+- Inhibrx Biosciences, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001104659-24-061562, Complete submission; deterministic filing-text screen.
+- SilverSun Technologies Holdings, Inc./NV: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001213900-24-004876, Complete submission; deterministic filing-text screen.
+- REELCAUSE INC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001493152-24-008352, Complete submission; deterministic filing-text screen.
+- Lord Abbett Private Credit Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0000930413-24-002927, Complete submission; deterministic filing-text screen.
+- Seaport Entertainment Group Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001628280-24-032621, Complete submission; deterministic filing-text screen.
+- Kioni Holdings Ltd: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12B 0002011134-26-000009, Complete submission; deterministic filing-text screen.
+- Greenland Holding Enterprises Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001213900-24-014193, Complete submission; deterministic filing-text screen.
+- Amazon Holdco Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-24-218486, Complete submission; deterministic filing-text screen.
+- AGL Private Credit Income Fund LP: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-152130, Complete submission; deterministic filing-text screen.
+- Twin Hospitality Group Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001493152-25-001566, Complete submission; deterministic filing-text screen.
+- Fortress Private Lending Fund: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001140361-25-028557, Complete submission; deterministic filing-text screen.
+- Sunrise Realty Trust, Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12B/A 0001628280-24-030479, Complete submission; deterministic filing-text screen.
+- KKR Enhanced US Direct Lending Fund-L Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-154171, Complete submission; deterministic filing-text screen.
+- Everus Construction Group, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001628280-24-042608, Complete submission; deterministic filing-text screen.
+- Transit Pro Tech Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001753926-24-001439, Complete submission; deterministic filing-text screen.
+- CCS IX Portfolio Holdings, LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-25-027363, Complete submission; deterministic filing-text screen.
+- Franklin BSP Real Estate Debt BDC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-160600, Complete submission; deterministic filing-text screen.
+- West Bay BDC LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-200806, Complete submission; deterministic filing-text screen.
+- Treasure Holdco, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001104659-24-110293, Complete submission; deterministic filing-text screen.
+- Nuveen Churchill Private Credit Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-24-037723, Complete submission; deterministic filing-text screen.
+- Sandisk Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-25-013282, Complete submission; deterministic filing-text screen.
+- Third Point Private Capital Partners: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001104659-26-000253, Complete submission; deterministic filing-text screen.
+- Principal Credit Real Estate Income Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-24-049274, Complete submission; deterministic filing-text screen.
+- Eagle Point Trinity Senior Secured Lending Co: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-25-118913, Complete submission; deterministic filing-text screen.
+- Curbline Properties Corp.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B 0001193125-24-212125, Complete submission; deterministic filing-text screen.
+- Goldman Sachs Real Estate Finance Trust Inc: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-24-039664, Complete submission; deterministic filing-text screen.
+- SL Investment Fund II LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-24-115324, Complete submission; deterministic filing-text screen.
+- Grayscale Bittensor Trust (TAO): fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-312006, Complete submission; deterministic filing-text screen.
+- Blackstone Infrastructure Strategies L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-24-257282, Complete submission; deterministic filing-text screen.
+- Stone Point Credit Income Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-24-108115, Complete submission; deterministic filing-text screen.
+- Ares Core Infrastructure Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-25-001792, Complete submission; deterministic filing-text screen.
+- EQT Infrastructure Co LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-25-096844, Complete submission; deterministic filing-text screen.
+- EQT Private Equity Co LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-25-223380, Complete submission; deterministic filing-text screen.
+- Audax Private Credit Fund, LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-25-209131, Complete submission; deterministic filing-text screen.
+- Silver Point Private Credit Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-134080, Complete submission; deterministic filing-text screen.
+- New Mountain Net Lease Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-25-032168, Complete submission; deterministic filing-text screen.
+- Franklin BSP Real Estate Debt, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001104659-24-130816, Complete submission; deterministic filing-text screen.
+- YUN HE GLOBAL CO., LTD.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001096906-25-000667, Complete submission; deterministic filing-text screen.
+- Crestline Lending Solutions, LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-25-049005, Complete submission; deterministic filing-text screen.
+- Amrize Ltd: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001140361-25-017686, Complete submission; deterministic filing-text screen.
+- TARGATEK, INC.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001096906-26-001725, Complete submission; deterministic filing-text screen.
+- New Mountain Private Credit Fund: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001628280-24-051230, Complete submission; deterministic filing-text screen.
+- Resolute Holdings Management, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001104659-25-010902, Complete submission; deterministic filing-text screen.
+- Ralliant Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001104659-25-053286, Complete submission; deterministic filing-text screen.
+- Lord Abbett Private Credit Fund S: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0000930413-25-001116, Complete submission; deterministic filing-text screen.
+- TCW Steel City Perpetual Levered Fund LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-25-237195, Complete submission; deterministic filing-text screen.
+- LAGO Evergreen Credit: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001580642-25-002785, Complete submission; deterministic filing-text screen.
+- VistaOne, L.P.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-25-137190, Complete submission; deterministic filing-text screen.
+- Remora Capital Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001213900-25-067875, Complete submission; deterministic filing-text screen.
+- Stonepeak-Plus Infrastructure Fund LP: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001140361-25-002720, Complete submission; deterministic filing-text screen.
+- Ares Sports, Media & Entertainment Opportunities LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-25-121226, Complete submission; deterministic filing-text screen.
+- BlackRock Monticello Debt Real Estate Investment Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-079084, Complete submission; deterministic filing-text screen.
+- Blackstone Private Real Estate Credit & Income Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-158250, Complete submission; deterministic filing-text screen.
+- Blackstone Infrastructure Strategies (TE) L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-279443, Complete submission; deterministic filing-text screen.
+- TPG Private Equity Opportunities, L.P.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0002050260-25-000008, Complete submission; deterministic filing-text screen.
+- Macquarie Infrastructure Income Opportunities Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-26-108351, Complete submission; deterministic filing-text screen.
+- Apollo Origination II (Levered) Capital Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-199183, Complete submission; deterministic filing-text screen.
+- Apollo Origination II (UL) Capital Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-199186, Complete submission; deterministic filing-text screen.
+- Biointra, Corp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0002053365-26-000007, Complete submission; deterministic filing-text screen.
+- CIFC Direct Lending Evergreen Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-307369, Complete submission; deterministic filing-text screen.
+- Qnity Electronics, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-25-223466, Complete submission; deterministic filing-text screen.
+- ISQ Open Infrastructure Co LLC: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001213900-25-061565, Complete submission; deterministic filing-text screen.
+- G-INFRA LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-402669, Complete submission; deterministic filing-text screen.
+- G-Private Equity LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-402689, Complete submission; deterministic filing-text screen.
+- Sound Point Direct Lending BDC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001829126-26-001261, Complete submission; deterministic filing-text screen.
+- Macquarie Energy Transition Infrastructure Fund, L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001213900-26-107833, Complete submission; deterministic filing-text screen.
+- Solstice Advanced Materials Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001628280-25-043179, Complete submission; deterministic filing-text screen.
+- Carlyle Private Equity Partners Fund, L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-25-038306, Complete submission; deterministic filing-text screen.
+- Antares Strategic Credit Fund II LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-25-068429, Complete submission; deterministic filing-text screen.
+- Orielle Acquisition Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001213900-25-057931, Complete submission; deterministic filing-text screen.
+- CNL Strategic Residential Credit, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001999371-25-009255, Complete submission; deterministic filing-text screen.
+- TCW SPECIALTY LENDING LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-134548, Complete submission; deterministic filing-text screen.
+- Blue Owl Digital Infrastructure Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-25-039061, Complete submission; deterministic filing-text screen.
+- American Antimony Corp.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001683168-26-008363, Complete submission; deterministic filing-text screen.
+- Nuveen Churchill BDC V: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-25-037264, Complete submission; deterministic filing-text screen.
+- PIMCO Asset-Based Lending Co LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-25-239603, Complete submission; deterministic filing-text screen.
+- FBRED-C Feeder REIT Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-25-093937, Complete submission; deterministic filing-text screen.
+- Brookfield Private Equity Fund LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-25-081887, Complete submission; deterministic filing-text screen.
+- Apollo IG Core Replacement, L.P.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001193125-25-326963, Complete submission; deterministic filing-text screen.
+- Los Altos Ventures Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001213900-25-089462, Complete submission; deterministic filing-text screen.
+- Var Acquisition Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001213900-25-089482, Complete submission; deterministic filing-text screen.
+- Stone Point Credit Income Fund - Select: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-25-093941, Complete submission; deterministic filing-text screen.
+- Range Acquisition Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001213900-25-095532, Complete submission; deterministic filing-text screen.
+- Macquarie Infrastructure Fund, L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001213900-25-091204, Complete submission; deterministic filing-text screen.
+- Rithm Perpetual Life Residential Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-25-115977, Complete submission; deterministic filing-text screen.
+- Golub Capital Private Income Fund S: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-26-033965, Complete submission; deterministic filing-text screen.
+- Golub Capital Private Income Fund I: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-26-033964, Complete submission; deterministic filing-text screen.
+- Warburg Pincus Access Fund, L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-240555, Complete submission; deterministic filing-text screen.
+- APS BDC, LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-035874, Complete submission; deterministic filing-text screen.
+- Octave Intelligence plc: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001628280-26-027570, Complete submission; deterministic filing-text screen.
+- Sunbelt Rentals Holdings, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B/A 0001193125-26-050612, Complete submission; deterministic filing-text screen.
+- Nuveen Farmland REIT: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0000930413-25-003388, Complete submission; deterministic filing-text screen.
+- Leach John Peter: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0002088960-26-000009, Complete submission; deterministic filing-text screen.
+- PennantPark Private Income Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-25-309940, Complete submission; deterministic filing-text screen.
+- BTCS Labs Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G 0001493152-25-016938, Complete submission; deterministic filing-text screen.
+- HPS Real Assets Lending Co LP: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-177671, Complete submission; deterministic filing-text screen.
+- Blackstone Multi-Strategy Hedge Fund L.P.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-014271, Complete submission; deterministic filing-text screen.
+- CVC-PE Global Private Equity Fund, LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-057161, Complete submission; deterministic filing-text screen.
+- HarbourVest Private Equity Secondaries Fund L.P.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-272445, Complete submission; deterministic filing-text screen.
+- Primus Acquisition Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001213900-25-115421, Complete submission; deterministic filing-text screen.
+- Shefford Small Business, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001477932-26-001917, Complete submission; deterministic filing-text screen.
+- West Coast Community Bancorp: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12B 0001628280-26-059592, Complete submission; deterministic filing-text screen.
+- TCW Specialty Lending IX LLC: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-116167, Complete submission; deterministic filing-text screen.
+- HPS Net Lease Income REIT: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-149886, Complete submission; deterministic filing-text screen.
+- JDEV Acquisition Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001213900-26-035633, Complete submission; deterministic filing-text screen.
+- Fidelity Private Credit Co II LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-315714, Complete submission; deterministic filing-text screen.
+- NEXROC Group, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0002113098-26-000025, Complete submission; deterministic filing-text screen.
+- HarbourVest Private Equity Secondaries Fund (TE) L.P.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-272456, Complete submission; deterministic filing-text screen.
+- Core University Living Real Estate Income Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-304935, Complete submission; deterministic filing-text screen.
+- Imricor Medical Systems, Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001437749-26-017396, Complete submission; deterministic filing-text screen.
+- Third Point Private Capital Income Fund: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-26-112422, Complete submission; deterministic filing-text screen.
+- Monroe Capital Asset-Backed Finance Company, LP: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-26-110028, Complete submission; deterministic filing-text screen.
+- Dance Emotion Studios Inc.: latest Form 10 was screened, but no completed parent share distribution was established by the index date; 10-12G/A 0001640334-26-001627, Complete submission; deterministic filing-text screen.
+- JLM-WNCO Trust: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001437749-26-011469, Complete submission; deterministic filing-text screen.
+- Margaree Acquisition Corp.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001213900-26-058540, Complete submission; deterministic filing-text screen.
+- Sagard Private Income Fund Inc.: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G 0001193125-26-436342, Complete submission; deterministic filing-text screen.
+- JBAAM Acquisition Corp II: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001731122-26-000719, Complete submission; deterministic filing-text screen.
+- SLR Secured Specialty Lending Fund: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001193125-26-417638, Complete submission; deterministic filing-text screen.
+- Navesink Acquisition Corp: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001213900-26-118729, Complete submission; deterministic filing-text screen.
+- American Residential Housing Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G 0001140361-26-043474, Complete submission; deterministic filing-text screen.
+- Angel Oak Residential Evergreen Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001104659-26-122722, Complete submission; deterministic filing-text screen.
+- JLL Property Finance Trust: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001628280-26-073915, Complete submission; deterministic filing-text screen.
+- Garry Oak Capital BDC LLC: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G 0001104659-26-129080, Complete submission; deterministic filing-text screen.
+- Angel Studios, Inc.: deterministic filing-text screen found no spinoff or parent-distribution evidence; 10-12G/A 0001104659-24-060646, Complete submission; deterministic filing-text screen.
+- ADAMS STREET CREDIT SOLUTIONS FUND: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001193125-26-227113, Complete submission; deterministic filing-text screen.
+- FORTRESS CREDIT REALTY INCOME TRUST: fund or investment-vehicle filing; no completed parent share distribution was established; 10-12G/A 0001140361-24-047074, Complete submission; deterministic filing-text screen.
 
 ## Data limits
-- Augusta SpinCo Corporation: factor F1 missing; SpinCo merged into a Waters subsidiary immediately after distribution and had no standalone regular close.
 - Atrium Therapeutics, Inc.: factor F1 missing; No same-date official parent close was returned.
 - Enviri Corporation (formerly Enviri II Corporation): factor F1 missing; CE Holdings was acquired by Veolia after the distribution and has no post-distribution public close.
 - BioKey (Cayman), Inc.: factor F1 missing; No trading market or ticker existed at distribution; the filing stated an intended later OTC quotation application.
-- Platinum SpinCo, Inc.: factor F1 missing; SpinCo merged into a Gentherm subsidiary immediately after distribution and had no standalone regular close.
 - Cortigent, Inc.: Latest reviewed Form 10 remained preliminary; completed distribution date not established.
 - Electrified Materials Corp.: Form 10 described a planned spin-off; completed distribution date not established.
 - Axiom Solutions International, Inc.: Latest reviewed information statement remained preliminary at the index date.

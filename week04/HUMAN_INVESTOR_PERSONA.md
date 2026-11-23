@@ -158,5 +158,6 @@ The final nonblank line must begin exactly `Insight:`. It must connect at least 
 - Frozen by: Devashish Batra
 - Frozen at, Eastern: November 20, 2026 at 2:38:51 AM EST
 - Approval record: Devashish Batra replied `okay approved` to the full freeze statement presented immediately before this record.
-- Commit or file hash: Pending the first authorized commit. The local freeze precedes that commit.
+- First authorized commit containing the frozen record: `f7d90d8`.
+- November 22, 2026 resubmission: Devashish Batra resubmitted and approved the existing persona without requesting a change. The original disclosure of wording assistance remains unchanged.
 - Change rule after freeze: Preserve this frozen version for the first investor-worksheet run. Any later change requires a dated amendment approved by Devashish Batra and a new run. Do not use an amendment to rewrite an earlier result.

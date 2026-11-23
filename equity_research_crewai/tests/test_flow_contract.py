@@ -259,8 +259,8 @@ def test_replay_saves_deterministic_quarter_revenue_growth(tmp_path: Path) -> No
     assert saved["validation_status"] == "available"
     assert saved["result"] == 0.111043
     assert saved["inputs"] == {
-        "current_quarter_revenue_thousands": 95723,
-        "prior_year_same_quarter_revenue_thousands": 86156,
+        "current_quarter_revenue_usd": 95_723_000_000,
+        "prior_year_same_quarter_revenue_usd": 86_156_000_000,
     }
 
 

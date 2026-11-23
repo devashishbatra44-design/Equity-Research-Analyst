@@ -42,7 +42,7 @@ RELEASE_APPENDIX_CITATION_RE = re.compile(
 ISO_DATE_RE = re.compile(r"\b(?:19|20)\d{2}-\d{2}-\d{2}\b")
 ACCESSION_RE = re.compile(r"\b\d{10}-\d{2}-\d{6}\b")
 NUMBER_MENTION_RE = re.compile(
-    r"(?<![A-Za-z0-9_])(?:\$\s*)?-?\d[\d,]*(?:\.\d+)?(?:/\d+)?"
+    r"(?<![A-Za-z0-9_])(?:-\s*)?(?:\$\s*)?-?\d[\d,]*(?:\.\d+)?(?:/\d+)?"
     r"(?:\s*(?:%|x|billion|million|thousand|basis points?|members?|warehouses?|SKUs?))?",
     flags=re.IGNORECASE,
 )
@@ -62,12 +62,18 @@ def load_json(path: Path) -> dict[str, Any]:
 
 
 def _numbers(text: str) -> list[float]:
-    pattern = r"(?<![A-Za-z])\$?(-?\d[\d,]*(?:\.\d+)?)"
-    return [float(value.replace(",", "")) for value in re.findall(pattern, text)]
+    pattern = r"(?<![A-Za-z])\$?\s*(?:\(\s*(\d[\d,]*(?:\.\d+)?)\s*\)|(-?\d[\d,]*(?:\.\d+)?))"
+    values: list[float] = []
+    for parenthesized, plain in re.findall(pattern, text):
+        raw = parenthesized or plain
+        value = float(raw.replace(",", ""))
+        values.append(-value if parenthesized else value)
+    return values
 
 
 def _number_from_mention(text: str) -> float:
-    match = re.search(r"-?\d[\d,]*(?:\.\d+)?", text)
+    normalized = re.sub(r"[\s$]", "", text)
+    match = re.search(r"-?\d[\d,]*(?:\.\d+)?", normalized)
     if not match:
         raise ValueError(f"No number in mention: {text}")
     return float(match.group(0).replace(",", ""))
@@ -230,7 +236,8 @@ def _mask_numeric_labels(text: str) -> str:
 
 
 def _scaled_amount(match: re.Match[str]) -> float:
-    value = float(match.group(1).replace(",", "").rstrip("."))
+    value_text = re.sub(r"[\s$]", "", match.group(1)).replace(",", "").rstrip(".")
+    value = float(value_text)
     scale = (match.group(2) or "").lower()
     if scale.startswith("billion"):
         return value * 1_000_000_000
@@ -270,11 +277,13 @@ def _distinct_values(values: list[float], tolerance: float) -> list[float]:
 
 
 def _format_money(value: float) -> str:
+    sign = "-" if value < 0 else ""
+    magnitude = abs(value)
     if abs(value) >= 1_000_000_000:
-        return f"${value / 1_000_000_000:,.3f} billion"
+        return f"{sign}${magnitude / 1_000_000_000:,.3f} billion"
     if abs(value) >= 1_000_000:
-        return f"${value / 1_000_000:,.3f} million"
-    return f"${value:,.2f}"
+        return f"{sign}${magnitude / 1_000_000:,.3f} million"
+    return f"{sign}${magnitude:,.2f}"
 
 
 def _release_quarter_revenues(
@@ -296,7 +305,21 @@ def _release_quarter_revenues(
     unit_context = " ".join(nearby).lower() + " " + quote.lower()
     multiplier = 1_000 if "in thousands" in unit_context else 1_000_000
 
+    current_index = 0
     prior_index = 1
+    period_header = next(
+        (header for header in reversed(nearby[:-1]) if "Three Months Ended" in header),
+        "",
+    )
+    if period_header:
+        period_groups = [group.strip().lower() for group in period_header.split("|")]
+        three_month_group = next(
+            (index for index, group in enumerate(period_groups) if group == "three months ended"),
+            None,
+        )
+        if three_month_group is not None:
+            current_index = three_month_group * 2
+            prior_index = current_index + 1
     date_pattern = re.compile(
         r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)"
         r"\s+\d{1,2},?\s+20\d{2}\b",
@@ -307,16 +330,21 @@ def _release_quarter_revenues(
         if len(labels) != len(values):
             continue
         periods = [datetime.strptime(label.replace(",", ""), "%B %d %Y").date() for label in labels]
-        current_period = periods[0]
+        if current_index >= len(periods) or prior_index >= len(periods):
+            continue
+        current_period = periods[current_index]
         candidates = [
             index
-            for index, period in enumerate(periods[1:], start=1)
+            for index, period in enumerate(periods)
+            if index != current_index
             if 350 <= (current_period - period).days <= 380
         ]
         if candidates:
-            prior_index = min(candidates, key=lambda index: abs(index - 1))
+            prior_index = min(candidates, key=lambda index: abs(index - (current_index + 1)))
             break
-    return values[0] * multiplier, values[prior_index] * multiplier, quote
+    if current_index >= len(values) or prior_index >= len(values):
+        return None, None, quote
+    return values[current_index] * multiplier, values[prior_index] * multiplier, quote
 
 
 def _quarter_eps(facts: dict[str, Any]) -> tuple[float | None, str]:
@@ -588,7 +616,7 @@ def verify_core_claims(run_folder: Path, report: str) -> list[VerificationMark]:
             _distinct_values(
                 _amounts(
                     core_analysis,
-                    r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+\$?([\d,.]+)\s*(million|billion|thousand)?",
+                    r"(?mi)^(?!\s*Insight:)(?![^\n]*\brelationship\s+between\b)[^\n]*?\bfree\s+cash\s+flow\s+(?:was|of)\s+((?:-\s*)?\$?\s*-?[\d,.]+)\s*(million|billion|thousand)?",
                 ),
                 1_000_000,
             ),
@@ -935,6 +963,8 @@ def _filing_search_correction(
     The result is a correction location, not permission to mark the original
     citation Correct. A wrong-line citation remains Unsupported.
     """
+    if re.fullmatch(r"[$+\-]?\s*[0-5](?:\.0+)?%?", mention.strip()):
+        return None
     report_words = {
         word.lower()
         for word in re.findall(r"[A-Za-z]{3,}", FILING_CITATION_RE.sub("", report_line))

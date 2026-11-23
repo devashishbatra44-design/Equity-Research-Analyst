@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -46,6 +47,20 @@ def test_seeded_error_by_one_is_refused() -> None:
     assert not result.ok
     assert "printed arithmetic does not recompute" in result.errors[0]
     assert REFUSAL.startswith("REFUSE")
+
+
+def test_seeded_copy_of_saved_worksheet_is_refused(tmp_path: Path) -> None:
+    repository = Path(__file__).resolve().parents[2]
+    source = repository / "week04/runs/worksheet_FDXF_20261120_023851"
+    seeded = tmp_path / "seeded_output"
+    shutil.copytree(source, seeded)
+    worksheet = seeded / "worksheet.md"
+    clean_text = worksheet.read_text(encoding="utf-8")
+    assert "= 725 USD millions" in clean_text
+    worksheet.write_text(clean_text.replace("= 725 USD millions", "= 726 USD millions", 1), encoding="utf-8")
+    result = verify_file(seeded / "worksheet.json")
+    assert not result.ok
+    assert any("worksheet" in error or "token" in error for error in result.errors)
 
 
 @pytest.mark.parametrize(

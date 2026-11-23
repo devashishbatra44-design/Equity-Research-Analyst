@@ -95,8 +95,30 @@ def row_from_saved_run(run_dir: Path) -> HitRateRow:
         if closes_path.exists()
         else ()
     )
-    before = last_close_before_filing(str(view["filing_time"]), closes)
-    after_close = first_close_after_filing(str(view["filing_time"]), closes)
+    summary = view.get("market_data_summary", {})
+    if closes:
+        before = last_close_before_filing(str(view["filing_time"]), closes)
+        after_close = first_close_after_filing(str(view["filing_time"]), closes)
+    elif isinstance(summary, dict) and summary.get("pre_filing_close") and summary.get("first_post_filing_close"):
+        before_payload = summary["pre_filing_close"]
+        after_payload = summary["first_post_filing_close"]
+        before = CloseRecord(
+            pricing_date=datetime.fromisoformat(str(before_payload["pricing_date"])).date(),
+            instrument=ticker,
+            close=Decimal(str(before_payload["close"])),
+            currency=str(summary.get("currency", "USD")),
+            source=str(summary.get("source", "")),
+        )
+        after_close = CloseRecord(
+            pricing_date=datetime.fromisoformat(str(after_payload["pricing_date"])).date(),
+            instrument=ticker,
+            close=Decimal(str(after_payload["close"])),
+            currency=str(summary.get("currency", "USD")),
+            source=str(summary.get("source", "")),
+        )
+    else:
+        before = None
+        after_close = None
     reaction = reaction_percent(before, after_close) if before and after_close else None
     view_time = parse_filed_datetime(str(view["view_time"]))
     after_flag = bool(

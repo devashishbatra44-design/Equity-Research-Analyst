@@ -7,6 +7,7 @@ import pytest
 from equity_research_crewai.investor_worksheet import (
     FactLine,
     liquidity_check,
+    liquidity_check_from_median,
     owner_cash_flow,
     render_fact,
     render_owner_cash_flow,
@@ -70,6 +71,16 @@ def test_liquidity_is_added_by_code() -> None:
         minimum_ratio=Decimal("10"),
     )
     assert result.median_daily_dollar_volume == Decimal("12000")
+    assert result.ratio == Decimal("12")
+    assert result.status == "passes"
+
+
+def test_liquidity_can_use_derived_summary_without_raw_closes() -> None:
+    result = liquidity_check_from_median(
+        Decimal("12000"),
+        intended_purchase_size=Decimal("1000"),
+        minimum_ratio=Decimal("10"),
+    )
     assert result.ratio == Decimal("12")
     assert result.status == "passes"
 

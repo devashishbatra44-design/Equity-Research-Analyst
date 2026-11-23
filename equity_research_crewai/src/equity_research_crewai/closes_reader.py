@@ -16,6 +16,8 @@ import csv
 import json
 import os
 import re
+import subprocess
+import urllib.parse
 from dataclasses import dataclass
 from datetime import date, datetime, time
 from decimal import Decimal, InvalidOperation
@@ -29,6 +31,7 @@ from dotenv import load_dotenv
 EASTERN = ZoneInfo("America/New_York")
 SOURCE_LSEG_EXPORT = "LSEG Workspace export"
 SOURCE_LSEG_DESKTOP = "LSEG Workspace desktop session"
+SOURCE_NASDAQ = "Nasdaq official historical endpoint"
 
 
 @dataclass(frozen=True, order=True)
@@ -98,14 +101,16 @@ def _parse_date(value: Any) -> date:
     text = str(value).strip()
     if not text:
         raise ValueError("The close row has no pricing date.")
-    try:
-        return date.fromisoformat(text[:10])
-    except ValueError as exc:
-        raise ValueError(f"Invalid pricing date: {text!r}.") from exc
+    for parser in (lambda item: date.fromisoformat(item[:10]), lambda item: datetime.strptime(item, "%m/%d/%Y").date()):
+        try:
+            return parser(text)
+        except ValueError:
+            continue
+    raise ValueError(f"Invalid pricing date: {text!r}.")
 
 
 def _parse_close(value: Any) -> Decimal:
-    text = str(value).strip().replace(",", "")
+    text = re.sub(r"[^0-9.\-]", "", str(value).strip().replace(",", ""))
     try:
         close = Decimal(text)
     except (InvalidOperation, ValueError) as exc:
@@ -184,6 +189,19 @@ def _records_from_rows(
     return sorted(by_date.values())
 
 
+def close_records_from_rows(
+    rows: Iterable[Mapping[Any, Any]],
+    instrument: str,
+    source: str,
+) -> tuple[CloseRecord, ...]:
+    """Normalize an identified price-source table through the common reader."""
+
+    clean_source = source.strip()
+    if not clean_source:
+        raise ValueError("The price source label must not be blank.")
+    return tuple(_records_from_rows(rows, instrument, clean_source))
+
+
 def _read_export(path: Path, instrument: str, source: str = SOURCE_LSEG_EXPORT) -> list[CloseRecord]:
     if not path.exists() or not path.is_file():
         raise FileNotFoundError(f"Licensed close export not found: {path}")
@@ -241,6 +259,30 @@ def _read_lseg_desktop(
                 close()
 
 
+def _read_nasdaq(instrument: str, start_date: date, end_date: date) -> list[CloseRecord]:
+    query = urllib.parse.urlencode(
+        {
+            "assetclass": "stocks",
+            "fromdate": start_date.strftime("%Y-%m-%d"),
+            "todate": end_date.strftime("%Y-%m-%d"),
+            "limit": "5000",
+        }
+    )
+    url = f"https://api.nasdaq.com/api/quote/{urllib.parse.quote(instrument)}/historical?{query}"
+    completed = subprocess.run(
+        ["curl", "--http1.1", "-L", "-sS", "-A", "Mozilla/5.0", url],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=45,
+    )
+    payload = json.loads(completed.stdout)
+    rows = payload.get("data", {}).get("tradesTable", {}).get("rows", [])
+    if not isinstance(rows, list):
+        raise ValueError("Nasdaq response has no historical rows list.")
+    return list(close_records_from_rows(rows, instrument, SOURCE_NASDAQ))
+
+
 def official_daily_closes(
     instrument: str,
     start_date: date | str,
@@ -249,6 +291,7 @@ def official_daily_closes(
     export_path: Path | str | None = None,
     export_source: str = SOURCE_LSEG_EXPORT,
     app_key: str | None = None,
+    provider: str = "lseg",
 ) -> CloseReaderResult:
     """Return official daily closes for an inclusive date range."""
 
@@ -267,13 +310,17 @@ def official_daily_closes(
             if not clean_source:
                 raise ValueError("The export source label must not be blank.")
             records = _read_export(Path(configured_export).expanduser(), clean_instrument, clean_source)
-        else:
+        elif provider == "nasdaq":
+            records = _read_nasdaq(clean_instrument, start, end)
+        elif provider == "lseg":
             records = _read_lseg_desktop(
                 clean_instrument,
                 start,
                 end,
                 (app_key if app_key is not None else os.getenv("LSEG_APP_KEY", "")).strip(),
             )
+        else:
+            raise ValueError(f"Unsupported closes provider: {provider!r}.")
     except (FileNotFoundError, RuntimeError) as exc:
         return CloseReaderResult(status="not available", records=(), message=str(exc))
     except Exception as exc:
@@ -324,6 +371,7 @@ def last_close_before(
     export_source: str = SOURCE_LSEG_EXPORT,
     app_key: str | None = None,
     lookback_days: int = 14,
+    provider: str = "lseg",
 ) -> CloseReaderResult:
     """Return the last regular 4:00 PM Eastern close before a filing time."""
 
@@ -338,6 +386,7 @@ def last_close_before(
         export_path=export_path,
         export_source=export_source,
         app_key=app_key,
+        provider=provider,
     )
     if daily.status != "available":
         return daily
@@ -368,6 +417,7 @@ def build_parser() -> argparse.ArgumentParser:
         default=SOURCE_LSEG_EXPORT,
         help="Exact source label for a local official-close export",
     )
+    parser.add_argument("--provider", choices=("lseg", "nasdaq"), default="lseg")
     parser.add_argument("--lookback-days", type=int, default=14, help="Calendar-day lookback for --filed")
     return parser
 
@@ -383,6 +433,7 @@ def main() -> None:
                 export_path=args.export,
                 export_source=args.export_source,
                 lookback_days=args.lookback_days,
+                provider=args.provider,
             )
         else:
             if not args.end:
@@ -393,6 +444,7 @@ def main() -> None:
                 args.end,
                 export_path=args.export,
                 export_source=args.export_source,
+                provider=args.provider,
             )
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc

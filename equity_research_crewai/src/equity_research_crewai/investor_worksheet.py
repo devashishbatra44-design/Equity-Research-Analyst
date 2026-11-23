@@ -147,6 +147,29 @@ def liquidity_check(
     return LiquidityResult(median_value, intended_purchase_size, ratio, "passes" if ratio >= minimum_ratio else "fails")
 
 
+def liquidity_check_from_median(
+    median_daily_dollar_volume: Decimal | None,
+    *,
+    intended_purchase_size: Decimal,
+    minimum_ratio: Decimal,
+) -> LiquidityResult:
+    """Apply the client rule to a derived market summary without a raw close list."""
+
+    if intended_purchase_size <= 0 or minimum_ratio <= 0:
+        raise ValueError("Client size and minimum ratio must be positive.")
+    if median_daily_dollar_volume is None:
+        return LiquidityResult(None, intended_purchase_size, None, "not computed")
+    if median_daily_dollar_volume < 0:
+        raise ValueError("Median daily dollar volume must be nonnegative.")
+    ratio = median_daily_dollar_volume / intended_purchase_size
+    return LiquidityResult(
+        median_daily_dollar_volume,
+        intended_purchase_size,
+        ratio,
+        "passes" if ratio >= minimum_ratio else "fails",
+    )
+
+
 def render_fact(fact: FactLine) -> str:
     value = "not known" if fact.value is None else str(fact.value)
     unit = f" {fact.unit}" if fact.unit else ""

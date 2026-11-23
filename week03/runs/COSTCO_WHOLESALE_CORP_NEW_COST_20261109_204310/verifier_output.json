@@ -164,9 +164,9 @@
     {
       "claim": "Other number L10.1",
       "report_said": "5",
-      "filing_says": "Found at 10-k.txt:9: 0.005",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:9: 0.005"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L11.1",
@@ -185,9 +185,9 @@
     {
       "claim": "Other number L13.1",
       "report_said": "5",
-      "filing_says": "Found at 10-k.txt:9: 0.005",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:9: 0.005"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L14.1",
@@ -241,9 +241,9 @@
     {
       "claim": "Other number L16.1",
       "report_said": "5",
-      "filing_says": "Found at 10-k.txt:9: 0.005",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:9: 0.005"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L17.1",
@@ -262,9 +262,9 @@
     {
       "claim": "Other number L19.1",
       "report_said": "4",
-      "filing_says": "Found at 10-k.txt:64: 2023-09-04",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:64: 2023-09-04"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L20.1",
@@ -283,16 +283,16 @@
     {
       "claim": "Other number L22.1",
       "report_said": "5",
-      "filing_says": "Found at 10-k.txt:9: 0.005",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:9: 0.005"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L25.1",
       "report_said": "4",
-      "filing_says": "Found at 10-k.txt:64: 2023-09-04",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:64: 2023-09-04"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L26.1",
@@ -318,9 +318,9 @@
     {
       "claim": "Other number L28.1",
       "report_said": "3",
-      "filing_says": "Found at 10-q.txt:566: Item 3. | Quantitative and Qualitative Disclosures About Market Risk | 27",
+      "filing_says": "Not stated in the saved filings",
       "mark": "Unsupported",
-      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-q.txt:566: Item 3. | Quantitative and Qualitative Disclosures About Market Risk | 27"
+      "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     },
     {
       "claim": "Other number L33.1",
@@ -575,30 +575,7 @@
       "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Not stated in the saved filings"
     }
   ],
-  "semantic_review": {
-    "assessments": [
-      {
-        "claim": "Other number L37.2",
-        "mark": "Unsupported",
-        "reason": "The cited evidence does not state 3.77%, and simple arithmetic from the cited inputs does not establish it at the report's rounding."
-      },
-      {
-        "claim": "Other number L37.6",
-        "mark": "Unsupported",
-        "reason": "The cited evidence does not state 10.1%, and simple arithmetic from the cited inputs does not establish it at the report's rounding."
-      },
-      {
-        "claim": "Other number L86.1",
-        "mark": "Unsupported",
-        "reason": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-      },
-      {
-        "claim": "Other number L86.2",
-        "mark": "Unsupported",
-        "reason": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-      }
-    ]
-  },
-  "semantic_raw": "{\"assessments\": [{\"claim\": \"Other number L37.2\", \"mark\": \"Unsupported\", \"reason\": \"The cited evidence does not state 3.77%, and simple arithmetic from the cited inputs does not establish it at the report's rounding.\"}, {\"claim\": \"Other number L37.6\", \"mark\": \"Unsupported\", \"reason\": \"The cited evidence does not state 10.1%, and simple arithmetic from the cited inputs does not establish it at the report's rounding.\"}, {\"claim\": \"Other number L86.1\", \"mark\": \"Unsupported\", \"reason\": \"A number with no valid filing-line or deterministic-calculation citation is unsupported.\"}, {\"claim\": \"Other number L86.2\", \"mark\": \"Unsupported\", \"reason\": \"A number with no valid filing-line or deterministic-calculation citation is unsupported.\"}]}",
+  "semantic_review": null,
+  "semantic_raw": "",
   "semantic_error": ""
 }

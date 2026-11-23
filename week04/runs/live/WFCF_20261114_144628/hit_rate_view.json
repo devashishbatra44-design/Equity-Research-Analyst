@@ -5,5 +5,19 @@
   "direction": "not computed",
   "reason": "The committed report gave a Hold recommendation but had no price or more-versus-less value view. The later hit-rate audit does not infer or rewrite the original view.",
   "source_report": "report.md",
-  "source_report_sha256": "bd980331293bf469618afbadb47c438480b298a9be2bf715beaa5f07fd8718d3"
+  "source_report_sha256": "bd980331293bf469618afbadb47c438480b298a9be2bf715beaa5f07fd8718d3",
+  "market_data_summary": {
+    "source": "Nasdaq official historical endpoint",
+    "source_url": "https://api.nasdaq.com/api/quote/WFCF/historical?assetclass=stocks&fromdate=2026-11-12&todate=2026-11-17&limit=20",
+    "currency": "USD",
+    "pre_filing_close": {
+      "pricing_date": "2026-11-13",
+      "close": "16.30"
+    },
+    "first_post_filing_close": {
+      "pricing_date": "2026-11-16",
+      "close": "16.56"
+    },
+    "reaction_percent": "1.595092024539877300613496900"
+  }
 }

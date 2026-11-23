@@ -9,12 +9,31 @@ Members:
 - Shivani Rathi
 - Jeenay Vipul Dedhia
 
+## Official team repository
+
+- Repository: <https://github.com/devashishbatra44-design/Equity-Research-Analyst>
+- Confirmed by: Devashish Batra
+- Confirmation date: November 22, 2026
+- Exact confirmation: `I, devashish Batra, confirm that this is the officail FIN 67110 repository for thr DJS Signal & Source capital`
+- Status: Confirmed by the team representative as the official FIN 67110 repository for DJS Signal & Source Capital.
+
+## In-class guidance relied upon
+
+- On November 23, 2026, Devashish Batra stated that the professor addressed the retained wording issue in class.
+- The team elected not to request a separate written response.
+- The exact student statement and the evidence limitation are recorded in `IN_CLASS_GUIDANCE_ATTESTATION.md`.
+- The repository does not represent the student's account as a verbatim professor statement.
+
 ## Roster confirmation
 
 - [x] Professor Zhang permits the 4-person roster.
 - Confirmation source: Devashish Batra directly confirmed Professor Zhang's permission.
 - Confirmation date recorded: November 14, 2026.
-- Evidence status: user-confirmed; the original instructor message or Brightspace record is not stored in this repository.
+- Institutional evidence: Purdue Brightspace lists Devashish Batra, Jeenay Dedhia, Kuan-Jie Liao, and Shivani Rathi as the four members of FIN 67110 Team 1.
+- Evidence date: November 22, 2026.
+- Evidence record: `FOUR_PERSON_TEAM_EVIDENCE.md`.
+- Saved screenshot: `week04/evidence/brightspace_team1_roster_2026-11-22.png`.
+- Evidence scope: The screenshot proves the official four-person Brightspace roster. It is not described as a direct written message from Professor Zhang.
 
 ## Week 4 live filing
 
@@ -68,7 +87,7 @@ Members:
 - README line: `We own a pre-registered spinoff factor-validation check that freezes F1-F3 before the test return and reports every comparison and missing observation.`
 - Team selection: The four teammates selected this direction together. Devashish Batra confirmed his ownership on November 21, 2026.
 - Method status: Approved and frozen in `OWNED_FACTOR_CHECK_FROZEN.json` on November 21, 2026.
-- Start evidence: `OWNED_FACTOR_CHECK_BASELINE.md` shows the 10-name universe and 4 planned comparisons. It reads 0 future returns.
+- Start evidence: `OWNED_FACTOR_CHECK_BASELINE.md` shows the 10-name universe, 4 group definitions, and 8 planned statistical comparisons. It reads 0 future returns.
 
 ## FDXF worksheet selection
 

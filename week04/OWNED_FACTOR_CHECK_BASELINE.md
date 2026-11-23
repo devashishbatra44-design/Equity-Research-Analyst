@@ -6,7 +6,8 @@ Frozen configuration SHA-256: `21948062fd350bbbd32a580d898e120ae98d9eb8f426505df
 Signal date: 2026-11-19
 Outcome date: first official regular close on or after 2027-02-17
 Ranked universe: 10 names
-Planned comparisons: 4
+Planned group definitions: 4
+Planned statistical comparisons: 8
 Returns read by this baseline command: 0
 
 | Ticker | Company | F1 | F2 | F3 | Frozen score |

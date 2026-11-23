@@ -48,9 +48,9 @@ Owned feature: We own a pre-registered spinoff factor-validation check that free
 | Human worksheet config | Frozen and approved by Devashish | `HUMAN_WORKSHEET_CONFIG.md` |
 | Human investor persona | Frozen and approved by Devashish | `HUMAN_INVESTOR_PERSONA.md` |
 | Closes reader | Built in code; local package or export still required | `equity_research_crewai/src/equity_research_crewai/closes_reader.py` |
-| Seeker skill | Complete locally; 15 in-window distributions audited for F1, F2, and F3; final report has 10 ranked, 9 watch, and 1 dropped row | `.agents/skills/fin67110-spinoff-seeker/SKILL.md`, `REQUIREMENTS.md`, and `runs/seeker_20261119_full/` |
+| Seeker skill | Complete locally; the final report has 10 scored names, 2 trading unranked names, 5 registered watch names, and 220 dropped registrants | `.agents/skills/fin67110-spinoff-seeker/SKILL.md`, `REQUIREMENTS.md`, and `runs/seeker_20261119_full/` |
 | Worksheet skill | Built, synthetic-tested, and run on FDXF with saved SEC and Nasdaq evidence | `.agents/skills/fin67110-investor-worksheet/SKILL.md`, `REQUIREMENTS.md`, and `runs/worksheet_FDXF_20261120_023851/` |
-| Numeric hook | Built, seeded-error tested, enabled, and trusted as a project Stop hook | `.codex/hooks.json`, `week04/run_fdxf_numeric_hook.sh`, and `HOOK_REVIEW.md` |
+| Numeric hook | Generic, seeded-copy tested, enabled, and trusted as a project Stop hook | `.codex/hooks.json`, `week04/run_numeric_hook.sh`, and `HOOK_REVIEW.md` |
 | First live report | Complete and pushed within the 24-hour deadline for WFCF | `runs/live/WFCF_20261114_144628/` and `LIVE_RECORD.md` |
 | Live-record index | Week 4 permanent commit link recorded | `LIVE_RECORD.md` |
 | Hit-rate table | Reproducible; WFCF reaction is available but its original direction is `not computed` | `HIT_RATE.md` and `equity_research_crewai.hit_rate` |

@@ -9,8 +9,8 @@ Status: approved for this FDXF worksheet run
 - Window: 30 regular trading sessions from October 9, 2026 through November 19, 2026.
 - Fields: regular close and daily share volume.
 - Use: November 19 official close and median daily dollar volume.
-- Saved raw response: `evidence/nasdaq_fdxf_20261009_20261119.json`.
-- Saved normalized reader output: `official_close_volume_reader.json`.
+- Saved derived summary: `market_summary.json`.
+- Raw responses and daily close lists remain outside the repository.
 - Endpoint: https://api.nasdaq.com/api/quote/FDXF/historical?assetclass=stocks&fromdate=2026-10-09&todate=2026-11-19&limit=5000
 
 ## Cross-check
@@ -18,7 +18,6 @@ Status: approved for this FDXF worksheet run
 - Provider: S&P Capital IQ licensed local export.
 - As-of date: November 19, 2026.
 - Close: 126.58 USD per share.
-- Saved derived record: `licensed_close_reader.json`.
 - Result: The Capital IQ close equals the Nasdaq close for November 19, 2026.
 - Limitation: The supplied Capital IQ workbooks do not contain a daily volume series.
 

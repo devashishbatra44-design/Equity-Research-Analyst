@@ -2,7 +2,7 @@ from datetime import date
 from decimal import Decimal
 
 from equity_research_crewai.official_close_f1_audit import (
-    first_on_or_after,
+    first_after,
     on_date,
     parse_historical_rows,
 )
@@ -20,7 +20,7 @@ def test_nasdaq_rows_parse_and_sort_regular_closes() -> None:
         }
     }
     rows = parse_historical_rows(payload, "TEST")
-    assert rows[0]["pricing_date"] == date(2026, 6, 1)
-    assert rows[0]["close_usd"] == Decimal("12.30")
-    assert first_on_or_after(rows, date(2026, 6, 1)) == rows[0]
+    assert rows[0].pricing_date == date(2026, 6, 1)
+    assert rows[0].close == Decimal("12.30")
+    assert first_after(rows, date(2026, 6, 1)) == rows[1]
     assert on_date(rows, date(2026, 6, 2)) == rows[1]

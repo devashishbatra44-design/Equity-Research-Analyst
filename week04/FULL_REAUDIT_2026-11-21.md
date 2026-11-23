@@ -71,7 +71,7 @@ The team-selection and team-review controls were resolved by Devashish Batra's N
 
 ## Test evidence
 
-- The full automated suite passed: 150 tests.
+- The full automated suite passed: 193 tests on November 22, 2026.
 - The clean numeric hook returned code 0 with no output.
 - The copied seeded worksheet returned code 2.
 - The refusal named the altered close on worksheet line 68.
@@ -89,7 +89,7 @@ The team-selection and team-review controls were resolved by Devashish Batra's N
 - Devashish approved the complete factor-validation design on November 21, 2026.
 - The controlling file is `OWNED_FACTOR_CHECK_FROZEN.json`.
 - The frozen configuration SHA-256 is `21948062fd350bbbd32a580d898e120ae98d9eb8f426505df072ebf70716bb1a`.
-- The baseline contains the 10 ranked seeker names and 4 planned comparisons.
+- The baseline contains the 10 ranked seeker names, 4 group definitions, and 8 planned statistical comparisons.
 - The baseline command read 0 return outcomes.
 - The first permitted outcome date is February 17, 2027.
 

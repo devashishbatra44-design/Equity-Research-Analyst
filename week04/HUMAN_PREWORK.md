@@ -14,7 +14,7 @@ Who sells the spinoff, and why is that sale unrelated to value?
 
 Author: Devashish Batra
 
-Human confirmation: Provided directly by Devashish on November 14, 2026; lightly edited for grammar without changing the claims.
+Human confirmation: Provided directly by Devashish on November 14, 2026; the current wording is his final submitted version.
 
 ## Klarman Chapter 10
 
@@ -38,6 +38,7 @@ Human confirmation: Provided directly by Devashish on November 14, 2026; recorde
 - Record date: May 15, 2026, close of business.
 - Distribution date: June 1, 2026, effective at 12:01 a.m. Central Time.
 - What the parent keeps or leaves: FedEx distributed 80.1% of FedEx Freight and retained 19.9% temporarily. The separated business included FedEx's less-than-truckload operations, FedEx Freight Direct, LTL Select, and FedEx Custom Critical.
+- What the parent leaves inside the child: FedEx Freight issued $3.7 billion of senior notes and a $0.6 billion term loan. Substantially all proceeds funded approximately $4.1 billion paid to FedEx before the separation. Source: FedEx Freight quarterly report accession 0001628280-26-068246, Note 7, period ended September 30, 2026; FedEx completion current report accession 0001104659-26-068519, Item 8.01, filed June 1, 2026.
 - Parent distribution announcement 8-K: FedEx Corporation accession 0001104659-26-060233, filed May 13, 2026; <https://www.sec.gov/Archives/edgar/data/1048911/000110465926060233/0001104659-26-060233-index.htm>
 - Parent completion 8-K: FedEx Corporation accession 0001104659-26-068519, filed June 1, 2026; <https://www.sec.gov/Archives/edgar/data/1048911/000110465926068519/0001104659-26-068519-index.htm>
 - Filing sections for distribution facts: Final Information Statement, `Questions and Answers About the Spin-Off` and `The Spin-Off`; FedEx May 13, 2026 Form 8-K, Items 8.01 and 9.01; FedEx June 1, 2026 Form 8-K, Items 1.01, 2.01, 8.01, and 9.01.
@@ -69,6 +70,17 @@ Human confirmation: Provided directly by Devashish on November 14, 2026; recorde
 - Provider-stated knowledge cutoff: Not stated on Purdue's hosted-model documentation as checked on November 19, 2026. No cutoff is inferred.
 - Source: Purdue RCAC, `Hosted Models`, <https://docs.rcac.purdue.edu/services/genai/models/>; Purdue RCAC, `API`, <https://docs.rcac.purdue.edu/services/genai/api/>.
 
+## Fresh tools-off model check
+
+- Performed by: Devashish Batra.
+- Date and time, Eastern: November 22, 2026 at 10:57 PM EST.
+- Model: `qwen3.8:27b`.
+- Tools: Web Search off; Code Interpreter off; no file, Knowledge Base, or external-retrieval tool attached.
+- Result: The model stated that it did not know the requested revenue figure.
+- Filing comparison: FDXF reported $2.442 billion USD of revenue for the three months ended September 30, 2026. Source: Form 8-K accession `0001628280-26-068228`, Exhibit 99.1, saved line 437.
+- Match result: Did not match. The model did not provide the filed figure.
+- Full exact prompt and answer: `TOOLS_OFF_MODEL_CHECK_2026-11-22.md`.
+
 ## Completion signoff
 
 - [x] I wrote the 2 reading notes.
@@ -76,6 +88,7 @@ Human confirmation: Provided directly by Devashish on November 14, 2026; recorde
 - [x] I found the non-spinoff Form 10 without AI.
 - [x] I checked 1 close against an exchange source.
 - [x] I recorded the model cutoff.
+- [x] I asked the course model for a filing figure in a fresh tools-off chat and recorded its exact answer.
 
 Name: Devashish Batra
 

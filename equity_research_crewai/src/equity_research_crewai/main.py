@@ -31,7 +31,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from week02 import desk_app  # noqa: E402
-from week02.desk_steps import RUNS_ROOT, parse_peers, safe_folder_component  # noqa: E402
+from week02.desk_steps import RUNS_ROOT, calculate_measures, parse_peers, safe_folder_component  # noqa: E402
 
 from equity_research_crewai.verifier import (  # noqa: E402
     _quarter_eps,
@@ -79,6 +79,10 @@ class TeamState(BaseModel):
     price_date: str = ""
     price_source: str = ""
     filed_at: str = ""
+    price_instrument: str = ""
+    closes_export: str = ""
+    closes_source: str = "LSEG Workspace export"
+    closes_provider: str = "nasdaq"
     saved_run: str = ""
     faskills: bool = False
     tavily: bool = False
@@ -380,11 +384,13 @@ def _attach_quantitative_source_notes(financial_output: str, context: dict[str, 
 
 
 def _report_money(value: float) -> str:
+    sign = "-" if value < 0 else ""
+    magnitude = abs(value)
     if abs(value) >= 1_000_000_000:
-        return f"${value / 1_000_000_000:,.3f} billion"
+        return f"{sign}${magnitude / 1_000_000_000:,.3f} billion"
     if abs(value) >= 1_000_000:
-        return f"${value / 1_000_000:,.3f} million"
-    return f"${value:,.2f}"
+        return f"{sign}${magnitude / 1_000_000:,.3f} million"
+    return f"{sign}${magnitude:,.2f}"
 
 
 def _render_required_course_claims(context: dict[str, Any]) -> str:
@@ -729,27 +735,44 @@ def _save_quarter_revenue_growth_calculation(run_folder: Path) -> None:
     entries = calculations.setdefault("calculations", {})
     if entries.get("quarter_revenue_growth", {}).get("validation_status") == "available":
         return
-    context = desk_app.read_run_context(run_folder)
-    growth = context.get("quarterly_release_claims", {}).get("quarter_revenue_growth", {})
-    result_percent = growth.get("result_percent")
-    if not isinstance(result_percent, (int, float)):
+    facts_path = run_folder / "facts.json"
+    if not facts_path.exists():
         return
-    current_revenue = growth.get("current_quarter_revenue_thousands")
-    prior_revenue = growth.get("prior_year_same_quarter_revenue_thousands")
+    facts = desk_app.load_json(facts_path)
+    current_revenue, prior_revenue, source_text = _release_quarter_revenues(run_folder, facts)
+    if current_revenue is None or prior_revenue in {None, 0}:
+        return
+    raw_result = (current_revenue - prior_revenue) / prior_revenue
+    result = round(raw_result * 100, 4) / 100
+    context = desk_app.read_run_context(run_folder)
+    current_period_end = context.get("quarter_period_end")
+    prior_period_end = ""
+    if isinstance(current_period_end, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", current_period_end):
+        prior_period_end = f"{int(current_period_end[:4]) - 1}{current_period_end[4:]}"
+    elif isinstance(current_period_end, str):
+        try:
+            parsed_period_end = datetime.strptime(current_period_end, "%B %d, %Y")
+            prior_period_end = parsed_period_end.replace(year=parsed_period_end.year - 1).strftime("%B %d, %Y")
+        except ValueError:
+            prior_period_end = ""
+    release_claim = facts.get("earnings_release_extraction", {}).get("claims", {}).get("total_revenue", {})
     calculations["calculations"]["quarter_revenue_growth"] = {
         "measure": "Quarter revenue growth versus the same quarter last year",
         "formula": "(Current-quarter revenue - Same-quarter prior-year revenue) / Same-quarter prior-year revenue",
         "inputs": {
-            "current_quarter_revenue_thousands": current_revenue,
-            "prior_year_same_quarter_revenue_thousands": prior_revenue,
+            "current_quarter_revenue_usd": int(current_revenue),
+            "prior_year_same_quarter_revenue_usd": int(prior_revenue),
         },
-        "fiscal_periods": {"current_quarter_end": context.get("quarter_period_end")},
+        "fiscal_periods": {
+            "current_quarter_end": current_period_end,
+            "prior_year_quarter_end": prior_period_end,
+        },
         "unit": "ratio",
-        "arithmetic": growth.get("formula"),
-        "result": float(result_percent) / 100,
+        "arithmetic": f"({current_revenue:g} - {prior_revenue:g}) / {prior_revenue:g}",
+        "result": result,
         "validation_status": "available",
         "unavailable_reason": None,
-        "note": growth.get("source_line"),
+        "note": f"exhibit-99-1.txt:{release_claim.get('source_line_start')}; {source_text}",
     }
     calculations_path.write_text(
         json.dumps(calculations, indent=2, ensure_ascii=False) + "\n",
@@ -1142,6 +1165,37 @@ class EquityResearchTeamFlow(Flow[TeamState]):
             before = set(RUNS_ROOT.iterdir()) if RUNS_ROOT.exists() else set()
             subprocess.run(command, cwd=REPOSITORY_ROOT, check=True)
             run_folder = desk_app.newest_successful_run(ticker, before)
+        manifest = desk_app.load_json(run_folder / "manifest.json")
+        accepted = str(manifest.get("filings", {}).get("8-k", {}).get("accepted_timestamp") or "")
+        if not self.state.filed_at and accepted:
+            self.state.filed_at = parse_filed_datetime(accepted).isoformat()
+        if self.state.price is None and self.state.filed_at:
+            close_result = last_close_before(
+                self.state.price_instrument or ticker,
+                self.state.filed_at,
+                export_path=self.state.closes_export or None,
+                export_source=self.state.closes_source,
+                provider=self.state.closes_provider,
+            )
+            if close_result.status == "available":
+                close_record = close_result.records[0]
+                self.state.price = float(close_record.close)
+                self.state.price_date = close_record.pricing_date.isoformat()
+                self.state.price_source = close_record.source
+                facts = desk_app.load_json(run_folder / "facts.json")
+                (run_folder / "calculations.json").write_text(
+                    json.dumps(calculate_measures(facts, self.state.price), indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+                manifest.setdefault("arguments", {}).update(
+                    {
+                        "price": self.state.price,
+                        "price_date": self.state.price_date,
+                        "price_source": self.state.price_source,
+                    }
+                )
+            else:
+                self.state.price_source = f"not available: {close_result.message}"
         tavily_output: str | dict[str, Any] = "not requested"
         if self.state.tavily:
             tavily_path = run_folder / "tavily_research.json"
@@ -1234,7 +1288,6 @@ class EquityResearchTeamFlow(Flow[TeamState]):
                 "reused_without_vendor_request": True,
             }
         self.state.run_folder = str(run_folder)
-        manifest = desk_app.load_json(run_folder / "manifest.json")
         if self.state.filed_at:
             manifest["live_price"] = {
                 "edgar_accepted_time_eastern": self.state.filed_at,
@@ -1845,6 +1898,12 @@ def build_parser() -> argparse.ArgumentParser:
         default="LSEG Workspace export",
         help="Exact source label for --closes-export",
     )
+    parser.add_argument(
+        "--closes-provider",
+        choices=("nasdaq", "lseg"),
+        default="nasdaq",
+        help="Official-close provider used behind the common closes reader when no export is supplied",
+    )
     parser.add_argument("--saved-run", type=Path, help="Reuse a successful saved data run")
     parser.add_argument(
         "--faskills",
@@ -1898,6 +1957,7 @@ def kickoff() -> None:
                 filed_at,
                 export_path=args.closes_export,
                 export_source=args.closes_source,
+                provider=args.closes_provider,
             )
         except ValueError as exc:
             raise SystemExit(str(exc)) from exc
@@ -1920,6 +1980,10 @@ def kickoff() -> None:
             "price_date": price_date,
             "price_source": price_source,
             "filed_at": filed_at,
+            "price_instrument": args.price_instrument,
+            "closes_export": str(args.closes_export.resolve()) if args.closes_export else "",
+            "closes_source": args.closes_source,
+            "closes_provider": args.closes_provider,
             "saved_run": str(args.saved_run.resolve()) if args.saved_run else "",
             "faskills": args.faskills,
             "tavily": args.tavily,

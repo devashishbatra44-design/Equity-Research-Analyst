@@ -484,20 +484,7 @@
       "evidence": "A number with no valid filing-line or deterministic-calculation citation is unsupported. Found at 10-k.txt:1082: Membership fee revenue increased 11% in 2026, driven by new member sign-ups, membership fee increases, and upgrades to Executive memberships. At the end of 2026, member renewal rates were 92.3% in the U.S. and Canada and 89.8% worldwide."
     }
   ],
-  "semantic_review": {
-    "assessments": [
-      {
-        "claim": "Other number L37.2",
-        "mark": "Unsupported",
-        "reason": "The cited evidence does not state $5,713,000,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding."
-      },
-      {
-        "claim": "Other number L81.1",
-        "mark": "Unsupported",
-        "reason": "A number with no valid filing-line or deterministic-calculation citation is unsupported."
-      }
-    ]
-  },
-  "semantic_raw": "{\"assessments\": [{\"claim\": \"Other number L37.2\", \"mark\": \"Unsupported\", \"reason\": \"The cited evidence does not state $5,713,000,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding.\"}, {\"claim\": \"Other number L81.1\", \"mark\": \"Unsupported\", \"reason\": \"A number with no valid filing-line or deterministic-calculation citation is unsupported.\"}]}",
+  "semantic_review": null,
+  "semantic_raw": "",
   "semantic_error": ""
 }

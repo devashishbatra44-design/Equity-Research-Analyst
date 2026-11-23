@@ -24,10 +24,10 @@ def config() -> dict[str, object]:
         "outcome_date_on_or_after": "2027-02-17",
         "expected_ranked_names": 1,
         "comparisons": [
-            {"id": "F1"},
-            {"id": "F2"},
-            {"id": "F3"},
-            {"id": "COMPOSITE"},
+            {"id": "F1", "statistics": ["mean", "median"]},
+            {"id": "F2", "statistics": ["mean", "median"]},
+            {"id": "F3", "statistics": ["mean", "median"]},
+            {"id": "COMPOSITE", "statistics": ["mean", "median"]},
         ],
     }
 
@@ -81,5 +81,6 @@ def test_baseline_reads_no_return_and_prints_frozen_universe() -> None:
         tickers={"Spin Company": "SPIN"},
     )
     assert "Returns read by this baseline command: 0" in text
-    assert "Planned comparisons: 4" in text
+    assert "Planned group definitions: 4" in text
+    assert "Planned statistical comparisons: 8" in text
     assert "| SPIN | Spin Company | true | false | true | 2 |" in text

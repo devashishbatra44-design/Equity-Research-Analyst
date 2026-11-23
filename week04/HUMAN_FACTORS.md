@@ -26,6 +26,7 @@ Allowed directions are `higher`, `lower`, `yes`, or `no` after the code contract
 
 - Frozen by: Devashish Batra
 - Frozen at, Eastern: November 19, 2026 at 9:09:27 AM EST
-- Approval statement: "I, Devashish Batra, select and approve factors F1, F2, and F3 exactly as writtrn, with equal weights of 1 and the unranked missing-data rule."
-- Commit or file hash: Pending the first authorized commit. The local freeze precedes the first pre-registered run.
+- Approval statement, with one spelling error normalized: "I, Devashish Batra, select and approve factors F1, F2, and F3 exactly as written, with equal weights of 1 and the unranked missing-data rule."
+- First authorized commit containing the frozen record: `f7d90d8`.
+- November 22, 2026 resubmission: Devashish Batra resubmitted and approved the existing wording without requesting a change. This confirmation does not alter the original wording provenance or the frozen factor rules.
 - Change rule after freeze: Do not alter these factors for the first pre-registered run. Any later change requires a dated amendment from Devashish Batra. Preserve the original factors and do not use an amendment to rerank an earlier run.

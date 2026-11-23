@@ -1,0 +1,649 @@
+{
+  "source": "SEC submissions and primary Form 4/4-A transaction tables",
+  "cik": "0002082247",
+  "start_date": "2026-06-01",
+  "through_date": "2026-11-22",
+  "form4_filings_found": 34,
+  "reviewed_filings": [
+    {
+      "form": "4",
+      "filing_date": "2026-08-11",
+      "accession": "0001628280-26-055715",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026055715/wk-form4_1786479450.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-08-07",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-08-05",
+      "accession": "0001628280-26-053516",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053516/wk-form4_1785964193.xml",
+      "transactions": []
+    },
+    {
+      "form": "4/A",
+      "filing_date": "2026-08-05",
+      "accession": "0001628280-26-053509",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053509/wk-form4a_1785964064.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4/A",
+      "filing_date": "2026-08-05",
+      "accession": "0001628280-26-053503",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053503/wk-form4a_1785964011.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4/A",
+      "filing_date": "2026-08-05",
+      "accession": "0001628280-26-053499",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053499/wk-form4a_1785963949.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4/A",
+      "filing_date": "2026-07-16",
+      "accession": "0001628280-26-048491",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026048491/wk-form4a_1784234819.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046573",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046573/wk-form4_1782938048.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046572",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046572/wk-form4_1782938026.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046571",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046571/wk-form4_1782938005.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046570",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046570/wk-form4_1782937982.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046567",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046567/wk-form4_1782937957.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046565",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046565/wk-form4_1782937925.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046562",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046562/wk-form4_1782937879.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046560",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046560/wk-form4_1782937859.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046559",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046559/wk-form4_1782937837.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046558",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046558/wk-form4_1782937801.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046557",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046557/wk-form4_1782937777.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046556",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046556/wk-form4_1782937739.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046555",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046555/wk-form4_1782937610.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046554",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046554/wk-form4_1782937515.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046553",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046553/wk-form4_1782937487.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-07-01",
+      "accession": "0001628280-26-046552",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026046552/wk-form4_1782937460.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-29",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040395",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040395/wk-form4_1780518938.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040389",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040389/wk-form4_1780518908.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040388",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040388/wk-form4_1780518889.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040387",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040387/wk-form4_1780518850.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": false
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040386",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040386/wk-form4_1780518813.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040384",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040384/wk-form4_1780518789.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040382",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040382/wk-form4_1780518762.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040376",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040376/wk-form4_1780518730.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040374",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040374/wk-form4_1780518706.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040369",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040369/wk-form4_1780518672.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": false,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-03",
+      "accession": "0001628280-26-040366",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026040366/wk-form4_1780518621.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": true
+        },
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "A",
+          "is_director": true,
+          "is_officer": true
+        }
+      ]
+    },
+    {
+      "form": "4",
+      "filing_date": "2026-06-01",
+      "accession": "0001104659-26-068887",
+      "url": "https://www.sec.gov/Archives/edgar/data/2082247/000110465926068887/tm2615965-1_4seq1.xml",
+      "transactions": [
+        {
+          "transaction_date": "2026-06-01",
+          "transaction_code": "J",
+          "is_director": false,
+          "is_officer": false
+        }
+      ]
+    }
+  ],
+  "officer_or_director_code_p_purchases": [],
+  "errors": [],
+  "complete": true
+}

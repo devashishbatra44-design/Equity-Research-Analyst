@@ -1,0 +1,195 @@
+{
+  "program_version": "1.0.0",
+  "run_status": "success",
+  "steps": {
+    "1": {
+      "name": "Resolve the ticker",
+      "status": "success"
+    },
+    "2": {
+      "name": "Select the filings",
+      "status": "success"
+    },
+    "3": {
+      "name": "Download and convert the documents",
+      "status": "success"
+    },
+    "4": {
+      "name": "Retrieve annual XBRL company facts",
+      "status": "success"
+    },
+    "5": {
+      "name": "Calculate financial measures",
+      "status": "success",
+      "unavailable_calculations": [
+        "debt_to_equity",
+        "price_to_earnings"
+      ]
+    },
+    "6": {
+      "name": "Extract quarterly revenue and diluted EPS",
+      "status": "success",
+      "extraction_statuses": {
+        "total_revenue": "found",
+        "diluted_eps": "candidate_ambiguity"
+      }
+    },
+    "7": {
+      "name": "Process the peers",
+      "status": "success",
+      "peer_failures": 0
+    }
+  },
+  "local_run_time": "2026-11-22T18:56:20.854637-05:00",
+  "utc_run_time": "2026-11-22T23:56:20.854637+00:00",
+  "time_zone": "EST",
+  "arguments": {
+    "ticker": "FDXF",
+    "peers": "ODFL,XPO,SAIA",
+    "price": 109.69,
+    "price_date": "2026-10-29",
+    "price_source": "Nasdaq official historical endpoint",
+    "step": null
+  },
+  "main_ticker": "FDXF",
+  "peer_tickers": [
+    "ODFL",
+    "XPO",
+    "SAIA"
+  ],
+  "company": {
+    "ticker": "FDXF",
+    "legal_name": "FedEx Freight Holding Company, Inc.",
+    "cik": 2082247,
+    "cik_10_digit": "0002082247"
+  },
+  "source_urls": {
+    "company_tickers": "https://www.sec.gov/files/company_tickers.json",
+    "submissions": "https://data.sec.gov/submissions/CIK0002082247.json",
+    "company_facts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002082247.json"
+  },
+  "filings": {
+    "10-k": {
+      "form": "10-K",
+      "filing_date": "2026-08-05",
+      "reporting_period": "2026-05-31",
+      "accession_number": "0001628280-26-053359",
+      "accepted_timestamp": "2026-08-05 16:12:07",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053359/0001628280-26-053359-index.html"
+    },
+    "10-q": {
+      "form": "10-Q",
+      "filing_date": "2026-10-29",
+      "reporting_period": "2026-09-30",
+      "accession_number": "0001628280-26-068246",
+      "accepted_timestamp": "2026-10-29 16:14:54",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/0001628280-26-068246-index.html"
+    },
+    "8-k": {
+      "form": "8-K",
+      "filing_date": "2026-10-29",
+      "reporting_period": "2026-10-29",
+      "accession_number": "0001628280-26-068228",
+      "accepted_timestamp": "2026-10-29 16:08:03",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/0001628280-26-068228-index.html"
+    }
+  },
+  "selected_xbrl_tags": {
+    "total_revenue": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "operating_income": "us-gaap:OperatingIncomeLoss",
+    "net_income": "us-gaap:NetIncomeLoss",
+    "diluted_eps": "us-gaap:EarningsPerShareDiluted",
+    "stockholders_equity": "us-gaap:StockholdersEquity",
+    "long_term_debt": "us-gaap:LongTermDebt",
+    "current_long_term_debt": null,
+    "cash_from_operations": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "property_equipment_additions": "us-gaap:PaymentsToAcquireProductiveAssets"
+  },
+  "output_filenames": [
+    "10-k.txt",
+    "10-q.txt",
+    "8-k.txt",
+    "calculations.json",
+    "exhibit-99-1.txt",
+    "facts.csv",
+    "facts.json",
+    "filings.json",
+    "manifest.json",
+    "node_order.json",
+    "node_records.json",
+    "peers.csv",
+    "peers.json",
+    "verified_report.md",
+    "verifier_input.json",
+    "verifier_output.json"
+  ],
+  "retrieval_errors": [],
+  "validation_errors": [],
+  "unavailable_values": [
+    "current_long_term_debt",
+    "debt_to_equity",
+    "price_to_earnings"
+  ],
+  "documents": {
+    "10-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026053359/fdxf-20260531.htm",
+      "local_filename": "10-k.txt",
+      "accession_number": "0001628280-26-053359",
+      "retrieval_status": "success"
+    },
+    "10-q": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068246/fdxf-20260930.htm",
+      "local_filename": "10-q.txt",
+      "accession_number": "0001628280-26-068246",
+      "retrieval_status": "success"
+    },
+    "8-k": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-20261029.htm",
+      "local_filename": "8-k.txt",
+      "accession_number": "0001628280-26-068228",
+      "retrieval_status": "success"
+    },
+    "exhibit-99-1": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2082247/000162828026068228/fdxf-q3ty26earningsrelease.htm",
+      "local_filename": "exhibit-99-1.txt",
+      "accession_number": "0001628280-26-068228",
+      "document_type": "EX-99.1",
+      "description": "EX-99.1",
+      "retrieval_status": "success"
+    }
+  },
+  "tag_selection_reasons": {
+    "total_revenue": "Selected the candidate with current-and-prior annual coverage whose latest valid 10-K fiscal-year end is newest (2026-05-31); when candidate years tied, selected the larger total-revenue value, with tag priority as the final tie-breaker.",
+    "operating_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "net_income": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "diluted_eps": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "stockholders_equity": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "long_term_debt": "Selected the highest-priority candidate aligned to the revenue reference period; prior-period coverage was unavailable.",
+    "current_long_term_debt": null,
+    "cash_from_operations": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage.",
+    "property_equipment_additions": "Selected the highest-priority candidate aligned to the revenue reference period with prior-period coverage."
+  },
+  "live_price": {
+    "edgar_accepted_time_eastern": "2026-10-29T16:08:03-04:00",
+    "price": 109.69,
+    "price_date": "2026-10-29",
+    "price_source": "Nasdaq official historical endpoint"
+  },
+  "week03_agent_team": {
+    "framework": "CrewAI Flow",
+    "node_order": [
+      "Steps",
+      "Research Analyst",
+      "Financial Analyst",
+      "Investment Advisor",
+      "Strategy Manager",
+      "Financial Analyst retry",
+      "Investment Advisor refresh",
+      "Verifier"
+    ],
+    "verifier_required": true,
+    "verified_report": "verified_report.md"
+  },
+  "week03_parent_run": "week02/runs/FedEx_Freight_Holding_Company_Inc_FDXF_20261122_185620",
+  "week03_replay_time": "2026-11-22T21:32:32.328900-05:00"
+}

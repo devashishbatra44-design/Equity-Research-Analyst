@@ -78,8 +78,7 @@ Code-checked claims: 69. Wrong: 0. Unsupported: 2. Missing: 0. Not in filings: 0
 
 ### Model definition review
 
-- **Unsupported — Other number L37.2:** The cited evidence does not state $5,713,000,000, and simple arithmetic from the cited inputs does not establish it at the report's rounding.
-- **Unsupported — Other number L81.1:** A number with no valid filing-line or deterministic-calculation citation is unsupported.
+This deterministic verifier pass did not request a new model definition review. This does not imply that the graph's original model review was unavailable; the applicable graph-run review is preserved in node_records.json and verifier_output.json.
 
 # Run time: 2026-11-12T00:43:58.878585-05:00
 

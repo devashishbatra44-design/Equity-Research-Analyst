@@ -278,11 +278,11 @@ def first_regular_close_after_distribution(
     distribution_date: date | None,
     closes: Sequence[CloseRecord],
 ) -> CloseRecord | None:
-    """Return the first supplied regular close on or after distribution."""
+    """Return the first supplied regular close strictly after distribution."""
 
     if distribution_date is None:
         return None
-    eligible = sorted(record for record in closes if record.pricing_date >= distribution_date)
+    eligible = sorted(record for record in closes if record.pricing_date > distribution_date)
     return eligible[0] if eligible else None
 
 
@@ -333,6 +333,7 @@ def render_report(
     price_date: date | str | None,
     index_date: date,
     post_distribution_window_days: int = 365,
+    run_time: datetime | str | None = None,
 ) -> str:
     """Render the required ranked, watch, dropped, and data-limit sections."""
 
@@ -344,25 +345,52 @@ def render_report(
         f"Run date: {run_date.isoformat()} | Price date: "
         f"{price_date_text} | Index date: {index_date.isoformat()}"
     )
+    if run_time is not None:
+        run_time_text = run_time.isoformat() if isinstance(run_time, datetime) else str(run_time)
+        first += f" | Run time: {run_time_text}"
     ranked = sorted(
         (result for result in results if result.total_points is not None),
         key=lambda result: (-result.total_points, result.entry.name),
     )
+    ranked_unranked = sorted(
+        (
+            result
+            for result in results
+            if result.total_points is None
+            and result.entry.is_spinoff
+            and result.stage in {Stage.TRADING, Stage.IN_WINDOW, Stage.PAST}
+        ),
+        key=lambda result: result.entry.name,
+    )
     watch = [
         result
         for result in results
-        if result.total_points is None and result.entry.is_spinoff
+        if result.total_points is None
+        and result.entry.is_spinoff
+        and result.stage in {Stage.REGISTERED, Stage.LISTING_APPROVED}
     ]
     dropped = [result for result in results if not result.entry.is_spinoff]
 
     lines = [first, "", "## Ranked"]
-    if ranked:
+    if ranked or ranked_unranked:
         for result in ranked:
             point_label = "point" if result.total_points == Decimal("1") else "points"
             lines.append(
                 _report_row(
                     result,
                     points=f"{result.total_points} {point_label}",
+                    post_distribution_window_days=post_distribution_window_days,
+                )
+            )
+            for point in result.factor_points:
+                value = "missing" if point.matched is None else str(point.matched).lower()
+                point_label = "point" if point.points == Decimal("1") else "points"
+                lines.append(f"  - {point.factor_id}: {value}; {point.points} {point_label}")
+        for result in ranked_unranked:
+            lines.append(
+                _report_row(
+                    result,
+                    points=f"unranked: {(result.unranked_reason or '').rstrip('.')}",
                     post_distribution_window_days=post_distribution_window_days,
                 )
             )

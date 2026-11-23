@@ -54,12 +54,12 @@ def test_stage_truth_table() -> None:
     assert classify_stage(entry(distribution_date=date(2026, 10, 30)), run_date=date(2026, 11, 10), window_start=date(2026, 11, 9), window_end=date(2026, 11, 15)) is Stage.PAST
 
 
-def test_first_regular_close_on_distribution_date_is_eligible() -> None:
+def test_first_regular_close_must_be_strictly_after_distribution_date() -> None:
     closes = [
         CloseRecord(date(2026, 11, 9), "TEST", Decimal("9"), "USD", "test"),
         CloseRecord(date(2026, 11, 10), "TEST", Decimal("10"), "USD", "test"),
     ]
-    assert first_regular_close_after_distribution(date(2026, 11, 9), closes) == closes[0]
+    assert first_regular_close_after_distribution(date(2026, 11, 9), closes) == closes[1]
 
 
 def test_zero_weight_changes_only_its_factor_contribution() -> None:
@@ -188,10 +188,10 @@ def test_non_spin_is_dropped_with_filing_reason() -> None:
 
 
 def test_report_has_required_sections_and_exact_last_line() -> None:
-    close = CloseRecord(date(2026, 11, 9), "TEST", Decimal("12.34"), "USD", "exchange")
+    close = CloseRecord(date(2026, 11, 10), "TEST", Decimal("12.34"), "USD", "exchange")
     result = score_entry(entry(), [FactorSpec("F1", "yes", Decimal("1"), "zero")], run_date=date(2026, 11, 10), window_start=date(2026, 11, 9), window_end=date(2026, 11, 15), closes=[close])
     report = render_report([result], run_date=date(2026, 11, 14), price_date=date(2026, 11, 13), index_date=date(2026, 11, 13))
     assert report.splitlines()[0] == "Run date: 2026-11-14 | Price date: 2026-11-13 | Index date: 2026-11-13"
     assert all(section in report for section in ("## Ranked", "## Watch", "## Dropped", "## Data limits"))
-    assert "12.34 USD on 2026-11-09" in report
+    assert "12.34 USD on 2026-11-10" in report
     assert report.splitlines()[-1] == FINAL_LINE

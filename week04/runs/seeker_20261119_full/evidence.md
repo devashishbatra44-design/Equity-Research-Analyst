@@ -49,7 +49,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002078008; parent Aptiv PLC (CIK 0001521332); record date 2026-03-17; distribution date 2026-04-01; ratio 1 VGNT share per 3 APTV shares.
 - Form 10: accession 0001193125-26-096776; section The Spin-Off; <https://www.sec.gov/Archives/edgar/data/2078008/0001193125-26-096776.txt>.
-- F1: false; child close $27.85 USD on 2026-04-01; parent close $62.09 USD on the same date; derived child/parent market-cap ratio 14.951%.
+- F1: false; child close $28.10 USD on 2026-04-02; parent close $60.99 USD on the same date; derived child/parent market-cap ratio 15.358%.
   - Official close source: <https://api.nasdaq.com/api/quote/VGNT/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/APTV/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: false; debt-funded parent payment $1,900,000,000 USD. Aptiv reported an approximately $1.9 billion cash distribution from Versigent financed through approximately $2.1 billion of Versigent debt.
@@ -60,7 +60,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002091349; parent AnaptysBio, Inc. (CIK 0001370053); record date 2026-04-06; distribution date 2026-04-20; ratio 1 TRAX share per 1 ANAB share.
 - Form 10: accession 0001193125-26-129178; section The Spin-Off; <https://www.sec.gov/Archives/edgar/data/2091349/0001193125-26-129178.txt>.
-- F1: false; child close $18.60 USD on 2026-04-20; parent close $50.95 USD on the same date; derived child/parent market-cap ratio 36.506%.
+- F1: false; child close $17.00 USD on 2026-04-21; parent close $51.82 USD on the same date; derived child/parent market-cap ratio 32.806%.
   - Official close source: <https://api.nasdaq.com/api/quote/TRAX/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/ANAB/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: true; debt-funded parent payment $0 USD. The separation financing ran from parent to child: AnaptysBio provided a $100.0 million initial cash distribution to First Tracks. The filing did not identify a debt-funded cash payment from First Tracks to AnaptysBio.
@@ -71,7 +71,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002082247; parent FedEx Corporation (CIK 0001048911); record date 2026-05-15; distribution date 2026-06-01; ratio 1 FDXF share per 2 FDX shares.
 - Form 10: accession 0001104659-26-041977; section The Spin-Off; Questions and Answers About the Spin-Off; <https://www.sec.gov/Archives/edgar/data/2082247/0001104659-26-041977.txt>.
-- F1: false; child close $149.53 USD on 2026-06-01; parent close $338.49 USD on the same date; derived child/parent market-cap ratio 27.575%.
+- F1: false; child close $153.34 USD on 2026-06-02; parent close $329.00 USD on the same date; derived child/parent market-cap ratio 29.094%.
   - Official close source: <https://api.nasdaq.com/api/quote/FDXF/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/FDX/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: false; debt-funded parent payment $4,100,000,000 USD. FedEx Freight used substantially all proceeds from $3.7 billion of notes and a $0.6 billion term loan facility to fund an approximately $4.1 billion cash distribution to FedEx.
@@ -98,7 +98,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002089271; parent Honeywell Technologies (CIK 0000773840); record date 2026-06-15; distribution date 2026-06-29; ratio 1 HONA share per 2 HON shares.
 - Form 10: accession 0001628280-26-041399; section The Separation and Distribution; <https://www.sec.gov/Archives/edgar/data/2089271/0001628280-26-041399.txt>.
-- F1: false; child close $220.19 USD on 2026-06-29; parent close $227.80 USD on the same date; derived child/parent market-cap ratio 48.330%.
+- F1: false; child close $221.08 USD on 2026-06-30; parent close $223.90 USD on the same date; derived child/parent market-cap ratio 49.370%.
   - Official close source: <https://api.nasdaq.com/api/quote/HONA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/HON/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: false; debt-funded parent payment $9,100,000,000 USD. Aerospace used $9.1 billion of net proceeds from new notes to make a cash distribution to Honeywell as partial consideration for contributed assets.
@@ -110,7 +110,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002090312; parent S&P Global Inc. (CIK 0000064040); record date 2026-06-15; distribution date 2026-07-01; ratio 1 MBGL share per 1 SPGI share.
 - Form 10: accession 0001104659-26-066592; section The Separation; <https://www.sec.gov/Archives/edgar/data/2090312/0001104659-26-066592.txt>.
-- F1: true; child close $21.19 USD on 2026-07-01; parent close $414.97 USD on the same date; derived child/parent market-cap ratio 5.106%.
+- F1: true; child close $19.80 USD on 2026-07-02; parent close $439.89 USD on the same date; derived child/parent market-cap ratio 4.501%.
   - Official close source: <https://api.nasdaq.com/api/quote/MBGL/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/SPGI/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: false; debt-funded parent payment $1,900,000,000 USD. Mobility stated that it would use senior-note proceeds to finance a cash payment and make an approximately $1.9 billion net cash distribution to S&P Global at separation.
@@ -155,7 +155,7 @@ Missing facts remain missing. The audit does not estimate amounts, dates, prices
 
 - Registry: child CIK 0002128626; parent Corteva, Inc. (CIK 0001755672); record date 2026-09-24; distribution date 2026-10-01; ratio 1 VYLR share per 1 CTVA share.
 - Form 10: accession 0001193125-26-396054; section The Spin-Off; <https://www.sec.gov/Archives/edgar/data/2128626/0001193125-26-396054.txt>.
-- F1: false; child close $68.26 USD on 2026-10-01; parent close $12.57 USD on the same date; derived child/parent market-cap ratio 543.039%.
+- F1: false; child close $67.26 USD on 2026-10-02; parent close $11.92 USD on the same date; derived child/parent market-cap ratio 564.262%.
   - Official close source: <https://api.nasdaq.com/api/quote/VYLR/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
   - Official close source: <https://api.nasdaq.com/api/quote/CTVA/historical?assetclass=stocks&fromdate=2026-01-01&todate=2026-11-19&limit=5000>.
 - F2: false; debt-funded parent payment $726,000,000 to $776,000,000 USD. The final information statement stated a $726 million to $776 million Vylor cash distribution to the parent funded by a portion of the Vylor financing proceeds. The bounded amount is sufficient to make F2 false without estimating a point amount.

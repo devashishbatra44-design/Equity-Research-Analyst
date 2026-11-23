@@ -25,7 +25,8 @@ The check will not convert the screen into an investment recommendation.
 - F2 comparison: mean and median return for F2 true versus F2 false.
 - F3 comparison: mean and median return for F3 true versus F3 false.
 - Composite comparison: mean and median return for scores of 1 or more versus scores of 0.
-- Planned comparisons: 4.
+- Planned group definitions: 4.
+- Planned statistical comparisons: 8, because each group definition reports both a mean and a median.
 - Direction: the true or higher-score group must have the higher return for the comparison to agree with the screen.
 - Missing-data rule: exclude a name only from the affected comparison. Count and print every exclusion.
 - Statistics rule: report group sizes, means, medians, and direction. Do not claim statistical significance from this small sample.

@@ -6,7 +6,7 @@ import argparse
 import json
 import re
 from dataclasses import replace
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Mapping
@@ -59,6 +59,9 @@ def build_results(
     f2_payload: Mapping[str, Any],
     f3_payload: Mapping[str, Any],
     human_factors_path: Path,
+    form10_screen: Mapping[str, Any] | None = None,
+    *,
+    run_time: datetime | str | None = None,
 ) -> tuple[list[RankedEntry], str]:
     """Join the complete registry to the three frozen-factor audits."""
 
@@ -83,6 +86,8 @@ def build_results(
         name = str(raw["child"])
         f1_row, f2_row, f3_row = f1[name], f2[name], f3[name]
         source_url = str(raw.get("distribution_source", ""))
+        data_limit = str(raw.get("data_limit", ""))
+        merged_at_distribution = not raw.get("regular_trading_start_date") and "merged into" in data_limit.casefold()
         entry = RegistryEntry(
             name=name,
             parent=str(raw.get("parent", "")),
@@ -105,6 +110,12 @@ def build_results(
             ) if source_url else None,
             listing_approved=bool(raw.get("child_ticker")),
             regular_trading=bool(raw.get("regular_trading_start_date")),
+            is_spinoff=not merged_at_distribution,
+            drop_reason=(
+                "distribution immediately followed by a merger; no standalone regularly traded security"
+                if merged_at_distribution
+                else None
+            ),
             facts={"F1": f1_row.get("f1"), "F2": f2_row.get("f2"), "F3": f3_row.get("f3")},
         )
         closes: list[CloseRecord] = []
@@ -127,7 +138,7 @@ def build_results(
             window_end=config.window_end,
             closes=closes,
         )
-        if scored.total_points is None and f1_row.get("data_limit"):
+        if entry.is_spinoff and scored.total_points is None and f1_row.get("data_limit"):
             scored = replace(scored, unranked_reason=f"factor F1 missing; {f1_row['data_limit']}")
         results.append(scored)
 
@@ -163,39 +174,67 @@ def build_results(
         )
         results.append(replace(scored, unranked_reason=str(raw["reason"])))
 
-    pimco = RegistryEntry(
-        name="PIMCO Asset-Based Lending Company LLC",
-        parent="",
-        child_cik="0002073537",
-        parent_cik="",
-        ratio=None,
-        record_date=None,
-        distribution_date=None,
-        form10=FilingReference(
-            "10-12G",
-            "0001193125-25-161296",
-            "https://www.sec.gov/Archives/edgar/data/2073537/000119312525161296/0001193125-25-161296-index.htm",
-            "Explanatory Note; Item 1, Business Overview and Reporting Obligations",
-        ),
-        distribution_8k=None,
-        is_spinoff=False,
-        drop_reason="direct Section 12(g) registration; no parent share distribution",
-    )
-    results.append(
-        score_entry(
-            pimco,
-            config.factors,
-            run_date=date.fromisoformat(str(registry["run_date"])),
-            window_start=config.window_start,
-            window_end=config.window_end,
+    if form10_screen is not None:
+        represented_ciks = {
+            result.entry.child_cik.lstrip("0") or "0"
+            for result in results
+        }
+        rows = form10_screen.get("registrants", [])
+        if not isinstance(rows, list):
+            raise ValueError("Form 10 screen has no registrants list.")
+        fund_terms = re.compile(
+            r"\b(?:fund|trust|reit|bdc|business development|private credit|lending|infrastructure strategies)\b",
+            re.IGNORECASE,
         )
-    )
+        for raw in rows:
+            if not isinstance(raw, Mapping):
+                raise ValueError("Form 10 screen row must be an object.")
+            cik = str(raw.get("cik", "")).lstrip("0") or "0"
+            if cik in represented_ciks:
+                continue
+            name = str(raw.get("company_name", "not available"))
+            if raw.get("candidate") is False:
+                reason = "deterministic filing-text screen found no spinoff or parent-distribution evidence"
+            elif fund_terms.search(name):
+                reason = "fund or investment-vehicle filing; no completed parent share distribution was established"
+            else:
+                reason = "latest Form 10 was screened, but no completed parent share distribution was established by the index date"
+            filing_url = str(raw.get("filing_url", ""))
+            filing = FilingReference(
+                str(raw.get("form", "Form 10")),
+                str(raw.get("accession", "not available")),
+                filing_url,
+                "Complete submission; deterministic filing-text screen",
+            )
+            dropped_entry = RegistryEntry(
+                name=name,
+                parent="",
+                child_cik=str(raw.get("cik", "")),
+                parent_cik="",
+                ratio=None,
+                record_date=None,
+                distribution_date=None,
+                form10=filing,
+                distribution_8k=None,
+                is_spinoff=False,
+                drop_reason=reason,
+            )
+            results.append(
+                score_entry(
+                    dropped_entry,
+                    config.factors,
+                    run_date=date.fromisoformat(str(registry["run_date"])),
+                    window_start=config.window_start,
+                    window_end=config.window_end,
+                )
+            )
     report = render_report(
         results,
         run_date=date.fromisoformat(str(registry["run_date"])),
-        price_date="per-entry first regular close",
+        price_date=config.index_date,
         index_date=config.index_date,
         post_distribution_window_days=config.post_distribution_window_days,
+        run_time=run_time,
     )
     return results, report
 
@@ -289,9 +328,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--f1", required=True, type=Path)
     parser.add_argument("--f2", required=True, type=Path)
     parser.add_argument("--f3", required=True, type=Path)
+    parser.add_argument("--form10-screen", required=True, type=Path)
     parser.add_argument("--human-factors", required=True, type=Path)
     parser.add_argument("--report-output", required=True, type=Path)
     parser.add_argument("--evidence-output", required=True, type=Path)
+    parser.add_argument("--run-time", default="", help="Saved ISO 8601 run time")
     return parser
 
 
@@ -301,11 +342,26 @@ def main() -> None:
     f1 = _read_json(args.f1)
     f2 = _read_json(args.f2)
     f3 = _read_json(args.f3)
-    results, report = build_results(registry, f1, f2, f3, args.human_factors)
+    form10_screen = _read_json(args.form10_screen)
+    run_time = args.run_time or datetime.now().astimezone().isoformat()
+    results, report = build_results(
+        registry,
+        f1,
+        f2,
+        f3,
+        args.human_factors,
+        form10_screen,
+        run_time=run_time,
+    )
     args.report_output.write_text(report, encoding="utf-8")
     args.evidence_output.write_text(render_evidence(registry, f1, f2, f3), encoding="utf-8")
     ranked = sum(result.total_points is not None for result in results)
-    watch = sum(result.total_points is None and result.entry.is_spinoff for result in results)
+    watch = sum(
+        result.total_points is None
+        and result.entry.is_spinoff
+        and not result.entry.regular_trading
+        for result in results
+    )
     dropped = sum(not result.entry.is_spinoff for result in results)
     print(f"Saved report with {ranked} ranked, {watch} watch, and {dropped} dropped rows.")
 

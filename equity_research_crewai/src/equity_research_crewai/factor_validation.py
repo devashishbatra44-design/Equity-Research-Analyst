@@ -26,6 +26,8 @@ def validate_config(config: Mapping[str, Any]) -> None:
     comparison_ids = [str(row.get("id", "")) for row in comparisons if isinstance(row, Mapping)]
     if len(comparison_ids) != 4 or len(set(comparison_ids)) != 4:
         raise ValueError("Each planned comparison must have a unique ID.")
+    if any(row.get("statistics") != ["mean", "median"] for row in comparisons if isinstance(row, Mapping)):
+        raise ValueError("Each group definition must pre-register mean and median statistics.")
     signal_date = date.fromisoformat(str(config["signal_date"]))
     horizon = int(config["horizon_calendar_days"])
     outcome_date = date.fromisoformat(str(config["outcome_date_on_or_after"]))
@@ -57,7 +59,8 @@ def render_baseline(
         f"Signal date: {config['signal_date']}",
         f"Outcome date: first official regular close on or after {config['outcome_date_on_or_after']}",
         f"Ranked universe: {len(ranked)} names",
-        f"Planned comparisons: {len(config['comparisons'])}",
+        f"Planned group definitions: {len(config['comparisons'])}",
+        f"Planned statistical comparisons: {sum(len(row['statistics']) for row in config['comparisons'])}",
         "Returns read by this baseline command: 0",
         "",
         "| Ticker | Company | F1 | F2 | F3 | Frozen score |",

@@ -12,6 +12,8 @@ from pathlib import Path
 from statistics import median
 from typing import Any, Mapping
 
+from .closes_reader import close_records_from_rows
+
 
 def _decimal(value: object) -> Decimal:
     cleaned = re.sub(r"[^0-9.\-]", "", str(value))
@@ -29,29 +31,19 @@ def normalize(payload: Mapping[str, Any], instrument: str, source_url: str) -> d
     if not isinstance(rows, list):
         raise ValueError("Nasdaq response has no historical rows list.")
 
-    records: list[dict[str, str]] = []
-    for row in rows:
-        if not isinstance(row, Mapping):
-            continue
-        if not row.get("date") or not row.get("close") or row.get("volume") in (None, ""):
-            continue
-        pricing_date = datetime.strptime(str(row["date"]), "%m/%d/%Y").date().isoformat()
-        close = _decimal(row["close"])
-        volume = _decimal(row["volume"])
-        if close <= 0 or volume < 0:
-            raise ValueError(f"Invalid close or volume for {pricing_date}.")
-        records.append(
-            {
-                "instrument": instrument.upper(),
-                "pricing_date": pricing_date,
-                "close": str(close),
-                "volume": str(volume),
-                "currency": "USD",
-                "source": "Nasdaq official historical endpoint",
-            }
-        )
-
-    records.sort(key=lambda record: record["pricing_date"])
+    clean_rows = [row for row in rows if isinstance(row, Mapping) and row.get("volume") not in (None, "")]
+    normalized_records = close_records_from_rows(
+        clean_rows,
+        instrument,
+        "Nasdaq official historical endpoint",
+    )
+    records = [
+        {
+            **record.to_dict(),
+            "currency": record.currency or "USD",
+        }
+        for record in normalized_records
+    ]
     return {
         "status": "available" if records else "not available",
         "source": "Nasdaq official historical endpoint",

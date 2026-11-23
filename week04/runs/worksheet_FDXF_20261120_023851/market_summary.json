@@ -1,0 +1,16 @@
+{
+  "status": "available",
+  "source": "Nasdaq official historical endpoint",
+  "source_url": "https://api.nasdaq.com/api/quote/FDXF/historical?assetclass=stocks&fromdate=2026-10-09&todate=2026-11-19&limit=5000",
+  "source_sha256": "775762ee9ebb4dbb3b2b62dd1390269cac43bd691aef4246b6760fcf432a3581",
+  "instrument": "FDXF",
+  "currency": "USD",
+  "observation_count": 30,
+  "requested_session_count": 30,
+  "available_session_count": 30,
+  "start_date": "2026-10-09",
+  "end_date": "2026-11-19",
+  "end_date_close": "126.58",
+  "end_date_volume": "1415231",
+  "median_daily_dollar_volume": "149976756.72"
+}

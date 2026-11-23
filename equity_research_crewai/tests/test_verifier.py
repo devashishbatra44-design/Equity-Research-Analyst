@@ -6,6 +6,7 @@ import shutil
 from pathlib import Path
 
 from equity_research_crewai.verifier import (
+    _numbers,
     _quarter_eps,
     _release_quarter_revenues,
     load_json,
@@ -47,6 +48,22 @@ def test_repeated_identical_free_cash_flow_is_not_marked_wrong() -> None:
     )
     marks = verify_core_claims(CLEAN_RUN, report)
     assert mark_for(marks, "8.").mark == "Correct"
+
+
+def test_negative_free_cash_flow_with_standard_currency_sign_is_correct(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "negative_fcf")
+    calculations_path = run / "calculations.json"
+    calculations = json.loads(calculations_path.read_text(encoding="utf-8"))
+    calculations["calculations"]["free_cash_flow"]["result"] = -9_382_000_000
+    calculations_path.write_text(json.dumps(calculations), encoding="utf-8")
+    report = (run / "report.md").read_text(encoding="utf-8")
+    report = report.replace("Free cash flow was $9,382 million.", "Free cash flow was -$9,382 million.", 1)
+    marks = verify_core_claims(run, report)
+    assert mark_for(marks, "8.").mark == "Correct"
+
+
+def test_accounting_parentheses_are_parsed_as_negative_values() -> None:
+    assert _numbers("Total (deficit) equity | ( 497 ) | 2,393") == [-497.0, 2393.0]
 
 
 def test_seeded_eps_error_is_wrong_and_corrected(tmp_path: Path) -> None:
@@ -237,6 +254,31 @@ def test_release_parser_uses_same_quarter_and_table_units() -> None:
     assert eps == 0.87
 
 
+def test_release_parser_prefers_three_month_columns_over_transition_columns(tmp_path: Path) -> None:
+    run = tmp_path / "transition_table"
+    run.mkdir()
+    (run / "exhibit-99-1.txt").write_text(
+        "(In millions)\n"
+        "One Month Ended | Three Months Ended | Four Months Ended\n"
+        "June 30, 2026 | June 30, 2025 | September 30, 2026 | September 30, 2025 | September 30, 2026 | September 30, 2025\n"
+        "Revenue | $ 839 | $ 745 | $ 2,442 | $ 2,259 | $ 3,281 | $ 3,004\n",
+        encoding="utf-8",
+    )
+    facts = {
+        "earnings_release_extraction": {
+            "claims": {
+                "total_revenue": {
+                    "quoted_source_text": "Revenue | $ 839 | $ 745 | $ 2,442 | $ 2,259 | $ 3,281 | $ 3,004",
+                    "source_line_start": 4,
+                }
+            }
+        }
+    }
+    current, prior, _ = _release_quarter_revenues(run, facts)
+    assert current == 2_442_000_000
+    assert prior == 2_259_000_000
+
+
 def test_web_number_and_unsourced_number_are_unsupported() -> None:
     report = """# Test report
 # Overview
@@ -384,6 +426,24 @@ No number is checked here.
     marks = verify_all_other_numbers(run, report)
     assert marks[0].mark == "Unsupported"
     assert f"Found at 10-k.txt:{correct_line}" in marks[0].filing_says
+
+
+def test_standalone_small_integer_does_not_match_item_number(tmp_path: Path) -> None:
+    run = copy_run(tmp_path, "small_integer_source_search")
+    (run / "10-q.txt").write_text(
+        "Item 3. Quantitative and Qualitative Disclosures About Market Risk | 27\n",
+        encoding="utf-8",
+    )
+    report = """# Test report
+# Overview
+The report discusses 3 operating risks.
+# Investment Recommendation
+No number is checked here.
+"""
+    marks = verify_all_other_numbers(run, report)
+    small_integer = next(mark for mark in marks if mark.report_said == "3")
+    assert small_integer.mark == "Unsupported"
+    assert small_integer.filing_says == "Not stated in the saved filings"
 
 
 def test_insight_report_said_retains_its_citation() -> None:

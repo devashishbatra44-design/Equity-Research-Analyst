@@ -22,7 +22,7 @@ Checked: November 21, 2026
 | S14 | Report ranked, watch, dropped, and data-limit sections. | Report fixture | Verified |
 | S15 | End with `screens, not recommendations` exactly. | Exact-line test | Verified |
 | S16 | Save a dated run. | Filesystem test | Verified with `runs/seeker_20261119/` and `runs/seeker_20261119_full/` |
-| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified; 150 tests passed on November 21, 2026 |
+| S17 | Test every rule with synthetic data before a real company run. | Offline suite | Verified; 193 tests passed on November 22, 2026 |
 | S18 | Code and skill names contain no company name. | Path/name review | Verified |
 
 ## Lab 07: worksheet
