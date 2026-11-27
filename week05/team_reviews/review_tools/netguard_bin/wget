@@ -1,0 +1,4 @@
+#!/bin/sh
+# Replay-review shim: any curl call during the replay is logged and refused.
+echo "BLOCKED curl $*" >> "${NETGUARD_LOG:-/tmp/netguard.log}"
+exit 7
